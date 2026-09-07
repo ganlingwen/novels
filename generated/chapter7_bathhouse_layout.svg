@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#f4f1e8"/>
+  <text x="600" y="42" text-anchor="middle" font-family="sans-serif" font-size="28" font-weight="700" fill="#252525">废弃浴室假死与地下撤离结构</text>
+  <text x="600" y="70" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#555">上层平面与下层剖面</text>
+
+  <text x="80" y="120" font-family="sans-serif" font-size="22" font-weight="700">上层：浴室</text>
+  <rect x="80" y="140" width="1040" height="300" fill="#ded8c8" stroke="#292929" stroke-width="5"/>
+  <rect x="110" y="170" width="270" height="235" fill="#d8e1df" stroke="#444" stroke-width="3"/>
+  <text x="245" y="280" text-anchor="middle" font-family="sans-serif" font-size="21">更衣间</text>
+
+  <rect x="410" y="170" width="500" height="235" fill="#e8e3d8" stroke="#444" stroke-width="3"/>
+  <text x="660" y="200" text-anchor="middle" font-family="sans-serif" font-size="19">淋浴大厅 / 假死亡现场</text>
+  <g fill="#b9a98c" stroke="#444" stroke-width="2">
+    <rect x="455" y="245" width="120" height="55"/>
+    <rect x="600" y="245" width="120" height="55"/>
+    <rect x="745" y="245" width="120" height="55"/>
+  </g>
+  <text x="660" y="335" text-anchor="middle" font-family="sans-serif" font-size="16">三具裹着被褥的替身尸体</text>
+
+  <rect x="940" y="170" width="145" height="235" fill="#c9b89b" stroke="#444" stroke-width="3"/>
+  <text x="1012" y="270" text-anchor="middle" font-family="sans-serif" font-size="19">设备间</text>
+
+  <rect x="815" y="350" width="60" height="55" fill="#7894a3" stroke="#263e49" stroke-width="3"/>
+  <text x="810" y="428" text-anchor="middle" font-family="sans-serif" font-size="15">检修口</text>
+
+  <path d="M 80 230 L 410 230" stroke="#19743a" stroke-width="7" stroke-dasharray="14 9"/>
+  <path d="M 905 220 L 870 245" stroke="#3c286a" stroke-width="8"/>
+  <text x="930" y="212" font-family="sans-serif" font-size="15" fill="#3c286a">地支隔墙影刃</text>
+
+  <path d="M 420 385 C 530 350, 760 420, 920 360" fill="none" stroke="#d13724" stroke-width="14" opacity="0.75"/>
+  <text x="650" y="390" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#8c1a0e">废机油火线 / 强光区</text>
+
+  <line x1="540" y1="140" x2="540" y2="100" stroke="#6b4a00" stroke-width="8"/>
+  <line x1="780" y1="140" x2="780" y2="100" stroke="#6b4a00" stroke-width="8"/>
+  <text x="660" y="112" text-anchor="middle" font-family="sans-serif" font-size="16">预埋根须的承重梁</text>
+
+  <text x="80" y="510" font-family="sans-serif" font-size="22" font-weight="700">下层：锅炉房与运煤通道</text>
+  <rect x="80" y="535" width="1040" height="250" fill="#cbc4b7" stroke="#292929" stroke-width="5"/>
+  <rect x="110" y="565" width="300" height="185" fill="#9d9382" stroke="#444" stroke-width="3"/>
+  <text x="260" y="650" text-anchor="middle" font-family="sans-serif" font-size="21">旧锅炉房</text>
+
+  <rect x="445" y="610" width="600" height="90" fill="#6f685d" stroke="#333" stroke-width="3"/>
+  <text x="745" y="665" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#fff">运煤通道 → 焚烧场外侧</text>
+
+  <line x1="845" y1="405" x2="845" y2="610" stroke="#19743a" stroke-width="8" stroke-dasharray="15 8"/>
+  <text x="865" y="515" font-family="sans-serif" font-size="15" fill="#19743a">一家三口下撤</text>
+
+  <line x1="420" y1="575" x2="420" y2="740" stroke="#2d78a1" stroke-width="13"/>
+  <text x="405" y="760" text-anchor="end" font-family="sans-serif" font-size="15" fill="#24506a">削薄水管</text>
+
+  <rect x="500" y="570" width="140" height="28" fill="#d13724" stroke="#8c1a0e" stroke-width="2"/>
+  <text x="570" y="558" text-anchor="middle" font-family="sans-serif" font-size="15">第二道油沟</text>
+
+  <polygon points="1010,610 1045,655 1010,700 975,655" fill="#a9824d" stroke="#513819" stroke-width="3"/>
+  <text x="1005" y="735" text-anchor="middle" font-family="sans-serif" font-size="15">支撑木楔</text>
+
+  <path d="M 845 610 L 1040 655 L 1120 820" fill="none" stroke="#19743a" stroke-width="8" stroke-dasharray="15 8"/>
+  <text x="980" y="835" text-anchor="middle" font-family="sans-serif" font-size="17" fill="#19743a">撤离出口</text>
+
+  <path d="M 420 720 C 570 760, 760 760, 930 700" fill="none" stroke="#2d78a1" stroke-width="13" opacity="0.75"/>
+  <text x="700" y="770" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#174b67">放水后切断地下连续阴影</text>
+</svg>
