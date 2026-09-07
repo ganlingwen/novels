@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <defs>
+    <style>
+      .title { font: 700 28px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #20252b; }
+      .subtitle { font: 400 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #59636e; }
+      .region-title { font: 700 22px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #17202a; }
+      .region-text { font: 400 15px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #27313b; }
+      .route { fill: none; stroke: #59636e; stroke-width: 5; stroke-linecap: round; }
+      .route-dashed { fill: none; stroke: #8c3b45; stroke-width: 5; stroke-dasharray: 12 10; stroke-linecap: round; }
+      .route-label { font: 600 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #39434d; }
+      .small { font: 400 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #59636e; }
+      .node { stroke: #303840; stroke-width: 2; rx: 7; }
+    </style>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#dfe3e7" stroke-width="1"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#59636e"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="760" fill="#f7f8fa"/>
+  <rect x="26" y="76" width="1148" height="650" fill="url(#grid)" stroke="#c8ced4" stroke-width="1"/>
+
+  <text x="40" y="42" class="title">四大基地与西区尸群地理关系图</text>
+  <text x="40" y="66" class="subtitle">非等比例战术示意；方向、接壤关系和主要交通线为后续场景硬约束</text>
+
+  <line x1="1110" y1="138" x2="1110" y2="94" stroke="#20252b" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="1101" y="158" class="region-text">北</text>
+
+  <path class="route" d="M590 226 L600 294"/>
+  <text x="780" y="222" class="route-label">北部货运线 / 争议水站</text>
+
+  <path class="route-dashed" d="M390 393 L455 393"/>
+  <text x="82" y="270" class="route-label">西环高架：尸潮边界 / 朝贡线</text>
+
+  <path class="route" d="M765 402 L840 402"/>
+  <text x="900" y="294" class="route-label">东环辅路 / 电力走廊</text>
+
+  <path class="route" d="M610 500 L610 592"/>
+  <text x="622" y="552" class="route-label">南侧旧铁路 / 逃生走廊</text>
+
+  <path class="route" d="M820 500 C790 555 765 585 742 608"/>
+  <text x="840" y="565" class="route-label">东南乡道</text>
+
+  <rect class="node" x="440" y="92" width="320" height="134" fill="#d8b56b"/>
+  <text x="462" y="126" class="region-title">巨熊基地</text>
+  <text x="462" y="154" class="region-text">城北重型机械厂、货运站、采石场</text>
+  <text x="462" y="180" class="region-text">控制北路、钢材、车辆与晶核猎场</text>
+  <text x="462" y="204" class="small">与猎鹰争夺水站和物流枢纽</text>
+
+  <rect class="node" x="60" y="292" width="330" height="208" fill="#b8bec5"/>
+  <text x="82" y="328" class="region-title">西区尸群</text>
+  <text x="82" y="358" class="region-text">西环高架、地铁车辆段、旧住宅区</text>
+  <text x="82" y="386" class="region-text">尸王“守桥者”控制主干尸群迁移</text>
+  <text x="82" y="430" class="region-text">直接接壤猎鹰西侧物流园</text>
+  <text x="82" y="456" class="small">贡品运输无需经过巨熊领地</text>
+  <text x="82" y="480" class="small">虚线为交易维持的尸潮边界</text>
+
+  <rect class="node" x="455" y="294" width="310" height="206" fill="#7eabd1"/>
+  <text x="477" y="330" class="region-title">猎鹰基地</text>
+  <text x="477" y="360" class="region-text">市体育中心、附属医院、仓库</text>
+  <text x="477" y="388" class="region-text">西侧物流园是尸潮第一接触面</text>
+  <text x="477" y="432" class="region-text">向北争路，向东控制交易</text>
+  <text x="477" y="458" class="small">城市中心，四方交通交汇</text>
+
+  <rect class="node" x="840" y="320" width="300" height="180" fill="#c98878"/>
+  <text x="862" y="356" class="region-title">火花 / 天火</text>
+  <text x="862" y="386" class="region-text">东南汽配城、旧变电站、仓储街</text>
+  <text x="862" y="414" class="region-text">控制修车、转运、通讯与黑市</text>
+  <text x="862" y="458" class="small">同时渗透猎鹰并压迫翠竹北缘</text>
+
+  <rect class="node" x="450" y="592" width="330" height="112" fill="#7fb78c"/>
+  <text x="472" y="628" class="region-title">翠竹基地</text>
+  <text x="472" y="657" class="region-text">南郊农校、旧水利站、周边村地</text>
+  <text x="472" y="683" class="small">以旧铁路连接城市，以乡道接触火花</text>
+
+  <rect class="node" x="724" y="246" width="146" height="58" fill="#ece2b7"/>
+  <text x="745" y="270" class="region-text">旧客运站</text>
+  <text x="739" y="290" class="small">中立交换点</text>
+
+  <rect class="node" x="531" y="248" width="134" height="44" fill="#e8edf1"/>
+  <text x="548" y="276" class="small">争议水站</text>
+
+  <line x1="62" y1="742" x2="100" y2="742" class="route"/>
+  <text x="111" y="747" class="small">公开道路与运输线</text>
+  <line x1="286" y1="742" x2="324" y2="742" class="route-dashed"/>
+  <text x="335" y="747" class="small">尸潮边界与秘密朝贡线</text>
+</svg>
