@@ -13,15 +13,16 @@
   <g fill="#b9a98c" stroke="#444" stroke-width="2">
     <rect x="455" y="245" width="120" height="55"/>
     <rect x="600" y="245" width="120" height="55"/>
-    <rect x="745" y="245" width="120" height="55"/>
   </g>
-  <text x="660" y="335" text-anchor="middle" font-family="sans-serif" font-size="16">三具裹着被褥的替身尸体</text>
+  <rect x="755" y="245" width="110" height="55" fill="none" stroke="#2d78a1" stroke-width="3" stroke-dasharray="9 6"/>
+  <text x="590" y="335" text-anchor="middle" font-family="sans-serif" font-size="16">上层两具替身尸体</text>
+  <text x="810" y="276" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#24506a">格栅下升降位</text>
 
   <rect x="940" y="170" width="145" height="235" fill="#c9b89b" stroke="#444" stroke-width="3"/>
   <text x="1012" y="270" text-anchor="middle" font-family="sans-serif" font-size="19">设备间</text>
 
   <rect x="815" y="350" width="60" height="55" fill="#7894a3" stroke="#263e49" stroke-width="3"/>
-  <text x="810" y="428" text-anchor="middle" font-family="sans-serif" font-size="15">检修口</text>
+  <text x="810" y="428" text-anchor="middle" font-family="sans-serif" font-size="15">排水格栅 / 检修口</text>
 
   <path d="M 80 230 L 410 230" stroke="#19743a" stroke-width="7" stroke-dasharray="14 9"/>
   <path d="M 905 220 L 870 245" stroke="#3c286a" stroke-width="8"/>
@@ -43,7 +44,11 @@
   <text x="745" y="665" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#fff">运煤通道 → 焚烧场外侧</text>
 
   <line x1="845" y1="405" x2="845" y2="610" stroke="#19743a" stroke-width="8" stroke-dasharray="15 8"/>
-  <text x="865" y="515" font-family="sans-serif" font-size="15" fill="#19743a">一家三口下撤</text>
+  <text x="865" y="500" font-family="sans-serif" font-size="15" fill="#19743a">小文下沉</text>
+
+  <rect x="785" y="545" width="120" height="42" fill="#7894a3" stroke="#263e49" stroke-width="3" stroke-dasharray="8 5"/>
+  <text x="845" y="572" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#fff">第三具替身升降板</text>
+  <line x1="845" y1="587" x2="845" y2="610" stroke="#2d78a1" stroke-width="7"/>
 
   <line x1="420" y1="575" x2="420" y2="740" stroke="#2d78a1" stroke-width="13"/>
   <text x="405" y="760" text-anchor="end" font-family="sans-serif" font-size="15" fill="#24506a">削薄水管</text>
