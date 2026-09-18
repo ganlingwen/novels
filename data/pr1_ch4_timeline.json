@@ -1,0 +1,30 @@
+{
+  "id": "novels_pr1_ch4_001",
+  "task": "guided_novel_revision",
+  "language": "zh-CN",
+  "source": {
+    "repository": "ganlingwen/novels",
+    "file": "generated/chapter4.md",
+    "pr": 1,
+    "base_commit": "a4e3ee4d89e0ef9302a727fe8838d06bddef82f2",
+    "edit_commit": "291546da669a6bdcb62f1710bcda1e054f171314",
+    "merge_commit": "8d1bbfc67fb7b5b462d7debd4acacf9fa903dc76",
+    "accepted": true
+  },
+  "before": "人群向体育馆地下入口涌去。铁门下落时发出的摩擦声，让小文眼前忽然闪过三个月前的同一扇门。\n\n那时灰雾降下才一个多月。父亲困在治疗区，母亲从地下层走到内场至少要十二分钟。所有人都往正门挤时，小文扒住老秦的车窗，报出自己送餐走过的维修坡道：“宽两米四，担架能单过。十二分钟清空。”",
+  "edit_instruction": "修正旧尸潮回忆的时间连续性。当前末世时间约三个月，而回忆事件发生在灰雾降下一个多月时，因此不能写成“三个月前”。不要为了修复冲突另造一个精确日期；使用作品已经确立的事件锚点“第一次西区尸潮”定位回忆，保留回忆内容不变。",
+  "reason": "“三个月前”与下一段“那时灰雾降下才一个多月”以及当前时间线无法同时成立。使用既有事件名称可以消除硬时间冲突，同时避免新增未经设定支持的日期。",
+  "after": "人群向体育馆地下入口涌去。铁门下落时发出的摩擦声，让小文眼前忽然闪过第一次西区尸潮时的同一扇门。\n\n那时灰雾降下才一个多月。父亲困在治疗区，母亲从地下层走到内场至少要十二分钟。所有人都往正门挤时，小文扒住老秦的车窗，报出自己送餐走过的维修坡道：“宽两米四，担架能单过。十二分钟清空。”",
+  "labels": {
+    "primary": "timeline_continuity",
+    "secondary": [
+      "avoid_invented_fact",
+      "minimal_edit",
+      "preserve_plot"
+    ]
+  },
+  "quality": {
+    "human_accepted": true,
+    "merged": true
+  }
+}
