@@ -12,7 +12,6 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 huggingface-cli login
-wandb login
 ```
 
 ## 训练
@@ -52,4 +51,9 @@ python train_qwen3_4b_sft.py --resume-from-checkpoint outputs/qwen3-4b-novel-sft
 outputs/qwen3-4b-novel-sft/
 ```
 
-包含 Transformers 可直接加载的模型、tokenizer 和 checkpoints。
+包含 Transformers 可直接加载的模型、tokenizer 和 checkpoints。训练日志写入 `outputs/qwen3-4b-novel-sft/tensorboard/`，可用：
+
+```bash
+tensorboard --logdir outputs/qwen3-4b-novel-sft/tensorboard
+```
+
