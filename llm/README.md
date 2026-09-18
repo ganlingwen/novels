@@ -34,7 +34,7 @@ python train_qwen3_4b_sft.py \
 脚本会强制检查 Stage-1 数据总数必须为 **72,573**，避免 Hugging Face 数据仓库以后新增
 其他 agent 数据时被误混入训练。
 
-默认先用 2048 context。开始正式长跑前建议先跑一个短 benchmark，观察 GB10 的
+默认先用 2048 context、9,000 optimizer steps（effective batch 16 时约等于原先的 2 epochs）。开始正式长跑前建议先跑一个短 benchmark，观察 GB10 的
 tokens/s、显存/统一内存占用以及样本 truncation 比例，再决定是否改 4096 或 batch/accumulation。
 
 ## 断点恢复
