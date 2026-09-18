@@ -1,0 +1,58 @@
+{
+  "schema_version": "2.0",
+  "id": "pr10_ch5_shadow-weakness-foreshadow",
+  "prompt": {
+    "user_request": "地支经过手术间时才让无影灯打开，不经意暴露异能弱点；只写小文看见的现象，不要旁白说“小文记住了”。",
+    "context": "四盏无影灯能切断连续暗面；这是后续小文逃脱追杀的伏笔，首次出现应有普通现场原因且不解释意义。",
+    "original_text": "地支经过临时手术间门口时，里面的四盏无影灯忽然同时亮起。他脚下的影子一下被切成几块，脚步也跟着顿了一下。小文看着那几块断开的影子从亮处移开，记住了。"
+  },
+  "review": {
+    "provenance": "author_corrected_ai_edit",
+    "issue": "AI 虽修正了灯亮时机，却用“小文记住了”替读者总结伏笔意义，显得说明腔；更早版本还在地支到达前提前点亮灯，破坏偶然暴露。",
+    "edit_instruction": "灯只在地支经过门口时亮；写影子断裂和地支顿步即可，删去“小文记住了”等旁白提示。",
+    "reason": "伏笔应通过可见异常成立，不由旁白宣布其重要性。"
+  },
+  "sft": {
+    "eligible": true,
+    "response": "经过手术间门口时，门内四盏无影灯突然亮了。几道光从不同方向压下来，他脚下的影子断成几截。地支顿了一步，随即穿过灯光。",
+    "target_type": "accepted_revision"
+  },
+  "preference": {
+    "eligible": true,
+    "prompt_source": "same_edit_history",
+    "candidates": [
+      {
+        "candidate_id": "chosen",
+        "response": "经过手术间门口时，门内四盏无影灯突然亮了。几道光从不同方向压下来，他脚下的影子断成几截。地支顿了一步，随即穿过灯光。",
+        "origin": "final_ai_revision",
+        "status": "chosen"
+      },
+      {
+        "candidate_id": "rejected_a",
+        "response": "地支经过临时手术间门口时，里面的四盏无影灯忽然同时亮起。他脚下的影子一下被切成几块，脚步也跟着顿了一下。小文看着那几块断开的影子从亮处移开，记住了。",
+        "origin": "earlier_ai_candidate",
+        "status": "rejected"
+      },
+      {
+        "candidate_id": "rejected_b",
+        "response": "四盏无影灯把他的影子切成几块；他脚步顿了一下，才穿过那片亮处。小文看着那几块断开的影子，记住了。",
+        "origin": "earlier_ai_candidate",
+        "status": "rejected"
+      }
+    ],
+    "chosen_candidate_id": "chosen",
+    "preference_reason": "最终版让异常自己成立；拒绝版用“记住了”直接标记伏笔，或未保留灯恰在经过时开启的偶发性。",
+    "selection_source": "explicit_author_correction_then_merge"
+  },
+  "source": {
+    "repository": "ganlingwen/novels",
+    "file": "generated/chapter5.md",
+    "pr": 10,
+    "merge_commit": "574e55abe4e3240438781addf62a1e47fbde094a"
+  },
+  "quality": {
+    "human_accepted": true,
+    "merged": true,
+    "contains_author_reverse": true
+  }
+}
