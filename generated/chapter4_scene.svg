@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820">
+  <defs>
+    <marker id="arrow-red" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M1 1 L7 4 L1 7 Z" fill="#C43D35"/>
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M1 1 L7 4 L1 7 Z" fill="#3457D5"/>
+    </marker>
+    <style>
+      .title { font: 600 24px "PingFang SC", sans-serif; fill: #171717; }
+      .subtitle { font: 400 14px "PingFang SC", sans-serif; fill: #52525B; }
+      .label { font: 500 16px "PingFang SC", sans-serif; fill: #171717; }
+      .small { font: 400 13px "PingFang SC", sans-serif; fill: #52525B; }
+      .wall { fill: #D7D9DE; stroke: #52525B; stroke-width: 3; }
+      .outside { fill: #F3F4F6; stroke: #B8BAC2; stroke-width: 2; }
+      .inside { fill: #F2F8F4; stroke: #6C9875; stroke-width: 2; }
+      .fire { fill: #FFF0E8; stroke: #C86632; stroke-width: 2; }
+      .water { fill: #E9F7FB; stroke: #29869A; stroke-width: 3; }
+      .object { fill: #FFF7E8; stroke: #B7791F; stroke-width: 2; }
+      .medical { fill: #EEF4FF; stroke: #5672C8; stroke-width: 2; }
+      .danger { fill: none; stroke: #C43D35; stroke-width: 4; marker-end: url(#arrow-red); }
+      .route { fill: none; stroke: #3457D5; stroke-width: 4; marker-end: url(#arrow-blue); }
+      .root { fill: none; stroke: #3E8B62; stroke-width: 5; }
+      .measure { fill: none; stroke: #7A5AA6; stroke-width: 2; stroke-dasharray: 7 5; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="820" fill="#FFFFFF"/>
+  <text x="45" y="42" class="title">第四章：西墙涵管防线</text>
+  <text x="45" y="68" class="subtitle">俯视示意；左侧为墙外西区，右侧为猎鹰墙内，距离仅表示相对关系</text>
+
+  <rect x="45" y="100" width="390" height="600" class="outside"/>
+  <text x="65" y="130" class="label">墙外西区</text>
+
+  <rect x="75" y="155" width="300" height="72" rx="5" fill="#E5E7EB" stroke="#737780" stroke-width="2"/>
+  <text x="155" y="187" class="label">西环高架</text>
+  <text x="115" y="210" class="small">封衢停在护栏旁，不参加撞击</text>
+
+  <rect x="82" y="540" width="245" height="105" rx="5" class="fire"/>
+  <text x="120" y="580" class="label">废弃化工仓</text>
+  <text x="108" y="606" class="small">搜索队纵火；黑烟与燃油味</text>
+  <path d="M305 542 C340 500 350 450 370 405" class="danger"/>
+
+  <path d="M165 300 C250 315 335 345 425 385" class="danger"/>
+  <path d="M120 345 C230 360 330 385 425 405" class="danger"/>
+  <path d="M180 405 C270 410 345 420 425 425" class="danger"/>
+  <text x="85" y="280" class="label">约210只低阶丧尸支流</text>
+  <text x="96" y="452" class="small">由化工仓火势挤向西墙</text>
+
+  <rect x="435" y="95" width="78" height="610" class="wall"/>
+  <text x="454" y="130" class="label">西墙</text>
+  <text x="448" y="670" class="small">墙头弩手</text>
+
+  <rect x="513" y="100" width="642" height="600" class="inside"/>
+  <text x="1080" y="130" class="label">墙内</text>
+
+  <rect x="555" y="175" width="340" height="180" rx="5" fill="#E7F3E5" stroke="#6C9875" stroke-width="2"/>
+  <text x="685" y="210" class="label">V 菜地</text>
+  <text x="602" y="238" class="small">小文清除冻死豆秧</text>
+  <text x="602" y="262" class="small">老杜在附近修补育苗架</text>
+  <path d="M610 290 C650 270 690 310 730 288 S810 305 850 280" class="root"/>
+  <text x="650" y="330" class="small">地下老根通向涵管基座</text>
+
+  <rect x="390" y="380" width="270" height="72" rx="34" class="water"/>
+  <text x="435" y="411" class="label">U 旧灌溉涵管</text>
+  <text x="447" y="434" class="small">口径约1.2米</text>
+
+  <line x1="520" y1="372" x2="520" y2="460" stroke="#8C5E3C" stroke-width="10"/>
+  <text x="527" y="375" class="small">G 倾斜铁栅</text>
+  <path d="M565 294 C560 330 550 370 525 405" class="root"/>
+
+  <path d="M532 385 L558 365 M532 405 L563 388 M532 428 L562 414" stroke="#B7791F" stroke-width="7"/>
+  <text x="570" y="378" class="small">木楔斜钉实土</text>
+
+  <rect x="650" y="390" width="115" height="74" rx="7" class="object"/>
+  <text x="665" y="420" class="label">C 翻倒车斗</text>
+  <text x="663" y="444" class="small">老杜离车后遮住双手</text>
+
+  <circle cx="620" cy="417" r="18" fill="#3E8B62"/>
+  <text x="588" y="482" class="small">小文按地</text>
+  <circle cx="790" cy="408" r="18" fill="#B7791F"/>
+  <text x="764" y="445" class="small">老杜</text>
+
+  <path d="M500 462 C560 485 620 490 680 470" class="danger"/>
+  <text x="515" y="515" class="small">锈蚀钢筋向墙内弹出</text>
+
+  <rect x="870" y="470" width="225" height="125" rx="7" class="medical"/>
+  <text x="925" y="505" class="label">M 救治线</text>
+  <text x="900" y="535" class="small">白川、药箱、老杜担架</text>
+  <text x="900" y="560" class="small">罗炽阻挡；方岳隔开</text>
+  <path d="M805 440 C850 450 870 470 900 495" class="route"/>
+
+  <path d="M250 225 C315 235 365 250 430 275" class="measure"/>
+  <path d="M430 275 C490 265 550 250 610 235" class="measure"/>
+  <text x="205" y="250" class="small">小文可见：弩手出动、沙袋落位后封衢召回尸群</text>
+
+  <rect x="55" y="725" width="1090" height="62" rx="7" fill="#F7F7F8" stroke="#B8BAC2" stroke-width="2"/>
+  <text x="78" y="750" class="label">受力链：</text>
+  <text x="165" y="750" class="small">尸群挤压 → 基座离土、铁栅内倾 → 老根与木楔共同承重 → 钢筋向墙内弹出</text>
+  <text x="78" y="775" class="label">救治链：</text>
+  <text x="165" y="775" class="small">衣摆与木楔加压、根须压迫 → 白川封血 → 深层污染仍需清创和足量抗生素</text>
+</svg>

@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820">
+  <defs>
+    <marker id="arrow-blue" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M1 1 L7 4 L1 7 Z" fill="#3457D5"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M1 1 L7 4 L1 7 Z" fill="#D94B3D"/>
+    </marker>
+    <style>
+      .title { font: 600 24px "PingFang SC", sans-serif; fill: #171717; }
+      .subtitle { font: 400 14px "PingFang SC", sans-serif; fill: #52525B; }
+      .label { font: 500 16px "PingFang SC", sans-serif; fill: #171717; }
+      .small { font: 400 13px "PingFang SC", sans-serif; fill: #52525B; }
+      .wall { fill: #F7F7F8; stroke: #52525B; stroke-width: 3; }
+      .area { fill: #FFFFFF; stroke: #B8BAC2; stroke-width: 2; }
+      .focus { fill: #F2F7FF; stroke: #4B3FE3; stroke-width: 2; }
+      .danger { fill: #FFF4F1; stroke: #D94B3D; stroke-width: 2; }
+      .narrow { fill: #ECF8F1; stroke: #27845A; stroke-width: 2; stroke-dasharray: 7 5; }
+      .canopy { fill: #F2F7FF; fill-opacity: .55; stroke: #4B3FE3; stroke-width: 2; stroke-dasharray: 10 7; }
+      .route { fill: none; stroke: #3457D5; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrow-blue); }
+      .cat { fill: none; stroke: #D94B3D; stroke-width: 5; stroke-dasharray: 10 8; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrow-red); }
+    </style>
+  </defs>
+
+  <rect width="1200" height="820" fill="#FFFFFF"/>
+  <text x="50" y="45" class="title">第二章：永顺汽修厂场景事实图</text>
+  <text x="50" y="70" class="subtitle">俯视图；北侧为车道死端，南侧临街</text>
+
+  <rect x="50" y="100" width="820" height="640" class="wall"/>
+
+  <rect x="50" y="100" width="370" height="640" class="area"/>
+  <text x="175" y="155" class="label">西侧维修区</text>
+
+  <g class="focus">
+    <circle cx="130" cy="250" r="48"/>
+    <circle cx="200" cy="250" r="48"/>
+    <circle cx="165" cy="320" r="48"/>
+  </g>
+  <text x="105" y="390" class="label">W 轮胎堆</text>
+
+  <rect x="420" y="100" width="450" height="640" class="area"/>
+  <text x="475" y="700" class="label">E 东侧狭窄车道</text>
+  <line x1="420" y1="100" x2="870" y2="100" stroke="#52525B" stroke-width="8"/>
+  <text x="445" y="125" class="label">Q 车道北端砖墙</text>
+
+  <rect x="420" y="125" width="400" height="515" class="canopy"/>
+  <text x="565" y="155" class="label">R 铁皮雨棚</text>
+
+  <path d="M770 690 L720 635 L690 540 L690 400 L710 275 L842 235" class="route"/>
+  <path d="M665 805 L665 750 L752 690 L700 610 L700 445 L700 285 L670 250 L825 240" class="cat"/>
+
+  <rect x="455" y="285" width="78" height="150" rx="8" class="area"/>
+  <text x="469" y="350" class="label">K 工具架</text>
+
+  <circle cx="805" cy="220" r="16" class="danger"/>
+  <text x="660" y="195" class="label">C2 后支柱</text>
+  <path d="M765 190 L795 213" fill="none" stroke="#D94B3D" stroke-width="2"/>
+
+  <circle cx="805" cy="600" r="16" class="focus"/>
+  <text x="540" y="625" class="small">C1 完好前支柱</text>
+  <path d="M650 620 L790 604" fill="none" stroke="#4B3FE3" stroke-width="1.5"/>
+
+  <rect x="820" y="145" width="50" height="100" rx="6" class="narrow"/>
+  <text x="831" y="175" class="label">N</text>
+  <text x="828" y="195" class="small">夹道</text>
+  <line x1="820" y1="100" x2="820" y2="205" stroke="#52525B" stroke-width="5"/>
+  <line x1="820" y1="245" x2="820" y2="740" stroke="#52525B" stroke-width="5"/>
+  <g fill="#C7A77A" stroke="#8B6A43" stroke-width="1.5">
+    <rect x="817" y="230" width="22" height="12" transform="rotate(8 828 236)"/>
+    <rect x="842" y="234" width="19" height="11" transform="rotate(-6 851 239)"/>
+  </g>
+
+  <path d="M850 158 C830 170 858 184 838 197 C858 208 845 220 855 232" fill="none" stroke="#27845A" stroke-width="7" stroke-linecap="round"/>
+
+  <rect x="700" y="225" width="95" height="58" rx="8" class="danger"/>
+  <text x="716" y="250" class="label">J 千斤顶</text>
+  <text x="714" y="271" class="small">阀杆锈蚀</text>
+
+  <line x1="838" y1="165" x2="859" y2="224" stroke="#3457D5" stroke-width="7" stroke-linecap="round"/>
+  <text x="700" y="450" class="small">N 内：钢钎、V 枯藤</text>
+
+  <rect x="520" y="740" width="220" height="38" rx="8" class="focus"/>
+  <text x="602" y="765" class="small">S 南侧大门</text>
+  <rect x="740" y="700" width="30" height="40" class="wall"/>
+  <text x="785" y="725" class="small">东门垛</text>
+  <circle cx="770" cy="690" r="9" fill="#3457D5"/>
+  <text x="620" y="665" class="small">小文起点</text>
+  <path d="M725 676 L760 689" fill="none" stroke="#3457D5" stroke-width="1.5"/>
+
+  <rect x="900" y="115" width="250" height="390" rx="8" fill="#F7F7F8" stroke="#B8BAC2" stroke-width="2"/>
+  <text x="925" y="152" class="label">高潮位置链</text>
+  <text x="925" y="188" class="small">1. 小文退至 J/C2，Q 封北路</text>
+  <text x="925" y="222" class="small">2. 凶猫跟人进入北段</text>
+  <text x="925" y="256" class="small">3. J 只下降不到两指</text>
+  <text x="925" y="290" class="small">4. 横梁压向 C2，柱脚掉锈</text>
+  <text x="925" y="324" class="small">5. 凶猫探爪抓腿、抵住 C2</text>
+  <text x="925" y="358" class="small">6. 藤蔓内拉，左肩楔压 C2</text>
+  <text x="925" y="392" class="small">7. 柱脚断裂，横梁滑脱 J</text>
+  <text x="925" y="426" class="small">8. 雨棚向下压住凶猫</text>
+  <text x="925" y="460" class="small">9. 钢钎近距完成击杀</text>
+
+  <rect x="900" y="540" width="250" height="155" rx="8" fill="#F7F7F8" stroke="#B8BAC2" stroke-width="2"/>
+  <text x="925" y="577" class="label">路线图例</text>
+  <line x1="925" y1="615" x2="990" y2="615" class="route"/>
+  <text x="1015" y="621" class="small">小文移动</text>
+  <line x1="925" y1="657" x2="990" y2="657" class="cat"/>
+  <text x="1015" y="663" class="small">凶猫主动移动</text>
+</svg>

@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820">
+  <defs>
+    <marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M1 1 L7 4 L1 7 Z" fill="#3457D5"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M1 1 L7 4 L1 7 Z" fill="#C43D35"/>
+    </marker>
+    <style>
+      .title { font: 600 24px "PingFang SC", sans-serif; fill: #171717; }
+      .subtitle { font: 400 14px "PingFang SC", sans-serif; fill: #52525B; }
+      .label { font: 500 16px "PingFang SC", sans-serif; fill: #171717; }
+      .small { font: 400 13px "PingFang SC", sans-serif; fill: #52525B; }
+      .panel { fill: #FAFAFA; stroke: #737780; stroke-width: 2; }
+      .court { fill: #FFF7E8; stroke: #B7791F; stroke-width: 2; }
+      .medical { fill: #EEF4FF; stroke: #5672C8; stroke-width: 2; }
+      .home { fill: #F2F8F4; stroke: #3E8B62; stroke-width: 2; }
+      .secret { fill: #F4F0FA; stroke: #7A5AA6; stroke-width: 2; }
+      .danger { fill: #FFF0F0; stroke: #C43D35; stroke-width: 2; }
+      .flow { fill: none; stroke: #3457D5; stroke-width: 4; marker-end: url(#arrow); }
+      .deadline { fill: none; stroke: #C43D35; stroke-width: 4; marker-end: url(#arrow-red); }
+      .hidden { fill: none; stroke: #7A5AA6; stroke-width: 3; stroke-dasharray: 8 6; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="820" fill="#FFFFFF"/>
+  <text x="45" y="42" class="title">第五章：裁决、控制与九小时窗口</text>
+  <text x="45" y="68" class="subtitle">场景链示意；各面板不是同一比例，箭头表示时间、记录与权力变化</text>
+
+  <rect x="50" y="105" width="510" height="270" rx="8" class="panel"/>
+  <text x="70" y="135" class="label">A 公开裁决大厅</text>
+
+  <rect x="215" y="155" width="180" height="58" rx="5" class="court"/>
+  <text x="272" y="187" class="label">马克</text>
+  <text x="238" y="207" class="small">高处裁决席、四份记录</text>
+
+  <rect x="80" y="245" width="130" height="65" rx="5" class="medical"/>
+  <text x="112" y="275" class="label">白川、天干</text>
+  <text x="98" y="296" class="small">伤情与授权记录</text>
+
+  <rect x="400" y="245" width="130" height="65" rx="5" class="danger"/>
+  <text x="447" y="275" class="label">罗炽</text>
+  <text x="419" y="296" class="small">烧伤、守墙价值</text>
+
+  <circle cx="305" cy="278" r="24" fill="#3E8B62"/>
+  <text x="280" y="325" class="small">小文中央作证</text>
+
+  <rect x="210" y="335" width="190" height="28" rx="4" fill="#E5E7EB" stroke="#737780" stroke-width="1.5"/>
+  <text x="245" y="354" class="small">老杜担架位于后方</text>
+
+  <rect x="640" y="105" width="510" height="270" rx="8" class="panel"/>
+  <text x="660" y="135" class="label">B 医务走廊与药房</text>
+
+  <rect x="675" y="170" width="205" height="145" rx="5" class="medical"/>
+  <text x="742" y="200" class="label">P 药房</text>
+  <text x="700" y="230" class="small">药柜钥匙、移交表</text>
+  <text x="700" y="255" class="small">待治名单、剩余药量</text>
+  <text x="700" y="280" class="small">白川 → 医疗主管</text>
+
+  <rect x="930" y="170" width="180" height="145" rx="5" fill="#F7F7F8" stroke="#B8BAC2" stroke-width="2"/>
+  <text x="960" y="200" class="label">临时手术间</text>
+  <circle cx="975" cy="240" r="16" fill="#FFF2A8" stroke="#D3A614"/>
+  <circle cx="1020" cy="225" r="16" fill="#FFF2A8" stroke="#D3A614"/>
+  <circle cx="1065" cy="240" r="16" fill="#FFF2A8" stroke="#D3A614"/>
+  <circle cx="1020" cy="275" r="16" fill="#FFF2A8" stroke="#D3A614"/>
+  <text x="952" y="305" class="small">多光源切碎地支影子</text>
+
+  <path d="M560 250 C590 250 610 250 640 250" class="flow"/>
+
+  <rect x="50" y="445" width="320" height="230" rx="8" class="home"/>
+  <text x="70" y="478" class="label">H 家庭住处</text>
+  <rect x="85" y="510" width="250" height="75" rx="5" fill="#FFFFFF" stroke="#6C9875" stroke-width="1.5"/>
+  <text x="118" y="540" class="label">共同记录 / 私密纸板</text>
+  <text x="107" y="565" class="small">植物、人体效果、副作用并列</text>
+  <text x="82" y="615" class="small">结论：无法只登记单一类别</text>
+  <text x="82" y="640" class="small">除非公开使用无法解释，否则不登记</text>
+
+  <rect x="440" y="445" width="325" height="230" rx="8" class="secret"/>
+  <text x="460" y="478" class="label">O 夜间办公室</text>
+  <rect x="475" y="510" width="255" height="58" rx="5" fill="#FFFFFF" stroke="#7A5AA6"/>
+  <text x="514" y="535" class="small">17份“自愿离开”汇总</text>
+  <text x="502" y="557" class="small">申请、路粮、西门交接待核</text>
+  <path d="M475 600 L730 600" class="hidden"/>
+  <text x="505" y="625" class="small">天干离开后，地支递交居民名单</text>
+  <text x="498" y="650" class="small">朝贡名单从公开人口账中剥离</text>
+
+  <rect x="835" y="445" width="315" height="230" rx="8" class="danger"/>
+  <text x="855" y="478" class="label">W 次日清晨病房</text>
+  <rect x="870" y="510" width="210" height="62" rx="5" class="medical"/>
+  <text x="930" y="537" class="label">老杜病床</text>
+  <text x="892" y="559" class="small">高热、寒战、深层感染</text>
+  <rect x="885" y="592" width="180" height="48" rx="4" fill="#FFFFFF" stroke="#C43D35" stroke-width="2"/>
+  <text x="925" y="622" class="label">停止投入</text>
+  <text x="865" y="662" class="small">复评剩9小时；第一轮开市信号开始</text>
+
+  <path d="M790 375 C650 405 335 405 225 445" class="flow"/>
+  <path d="M370 560 C400 560 410 560 440 560" class="flow"/>
+  <path d="M765 560 C795 560 805 560 835 560" class="deadline"/>
+
+  <rect x="50" y="720" width="1100" height="65" rx="7" fill="#F7F7F8" stroke="#B8BAC2" stroke-width="2"/>
+  <text x="75" y="747" class="label">公开链：</text>
+  <text x="160" y="747" class="small">正确分诊 → 罗炽受罚 → 白川失去独立药权 → 小文一家决定瞒报</text>
+  <text x="75" y="774" class="label">并列线：</text>
+  <text x="160" y="774" class="small">失踪记录异常 → 朝贡名单分账；抗生素申请另行退回，当前未证实直接因果</text>
+</svg>

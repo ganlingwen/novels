@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="760" viewBox="0 0 1100 760">
+  <defs>
+    <marker id="arrow-blue" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M1 1 L7 4 L1 7 Z" fill="#3457D5"/>
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M1 1 L7 4 L1 7 Z" fill="#D94B3D"/>
+    </marker>
+    <style>
+      .title { font: 600 24px "PingFang SC", sans-serif; fill: #171717; }
+      .subtitle { font: 400 14px "PingFang SC", sans-serif; fill: #52525B; }
+      .label { font: 500 16px "PingFang SC", sans-serif; fill: #171717; }
+      .small { font: 400 13px "PingFang SC", sans-serif; fill: #52525B; }
+      .room { fill: #FAFAFA; stroke: #52525B; stroke-width: 4; }
+      .parent { fill: #EEF4FF; stroke: #5672C8; stroke-width: 2; }
+      .xiaowen { fill: #F2F8F4; stroke: #3E8B62; stroke-width: 2; }
+      .object { fill: #FFF7E8; stroke: #B7791F; stroke-width: 2; }
+      .water { fill: #E9F7FB; stroke: #29869A; stroke-width: 2; }
+      .curtain { stroke: #7A5AA6; stroke-width: 6; stroke-dasharray: 12 8; }
+      .route { fill: none; stroke: #3457D5; stroke-width: 4; marker-end: url(#arrow-blue); }
+      .mother { fill: none; stroke: #D94B3D; stroke-width: 4; stroke-dasharray: 10 7; marker-end: url(#arrow-red); }
+      .reach { fill: none; stroke: #7A5AA6; stroke-width: 3; stroke-dasharray: 6 5; marker-end: url(#arrow-blue); }
+      .light { fill: #FFF2A8; fill-opacity: .25; stroke: #D3A614; stroke-width: 1.5; stroke-dasharray: 6 5; }
+    </style>
+  </defs>
+
+  <rect width="1100" height="760" fill="#FFFFFF"/>
+  <text x="45" y="42" class="title">第三章：家庭住处第三夜布局</text>
+  <text x="45" y="68" class="subtitle">俯视图；一家三口同住一间房，北侧为父母床区，南侧为小文活动区</text>
+
+  <rect x="55" y="95" width="730" height="610" class="room"/>
+  <text x="75" y="125" class="small">北</text>
+
+  <rect x="170" y="145" width="430" height="120" rx="6" class="parent"/>
+  <text x="335" y="195" class="label">父母共用床</text>
+  <text x="300" y="220" class="small">父亲靠东侧床沿，可坐起取矮桌物件</text>
+
+  <line x1="55" y1="350" x2="500" y2="350" class="curtain"/>
+  <line x1="710" y1="350" x2="785" y2="350" class="curtain"/>
+  <text x="220" y="338" class="label">旧布帘：遮视线，不隔声音</text>
+  <text x="510" y="338" class="small">帘口通道</text>
+
+  <rect x="590" y="280" width="120" height="92" rx="6" class="object"/>
+  <text x="625" y="310" class="label">A 矮桌</text>
+  <text x="605" y="333" class="small">机械钟、药盒</text>
+  <text x="601" y="352" class="small">共同记录、凭证</text>
+
+  <path d="M560 240 C585 255 610 265 625 282" class="reach"/>
+  <text x="640" y="247" class="small">父亲伸手可够</text>
+
+  <rect x="360" y="415" width="92" height="68" rx="6" class="object"/>
+  <text x="384" y="445" class="label">S 木凳</text>
+  <text x="373" y="466" class="small">床到门的半程</text>
+
+  <rect x="92" y="505" width="88" height="58" rx="6" fill="none" stroke="#B8BAC2" stroke-width="2" stroke-dasharray="7 5"/>
+  <text x="98" y="535" class="small">木凳初位</text>
+
+  <circle cx="425" cy="462" r="24" class="xiaowen" opacity=".45"/>
+  <path d="M418 440 C405 432 395 430 386 436" fill="none" stroke="#3E8B62" stroke-width="4"/>
+  <text x="340" y="510" class="small">F 花盆位于 S 下</text>
+  <text x="340" y="528" class="small">根须碰绑绳</text>
+
+  <rect x="535" y="565" width="185" height="90" rx="6" class="xiaowen"/>
+  <text x="584" y="605" class="label">小文窄褥</text>
+  <text x="566" y="629" class="small">位于窗下、布帘外</text>
+
+  <ellipse cx="700" cy="480" rx="42" ry="28" class="water"/>
+  <text x="682" y="485" class="label">B 水盆</text>
+
+  <line x1="785" y1="510" x2="785" y2="645" stroke="#29869A" stroke-width="8"/>
+  <text x="718" y="678" class="label">W 窗板</text>
+  <text x="695" y="698" class="small">木楔固定；斜雨可打湿矮桌</text>
+
+  <line x1="55" y1="495" x2="55" y2="585" stroke="#FFFFFF" stroke-width="10"/>
+  <path d="M55 585 A90 90 0 0 1 145 495" fill="none" stroke="#52525B" stroke-width="2"/>
+  <text x="72" y="610" class="label">D 房门</text>
+  <text x="65" y="631" class="small">通公共走廊</text>
+
+  <polygon points="55,510 500,338 700,600 55,565" class="light"/>
+  <text x="165" y="565" class="small">走廊灯擦过帘边，光尾到窄褥</text>
+
+  <path d="M560 260 C565 300 550 330 550 365 C520 390 460 405 405 414" class="route"/>
+
+  <path d="M410 450 C485 440 555 405 600 372 C625 405 635 440 635 475 C635 520 700 535 772 560" class="route"/>
+
+  <path d="M540 245 C555 300 550 335 550 365 C570 400 610 425 645 440 C630 475 630 515 670 530 C710 545 740 560 760 575" class="mother"/>
+
+  <rect x="825" y="110" width="235" height="245" rx="8" fill="#F7F7F8" stroke="#B8BAC2" stroke-width="2"/>
+  <text x="850" y="148" class="label">隐藏成立条件</text>
+  <text x="850" y="185" class="small">1. 父母与小文同屋</text>
+  <text x="850" y="215" class="small">2. 白天帘未合严，只见床尾一角</text>
+  <text x="850" y="245" class="small">3. 夜间床区看不见凳、盆和窄褥</text>
+  <text x="850" y="275" class="small">4. 帘口在矮桌西侧，可正常通行</text>
+  <text x="850" y="305" class="small">5. 门缝光只照帘外与帘边</text>
+  <text x="850" y="335" class="small">6. 擦地与钟声仍会传入帘内</text>
+
+  <rect x="825" y="390" width="235" height="250" rx="8" fill="#F7F7F8" stroke="#B8BAC2" stroke-width="2"/>
+  <text x="850" y="428" class="label">关键可达关系</text>
+  <text x="850" y="465" class="small">父亲床沿 → 矮桌：伸手可取</text>
+  <text x="850" y="495" class="small">父亲床沿 → 帘口 → 木凳：两步</text>
+  <text x="850" y="525" class="small">矮桌西侧：父亲与小文交接物件</text>
+  <text x="850" y="555" class="small">小文窄褥 → 窗板：坐起可碰</text>
+  <text x="850" y="585" class="small">木凳 → 矮桌 → 绕水盆 → 窗</text>
+  <text x="850" y="615" class="small">窗开后斜雨可打湿桌上凭证</text>
+</svg>

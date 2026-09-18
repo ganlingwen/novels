@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="780" viewBox="0 0 1200 780" role="img" aria-labelledby="title desc">
+  <title id="title">第一章粮油超市场景图</title>
+  <desc id="desc">单层粮油超市平面图，标出后仓、犬笼间、冷库、服务走廊、维修凹位、出口和异化兽进入方向。</desc>
+  <defs>
+    <marker id="arrow-red" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#DC2626"/>
+    </marker>
+    <marker id="arrow-brown" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#92400E"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; fill: #20242B; letter-spacing: 0; }
+    .title { font-size: 28px; font-weight: 700; }
+    .subtitle { font-size: 14px; fill: #667085; }
+    .room { font-size: 19px; font-weight: 700; }
+    .label { font-size: 13px; fill: #526071; }
+    .small { font-size: 12px; fill: #526071; }
+    .wall { stroke: #303640; stroke-width: 5; }
+    .partition { stroke: #778292; stroke-width: 2; }
+    .shelf { fill: #E4E8ED; stroke: #7A8492; stroke-width: 2; }
+  </style>
+
+  <rect width="1200" height="780" fill="#F6F7F9"/>
+  <text x="60" y="48" class="title">第一章：粮油超市场景</text>
+  <text x="60" y="76" class="subtitle">单层建筑 · 上北下南 · 左西右东</text>
+
+  <rect x="70" y="110" width="1060" height="580" rx="4" fill="#FFFFFF" class="wall"/>
+  <text x="600" y="100" class="small" text-anchor="middle">北侧封闭外墙</text>
+
+  <!-- B 后仓 -->
+  <rect x="70" y="110" width="350" height="220" fill="#FFF4D2" class="partition"/>
+  <text x="245" y="180" class="room" text-anchor="middle">B 后仓</text>
+  <text x="245" y="207" class="label" text-anchor="middle">粮油堆位 · 防潮货台 · 板车</text>
+  <rect x="115" y="240" width="112" height="38" rx="3" fill="#E8CB6C" stroke="#917720" stroke-width="2"/>
+  <rect x="250" y="240" width="112" height="38" rx="3" fill="#E8CB6C" stroke="#917720" stroke-width="2"/>
+  <rect x="280" y="291" width="90" height="22" rx="2" fill="#CBD5E1" stroke="#475569" stroke-width="2"/>
+  <text x="325" y="306" class="small" text-anchor="middle">板车诱饵</text>
+
+  <!-- E 服务走廊 -->
+  <rect x="420" y="110" width="710" height="160" fill="#EAF4FB" class="partition"/>
+  <text x="690" y="188" class="room" text-anchor="middle">E 冷库服务走廊</text>
+
+  <!-- A 犬笼间 -->
+  <rect x="420" y="270" width="230" height="210" fill="#F1F3F5" class="partition"/>
+  <text x="535" y="356" class="room" text-anchor="middle">A 犬笼间</text>
+  <text x="535" y="383" class="label" text-anchor="middle">犬笼朝南排列</text>
+
+  <!-- C 冷库，直接贴南墙 -->
+  <rect x="650" y="270" width="480" height="420" fill="#EAF3F8" class="partition"/>
+  <text x="890" y="395" class="room" text-anchor="middle">C 冷库</text>
+  <text x="890" y="423" class="label" text-anchor="middle">东端固定野猪运输笼</text>
+
+  <!-- N 维修凹位 -->
+  <rect x="1058" y="270" width="58" height="58" fill="#FFFFFF" stroke="#778292" stroke-width="2"/>
+  <text x="1087" y="291" class="small" text-anchor="middle">N</text>
+  <text x="1087" y="307" class="small" text-anchor="middle">维修凹位</text>
+  <line x1="1070" y1="270" x2="1104" y2="270" stroke="#FFFFFF" stroke-width="5"/>
+
+  <!-- M: initial debris between H and N -->
+  <g id="m-debris" fill="#F4DCA5" stroke="#9A742A" stroke-width="2">
+    <title>M：旧保温板和周转箱，挡住 H 门前并占住 N 入口。</title>
+    <rect x="1094" y="190" width="28" height="29"/>
+    <rect x="1097" y="224" width="25" height="31"/>
+    <path d="M1081 202 L1090 197 L1121 257 L1112 262 Z"/>
+    <path d="M1068 238 L1078 233 L1105 270 L1095 276 Z"/>
+  </g>
+  <text x="1062" y="180" class="small" text-anchor="end">M 门前废料</text>
+  <path d="M1067 178 L1088 178 L1100 191" fill="none" stroke="#9A742A" stroke-width="1.5"/>
+
+  <!-- 顾客卖场 -->
+  <path d="M70 330 H420 V480 H650 V690 H70 Z" fill="#FFFFFF" class="partition"/>
+  <text x="255" y="395" class="room" text-anchor="middle">顾客卖场</text>
+  <text x="255" y="422" class="label" text-anchor="middle">南北主通道连接正门与后仓</text>
+  <g>
+    <rect x="110" y="458" width="145" height="28" rx="2" class="shelf"/>
+    <rect x="110" y="525" width="145" height="28" rx="2" class="shelf"/>
+    <rect x="110" y="592" width="145" height="28" rx="2" class="shelf"/>
+    <rect x="290" y="458" width="125" height="28" rx="2" class="shelf"/>
+    <rect x="290" y="525" width="125" height="28" rx="2" class="shelf"/>
+    <rect x="290" y="592" width="125" height="28" rx="2" class="shelf"/>
+  </g>
+
+  <!-- B 与 A 之间的板车机关 -->
+  <path d="M370 302 L420 302 L446 302 L446 414 L486 414" fill="none" stroke="#2563EB" stroke-width="3" stroke-dasharray="7 5"/>
+  <text x="432" y="292" class="small" text-anchor="middle" fill="#1D4ED8">板车机关</text>
+
+  <!-- 后仓理货敞口 -->
+  <line x1="170" y1="330" x2="320" y2="330" stroke="#FFFFFF" stroke-width="9"/>
+  <text x="245" y="348" class="small" text-anchor="middle">理货敞口</text>
+
+  <!-- 门 -->
+  <line x1="70" y1="190" x2="70" y2="270" stroke="#16A34A" stroke-width="9"/>
+  <text x="88" y="215" class="label" fill="#166534">W 西侧安全出口</text>
+  <text x="88" y="236" class="small" fill="#166534">钢架封死</text>
+
+  <line x1="420" y1="190" x2="420" y2="252" stroke="#C2410C" stroke-width="9"/>
+  <text x="435" y="216" class="label" fill="#9A3412">E1 联动门</text>
+
+  <line x1="492" y1="480" x2="578" y2="480" stroke="#DC2626" stroke-width="9"/>
+  <text x="535" y="468" class="small" text-anchor="middle" fill="#B91C1C">G1 犬群门</text>
+
+  <line x1="960" y1="270" x2="1050" y2="270" stroke="#C2410C" stroke-width="9" stroke-dasharray="10 7"/>
+  <text x="1005" y="294" class="small" text-anchor="middle" fill="#9A3412">C1 侧滑冷库门</text>
+
+  <line x1="1130" y1="178" x2="1130" y2="244" stroke="#16A34A" stroke-width="9"/>
+  <text x="1118" y="151" class="label" text-anchor="end" fill="#166534">H 隐藏员工门</text>
+
+  <line x1="455" y1="690" x2="575" y2="690" stroke="#16A34A" stroke-width="9"/>
+  <text x="515" y="676" class="label" text-anchor="middle" fill="#166534">S 顾客正门</text>
+  <text x="515" y="730" class="label" text-anchor="middle">南侧街道</text>
+
+  <!-- E1 与 C1 联动 -->
+  <path d="M420 204 L450 204 L450 130 L1005 130 L1005 260" fill="none" stroke="#C2410C" stroke-width="3" stroke-dasharray="8 6"/>
+  <text x="748" y="147" class="small" text-anchor="middle" fill="#9A3412">E1 开启时联动 C1</text>
+
+  <!-- 犬群方向 -->
+  <path d="M535 493 L535 650" fill="none" stroke="#DC2626" stroke-width="5" stroke-dasharray="10 8" marker-end="url(#arrow-red)"/>
+  <text x="552" y="545" class="small" fill="#B91C1C">犬群向南</text>
+  <text x="552" y="565" class="small" fill="#B91C1C">截断返回正门的路线</text>
+
+  <!-- 野猪第一次冲锋与 R1 -->
+  <path d="M1005 258 L1005 242 Q1005 230 990 230 L665 230" fill="none" stroke="#92400E" stroke-width="5" stroke-dasharray="10 8" marker-end="url(#arrow-brown)"/>
+  <text x="850" y="220" class="small" text-anchor="middle" fill="#92400E">野猪向西冲入走廊</text>
+
+  <g transform="translate(585 230) rotate(-35)">
+    <rect x="-64" y="-12" width="128" height="24" fill="#E2E8F0" stroke="#64748B" stroke-width="3"/>
+    <line x1="-42" y1="-12" x2="-42" y2="12" stroke="#64748B" stroke-width="2"/>
+    <line x1="0" y1="-12" x2="0" y2="12" stroke="#64748B" stroke-width="2"/>
+    <line x1="42" y1="-12" x2="42" y2="12" stroke="#64748B" stroke-width="2"/>
+  </g>
+  <text x="615" y="258" class="small" text-anchor="middle">R1 单人收口架</text>
+
+  <!-- R2 靠北墙，第二次追击时向南倾倒 -->
+  <g transform="translate(895 158)">
+    <rect x="-62" y="-10" width="124" height="20" fill="#E2E8F0" stroke="#64748B" stroke-width="3"/>
+    <line x1="-40" y1="-10" x2="-40" y2="10" stroke="#64748B" stroke-width="2"/>
+    <line x1="0" y1="-10" x2="0" y2="10" stroke="#64748B" stroke-width="2"/>
+    <line x1="40" y1="-10" x2="40" y2="10" stroke="#64748B" stroke-width="2"/>
+  </g>
+  <text x="895" y="184" class="small" text-anchor="middle">R2 移动空高架</text>
+
+  <text x="35" y="445" class="label" text-anchor="middle" transform="rotate(-90 35 445)">西侧巷道</text>
+  <text x="1162" y="375" class="label" text-anchor="middle" transform="rotate(90 1162 375)">东侧后巷</text>
+</svg>
