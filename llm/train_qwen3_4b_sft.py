@@ -13,7 +13,7 @@ def parse_args():
     p.add_argument("--dataset", default="mikuhhn1239/novel-agent-sft-dataset")
     p.add_argument("--output-dir", default="outputs/qwen3-4b-novel-sft")
     p.add_argument("--max-length", type=int, default=2048)
-    p.add_argument("--epochs", type=float, default=2.0)
+    p.add_argument("--max-steps", type=int, default=9000)
     p.add_argument("--learning-rate", type=float, default=1e-5)
     p.add_argument("--per-device-batch-size", type=int, default=1)
     p.add_argument("--gradient-accumulation", type=int, default=16)
@@ -120,7 +120,7 @@ def main():
 
     training_args = TrainingArguments(
         output_dir=args.output_dir,
-        num_train_epochs=args.epochs,
+        max_steps=args.max_steps,
         learning_rate=args.learning_rate,
         per_device_train_batch_size=args.per_device_batch_size,
         gradient_accumulation_steps=args.gradient_accumulation,
