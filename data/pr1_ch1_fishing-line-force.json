@@ -1,0 +1,30 @@
+{
+  "id": "novels_pr1_ch1_001",
+  "task": "guided_novel_revision",
+  "language": "zh-CN",
+  "source": {
+    "repository": "ganlingwen/novels",
+    "file": "generated/chapter1.md",
+    "pr": 1,
+    "base_commit": "a4e3ee4d89e0ef9302a727fe8838d06bddef82f2",
+    "edit_commit": "291546da669a6bdcb62f1710bcda1e054f171314",
+    "merge_commit": "8d1bbfc67fb7b5b462d7debd4acacf9fa903dc76",
+    "accepted": true
+  },
+  "before": "板车向西滑去。轮胎先碾碎那截黑木，随后骤然加速，后轴拖着鱼线钻入墙孔。",
+  "edit_instruction": "修正板车启动时鱼线的受力方向。场景既定机制是板车向西滑动后扯紧鱼线并完成抽销，因此鱼线应被后轴拉紧并从墙孔向外运动，而不是被描述成“钻入墙孔”。只修正局部空间与受力关系，保留陷阱机制、触发过程和结果。",
+  "reason": "原句的鱼线运动方向与既定场景机制冲突，会让读者难以建立稳定的空间和受力关系。",
+  "after": "板车向西滑去。轮胎先碾碎那截黑木，随后骤然加速，后轴扯紧鱼线，将线从墙孔里向外拉。",
+  "labels": {
+    "primary": "spatial_continuity",
+    "secondary": [
+      "mechanical_consistency",
+      "minimal_edit",
+      "preserve_plot"
+    ]
+  },
+  "quality": {
+    "human_accepted": true,
+    "merged": true
+  }
+}
