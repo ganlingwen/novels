@@ -1,0 +1,59 @@
+{
+  "schema_version": "2.0",
+  "language": "zh-CN",
+  "id": "novels_pr8_ch3_001",
+  "source": {
+    "repository": "ganlingwen/novels",
+    "file": "generated/chapter3.md",
+    "origin_pr": 7,
+    "accepted_pr": 8,
+    "merge_commit": "c7840a04ffba8af431da099db084a2c7b964c1d9"
+  },
+  "prompt": {
+    "user_request": "复审前五章，按既定设定和评分标准做必要的局部修改。",
+    "context": {
+      "facts": [
+        "AGENTS.md",
+        "skills/write.md",
+        "skills/score.md",
+        "相关 chapter scene / 人物与势力事实源"
+      ]
+    },
+    "original_text": "雨棚外的白光在小文眼前拉成长线，随后全部沉进黑暗。"
+  },
+  "review": {
+    "provenance": "ai_discovered_during_review",
+    "discovered_issue": {
+      "summary": "抢救尾以视觉为主，声音层偏弱。"
+    },
+    "edit_instruction": "补现场金属声和白川压低的指令，不改变抢救事实。",
+    "reason": "增加视听压强。"
+  },
+  "sft": {
+    "eligible": true,
+    "response": "金属碰响隔着雨砸进来，夹着白川压低的指令。雨棚外的白光在小文眼前拉成长线，随后全部沉进黑暗。",
+    "target_type": "accepted_revision"
+  },
+  "preference": {
+    "eligible": false,
+    "prompt_source": "same_as_prompt",
+    "candidates": [],
+    "chosen_candidate_id": null,
+    "preference_reason": null,
+    "selection_source": null,
+    "note": "没有真实同 prompt 候选比较，不事后编造 rejected candidate。"
+  },
+  "labels": {},
+  "quality": {
+    "human_accepted": true,
+    "human_rejected": false,
+    "merged": true,
+    "accepted_pr": 8
+  },
+  "training_views": {
+    "executor_sft": true,
+    "autonomous_editor_sft": true,
+    "reviewer_sft": true,
+    "preference_dpo": false
+  }
+}
