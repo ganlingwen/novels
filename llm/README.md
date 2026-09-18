@@ -24,7 +24,7 @@ python train_qwen3_4b_sft.py \
   --max-length 2048 \
   --per-device-batch-size 1 \
   --gradient-accumulation 16 \
-  --max-steps 9000 \
+  --epochs 2 \
   --learning-rate 1e-5 \
   --no-gradient-checkpointing \
   --causal-right-padding \
@@ -40,7 +40,7 @@ Triton 编译依赖。
 脚本会强制检查 Stage-1 数据总数必须为 **72,573**，避免 Hugging Face 数据仓库以后新增
 其他 agent 数据时被误混入训练。
 
-默认先用 2048 context、9,000 optimizer steps（effective batch 16 时约等于 2 个数据集遍历）。GB10 实测 `batch=1 × accumulation=16` 关闭 checkpointing 比 batch 2、4 更快；如果统一内存不足，移除 `--no-gradient-checkpointing`。数据集不自行随机化；训练集每轮由 `DataLoader(shuffle=True)` 打乱，验证集保持固定。开始正式长跑前建议先跑一个短 benchmark，观察 GB10 的
+默认先用 2048 context、2 个数据集遍历。`--epochs` 会根据训练集大小和 effective batch 自动计算 optimizer steps；例如 effective batch 16 约为 9,000 steps，effective batch 32 约为 4,500 steps。GB10 实测 `batch=1 × accumulation=16` 关闭 checkpointing 比 batch 2、4 更快；如果统一内存不足，移除 `--no-gradient-checkpointing`。数据集不自行随机化；训练集每轮由 `DataLoader(shuffle=True)` 打乱，验证集保持固定。开始正式长跑前建议先跑一个短 benchmark，观察 GB10 的
 tokens/s、显存/统一内存占用以及样本 truncation 比例，再决定是否改 4096 或 batch/accumulation。
 
 ## 断点恢复
@@ -48,7 +48,7 @@ tokens/s、显存/统一内存占用以及样本 truncation 比例，再决定�
 ```bash
 python train_qwen3_4b_sft.py \
   --checkpoint outputs/qwen3-4b-novel-sft/checkpoint-XXXX \
-  --max-steps 9000
+  --epochs 2
 ```
 
 ## 输出
