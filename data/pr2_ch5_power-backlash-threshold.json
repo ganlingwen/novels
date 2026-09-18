@@ -32,5 +32,20 @@
   "quality": {
     "human_accepted": true,
     "merged": true
+  },
+  "user_request": "复审当前章节。结合 AGENTS.md、人物卡、势力卡、力量体系、大纲和前文，找出真正需要修改的问题；每次只做必要的小修改，不改变既定剧情和设定。",
+  "instruction_provenance": "ai_discovered_during_review",
+  "discovered_issue": {
+    "problem": "原句容易建立“四息以内安全、超过四息才反噬”的伪固定规则，与第三章已发生事件及力量体系规则不一致。",
+    "evidence": [
+      "第三章已经出现累计负荷尚未恢复时，三息操作后右手僵直、耳鸣，并出现持续十分钟的失控。",
+      "异能反噬取决于累计负荷、持续时间、精度和身体状态。",
+      "第五章中，父亲正在根据共同记录和小文隐瞒的私密记录分析异能的作用范围与反噬风险。"
+    ]
+  },
+  "training_views": {
+    "executor_sft": "context + before + edit_instruction -> after",
+    "autonomous_editor_sft": "repository_context + user_request + chapter -> corrected_chapter",
+    "reviewer_sft": "repository_context + user_request + chapter -> discovered_issue"
   }
 }
