@@ -88,8 +88,38 @@ GB10 实测（2048 context、effective batch 16、同一 seed；4 steps，排除
 | batch 4 × accum 4，无 checkpointing + causal | 28.3 | 91.0 |
 | batch 2 × accum 8，无 checkpointing + causal + `--fused-adamw` | 27.2 | 60.5 |
 | batch 1 × accum 16，无 checkpointing + causal + fused | 26.3 | 45.4 |
+| 推荐配置，8-step 确认，CUDA 同步计时 | 26.0 | 45.4 |
+
+8-step 确认运行成功退出，排除 warm-up 后平均 25.97 秒/step（23.38–27.47 秒），
+相对本次 32.28 秒基线约减少 19.5% 时间。9,000 steps 的纯训练估算约 64.9 小时，
+另加验证与保存；与之前报告的 27 秒/step 相比改善有限，不承诺大幅缩短到十几小时。
+118 次 GPU 采样利用率平均 94.2%（90–95%），没有明显空转；高利用率不等于计算峰值效率。
 
 `--fused-adamw` 使用 PyTorch 自带 CUDA AdamW，不增加依赖。短测收益较小，可能受运行波动影响。
+
+以上为 2026-09-18 在 GB10、PyTorch 2.13.0+cu130 上的真实训练测试，均使用 seed 42、
+同一数据顺序、全参数更新。只改变 micro-batch 时，每批有效 token 数不同，loss 的分组平均也略有不同。
+保持 effective batch 16 不代表与原配置逐位相同。
+数据加载、前向、反向、梯度裁剪与 optimizer update 均计入 step；验证与保存另计。
+避免在另一个训练进程运行时比较。更大 batch 未必更快：它增加 padding 和内存流量。
+
+对照命令（每次使用独立输出目录）：
+
+```bash
+# 原始基线
+python train_qwen3_4b_sft.py --benchmark --max-steps 4 --output-dir /tmp/qwen-baseline
+# 推荐配置
+python train_qwen3_4b_sft.py --benchmark --max-steps 8 \
+  --per-device-batch-size 1 --gradient-accumulation 16 \
+  --no-gradient-checkpointing --causal-right-padding --fused-adamw \
+  --output-dir /tmp/qwen-fast
+```
+
+更换 batch 测试时同时调整 accumulation，保持乘积 16。比较 TensorBoard 中 warm-up 后的
+`train/step_seconds` 和 `train/tokens_per_second`，不能只比较 GPU utilization。
+测试中 batch 4 的峰值约 91 GiB，因此未继续尝试 batch 8/16，以避免统一内存耗尽。
+原生 Flash SDPA 在 Qwen3 的 32 query heads / 8 KV heads / head_dim 128、2048 token
+forward+backward 微测中为 3.45 ms，cuDNN 为 3.90 ms，未强制切换 backend。
 
 `--causal-right-padding` 仅适用于本数据集的右侧 padding、padding labels=-100、因果 attention；
 有效 token 看不到右侧 padding，因此省略 padding mask 可使用 SDPA 的高效 GQA 路径。
@@ -97,3 +127,7 @@ GB10 实测（2048 context、effective batch 16、同一 seed；4 steps，排除
 用 `--benchmark --max-steps 4 --output-dir /tmp/qwen-benchmark` 做短测，跳过验证与模型保存。
 
 训练 tqdm 每个 optimizer step 显示 `loss / tok/s / sec/step / peak memory / batch×accum / lr`。TensorBoard 同步记录 `train/tokens_per_second`、`train/peak_memory_gb`、`train/batch_size`、`train/gradient_accumulation` 和 `train/effective_batch_size`，用于在 DGX Spark 上比较不同真实 batch 与 gradient accumulation 配置。
+
+step 计时在边界同步 CUDA，不把上一次 validation/checkpoint 的耗时算入下一步。
+token 数在 CPU batch 上统计，loss 在 GPU 累加后每个 optimizer step 读取一次；该调整实测
+26.4 秒/step，与之前 26.3 秒相比没有明确性能收益，主要保证计时准确。

@@ -56,7 +56,7 @@ class Train:
     def train_step(self):
         self.model.train()
         self.optimizer.zero_grad(set_to_none=True)
-        total_loss = 0.0
+        total_loss = torch.zeros((), device=self.device)
         total_tokens = 0
         for _ in range(self.gradient_accumulation):
             try:
@@ -64,20 +64,20 @@ class Train:
             except StopIteration:
                 self.train_iter = iter(self.train_loader)
                 batch = next(self.train_iter)
-            batch = {k: v.to(self.device, non_blocking=True) for k, v in batch.items()}
             total_tokens += int(batch["attention_mask"].sum().item())
             if self.config.causal_right_padding:
                 batch.pop("attention_mask")
+            batch = {k: v.to(self.device, non_blocking=True) for k, v in batch.items()}
             with torch.autocast(device_type="cuda", dtype=torch.bfloat16):
                 loss = self.model(**batch).loss / self.gradient_accumulation
             loss.backward()
-            total_loss += loss.detach().item()
+            total_loss += loss.detach()
             self.micro_step += 1
         torch.nn.utils.clip_grad_norm_(self.model.parameters(), 1.0)
         self.optimizer.step()
         self.scheduler.step()
         self.global_step += 1
-        return total_loss, total_tokens
+        return total_loss.item(), total_tokens
 
     @torch.no_grad()
     def valid_step(self):
@@ -109,12 +109,12 @@ class Train:
     def train(self):
         os.makedirs(self.output_dir, exist_ok=True)
         progress = tqdm(total=self.max_steps, initial=self.global_step, desc="train", unit="step", dynamic_ncols=True)
-        last_time = time.perf_counter()
         while self.global_step < self.max_steps:
+            torch.cuda.synchronize(self.device)
+            started = time.perf_counter()
             loss, tokens = self.train_step()
-            now = time.perf_counter()
-            step_s = now - last_time
-            last_time = now
+            torch.cuda.synchronize(self.device)
+            step_s = time.perf_counter() - started
             lr = self.optimizer.param_groups[0]["lr"]
             tokens_per_second = tokens / max(step_s, 1e-9)
             peak_memory_gb = torch.cuda.max_memory_allocated(self.device) / (1024 ** 3)
