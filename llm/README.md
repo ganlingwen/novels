@@ -57,3 +57,12 @@ outputs/qwen3-4b-novel-sft/
 tensorboard --logdir outputs/qwen3-4b-novel-sft/tensorboard
 ```
 
+
+
+## 代码结构
+
+- `NovelSFTDataset.py`: `NovelSFTDataset(Dataset)`，负责 72,573 条数据加载、train/valid 切分、tokenize 和 collate。
+- `Train.py`: `Train`，显式训练循环；`train_step()` 完成一个 optimizer step，`valid_step()` 完成一次 validation pass；`train()` 只负责调度 step、TensorBoard、checkpoint 与 tqdm。
+- `train_qwen3_4b_sft.py`: main 入口，构造 dataset/model/trainer，加载 checkpoint 并调用 `train()`。
+
+训练进度使用 tqdm，以 optimizer step 为单位显示 `loss / lr / sec`；默认每 500 step validation、每 1000 step checkpoint。
