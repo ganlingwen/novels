@@ -1,6 +1,6 @@
 {
+  "schema_version": "2.0",
   "id": "novels_pr1_ch5_001",
-  "task": "guided_novel_revision",
   "language": "zh-CN",
   "source": {
     "repository": "ganlingwen/novels",
@@ -11,10 +11,36 @@
     "merge_commit": "8d1bbfc67fb7b5b462d7debd4acacf9fa903dc76",
     "accepted": true
   },
-  "before": "罗炽忍不住开口：“我不是说他该死。我今晚还要上墙，烧伤拖下去，西侧就少一个能点火的人。”\n\n白川把两份伤情记录摊开，先指给马克看：“首领，老杜送来时还在动脉出血，再拖三分钟就可能救不回来。罗炽的烧伤也需要处理，但先包扎，可以等半小时。”\n\n罗炽还要开口，白川将他的记录往前推了半寸：“你的手没从名单上划掉。改的是先后，不是不治。”\n\n马克点了点白川摊开的用量表：“你动用了最后一支储备止血药。按原排程，那支药应当留给罗炽今晚换药。”\n\n“是，首领。我用了三分之二，剩下三分之一还在药箱。”白川把记录翻到签名处，“批号、用量和时间都在这里。这次用药是我作的判断，经手一栏也是我签的。”\n\n白川的手停在钥匙上，看向马克：“首领，是今天的处置还有问题？”\n\n“不是。”马克语气温和，“今天如果天干晚到一步，罗炽和伤员可能在救治线动手。治疗者不该承担这种压力。你只负责判断，资源调度由基地承担。”",
-  "edit_instruction": "修正第五章次日裁决场景中对前一晚事件的时间指代。罗炽上墙、原排程换药以及天干赶到救治线都发生在前一天/当晚，不能在次日裁决时继续称为“今晚”或“今天”。只修改指向前一晚事件的词；裁决当天新发生的处置仍可使用“今天”。保留人物立场、药量、裁决内容和收权结果。",
-  "reason": "场景发生在事件次日，但多处台词仍使用事发当日的时间指示词，造成硬时间连续性冲突。需要按各句实际指向分别改成“昨晚”“当晚”“昨天”，而不是机械替换所有“今天”。",
-  "after": "罗炽忍不住开口：“我不是说他该死。昨晚轮到我上墙，烧伤拖下去，西侧就少一个能点火的人。”\n\n白川把两份伤情记录摊开，先指给马克看：“首领，老杜送来时还在动脉出血，再拖三分钟就可能救不回来。罗炽的烧伤也需要处理，但先包扎，可以等半小时。”\n\n罗炽还要开口，白川将他的记录往前推了半寸：“你的手没从名单上划掉。改的是先后，不是不治。”\n\n马克点了点白川摊开的用量表：“你动用了最后一支储备止血药。按原排程，那支药应当留给罗炽当晚换药。”\n\n“是，首领。我用了三分之二，剩下三分之一还在药箱。”白川把记录翻到签名处，“批号、用量和时间都在这里。这次用药是我作的判断，经手一栏也是我签的。”\n\n白川的手停在钥匙上，看向马克：“首领，是今天的处置还有问题？”\n\n“不是。”马克语气温和，“昨天如果天干晚到一步，罗炽和伤员可能在救治线动手。治疗者不该承担这种压力。你只负责判断，资源调度由基地承担。”",
+  "prompt": {
+    "user_request": "复审当前章节。结合 AGENTS.md、人物卡、势力卡、力量体系、大纲和前文，找出真正需要修改的问题；每次只做必要的小修改，不改变既定剧情和设定。",
+    "context": null,
+    "original_text": "罗炽忍不住开口：“我不是说他该死。我今晚还要上墙，烧伤拖下去，西侧就少一个能点火的人。”\n\n白川把两份伤情记录摊开，先指给马克看：“首领，老杜送来时还在动脉出血，再拖三分钟就可能救不回来。罗炽的烧伤也需要处理，但先包扎，可以等半小时。”\n\n罗炽还要开口，白川将他的记录往前推了半寸：“你的手没从名单上划掉。改的是先后，不是不治。”\n\n马克点了点白川摊开的用量表：“你动用了最后一支储备止血药。按原排程，那支药应当留给罗炽今晚换药。”\n\n“是，首领。我用了三分之二，剩下三分之一还在药箱。”白川把记录翻到签名处，“批号、用量和时间都在这里。这次用药是我作的判断，经手一栏也是我签的。”\n\n白川的手停在钥匙上，看向马克：“首领，是今天的处置还有问题？”\n\n“不是。”马克语气温和，“今天如果天干晚到一步，罗炽和伤员可能在救治线动手。治疗者不该承担这种压力。你只负责判断，资源调度由基地承担。”"
+  },
+  "review": {
+    "provenance": "ai_discovered_during_review",
+    "discovered_issue": {
+      "problem": "场景发生在事件次日，但多处台词仍使用事发当日的时间指示词，造成硬时间连续性冲突。需要按各句实际指向分别改成“昨晚”“当晚”“昨天”，而不是机械替换所有“今天”。",
+      "evidence": [
+        "由相关场景文件、前后文与仓库设定核对确认；详见该 PR 的 review 说明。"
+      ]
+    },
+    "edit_instruction": "修正第五章次日裁决场景中对前一晚事件的时间指代。罗炽上墙、原排程换药以及天干赶到救治线都发生在前一天/当晚，不能在次日裁决时继续称为“今晚”或“今天”。只修改指向前一晚事件的词；裁决当天新发生的处置仍可使用“今天”。保留人物立场、药量、裁决内容和收权结果。",
+    "reason": "场景发生在事件次日，但多处台词仍使用事发当日的时间指示词，造成硬时间连续性冲突。需要按各句实际指向分别改成“昨晚”“当晚”“昨天”，而不是机械替换所有“今天”。"
+  },
+  "sft": {
+    "eligible": true,
+    "response": "罗炽忍不住开口：“我不是说他该死。昨晚轮到我上墙，烧伤拖下去，西侧就少一个能点火的人。”\n\n白川把两份伤情记录摊开，先指给马克看：“首领，老杜送来时还在动脉出血，再拖三分钟就可能救不回来。罗炽的烧伤也需要处理，但先包扎，可以等半小时。”\n\n罗炽还要开口，白川将他的记录往前推了半寸：“你的手没从名单上划掉。改的是先后，不是不治。”\n\n马克点了点白川摊开的用量表：“你动用了最后一支储备止血药。按原排程，那支药应当留给罗炽当晚换药。”\n\n“是，首领。我用了三分之二，剩下三分之一还在药箱。”白川把记录翻到签名处，“批号、用量和时间都在这里。这次用药是我作的判断，经手一栏也是我签的。”\n\n白川的手停在钥匙上，看向马克：“首领，是今天的处置还有问题？”\n\n“不是。”马克语气温和，“昨天如果天干晚到一步，罗炽和伤员可能在救治线动手。治疗者不该承担这种压力。你只负责判断，资源调度由基地承担。”",
+    "target_type": "accepted_revision"
+  },
+  "preference": {
+    "eligible": false,
+    "prompt_source": "same_as_prompt",
+    "candidates": [],
+    "chosen_candidate_id": null,
+    "preference_reason": null,
+    "selection_source": null,
+    "note": "No same-prompt alternative was presented to the author for this historical edit; do not synthesize a rejected candidate merely to create DPO data."
+  },
   "labels": {
     "primary": "timeline_continuity",
     "secondary": [
@@ -27,17 +53,9 @@
     "human_accepted": true,
     "merged": true
   },
-  "user_request": "复审当前章节。结合 AGENTS.md、人物卡、势力卡、力量体系、大纲和前文，找出真正需要修改的问题；每次只做必要的小修改，不改变既定剧情和设定。",
-  "instruction_provenance": "ai_discovered_during_review",
-  "discovered_issue": {
-    "problem": "场景发生在事件次日，但多处台词仍使用事发当日的时间指示词，造成硬时间连续性冲突。需要按各句实际指向分别改成“昨晚”“当晚”“昨天”，而不是机械替换所有“今天”。",
-    "evidence": [
-      "由相关场景文件、前后文与仓库设定核对确认；详见该 PR 的 review 说明。"
-    ]
-  },
   "training_views": {
-    "executor_sft": "context + before + edit_instruction -> after",
-    "autonomous_editor_sft": "repository_context + user_request + chapter -> corrected_chapter",
-    "reviewer_sft": "repository_context + user_request + chapter -> discovered_issue"
+    "executor_sft": "prompt.context + prompt.original_text + review.edit_instruction -> sft.response",
+    "autonomous_editor_sft": "repository_context + prompt.user_request + chapter -> accepted corrected chapter",
+    "reviewer_sft": "repository_context + prompt.user_request + chapter -> review.discovered_issue"
   }
 }
