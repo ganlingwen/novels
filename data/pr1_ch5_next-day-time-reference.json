@@ -26,5 +26,18 @@
   "quality": {
     "human_accepted": true,
     "merged": true
+  },
+  "user_request": "复审当前章节。结合 AGENTS.md、人物卡、势力卡、力量体系、大纲和前文，找出真正需要修改的问题；每次只做必要的小修改，不改变既定剧情和设定。",
+  "instruction_provenance": "ai_discovered_during_review",
+  "discovered_issue": {
+    "problem": "场景发生在事件次日，但多处台词仍使用事发当日的时间指示词，造成硬时间连续性冲突。需要按各句实际指向分别改成“昨晚”“当晚”“昨天”，而不是机械替换所有“今天”。",
+    "evidence": [
+      "由相关场景文件、前后文与仓库设定核对确认；详见该 PR 的 review 说明。"
+    ]
+  },
+  "training_views": {
+    "executor_sft": "context + before + edit_instruction -> after",
+    "autonomous_editor_sft": "repository_context + user_request + chapter -> corrected_chapter",
+    "reviewer_sft": "repository_context + user_request + chapter -> discovered_issue"
   }
 }
