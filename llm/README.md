@@ -22,12 +22,13 @@ hf auth login
 python train_qwen3_4b_sft.py \
   --model Qwen/Qwen3-4B \
   --max-length 2048 \
-  --per-device-batch-size 2 \
-  --gradient-accumulation 8 \
+  --per-device-batch-size 1 \
+  --gradient-accumulation 16 \
   --max-steps 9000 \
   --learning-rate 1e-5 \
   --no-gradient-checkpointing \
-  --causal-right-padding
+  --causal-right-padding \
+  --fused-adamw
 ```
 
 这是**全参数 SFT**，不是 LoRA。脚本只对 assistant response 计算 loss；system/user prompt
@@ -39,7 +40,7 @@ Triton 编译依赖。
 脚本会强制检查 Stage-1 数据总数必须为 **72,573**，避免 Hugging Face 数据仓库以后新增
 其他 agent 数据时被误混入训练。
 
-默认先用 2048 context、9,000 optimizer steps（effective batch 16 时约等于 2 个数据集遍历）。GB10 推荐先尝试 `batch=2 × accumulation=8`；如果统一内存不足，退回 `batch=1 × accumulation=16` 并移除 `--no-gradient-checkpointing`。数据集不自行随机化；训练集每轮由 `DataLoader(shuffle=True)` 打乱，验证集保持固定。开始正式长跑前建议先跑一个短 benchmark，观察 GB10 的
+默认先用 2048 context、9,000 optimizer steps（effective batch 16 时约等于 2 个数据集遍历）。GB10 实测 `batch=1 × accumulation=16` 关闭 checkpointing 比 batch 2、4 更快；如果统一内存不足，移除 `--no-gradient-checkpointing`。数据集不自行随机化；训练集每轮由 `DataLoader(shuffle=True)` 打乱，验证集保持固定。开始正式长跑前建议先跑一个短 benchmark，观察 GB10 的
 tokens/s、显存/统一内存占用以及样本 truncation 比例，再决定是否改 4096 或 batch/accumulation。
 
 ## 断点恢复
@@ -86,6 +87,7 @@ GB10 实测（2048 context、effective batch 16、同一 seed；4 steps，排除
 | 同上 + `--causal-right-padding` | 27.9 | 60.5 |
 | batch 4 × accum 4，无 checkpointing + causal | 28.3 | 91.0 |
 | batch 2 × accum 8，无 checkpointing + causal + `--fused-adamw` | 27.2 | 60.5 |
+| batch 1 × accum 16，无 checkpointing + causal + fused | 26.3 | 45.4 |
 
 `--fused-adamw` 使用 PyTorch 自带 CUDA AdamW，不增加依赖。短测收益较小，可能受运行波动影响。
 
