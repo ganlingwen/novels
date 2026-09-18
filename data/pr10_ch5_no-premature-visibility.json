@@ -1,0 +1,52 @@
+{
+  "schema_version": "2.0",
+  "id": "pr10_ch5_no-premature-visibility",
+  "prompt": {
+    "user_request": "开场介绍空间关系，但不要写小文此时看不到的药房内部。",
+    "context": "小文刚从大厅侧门进入走廊，尚未经过药房门口；药柜等室内细节应等他真正经过门口后再进入镜头。",
+    "original_text": "右手第一扇门敞着，门里是药柜；再往前几步，临时手术间的四盏无影灯亮得发白。"
+  },
+  "review": {
+    "provenance": "author_corrected_ai_edit",
+    "issue": "开场为了说明空间，提前写了药房内部药柜，突破小文当下可见范围。",
+    "edit_instruction": "开场只写房间在走廊中的相对位置，不提前写室内物件。",
+    "reason": "贴身第三人称中，空间成图不能靠角色尚未获得的视觉信息。"
+  },
+  "sft": {
+    "eligible": true,
+    "response": "门外的短走廊通向医务区，右手先是药房，再往里几步是临时手术间。",
+    "target_type": "accepted_revision"
+  },
+  "preference": {
+    "eligible": true,
+    "prompt_source": "same_edit_history",
+    "candidates": [
+      {
+        "candidate_id": "chosen",
+        "response": "门外的短走廊通向医务区，右手先是药房，再往里几步是临时手术间。",
+        "origin": "final_ai_revision",
+        "status": "chosen"
+      },
+      {
+        "candidate_id": "rejected",
+        "response": "右手第一扇门敞着，门里是药柜；再往前几步，临时手术间的四盏无影灯亮得发白。",
+        "origin": "earlier_ai_candidate",
+        "status": "rejected"
+      }
+    ],
+    "chosen_candidate_id": "chosen",
+    "preference_reason": "被拒版本提前写出小文尚未看到的药房内部，并提前点亮手术灯。",
+    "selection_source": "explicit_author_correction_then_merge"
+  },
+  "source": {
+    "repository": "ganlingwen/novels",
+    "file": "generated/chapter5.md",
+    "pr": 10,
+    "merge_commit": "574e55abe4e3240438781addf62a1e47fbde094a"
+  },
+  "quality": {
+    "human_accepted": true,
+    "merged": true,
+    "contains_author_reverse": true
+  }
+}

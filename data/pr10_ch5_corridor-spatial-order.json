@@ -1,0 +1,58 @@
+{
+  "schema_version": "2.0",
+  "id": "pr10_ch5_corridor-spatial-order",
+  "prompt": {
+    "user_request": "让场景跟着小文移动，同时把大厅、药房、临时手术间的空间关系自然交代清楚；小文刚走两步就能看到地支，之后才继续经过药房。",
+    "context": "大厅侧门外是通向医务区的短走廊；从大厅往里右手依次为药房、临时手术间。地支从走廊深处迎面过来。",
+    "original_text": "小文拄杖跟着人流从大厅侧门出来。才走两步，他就看见地支从走廊前面过来。"
+  },
+  "review": {
+    "provenance": "author_corrected_ai_edit",
+    "issue": "前一轮为了修正人物移动顺序，把开场必要的空间关系也删掉了；另一轮又让小文“走到手术间附近”才看到地支，违背作者明确的刚走两步即看见地支。",
+    "edit_instruction": "入口处只交代小文可知的整体拓扑：短走廊、右手药房、再往里手术间；随后小文刚走两步看见从深处迎面来的地支。",
+    "reason": "空间要先成图，但必须服从贴身视角和人物实际移动。"
+  },
+  "sft": {
+    "eligible": true,
+    "response": "小文拄杖跟着人流从大厅侧门出来。门外的短走廊通向医务区，右手先是药房，再往里几步是临时手术间。\n\n才走两步，地支从走廊那头迎面过来。",
+    "target_type": "accepted_revision"
+  },
+  "preference": {
+    "eligible": true,
+    "prompt_source": "same_edit_history",
+    "candidates": [
+      {
+        "candidate_id": "chosen",
+        "response": "小文拄杖跟着人流从大厅侧门出来。门外的短走廊通向医务区，右手先是药房，再往里几步是临时手术间。\n\n才走两步，地支从走廊那头迎面过来。",
+        "origin": "final_ai_revision",
+        "status": "chosen"
+      },
+      {
+        "candidate_id": "rejected_a",
+        "response": "小文拄杖跟着人流从大厅侧门出来。才走两步，他就看见地支从走廊前面过来。",
+        "origin": "earlier_ai_candidate",
+        "status": "rejected"
+      },
+      {
+        "candidate_id": "rejected_b",
+        "response": "小文拄杖跟着人流从大厅侧门出来。右手第一扇门挂着“药房”的牌子；再往前几步，是临时手术间。\n\n走到手术间附近时，地支正从前面的阴影里过来。",
+        "origin": "earlier_ai_candidate",
+        "status": "rejected"
+      }
+    ],
+    "chosen_candidate_id": "chosen",
+    "preference_reason": "A 丢掉必要空间关系；B 又把小文移动到手术间附近才看到地支，空间/时间顺序错误。",
+    "selection_source": "explicit_author_correction_then_merge"
+  },
+  "source": {
+    "repository": "ganlingwen/novels",
+    "file": "generated/chapter5.md",
+    "pr": 10,
+    "merge_commit": "574e55abe4e3240438781addf62a1e47fbde094a"
+  },
+  "quality": {
+    "human_accepted": true,
+    "merged": true,
+    "contains_author_reverse": true
+  }
+}

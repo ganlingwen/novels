@@ -1,0 +1,58 @@
+{
+  "schema_version": "2.0",
+  "id": "pr10_ch5_baichuan-scene-continuity",
+  "prompt": {
+    "user_request": "不要把白川场景写一半再插地支；先让小文看到地支，再继续走到药房，顺着小文视角自然进入白川被收权的完整场景。",
+    "context": "地支的灯光伏笔发生在走廊更深处；白川已先于拄杖的小文到达药房。",
+    "original_text": "小文挪到药房门口时，白川已经在里面。两名守卫一个守门，一个站在他身后。……\n\n走廊前方，地支从墙边的阴影里走出来。……\n\n医疗主管把一张新表放在桌上……"
+  },
+  "review": {
+    "provenance": "author_corrected_ai_edit",
+    "issue": "AI 把白川场景拆开，中间插入地支伏笔，导致镜头来回切换，破坏场景连续性。",
+    "edit_instruction": "先完整结束地支走廊事件，再让小文继续移动；到药房时用现场声音吸引视线，随后连续进入白川收权对话。",
+    "reason": "相邻动作应按小文移动顺序组织，避免同一场景被无必要交叉剪辑。"
+  },
+  "sft": {
+    "eligible": true,
+    "response": "小文继续往前。经过药房时，门里传来医疗主管的声音：\n\n“从今天起，药柜钥匙统一保管。你每次使用异能，先由我签字，守卫陪同。”\n\n小文偏过头。白川站在药柜前，身后一名守卫，门边还守着一个。桌上摊着药量记录和患者名单，新表刚被推到他手边。",
+    "target_type": "accepted_revision"
+  },
+  "preference": {
+    "eligible": true,
+    "prompt_source": "same_edit_history",
+    "candidates": [
+      {
+        "candidate_id": "chosen",
+        "response": "小文继续往前。经过药房时，门里传来医疗主管的声音：\n\n“从今天起，药柜钥匙统一保管。你每次使用异能，先由我签字，守卫陪同。”\n\n小文偏过头。白川站在药柜前，身后一名守卫，门边还守着一个。桌上摊着药量记录和患者名单，新表刚被推到他手边。",
+        "origin": "final_ai_revision",
+        "status": "chosen"
+      },
+      {
+        "candidate_id": "rejected_a",
+        "response": "小文挪到药房门口时，白川已经在里面。两名守卫一个守门，一个站在他身后。药房里侧靠墙立着铁皮药柜，玻璃药瓶在柜里排成一线，桌上摊着翻开的药量记录和患者名单，签字栏还空着。\n\n走廊前方，地支从墙边的阴影里走出来。经过手术间门口时，四盏无影灯把他的影子切成几块；他脚步顿了一下，才穿过那片亮处。小文看着那几块断开的影子，记住了。\n\n医疗主管把一张新表放在桌上：“从今天起，药柜钥匙统一保管。你每次使用异能，先由我签字，守卫陪同。”",
+        "origin": "earlier_ai_candidate",
+        "status": "rejected"
+      },
+      {
+        "candidate_id": "rejected_b",
+        "response": "他继续往前。经过药房门口时，小文朝里看了一眼。白川已经站在药柜前，一名守卫堵着门，另一名就在他身后。桌上摊着药量记录和患者名单，医疗主管把一张新表推到白川面前：“从今天起，药柜钥匙统一保管。你每次使用异能，先由我签字，守卫陪同。”",
+        "origin": "earlier_ai_candidate",
+        "status": "rejected"
+      }
+    ],
+    "chosen_candidate_id": "chosen",
+    "preference_reason": "A 交叉剪辑；B 虽连续但“朝里看了一眼”等运镜机械、说明腔重。最终版用声音自然牵引小文视线。",
+    "selection_source": "explicit_author_correction_then_merge"
+  },
+  "source": {
+    "repository": "ganlingwen/novels",
+    "file": "generated/chapter5.md",
+    "pr": 10,
+    "merge_commit": "574e55abe4e3240438781addf62a1e47fbde094a"
+  },
+  "quality": {
+    "human_accepted": true,
+    "merged": true,
+    "contains_author_reverse": true
+  }
+}
