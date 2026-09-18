@@ -27,5 +27,18 @@
   "quality": {
     "human_accepted": true,
     "merged": true
+  },
+  "user_request": "复审当前章节。结合 AGENTS.md、人物卡、势力卡、力量体系、大纲和前文，找出真正需要修改的问题；每次只做必要的小修改，不改变既定剧情和设定。",
+  "instruction_provenance": "ai_discovered_during_review",
+  "discovered_issue": {
+    "problem": "原文在明确遮挡条件下直接叙述主角无法看见的外部动作和物体身份，破坏贴身视角。修改应限制信息来源，同时不丢失情绪和战斗信息。",
+    "evidence": [
+      "由相关场景文件、前后文与仓库设定核对确认；详见该 PR 的 review 说明。"
+    ]
+  },
+  "training_views": {
+    "executor_sft": "context + before + edit_instruction -> after",
+    "autonomous_editor_sft": "repository_context + user_request + chapter -> corrected_chapter",
+    "reviewer_sft": "repository_context + user_request + chapter -> discovered_issue"
   }
 }
