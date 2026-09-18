@@ -26,6 +26,9 @@ def parse_args():
     p.add_argument("--valid-steps", type=int, default=500)
     p.add_argument("--save-steps", type=int, default=1000)
     p.add_argument("--num-workers", type=int, default=4)
+    p.add_argument("--no-gradient-checkpointing", action="store_true")
+    p.add_argument("--benchmark", action="store_true", help="Run max-steps without validation or saving model/checkpoints.")
+    p.add_argument("--causal-right-padding", action="store_true", help="Use causal SDPA without a padding mask; requires right padding and ignored padding labels.")
     p.add_argument("--validation-ratio", type=float, default=0.01)
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--checkpoint", default=None)
@@ -48,13 +51,15 @@ def main():
     model_path = args.checkpoint or args.model
     model = AutoModelForCausalLM.from_pretrained(model_path, dtype=torch.bfloat16, attn_implementation="sdpa").cuda()
     model.config.use_cache = False
-    model.gradient_checkpointing_enable()
+    if not args.no_gradient_checkpointing:
+        model.gradient_checkpointing_enable()
     trainer_config = TrainConfig(
+        causal_right_padding=args.causal_right_padding,
         output_dir=args.output_dir,
         max_steps=args.max_steps,
         gradient_accumulation=args.gradient_accumulation,
-        valid_steps=args.valid_steps,
-        save_steps=args.save_steps,
+        valid_steps=0 if args.benchmark else args.valid_steps,
+        save_steps=0 if args.benchmark else args.save_steps,
         data_loader=DataLoaderConfig(batch_size=args.per_device_batch_size, num_workers=args.num_workers),
         optimizer=OptimizerConfig(learning_rate=args.learning_rate),
     )
@@ -62,6 +67,8 @@ def main():
     if args.checkpoint:
         trainer.load_checkpoint(args.checkpoint)
     trainer.train()
+    if args.benchmark:
+        return
     final_dir = os.path.join(args.output_dir, "final")
     model.save_pretrained(final_dir, safe_serialization=True)
     tokenizer.save_pretrained(final_dir)

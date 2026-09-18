@@ -22,6 +22,7 @@ class OptimizerConfig:
 
 @dataclass(frozen=True)
 class TrainConfig:
+    causal_right_padding: bool = False
     output_dir: str = "outputs/qwen3-4b-novel-sft"
     max_steps: int = 9000
     gradient_accumulation: int = 16
@@ -64,6 +65,8 @@ class Train:
                 batch = next(self.train_iter)
             batch = {k: v.to(self.device, non_blocking=True) for k, v in batch.items()}
             total_tokens += int(batch["attention_mask"].sum().item())
+            if self.config.causal_right_padding:
+                batch.pop("attention_mask")
             with torch.autocast(device_type="cuda", dtype=torch.bfloat16):
                 loss = self.model(**batch).loss / self.gradient_accumulation
             loss.backward()
@@ -82,6 +85,8 @@ class Train:
         count = 0
         for batch in self.valid_loader:
             batch = {k: v.to(self.device, non_blocking=True) for k, v in batch.items()}
+            if self.config.causal_right_padding:
+                batch.pop("attention_mask")
             with torch.autocast(device_type="cuda", dtype=torch.bfloat16):
                 total += self.model(**batch).loss.item()
             count += 1
