@@ -1,6 +1,6 @@
 {
+  "schema_version": "2.0",
   "id": "novels_pr1_ch1_002",
-  "task": "guided_novel_revision",
   "language": "zh-CN",
   "source": {
     "repository": "ganlingwen/novels",
@@ -11,10 +11,36 @@
     "merge_commit": "8d1bbfc67fb7b5b462d7debd4acacf9fa903dc76",
     "accepted": true
   },
-  "before": "板外传来糖粒滚过地砖的细响。\n\n咔嚓。\n\n犬爪把它踩碎了。\n\n另一只犬忽然发出尖叫。它绕过倒架咬住野猪后腿，野猪猛地转身，獠牙撞上钢管。两只犬一前一后向西退，爪声越过倒伏的移动高架，又朝西段斜架方向远去。野猪追过去，每一步都让地面积水从板缝下轻颤。",
-  "edit_instruction": "修正小文躲在板后、视野受遮挡时的视角越界。不能直接确认板外滚动的是糖、犬爪踩碎了糖，也不能直接看见犬咬住野猪后腿等具体动作。保留糖带来的情感回声、犬猪交战、它们向西移动以及由此产生的逃生窗口；改用小文在当前位置能够听见或感受到的声音、撞击、脚步和震动来呈现。",
-  "reason": "原文在明确遮挡条件下直接叙述主角无法看见的外部动作和物体身份，破坏贴身视角。修改应限制信息来源，同时不丢失情绪和战斗信息。",
-  "after": "板外有细小的硬物滚过地砖。\n\n咔嚓。\n\n小文想起沈蓉口袋里那半包糖，牙齿又往袖口里陷了一点。\n\n一声犬叫骤然拔尖，随即是野猪的嘶吼和钢管被撞开的巨响。两处急促的爪声往西退去，越过倒架时夹着几下金属乱响。更重的蹄声紧追在后，每一下都让板缝下的积水轻颤。",
+  "prompt": {
+    "user_request": "复审当前章节。结合 AGENTS.md、人物卡、势力卡、力量体系、大纲和前文，找出真正需要修改的问题；每次只做必要的小修改，不改变既定剧情和设定。",
+    "context": null,
+    "original_text": "板外传来糖粒滚过地砖的细响。\n\n咔嚓。\n\n犬爪把它踩碎了。\n\n另一只犬忽然发出尖叫。它绕过倒架咬住野猪后腿，野猪猛地转身，獠牙撞上钢管。两只犬一前一后向西退，爪声越过倒伏的移动高架，又朝西段斜架方向远去。野猪追过去，每一步都让地面积水从板缝下轻颤。"
+  },
+  "review": {
+    "provenance": "ai_discovered_during_review",
+    "discovered_issue": {
+      "problem": "原文在明确遮挡条件下直接叙述主角无法看见的外部动作和物体身份，破坏贴身视角。修改应限制信息来源，同时不丢失情绪和战斗信息。",
+      "evidence": [
+        "由相关场景文件、前后文与仓库设定核对确认；详见该 PR 的 review 说明。"
+      ]
+    },
+    "edit_instruction": "修正小文躲在板后、视野受遮挡时的视角越界。不能直接确认板外滚动的是糖、犬爪踩碎了糖，也不能直接看见犬咬住野猪后腿等具体动作。保留糖带来的情感回声、犬猪交战、它们向西移动以及由此产生的逃生窗口；改用小文在当前位置能够听见或感受到的声音、撞击、脚步和震动来呈现。",
+    "reason": "原文在明确遮挡条件下直接叙述主角无法看见的外部动作和物体身份，破坏贴身视角。修改应限制信息来源，同时不丢失情绪和战斗信息。"
+  },
+  "sft": {
+    "eligible": true,
+    "response": "板外有细小的硬物滚过地砖。\n\n咔嚓。\n\n小文想起沈蓉口袋里那半包糖，牙齿又往袖口里陷了一点。\n\n一声犬叫骤然拔尖，随即是野猪的嘶吼和钢管被撞开的巨响。两处急促的爪声往西退去，越过倒架时夹着几下金属乱响。更重的蹄声紧追在后，每一下都让板缝下的积水轻颤。",
+    "target_type": "accepted_revision"
+  },
+  "preference": {
+    "eligible": false,
+    "prompt_source": "same_as_prompt",
+    "candidates": [],
+    "chosen_candidate_id": null,
+    "preference_reason": null,
+    "selection_source": null,
+    "note": "No same-prompt alternative was presented to the author for this historical edit; do not synthesize a rejected candidate merely to create DPO data."
+  },
   "labels": {
     "primary": "pov_consistency",
     "secondary": [
@@ -28,17 +54,9 @@
     "human_accepted": true,
     "merged": true
   },
-  "user_request": "复审当前章节。结合 AGENTS.md、人物卡、势力卡、力量体系、大纲和前文，找出真正需要修改的问题；每次只做必要的小修改，不改变既定剧情和设定。",
-  "instruction_provenance": "ai_discovered_during_review",
-  "discovered_issue": {
-    "problem": "原文在明确遮挡条件下直接叙述主角无法看见的外部动作和物体身份，破坏贴身视角。修改应限制信息来源，同时不丢失情绪和战斗信息。",
-    "evidence": [
-      "由相关场景文件、前后文与仓库设定核对确认；详见该 PR 的 review 说明。"
-    ]
-  },
   "training_views": {
-    "executor_sft": "context + before + edit_instruction -> after",
-    "autonomous_editor_sft": "repository_context + user_request + chapter -> corrected_chapter",
-    "reviewer_sft": "repository_context + user_request + chapter -> discovered_issue"
+    "executor_sft": "prompt.context + prompt.original_text + review.edit_instruction -> sft.response",
+    "autonomous_editor_sft": "repository_context + prompt.user_request + chapter -> accepted corrected chapter",
+    "reviewer_sft": "repository_context + prompt.user_request + chapter -> review.discovered_issue"
   }
 }
