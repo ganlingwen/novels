@@ -11,7 +11,7 @@ cd llm
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-huggingface-cli login
+hf auth login
 ```
 
 ## 训练
