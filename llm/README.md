@@ -66,3 +66,8 @@ tensorboard --logdir outputs/qwen3-4b-novel-sft/tensorboard
 - `train_qwen3_4b_sft.py`: main 入口，构造 dataset/model/trainer，加载 checkpoint 并调用 `train()`。
 
 训练进度使用 tqdm，以 optimizer step 为单位显示 `loss / lr / sec`；默认每 500 step validation、每 1000 step checkpoint。
+
+
+### 性能监控
+
+训练 tqdm 每个 optimizer step 显示 `loss / tok/s / sec/step / peak memory / batch×accum / lr`。TensorBoard 同步记录 `train/tokens_per_second`、`train/peak_memory_gb`、`train/batch_size`、`train/gradient_accumulation` 和 `train/effective_batch_size`，用于在 DGX Spark 上比较不同真实 batch 与 gradient accumulation 配置。
