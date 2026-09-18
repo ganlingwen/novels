@@ -1,0 +1,36 @@
+{
+  "id": "novels_pr2_ch5_001",
+  "task": "guided_novel_revision",
+  "language": "zh-CN",
+  "source": {
+    "repository": "ganlingwen/novels",
+    "file": "generated/chapter5.md",
+    "pr": 2,
+    "base_commit": "8d1bbfc67fb7b5b462d7debd4acacf9fa903dc76",
+    "edit_commit": "dc824f572759f4794cb9eead16a3449d2e7cbd27",
+    "merge_commit": "40ed25fcf151c7d3e289f6cf27a459d5f5d13e11",
+    "accepted": true
+  },
+  "context": {
+    "previous_established_fact": "第三章已经出现累计负荷尚未恢复时，三息操作后右手僵直、耳鸣，并出现持续十分钟的失控。",
+    "power_rule": "异能反噬取决于累计负荷、持续时间、精度和身体状态。",
+    "scene_fact": "第五章中，父亲正在根据共同记录和小文隐瞒的私密记录分析异能的作用范围与反噬风险。"
+  },
+  "before": "父亲用铅笔点了点自己每次站立的时长，又移到右边的“强直”：“三步以外，根不再动。每次碰人都得借着活根，停手以后效果会退；连着几次，才留下一点。超过四个呼吸，你这只手先不听使唤。”",
+  "edit_instruction": "修正父亲对异能反噬阈值的表述。不能把“四个呼吸”写成固定安全阈值，因为第三章已经证明，在前序负荷没有恢复的情况下，三息操作也可能出现手部僵直、耳鸣和持续失控。保留父亲根据记录总结出的“四息”经验，但把它表达为随累计负荷变化的风险梯度。不要改变能力等级、事件结果、人物关系或当前剧情节奏。",
+  "reason": "原句容易建立“四息以内安全、超过四息才反噬”的伪固定规则，与第三章已发生事件及力量体系规则不一致。",
+  "after": "父亲用铅笔点了点自己每次站立的时长，又移到右边的“强直”：“三步以外，根不再动。每次碰人都得借着活根，停手以后效果会退；连着几次，才留下一点。前面的负荷没退，三四个呼吸也可能让这只手先不听使唤；超过四个呼吸，风险更高。”",
+  "labels": {
+    "primary": "power_system_consistency",
+    "secondary": [
+      "continuity_fix",
+      "remove_false_absolute_rule",
+      "minimal_edit",
+      "preserve_plot"
+    ]
+  },
+  "quality": {
+    "human_accepted": true,
+    "merged": true
+  }
+}
