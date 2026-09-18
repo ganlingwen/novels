@@ -24,23 +24,28 @@ python train_qwen3_4b_sft.py \
   --max-length 2048 \
   --per-device-batch-size 1 \
   --gradient-accumulation 16 \
-  --epochs 2 \
+  --max-steps 9000 \
   --learning-rate 1e-5
 ```
 
 这是**全参数 SFT**，不是 LoRA。脚本只对 assistant response 计算 loss；system/user prompt
 全部 mask 为 `-100`。Qwen3 thinking 在模板中关闭，避免把小说训练成思维链输出。
 
+训练入口会关闭 PyTorch 的可选 native JIT override，使用普通 CUDA 实现，避免自动触发
+Triton 编译依赖。
+
 脚本会强制检查 Stage-1 数据总数必须为 **72,573**，避免 Hugging Face 数据仓库以后新增
 其他 agent 数据时被误混入训练。
 
-默认先用 2048 context、9,000 optimizer steps（effective batch 16 时约等于原先的 2 epochs）。开始正式长跑前建议先跑一个短 benchmark，观察 GB10 的
+默认先用 2048 context、9,000 optimizer steps（effective batch 16 时约等于 2 个数据集遍历）。数据集不自行随机化；训练集每轮由 `DataLoader(shuffle=True)` 打乱，验证集保持固定。开始正式长跑前建议先跑一个短 benchmark，观察 GB10 的
 tokens/s、显存/统一内存占用以及样本 truncation 比例，再决定是否改 4096 或 batch/accumulation。
 
 ## 断点恢复
 
 ```bash
-python train_qwen3_4b_sft.py --resume-from-checkpoint outputs/qwen3-4b-novel-sft/checkpoint-XXXX
+python train_qwen3_4b_sft.py \
+  --checkpoint outputs/qwen3-4b-novel-sft/checkpoint-XXXX \
+  --max-steps 9000
 ```
 
 ## 输出
@@ -61,8 +66,8 @@ tensorboard --logdir outputs/qwen3-4b-novel-sft/tensorboard
 
 ## 代码结构
 
-- `NovelSFTDataset.py`: `NovelSFTDataset(Dataset)`，负责 72,573 条数据加载、train/valid 切分、tokenize 和 collate。
-- `Train.py`: `Train`，显式训练循环；`train_step()` 完成一个 optimizer step，`valid_step()` 完成一次 validation pass；`train()` 只负责调度 step、TensorBoard、checkpoint 与 tqdm。
+- `NovelSFTDataset.py`: 一次性加载 72,573 条数据，并显式切分 train/valid；`NovelSFTDataset(Dataset)` 只负责 tokenize 和 collate。
+- `Train.py`: `TrainConfig` 将数据加载、优化器和训练调度参数分组；`Train` 实现显式训练循环，`train_step()` 完成一个 optimizer step，`valid_step()` 完成一次 validation pass。
 - `train_qwen3_4b_sft.py`: main 入口，构造 dataset/model/trainer，加载 checkpoint 并调用 `train()`。
 
 训练进度使用 tqdm，以 optimizer step 为单位显示 `loss / lr / sec`；默认每 500 step validation、每 1000 step checkpoint。

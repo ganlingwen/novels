@@ -1,7 +1,6 @@
-import json
-import math
 import os
 import time
+from dataclasses import dataclass, field
 
 import torch
 from torch.utils.data import DataLoader
@@ -9,21 +8,45 @@ from torch.utils.tensorboard import SummaryWriter
 from tqdm.auto import tqdm
 
 
+@dataclass(frozen=True)
+class DataLoaderConfig:
+    batch_size: int = 1
+    num_workers: int = 4
+
+
+@dataclass(frozen=True)
+class OptimizerConfig:
+    learning_rate: float = 1e-5
+    weight_decay: float = 0.1
+
+
+@dataclass(frozen=True)
+class TrainConfig:
+    output_dir: str = "outputs/qwen3-4b-novel-sft"
+    max_steps: int = 9000
+    gradient_accumulation: int = 16
+    valid_steps: int = 500
+    save_steps: int = 1000
+    data_loader: DataLoaderConfig = field(default_factory=DataLoaderConfig)
+    optimizer: OptimizerConfig = field(default_factory=OptimizerConfig)
+
+
 class Train:
-    def __init__(self, model, train_dataset, valid_dataset, output_dir, max_steps, learning_rate, batch_size=1, gradient_accumulation=16, valid_steps=500, save_steps=1000, num_workers=4):
+    def __init__(self, model, train_dataset, valid_dataset, config: TrainConfig):
         self.model = model
-        self.output_dir = output_dir
-        self.max_steps = max_steps
-        self.gradient_accumulation = gradient_accumulation
-        self.batch_size = batch_size
-        self.valid_steps = valid_steps
-        self.save_steps = save_steps
+        self.config = config
+        self.output_dir = config.output_dir
+        self.max_steps = config.max_steps
+        self.gradient_accumulation = config.gradient_accumulation
+        self.batch_size = config.data_loader.batch_size
+        self.valid_steps = config.valid_steps
+        self.save_steps = config.save_steps
         self.device = next(model.parameters()).device
-        self.train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, num_workers=num_workers, collate_fn=train_dataset.collate_fn, pin_memory=True)
-        self.valid_loader = DataLoader(valid_dataset, batch_size=batch_size, shuffle=False, num_workers=num_workers, collate_fn=valid_dataset.collate_fn, pin_memory=True)
-        self.optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=0.1)
-        self.scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(self.optimizer, T_max=max_steps, eta_min=learning_rate * 0.1)
-        self.writer = SummaryWriter(os.path.join(output_dir, "tensorboard"))
+        self.train_loader = DataLoader(train_dataset, batch_size=self.batch_size, shuffle=True, num_workers=config.data_loader.num_workers, collate_fn=train_dataset.collate_fn, pin_memory=True)
+        self.valid_loader = DataLoader(valid_dataset, batch_size=self.batch_size, shuffle=False, num_workers=config.data_loader.num_workers, collate_fn=valid_dataset.collate_fn, pin_memory=True)
+        self.optimizer = torch.optim.AdamW(model.parameters(), lr=config.optimizer.learning_rate, weight_decay=config.optimizer.weight_decay)
+        self.scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(self.optimizer, T_max=self.max_steps, eta_min=config.optimizer.learning_rate * 0.1)
+        self.writer = SummaryWriter(os.path.join(self.output_dir, "tensorboard"))
         self.global_step = 0
         self.micro_step = 0
         self.train_iter = iter(self.train_loader)
