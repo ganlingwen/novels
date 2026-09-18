@@ -1,0 +1,46 @@
+{
+  "schema_version": "2.0",
+  "purpose": "Canonical per-edit training record supporting SFT and high-quality same-prompt preference/DPO data.",
+  "rules": [
+    "One independent editorial decision per file.",
+    "Never invent a rejected candidate for historical accepted edits.",
+    "For future preference data, save every candidate verbatim before author selection.",
+    "Preference candidates must answer the same prompt with the same repository context.",
+    "Record the author's actual selection source.",
+    "An accepted revision may be SFT-eligible and, when a real alternative exists, preference-eligible too.",
+    "Keep no-change as a valid candidate to teach editorial restraint."
+  ],
+  "future_ab_example": {
+    "prompt": {
+      "user_request": "复审并做必要的小修改",
+      "context": "same context for A/B",
+      "original_text": "原文"
+    },
+    "sft": {
+      "eligible": true,
+      "response": "候选A（作者选择）",
+      "target_type": "accepted_revision"
+    },
+    "preference": {
+      "eligible": true,
+      "prompt_source": "same_as_prompt",
+      "candidates": [
+        {
+          "candidate_id": "A",
+          "response": "完整候选A",
+          "origin": "ai_candidate",
+          "status": "chosen"
+        },
+        {
+          "candidate_id": "B",
+          "response": "完整候选B",
+          "origin": "ai_candidate",
+          "status": "rejected"
+        }
+      ],
+      "chosen_candidate_id": "A",
+      "preference_reason": null,
+      "selection_source": "explicit_author_choice"
+    }
+  }
+}
