@@ -49,21 +49,30 @@
   <text x="245" y="354" class="small">老杜担架位于后方</text>
 
   <rect x="640" y="105" width="510" height="270" rx="8" class="panel"/>
-  <text x="660" y="135" class="label">B 医务走廊与药房</text>
+  <text x="660" y="135" class="label">B 大厅出口 → 医务走廊</text>
 
-  <rect x="675" y="170" width="205" height="145" rx="5" class="medical"/>
-  <text x="742" y="200" class="label">P 药房</text>
-  <text x="700" y="230" class="small">药柜钥匙、移交表</text>
-  <text x="700" y="255" class="small">待治名单、剩余药量</text>
-  <text x="700" y="280" class="small">白川 → 医疗主管</text>
+  <rect x="655" y="160" width="90" height="150" rx="5" class="court"/>
+  <text x="674" y="190" class="label">A 大厅</text>
+  <text x="668" y="215" class="small">出口 / 侧门</text>
 
-  <rect x="930" y="170" width="180" height="145" rx="5" fill="#F7F7F8" stroke="#B8BAC2" stroke-width="2"/>
-  <text x="960" y="200" class="label">临时手术间</text>
-  <circle cx="975" cy="240" r="16" fill="#FFF2A8" stroke="#D3A614"/>
-  <circle cx="1020" cy="225" r="16" fill="#FFF2A8" stroke="#D3A614"/>
-  <circle cx="1065" cy="240" r="16" fill="#FFF2A8" stroke="#D3A614"/>
-  <circle cx="1020" cy="275" r="16" fill="#FFF2A8" stroke="#D3A614"/>
-  <text x="952" y="305" class="small">多光源切碎地支影子</text>
+  <path d="M745 235 L1125 235" stroke="#737780" stroke-width="22" fill="none"/>
+  <text x="790" y="225" class="small">短走廊：大厅 → 药房 → 手术间 / 医务区</text>
+
+  <rect x="785" y="255" width="145" height="90" rx="5" class="medical"/>
+  <text x="830" y="282" class="label">P 药房</text>
+  <text x="803" y="307" class="small">小文停在门外</text>
+  <text x="803" y="329" class="small">钥匙 / 移交表</text>
+
+  <rect x="965" y="255" width="150" height="90" rx="5" fill="#F7F7F8" stroke="#B8BAC2" stroke-width="2"/>
+  <text x="987" y="282" class="label">临时手术间</text>
+  <text x="980" y="307" class="small">四盏无影灯</text>
+  <text x="980" y="329" class="small">切碎连续暗面</text>
+
+  <circle cx="1090" cy="235" r="10" fill="#7A5AA6"/>
+  <text x="945" y="150" class="small">地支从医务区深处朝大厅方向走来</text>
+  <path d="M1090 235 L865 235" stroke="#7A5AA6" stroke-width="3" stroke-dasharray="8 6" marker-end="url(#arrow)"/>
+  <circle cx="945" cy="235" r="10" fill="#3E8B62"/>
+  <text x="810" y="365" class="small">小文停在药房门口，面朝走廊深处；可直接看见手术间与地支</text>
 
   <path d="M560 250 C590 250 610 250 640 250" class="flow"/>
 
