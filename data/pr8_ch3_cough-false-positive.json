@@ -1,0 +1,75 @@
+{
+  "schema_version": "2.0",
+  "language": "zh-CN",
+  "id": "novels_pr8_ch3_002",
+  "source": {
+    "repository": "ganlingwen/novels",
+    "file": "generated/chapter3.md",
+    "origin_pr": 7,
+    "accepted_pr": 8,
+    "merge_commit": "c7840a04ffba8af431da099db084a2c7b964c1d9"
+  },
+  "prompt": {
+    "user_request": "复审前五章，按既定设定和评分标准做必要的局部修改。",
+    "context": {
+      "facts": [
+        "AGENTS.md",
+        "skills/write.md",
+        "skills/score.md",
+        "相关 chapter scene / 人物与势力事实源"
+      ]
+    },
+    "original_text": "疼痛从肩后一路烧到脚踝。小文躺回去，呼吸停了半拍。"
+  },
+  "review": {
+    "provenance": "ai_discovered_during_review",
+    "discovered_issue": {
+      "summary": "AI 为延续病房环境音，额外加入“隔帘后又咳起来，咳声压不下去”。"
+    },
+    "edit_instruction": "不要为补环境音强插来源不明的咳嗽；若无法明确是谁、为何此刻出现，应保留原文。",
+    "reason": "作者明确指出咳嗽主体不清：既可能误读成小文，也可能是父亲，插入位置突兀；该改动被 reverse，最终 PR #8 不含咳嗽。"
+  },
+  "sft": {
+    "eligible": false,
+    "response": null,
+    "target_type": null
+  },
+  "preference": {
+    "eligible": true,
+    "prompt_source": "same_as_prompt",
+    "candidates": [
+      {
+        "candidate_id": "chosen_no_change",
+        "response": "疼痛从肩后一路烧到脚踝。小文躺回去，呼吸停了半拍。",
+        "origin": "original_text",
+        "status": "chosen"
+      },
+      {
+        "candidate_id": "rejected_cough_addition",
+        "response": "疼痛从肩后一路烧到脚踝。小文躺回去，呼吸停了半拍。隔帘后又咳起来，咳声压不下去。",
+        "origin": "ai_revision_during_pr7",
+        "status": "rejected"
+      }
+    ],
+    "chosen_candidate_id": "chosen_no_change",
+    "preference_reason": "咳嗽主体不清、插入突兀，环境音补写反而制造人物指代歧义。",
+    "selection_source": "explicit_author_feedback",
+    "note": "关键 no-change > unnecessary edit / reverse 信号。"
+  },
+  "labels": {
+    "contains_author_reverse": true,
+    "false_positive": true
+  },
+  "quality": {
+    "human_accepted": false,
+    "human_rejected": true,
+    "merged": false,
+    "accepted_pr": null
+  },
+  "training_views": {
+    "executor_sft": false,
+    "autonomous_editor_sft": false,
+    "reviewer_sft": true,
+    "preference_dpo": true
+  }
+}
