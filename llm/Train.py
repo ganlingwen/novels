@@ -16,6 +16,7 @@ class DataLoaderConfig:
 
 @dataclass(frozen=True)
 class OptimizerConfig:
+    fused: bool = False
     learning_rate: float = 1e-5
     weight_decay: float = 0.1
 
@@ -45,7 +46,7 @@ class Train:
         self.device = next(model.parameters()).device
         self.train_loader = DataLoader(train_dataset, batch_size=self.batch_size, shuffle=True, num_workers=config.data_loader.num_workers, collate_fn=train_dataset.collate_fn, pin_memory=True)
         self.valid_loader = DataLoader(valid_dataset, batch_size=self.batch_size, shuffle=False, num_workers=config.data_loader.num_workers, collate_fn=valid_dataset.collate_fn, pin_memory=True)
-        self.optimizer = torch.optim.AdamW(model.parameters(), lr=config.optimizer.learning_rate, weight_decay=config.optimizer.weight_decay)
+        self.optimizer = torch.optim.AdamW(model.parameters(), lr=config.optimizer.learning_rate, weight_decay=config.optimizer.weight_decay, fused=config.optimizer.fused)
         self.scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(self.optimizer, T_max=self.max_steps, eta_min=config.optimizer.learning_rate * 0.1)
         self.writer = SummaryWriter(os.path.join(self.output_dir, "tensorboard"))
         self.global_step = 0

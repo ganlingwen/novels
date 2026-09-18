@@ -84,6 +84,10 @@ GB10 实测（2048 context、effective batch 16、同一 seed；4 steps，排除
 | batch 1 × accum 16，checkpointing | 32.3 | 37.7 |
 | batch 2 × accum 8，无 checkpointing | 32.0 | 62.8 |
 | 同上 + `--causal-right-padding` | 27.9 | 60.5 |
+| batch 4 × accum 4，无 checkpointing + causal | 28.3 | 91.0 |
+| batch 2 × accum 8，无 checkpointing + causal + `--fused-adamw` | 27.2 | 60.5 |
+
+`--fused-adamw` 使用 PyTorch 自带 CUDA AdamW，不增加依赖。短测收益较小，可能受运行波动影响。
 
 `--causal-right-padding` 仅适用于本数据集的右侧 padding、padding labels=-100、因果 attention；
 有效 token 看不到右侧 padding，因此省略 padding mask 可使用 SDPA 的高效 GQA 路径。

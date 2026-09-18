@@ -27,6 +27,7 @@ def parse_args():
     p.add_argument("--save-steps", type=int, default=1000)
     p.add_argument("--num-workers", type=int, default=4)
     p.add_argument("--no-gradient-checkpointing", action="store_true")
+    p.add_argument("--fused-adamw", action="store_true", help="Use PyTorch's native CUDA fused AdamW.")
     p.add_argument("--benchmark", action="store_true", help="Run max-steps without validation or saving model/checkpoints.")
     p.add_argument("--causal-right-padding", action="store_true", help="Use causal SDPA without a padding mask; requires right padding and ignored padding labels.")
     p.add_argument("--validation-ratio", type=float, default=0.01)
@@ -61,7 +62,7 @@ def main():
         valid_steps=0 if args.benchmark else args.valid_steps,
         save_steps=0 if args.benchmark else args.save_steps,
         data_loader=DataLoaderConfig(batch_size=args.per_device_batch_size, num_workers=args.num_workers),
-        optimizer=OptimizerConfig(learning_rate=args.learning_rate),
+        optimizer=OptimizerConfig(learning_rate=args.learning_rate, fused=args.fused_adamw),
     )
     trainer = Train(model, train_dataset, valid_dataset, trainer_config)
     if args.checkpoint:
