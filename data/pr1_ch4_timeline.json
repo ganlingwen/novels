@@ -1,6 +1,6 @@
 {
+  "schema_version": "2.0",
   "id": "novels_pr1_ch4_001",
-  "task": "guided_novel_revision",
   "language": "zh-CN",
   "source": {
     "repository": "ganlingwen/novels",
@@ -11,10 +11,36 @@
     "merge_commit": "8d1bbfc67fb7b5b462d7debd4acacf9fa903dc76",
     "accepted": true
   },
-  "before": "人群向体育馆地下入口涌去。铁门下落时发出的摩擦声，让小文眼前忽然闪过三个月前的同一扇门。\n\n那时灰雾降下才一个多月。父亲困在治疗区，母亲从地下层走到内场至少要十二分钟。所有人都往正门挤时，小文扒住老秦的车窗，报出自己送餐走过的维修坡道：“宽两米四，担架能单过。十二分钟清空。”",
-  "edit_instruction": "修正旧尸潮回忆的时间连续性。当前末世时间约三个月，而回忆事件发生在灰雾降下一个多月时，因此不能写成“三个月前”。不要为了修复冲突另造一个精确日期；使用作品已经确立的事件锚点“第一次西区尸潮”定位回忆，保留回忆内容不变。",
-  "reason": "“三个月前”与下一段“那时灰雾降下才一个多月”以及当前时间线无法同时成立。使用既有事件名称可以消除硬时间冲突，同时避免新增未经设定支持的日期。",
-  "after": "人群向体育馆地下入口涌去。铁门下落时发出的摩擦声，让小文眼前忽然闪过第一次西区尸潮时的同一扇门。\n\n那时灰雾降下才一个多月。父亲困在治疗区，母亲从地下层走到内场至少要十二分钟。所有人都往正门挤时，小文扒住老秦的车窗，报出自己送餐走过的维修坡道：“宽两米四，担架能单过。十二分钟清空。”",
+  "prompt": {
+    "user_request": "复审当前章节。结合 AGENTS.md、人物卡、势力卡、力量体系、大纲和前文，找出真正需要修改的问题；每次只做必要的小修改，不改变既定剧情和设定。",
+    "context": null,
+    "original_text": "人群向体育馆地下入口涌去。铁门下落时发出的摩擦声，让小文眼前忽然闪过三个月前的同一扇门。\n\n那时灰雾降下才一个多月。父亲困在治疗区，母亲从地下层走到内场至少要十二分钟。所有人都往正门挤时，小文扒住老秦的车窗，报出自己送餐走过的维修坡道：“宽两米四，担架能单过。十二分钟清空。”"
+  },
+  "review": {
+    "provenance": "ai_discovered_during_review",
+    "discovered_issue": {
+      "problem": "“三个月前”与下一段“那时灰雾降下才一个多月”以及当前时间线无法同时成立。使用既有事件名称可以消除硬时间冲突，同时避免新增未经设定支持的日期。",
+      "evidence": [
+        "由相关场景文件、前后文与仓库设定核对确认；详见该 PR 的 review 说明。"
+      ]
+    },
+    "edit_instruction": "修正旧尸潮回忆的时间连续性。当前末世时间约三个月，而回忆事件发生在灰雾降下一个多月时，因此不能写成“三个月前”。不要为了修复冲突另造一个精确日期；使用作品已经确立的事件锚点“第一次西区尸潮”定位回忆，保留回忆内容不变。",
+    "reason": "“三个月前”与下一段“那时灰雾降下才一个多月”以及当前时间线无法同时成立。使用既有事件名称可以消除硬时间冲突，同时避免新增未经设定支持的日期。"
+  },
+  "sft": {
+    "eligible": true,
+    "response": "人群向体育馆地下入口涌去。铁门下落时发出的摩擦声，让小文眼前忽然闪过第一次西区尸潮时的同一扇门。\n\n那时灰雾降下才一个多月。父亲困在治疗区，母亲从地下层走到内场至少要十二分钟。所有人都往正门挤时，小文扒住老秦的车窗，报出自己送餐走过的维修坡道：“宽两米四，担架能单过。十二分钟清空。”",
+    "target_type": "accepted_revision"
+  },
+  "preference": {
+    "eligible": false,
+    "prompt_source": "same_as_prompt",
+    "candidates": [],
+    "chosen_candidate_id": null,
+    "preference_reason": null,
+    "selection_source": null,
+    "note": "No same-prompt alternative was presented to the author for this historical edit; do not synthesize a rejected candidate merely to create DPO data."
+  },
   "labels": {
     "primary": "timeline_continuity",
     "secondary": [
@@ -27,17 +53,9 @@
     "human_accepted": true,
     "merged": true
   },
-  "user_request": "复审当前章节。结合 AGENTS.md、人物卡、势力卡、力量体系、大纲和前文，找出真正需要修改的问题；每次只做必要的小修改，不改变既定剧情和设定。",
-  "instruction_provenance": "ai_discovered_during_review",
-  "discovered_issue": {
-    "problem": "“三个月前”与下一段“那时灰雾降下才一个多月”以及当前时间线无法同时成立。使用既有事件名称可以消除硬时间冲突，同时避免新增未经设定支持的日期。",
-    "evidence": [
-      "由相关场景文件、前后文与仓库设定核对确认；详见该 PR 的 review 说明。"
-    ]
-  },
   "training_views": {
-    "executor_sft": "context + before + edit_instruction -> after",
-    "autonomous_editor_sft": "repository_context + user_request + chapter -> corrected_chapter",
-    "reviewer_sft": "repository_context + user_request + chapter -> discovered_issue"
+    "executor_sft": "prompt.context + prompt.original_text + review.edit_instruction -> sft.response",
+    "autonomous_editor_sft": "repository_context + prompt.user_request + chapter -> accepted corrected chapter",
+    "reviewer_sft": "repository_context + prompt.user_request + chapter -> review.discovered_issue"
   }
 }
