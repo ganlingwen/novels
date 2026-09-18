@@ -15,6 +15,7 @@ class Train:
         self.output_dir = output_dir
         self.max_steps = max_steps
         self.gradient_accumulation = gradient_accumulation
+        self.batch_size = batch_size
         self.valid_steps = valid_steps
         self.save_steps = save_steps
         self.device = next(model.parameters()).device
@@ -31,6 +32,7 @@ class Train:
         self.model.train()
         self.optimizer.zero_grad(set_to_none=True)
         total_loss = 0.0
+        total_tokens = 0
         for _ in range(self.gradient_accumulation):
             try:
                 batch = next(self.train_iter)
@@ -38,6 +40,7 @@ class Train:
                 self.train_iter = iter(self.train_loader)
                 batch = next(self.train_iter)
             batch = {k: v.to(self.device, non_blocking=True) for k, v in batch.items()}
+            total_tokens += int(batch["attention_mask"].sum().item())
             with torch.autocast(device_type="cuda", dtype=torch.bfloat16):
                 loss = self.model(**batch).loss / self.gradient_accumulation
             loss.backward()
@@ -47,7 +50,7 @@ class Train:
         self.optimizer.step()
         self.scheduler.step()
         self.global_step += 1
-        return total_loss
+        return total_loss, total_tokens
 
     @torch.no_grad()
     def valid_step(self):
@@ -79,16 +82,23 @@ class Train:
         progress = tqdm(total=self.max_steps, initial=self.global_step, desc="train", unit="step", dynamic_ncols=True)
         last_time = time.perf_counter()
         while self.global_step < self.max_steps:
-            loss = self.train_step()
+            loss, tokens = self.train_step()
             now = time.perf_counter()
             step_s = now - last_time
             last_time = now
             lr = self.optimizer.param_groups[0]["lr"]
+            tokens_per_second = tokens / max(step_s, 1e-9)
+            peak_memory_gb = torch.cuda.max_memory_allocated(self.device) / (1024 ** 3)
             self.writer.add_scalar("train/loss", loss, self.global_step)
             self.writer.add_scalar("train/lr", lr, self.global_step)
             self.writer.add_scalar("train/step_seconds", step_s, self.global_step)
+            self.writer.add_scalar("train/tokens_per_second", tokens_per_second, self.global_step)
+            self.writer.add_scalar("train/peak_memory_gb", peak_memory_gb, self.global_step)
+            self.writer.add_scalar("train/batch_size", self.batch_size, self.global_step)
+            self.writer.add_scalar("train/gradient_accumulation", self.gradient_accumulation, self.global_step)
+            self.writer.add_scalar("train/effective_batch_size", self.batch_size * self.gradient_accumulation, self.global_step)
             progress.update(1)
-            progress.set_postfix(loss=f"{loss:.4f}", lr=f"{lr:.2e}", sec=f"{step_s:.2f}")
+            progress.set_postfix(loss=f"{loss:.4f}", tok_s=f"{tokens_per_second / 1000:.1f}k", sec=f"{step_s:.2f}", mem=f"{peak_memory_gb:.1f}G", batch=f"{self.batch_size}x{self.gradient_accumulation}", lr=f"{lr:.2e}")
             if self.valid_steps and self.global_step % self.valid_steps == 0:
                 val_loss = self.valid_step()
                 self.writer.add_scalar("valid/loss", val_loss, self.global_step)
