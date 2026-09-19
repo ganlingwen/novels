@@ -109,18 +109,6 @@ class Train:
         self.writer = SummaryWriter(os.path.join(self.output_dir, "tensorboard"))
         self.train_iter = self.checkpoint.training_batches(self.train_loader)
 
-    @property
-    def global_step(self):
-        return self.checkpoint.global_step
-
-    @global_step.setter
-    def global_step(self, value):
-        self.checkpoint.global_step = value
-
-    @property
-    def micro_step(self):
-        return self.checkpoint.micro_step
-
     def train_step(self):
         self.model.train()
         self.checkpoint.optimizer.zero_grad(set_to_none=True)
@@ -141,7 +129,8 @@ class Train:
         if not math.isfinite(loss_value):
             self.checkpoint.optimizer.zero_grad(set_to_none=True)
             raise FloatingPointError(
-                f"Non-finite training loss before optimizer step {self.global_step + 1} (micro step {self.micro_step})."
+                f"Non-finite training loss before optimizer step {self.checkpoint.global_step + 1} "
+                f"(micro step {self.checkpoint.micro_step})."
             )
         torch.nn.utils.clip_grad_norm_(self.model.parameters(), 1.0)
         self.checkpoint.optimizer.step()
@@ -162,26 +151,22 @@ class Train:
                 loss = self.model(**batch).loss.item()
             if not math.isfinite(loss):
                 raise FloatingPointError(
-                    f"Non-finite validation loss at global step {self.global_step}, batch {batch_index}."
+                    f"Non-finite validation loss at global step {self.checkpoint.global_step}, batch {batch_index}."
                 )
             total += loss
             count += 1
         return total / max(count, 1)
 
-    def save_checkpoint(self):
-        return self.checkpoint.save(self.output_dir)
-
-    def save_best_model(self, valid_loss):
-        return self.checkpoint.save_best_model(self.output_dir, valid_loss)
-
-    def load_checkpoint(self, path):
-        self.checkpoint.load(path)
-        self.train_iter = self.checkpoint.training_batches(self.train_loader)
-
     def train(self):
         os.makedirs(self.output_dir, exist_ok=True)
-        progress = tqdm(total=self.max_steps, initial=self.global_step, desc="train", unit="step", dynamic_ncols=True)
-        while self.global_step < self.max_steps:
+        progress = tqdm(
+            total=self.max_steps,
+            initial=self.checkpoint.global_step,
+            desc="train",
+            unit="step",
+            dynamic_ncols=True,
+        )
+        while self.checkpoint.global_step < self.max_steps:
             torch.cuda.synchronize(self.device)
             started = time.perf_counter()
             loss, tokens = self.train_step()
@@ -190,15 +175,19 @@ class Train:
             lr = self.checkpoint.optimizer.param_groups[0]["lr"]
             tokens_per_second = tokens / max(step_s, 1e-9)
             peak_memory_gb = torch.cuda.max_memory_allocated(self.device) / (1024**3)
-            self.writer.add_scalar("train/loss", loss, self.global_step)
-            self.writer.add_scalar("train/lr", lr, self.global_step)
-            self.writer.add_scalar("train/step_seconds", step_s, self.global_step)
-            self.writer.add_scalar("train/tokens_per_second", tokens_per_second, self.global_step)
-            self.writer.add_scalar("train/peak_memory_gb", peak_memory_gb, self.global_step)
-            self.writer.add_scalar("train/batch_size", self.batch_size, self.global_step)
-            self.writer.add_scalar("train/gradient_accumulation", self.gradient_accumulation, self.global_step)
+            self.writer.add_scalar("train/loss", loss, self.checkpoint.global_step)
+            self.writer.add_scalar("train/lr", lr, self.checkpoint.global_step)
+            self.writer.add_scalar("train/step_seconds", step_s, self.checkpoint.global_step)
+            self.writer.add_scalar("train/tokens_per_second", tokens_per_second, self.checkpoint.global_step)
+            self.writer.add_scalar("train/peak_memory_gb", peak_memory_gb, self.checkpoint.global_step)
+            self.writer.add_scalar("train/batch_size", self.batch_size, self.checkpoint.global_step)
             self.writer.add_scalar(
-                "train/effective_batch_size", self.batch_size * self.gradient_accumulation, self.global_step
+                "train/gradient_accumulation", self.gradient_accumulation, self.checkpoint.global_step
+            )
+            self.writer.add_scalar(
+                "train/effective_batch_size",
+                self.batch_size * self.gradient_accumulation,
+                self.checkpoint.global_step,
             )
             progress.update(1)
             progress.set_postfix(
@@ -209,12 +198,12 @@ class Train:
                 batch=f"{self.batch_size}x{self.gradient_accumulation}",
                 lr=f"{lr:.2e}",
             )
-            if self.valid_steps and self.global_step % self.valid_steps == 0:
+            if self.valid_steps and self.checkpoint.global_step % self.valid_steps == 0:
                 val_loss = self.valid_step()
-                self.writer.add_scalar("valid/loss", val_loss, self.global_step)
-                self.save_best_model(val_loss)
+                self.writer.add_scalar("valid/loss", val_loss, self.checkpoint.global_step)
+                self.checkpoint.save_best_model(self.output_dir, val_loss)
                 progress.set_postfix(loss=f"{loss:.4f}", val=f"{val_loss:.4f}", lr=f"{lr:.2e}")
-            if self.save_steps and self.global_step % self.save_steps == 0:
-                self.save_checkpoint()
+            if self.save_steps and self.checkpoint.global_step % self.save_steps == 0:
+                self.checkpoint.save(self.output_dir)
         progress.close()
         self.writer.close()

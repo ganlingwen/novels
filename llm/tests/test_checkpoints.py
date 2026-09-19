@@ -45,9 +45,9 @@ def test_checkpoint_paths_are_unique_and_complete(tmp_path):
             data_loader=DataLoaderConfig(num_workers=0),
         ),
     )
-    trainer.global_step = 7
+    trainer.checkpoint.global_step = 7
 
-    checkpoint = trainer.save_checkpoint()
+    checkpoint = trainer.checkpoint.save(trainer.output_dir)
 
     assert checkpoint.name == "step-000007"
     assert (checkpoint / "model.pt").is_file()
@@ -57,7 +57,7 @@ def test_checkpoint_paths_are_unique_and_complete(tmp_path):
     assert state["train_shuffle_batch_offset"] == 0
     assert state["cpu_random_state"].dtype == torch.uint8
     with pytest.raises(FileExistsError):
-        trainer.save_checkpoint()
+        trainer.checkpoint.save(trainer.output_dir)
 
 
 def test_best_model_is_replaced_only_when_validation_improves(tmp_path):
@@ -74,21 +74,21 @@ def test_best_model_is_replaced_only_when_validation_improves(tmp_path):
         ),
     )
 
-    assert trainer.save_best_model(float("nan")) is None
+    assert trainer.checkpoint.save_best_model(trainer.output_dir, float("nan")) is None
     assert not (tmp_path / "best").exists()
 
-    trainer.global_step = 2
-    best = trainer.save_best_model(1.5)
+    trainer.checkpoint.global_step = 2
+    best = trainer.checkpoint.save_best_model(trainer.output_dir, 1.5)
     assert best == tmp_path / "best"
 
-    trainer.global_step = 3
-    assert trainer.save_best_model(1.6) is None
+    trainer.checkpoint.global_step = 3
+    assert trainer.checkpoint.save_best_model(trainer.output_dir, 1.6) is None
     state = torch.load(best / "validation_state.pt", weights_only=False)
     assert state == {"global_step": 2, "validation_loss": 1.5}
 
-    trainer.global_step = 4
+    trainer.checkpoint.global_step = 4
     trainer.model.weight.data.fill_(2)
-    assert trainer.save_best_model(1.25) == best
+    assert trainer.checkpoint.save_best_model(trainer.output_dir, 1.25) == best
     state = torch.load(best / "validation_state.pt", weights_only=False)
     model_state = torch.load(best / "model.pt", weights_only=False)
     assert state == {"global_step": 4, "validation_loss": 1.25}
@@ -105,12 +105,12 @@ def test_checkpoint_restores_shuffle_position(tmp_path):
     original = Train(TinyModel(), dataset, dataset, config)
     for _ in range(3):
         next(original.train_iter)
-    original.global_step = 7
-    checkpoint = original.save_checkpoint()
+    original.checkpoint.global_step = 7
+    checkpoint = original.checkpoint.save(original.output_dir)
     expected_next_batch = next(original.train_iter)
 
     resumed = Train(TinyModel(), dataset, dataset, config)
-    resumed.load_checkpoint(checkpoint)
+    resumed.checkpoint.load(checkpoint)
 
-    assert resumed.global_step == 7
+    assert resumed.checkpoint.global_step == 7
     assert next(resumed.train_iter) == expected_next_batch
