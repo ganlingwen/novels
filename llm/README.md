@@ -42,6 +42,8 @@ python train_qwen3_4b_sft.py \
 
 每次新训练都会创建独立的 `runs/<timestamp>/` 目录；checkpoint 位于其中的
 `checkpoints/step-XXXXXX/`，不会覆盖其他 run 或其他 step。
+每次 validation loss 创下新低时，模型会原子更新到该 run 的 `best/`；
+`best/validation_state.pt` 记录对应的 step 和 loss。
 
 这是**全参数 SFT**，不是 LoRA。脚本只对 assistant response 计算 loss；system/user prompt
 全部 mask 为 `-100`。Qwen3 thinking 在模板中关闭，避免把小说训练成思维链输出。
@@ -71,8 +73,9 @@ python train_qwen3_4b_sft.py \
 outputs/qwen3-4b-novel-sft/
 ```
 
-每次运行的实际输出位于 `runs/<timestamp>/`，包含 Transformers 可直接加载的模型、tokenizer、
-checkpoints 和 TensorBoard 日志。断点恢复使用具体 checkpoint 路径：
+每次运行的实际输出位于 `runs/<timestamp>/`，包含 Transformers 可直接加载的最终模型、
+最佳验证模型、checkpoints 和 TensorBoard 日志。`best/` 用于推理和选模；断点恢复仍使用
+包含 optimizer、scheduler 和随机状态的具体 checkpoint 路径：
 
 ```bash
 python train_qwen3_4b_sft.py \

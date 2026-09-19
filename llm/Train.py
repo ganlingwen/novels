@@ -38,6 +38,22 @@ def checkpoint_directory(output_dir: str) -> Path:
     return path
 
 
+def replace_directory(source: Path, destination: Path) -> None:
+    previous = None
+    if destination.exists():
+        previous = Path(tempfile.mkdtemp(prefix=f".{destination.name}-previous-", dir=destination.parent))
+        previous.rmdir()
+        os.replace(destination, previous)
+    try:
+        os.replace(source, destination)
+    except Exception:
+        if previous is not None:
+            os.replace(previous, destination)
+        raise
+    if previous is not None:
+        shutil.rmtree(previous, ignore_errors=True)
+
+
 @dataclass(frozen=True)
 class DataLoaderConfig:
     batch_size: int = 1
@@ -107,6 +123,8 @@ class Train:
         self.writer = SummaryWriter(os.path.join(self.output_dir, "tensorboard"))
         self.global_step = 0
         self.micro_step = 0
+        self.best_valid_loss = None
+        self.best_global_step = None
         self.train_shuffle_generator_state = self.train_shuffle_generator.get_state()
         self.train_shuffle_batch_offset = 0
         self.train_iter = iter(self.train_loader)
@@ -168,6 +186,8 @@ class Train:
                     "scheduler": self.scheduler.state_dict(),
                     "global_step": self.global_step,
                     "micro_step": self.micro_step,
+                    "best_valid_loss": self.best_valid_loss,
+                    "best_global_step": self.best_global_step,
                     "train_shuffle_generator_state": self.train_shuffle_generator_state,
                     "train_shuffle_batch_offset": self.train_shuffle_batch_offset,
                     "cpu_random_state": torch.get_rng_state(),
@@ -183,6 +203,35 @@ class Train:
             raise
         return path
 
+    def save_best_model(self, valid_loss):
+        if self.best_valid_loss is not None and valid_loss >= self.best_valid_loss:
+            return None
+
+        previous_loss = self.best_valid_loss
+        previous_step = self.best_global_step
+        self.best_valid_loss = valid_loss
+        self.best_global_step = self.global_step
+        output_dir = Path(self.output_dir)
+        output_dir.mkdir(parents=True, exist_ok=True)
+        path = output_dir / "best"
+        temporary_path = Path(tempfile.mkdtemp(prefix=".best-", dir=output_dir))
+        try:
+            self.model.save_pretrained(temporary_path, safe_serialization=True)
+            torch.save(
+                {
+                    "global_step": self.best_global_step,
+                    "validation_loss": self.best_valid_loss,
+                },
+                temporary_path / "validation_state.pt",
+            )
+            replace_directory(temporary_path, path)
+        except Exception:
+            self.best_valid_loss = previous_loss
+            self.best_global_step = previous_step
+            shutil.rmtree(temporary_path, ignore_errors=True)
+            raise
+        return path
+
     def load_checkpoint(self, path):
         state = torch.load(
             os.path.join(path, "trainer_state.pt"),
@@ -193,6 +242,8 @@ class Train:
         self.scheduler.load_state_dict(state["scheduler"])
         self.global_step = state["global_step"]
         self.micro_step = state.get("micro_step", self.global_step * self.gradient_accumulation)
+        self.best_valid_loss = state.get("best_valid_loss")
+        self.best_global_step = state.get("best_global_step")
         self.train_shuffle_generator_state = state.get("train_shuffle_generator_state")
         self.train_shuffle_batch_offset = state.get("train_shuffle_batch_offset", 0)
         if self.train_shuffle_generator_state is not None:
@@ -241,6 +292,7 @@ class Train:
             if self.valid_steps and self.global_step % self.valid_steps == 0:
                 val_loss = self.valid_step()
                 self.writer.add_scalar("valid/loss", val_loss, self.global_step)
+                self.save_best_model(val_loss)
                 progress.set_postfix(loss=f"{loss:.4f}", val=f"{val_loss:.4f}", lr=f"{lr:.2e}")
             if self.save_steps and self.global_step % self.save_steps == 0:
                 self.save_checkpoint()

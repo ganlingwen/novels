@@ -53,3 +53,35 @@ def test_checkpoint_paths_are_unique_and_complete(tmp_path):
     assert state["cpu_random_state"].dtype == torch.uint8
     with pytest.raises(FileExistsError):
         trainer.save_checkpoint()
+
+
+def test_best_model_is_replaced_only_when_validation_improves(tmp_path):
+    model = TinyModel()
+    dataset = TinyDataset()
+    trainer = Train(
+        model,
+        dataset,
+        dataset,
+        TrainConfig(
+            output_dir=str(tmp_path),
+            max_steps=10,
+            data_loader=DataLoaderConfig(num_workers=0),
+        ),
+    )
+
+    trainer.global_step = 2
+    best = trainer.save_best_model(1.5)
+    assert best == tmp_path / "best"
+
+    trainer.global_step = 3
+    assert trainer.save_best_model(1.6) is None
+    state = torch.load(best / "validation_state.pt", weights_only=False)
+    assert state == {"global_step": 2, "validation_loss": 1.5}
+
+    trainer.global_step = 4
+    trainer.model.weight.data.fill_(2)
+    assert trainer.save_best_model(1.25) == best
+    state = torch.load(best / "validation_state.pt", weights_only=False)
+    model_state = torch.load(best / "model.pt", weights_only=False)
+    assert state == {"global_step": 4, "validation_loss": 1.25}
+    assert model_state["weight"].item() == 2
