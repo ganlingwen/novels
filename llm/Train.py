@@ -59,6 +59,7 @@ class TrainConfig:
     gradient_accumulation: int = 16
     valid_steps: int = 500
     save_steps: int = 1000
+    seed: int = 42
     data_loader: DataLoaderConfig = field(default_factory=DataLoaderConfig)
     optimizer: OptimizerConfig = field(default_factory=OptimizerConfig)
 
@@ -73,7 +74,10 @@ class Train:
         self.batch_size = config.data_loader.batch_size
         self.valid_steps = config.valid_steps
         self.save_steps = config.save_steps
+        self.seed = config.seed
         self.device = next(model.parameters()).device
+        self.train_shuffle_generator = torch.Generator()
+        self.train_shuffle_generator.manual_seed(self.seed)
         self.train_loader = DataLoader(
             train_dataset,
             batch_size=self.batch_size,
@@ -81,6 +85,7 @@ class Train:
             num_workers=config.data_loader.num_workers,
             collate_fn=train_dataset.collate_fn,
             pin_memory=True,
+            generator=self.train_shuffle_generator,
         )
         self.valid_loader = DataLoader(
             valid_dataset,
@@ -102,6 +107,8 @@ class Train:
         self.writer = SummaryWriter(os.path.join(self.output_dir, "tensorboard"))
         self.global_step = 0
         self.micro_step = 0
+        self.train_shuffle_generator_state = self.train_shuffle_generator.get_state()
+        self.train_shuffle_batch_offset = 0
         self.train_iter = iter(self.train_loader)
 
     def train_step(self):
@@ -113,8 +120,11 @@ class Train:
             try:
                 batch = next(self.train_iter)
             except StopIteration:
+                self.train_shuffle_generator_state = self.train_shuffle_generator.get_state()
+                self.train_shuffle_batch_offset = 0
                 self.train_iter = iter(self.train_loader)
                 batch = next(self.train_iter)
+            self.train_shuffle_batch_offset += 1
             total_tokens += int(batch["attention_mask"].sum().item())
             if self.config.causal_right_padding:
                 batch.pop("attention_mask")
@@ -158,6 +168,12 @@ class Train:
                     "scheduler": self.scheduler.state_dict(),
                     "global_step": self.global_step,
                     "micro_step": self.micro_step,
+                    "train_shuffle_generator_state": self.train_shuffle_generator_state,
+                    "train_shuffle_batch_offset": self.train_shuffle_batch_offset,
+                    "cpu_random_state": torch.get_rng_state(),
+                    "cuda_random_state": (
+                        torch.cuda.get_rng_state(self.device) if self.device.type == "cuda" else None
+                    ),
                 },
                 temporary_path / "trainer_state.pt",
             )
@@ -168,11 +184,28 @@ class Train:
         return path
 
     def load_checkpoint(self, path):
-        state = torch.load(os.path.join(path, "trainer_state.pt"), map_location="cpu")
+        state = torch.load(
+            os.path.join(path, "trainer_state.pt"),
+            map_location="cpu",
+            weights_only=False,
+        )
         self.optimizer.load_state_dict(state["optimizer"])
         self.scheduler.load_state_dict(state["scheduler"])
         self.global_step = state["global_step"]
         self.micro_step = state.get("micro_step", self.global_step * self.gradient_accumulation)
+        self.train_shuffle_generator_state = state.get("train_shuffle_generator_state")
+        self.train_shuffle_batch_offset = state.get("train_shuffle_batch_offset", 0)
+        if self.train_shuffle_generator_state is not None:
+            self.train_shuffle_generator.set_state(self.train_shuffle_generator_state)
+            self.train_iter = iter(self.train_loader)
+            for _ in range(self.train_shuffle_batch_offset):
+                next(self.train_iter)
+        cpu_random_state = state.get("cpu_random_state")
+        if cpu_random_state is not None:
+            torch.set_rng_state(cpu_random_state)
+        cuda_random_state = state.get("cuda_random_state")
+        if cuda_random_state is not None and self.device.type == "cuda":
+            torch.cuda.set_rng_state(cuda_random_state, self.device)
 
     def train(self):
         os.makedirs(self.output_dir, exist_ok=True)

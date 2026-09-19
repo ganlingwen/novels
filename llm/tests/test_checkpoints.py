@@ -47,5 +47,9 @@ def test_checkpoint_paths_are_unique_and_complete(tmp_path):
     assert checkpoint.name == "step-000007"
     assert (checkpoint / "model.pt").is_file()
     assert (checkpoint / "trainer_state.pt").is_file()
+    state = torch.load(checkpoint / "trainer_state.pt", weights_only=False)
+    assert state["train_shuffle_generator_state"].dtype == torch.uint8
+    assert state["train_shuffle_batch_offset"] == 0
+    assert state["cpu_random_state"].dtype == torch.uint8
     with pytest.raises(FileExistsError):
         trainer.save_checkpoint()

@@ -69,6 +69,7 @@ def main():
         gradient_accumulation=args.gradient_accumulation,
         valid_steps=0 if args.benchmark else args.valid_steps,
         save_steps=0 if args.benchmark else args.save_steps,
+        seed=args.seed,
         data_loader=DataLoaderConfig(batch_size=args.per_device_batch_size, num_workers=args.num_workers),
         optimizer=OptimizerConfig(learning_rate=args.learning_rate, fused=args.fused_adamw),
     )
