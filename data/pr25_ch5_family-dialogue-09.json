@@ -1,0 +1,53 @@
+{
+  "schema_version": "2.0",
+  "id": "pr25_ch5_family-dialogue-09",
+  "prompt": {
+    "user_request": "按作者逐轮反馈修改第五章家庭谈话中的一个局部问题；提供两个候选供选择。",
+    "context": "第五章家庭谈话：小文已见白川被收回药柜钥匙与自主施术权，自己的手出现麻木、耳鸣、僵直；尚未经历老杜抗生素申请被拒与第六章救治。父母讨论是否登记特殊异能，小文尚未决定长期瞒报。 当前局部任务：父亲接住玩笑",
+    "original_text": "那就借你吉言。明早起来先让我们看看，别好了也不说，没好也不说。"
+  },
+  "review": {
+    "provenance": "author_guided_iterative_edit",
+    "issue": "父亲接住玩笑",
+    "edit_instruction": "根据作者反馈修改此处，不提前决定长期瞒报；保持人物口语和场景动作连续。",
+    "reason": "用户选父亲回应：前面是父子对话，由父亲接更连贯；母亲说「借你吉言」语境不贴切。"
+  },
+  "sft": {
+    "eligible": true,
+    "response": "真能睡一觉就好，那可省心了。行了，今天折腾一天，早点歇着吧。",
+    "target_type": "accepted_local_revision"
+  },
+  "preference": {
+    "eligible": true,
+    "prompt_source": "iterative_edit_history",
+    "candidates": [
+      {
+        "candidate_id": "ch5-family-dpo-09_chosen",
+        "response": "真能睡一觉就好，那可省心了。行了，今天折腾一天，早点歇着吧。",
+        "origin": "final_author_selected_or_refined",
+        "status": "chosen"
+      },
+      {
+        "candidate_id": "ch5-family-dpo-09_rejected",
+        "response": "那就借你吉言。明早起来先让我们看看，别好了也不说，没好也不说。",
+        "origin": "earlier_ai_candidate_or_pre_refinement",
+        "status": "rejected"
+      }
+    ],
+    "chosen_candidate_id": "ch5-family-dpo-09_chosen",
+    "preference_reason": "用户选父亲回应：前面是父子对话，由父亲接更连贯；母亲说「借你吉言」语境不贴切。",
+    "selection_source": "explicit_author_multiround_choice_and_refinement"
+  },
+  "source": {
+    "repository": "ganlingwen/novels",
+    "file": "generated/chapter5.md",
+    "pr": 25,
+    "merge_commit": "b247ee39c9b9ead8daa86231b0ac022d08b87aa2",
+    "accepted_head_commit": "661203a9acef5b9e58218ff91b9572c96b09683b"
+  },
+  "quality": {
+    "human_accepted": true,
+    "merged": true,
+    "contains_author_reverse": true
+  }
+}
