@@ -1,0 +1,41 @@
+{
+  "schema_version": "2.0",
+  "id": "ch5-xiaowen-response-ab-20260919",
+  "source": {
+    "repository": "ganlingwen/novels",
+    "file": "generated/chapter5.md",
+    "pr": 31
+  },
+  "prompt": {
+    "user_request": "“那现在怎么办”这句不合适，给两个选项让我选。",
+    "context": "白川已在门边低声告诉小文：老杜只剩九小时；药柜里有抗生素，但申请未批、钥匙被收走。下一句白川会说明手头的药压不住感染，随后小文询问去哪里弄抗生素。",
+    "original_text": "“那现在怎么办？”"
+  },
+  "sft": {
+    "eligible": false,
+    "response": null,
+    "target_type": null
+  },
+  "preference": {
+    "eligible": true,
+    "prompt_source": "same_as_prompt",
+    "candidates": [
+      {
+        "candidate_id": "A",
+        "response": "小文看了看手里的申请单：“柜里有药，也不能先给老杜用上吗？”\n\n“手头的药还能先用着，但压不住感染。得尽快找到足量的抗生素。”\n\n小文攥紧申请单：“那我去哪里弄这些抗生素？”",
+        "origin": "ai_candidate",
+        "status": "chosen"
+      },
+      {
+        "candidate_id": "B",
+        "response": "小文低头看着申请单上的红叉：“基地不给批，那我自己去找。”\n\n“手头的药还能先用着，但压不住感染。得尽快找到足量的抗生素。”\n\n小文抬起头：“那我去哪里弄这些抗生素？”",
+        "origin": "ai_candidate",
+        "status": "rejected"
+      }
+    ],
+    "chosen_candidate_id": "A",
+    "preference_reason": "作者选择 A；B 的“那我自己去找”与后句“那我去哪里弄这些抗生素”语义重复。",
+    "selection_source": "explicit_author_choice"
+  },
+  "notes": "A/B 均为同一轮向作者提供的原始候选；后续对白精修另记 SFT，不回填本轮候选。"
+}
