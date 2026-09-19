@@ -1,11 +1,41 @@
 import os
+import shutil
+import tempfile
 import time
 from dataclasses import dataclass, field
+from datetime import datetime
+from pathlib import Path
 
 import torch
 from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
 from tqdm.auto import tqdm
+
+
+def create_run_directory(output_dir: str, checkpoint: str | None = None) -> Path:
+    if checkpoint is not None:
+        checkpoint_path = Path(checkpoint).resolve()
+        if checkpoint_path.parent.name == "checkpoints":
+            return checkpoint_path.parent.parent
+        return checkpoint_path.parent
+
+    root = Path(output_dir).resolve()
+    runs_dir = root / "runs"
+    runs_dir.mkdir(parents=True, exist_ok=True)
+    timestamp = datetime.now().astimezone().strftime("%Y%m%d-%H%M%S")
+    run_dir = runs_dir / timestamp
+    suffix = 1
+    while run_dir.exists():
+        run_dir = runs_dir / f"{timestamp}-{suffix:02d}"
+        suffix += 1
+    run_dir.mkdir()
+    return run_dir
+
+
+def checkpoint_directory(output_dir: str) -> Path:
+    path = Path(output_dir) / "checkpoints"
+    path.mkdir(parents=True, exist_ok=True)
+    return path
 
 
 @dataclass(frozen=True)
@@ -115,18 +145,27 @@ class Train:
         return total / max(count, 1)
 
     def save_checkpoint(self):
-        path = os.path.join(self.output_dir, f"checkpoint-{self.global_step}")
-        os.makedirs(path, exist_ok=True)
-        self.model.save_pretrained(path, safe_serialization=True)
-        torch.save(
-            {
-                "optimizer": self.optimizer.state_dict(),
-                "scheduler": self.scheduler.state_dict(),
-                "global_step": self.global_step,
-                "micro_step": self.micro_step,
-            },
-            os.path.join(path, "trainer_state.pt"),
-        )
+        checkpoints = checkpoint_directory(self.output_dir)
+        path = checkpoints / f"step-{self.global_step:06d}"
+        if path.exists():
+            raise FileExistsError(f"Checkpoint already exists: {path}")
+        temporary_path = Path(tempfile.mkdtemp(prefix=f".step-{self.global_step:06d}-", dir=checkpoints))
+        try:
+            self.model.save_pretrained(temporary_path, safe_serialization=True)
+            torch.save(
+                {
+                    "optimizer": self.optimizer.state_dict(),
+                    "scheduler": self.scheduler.state_dict(),
+                    "global_step": self.global_step,
+                    "micro_step": self.micro_step,
+                },
+                temporary_path / "trainer_state.pt",
+            )
+            os.replace(temporary_path, path)
+        except Exception:
+            shutil.rmtree(temporary_path, ignore_errors=True)
+            raise
+        return path
 
     def load_checkpoint(self, path):
         state = torch.load(os.path.join(path, "trainer_state.pt"), map_location="cpu")

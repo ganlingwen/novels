@@ -10,7 +10,7 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, set_seed
 
 from NovelSFTDataset import NovelSFTDataset, load_stage1_dataset, split_stage1_dataset
-from Train import DataLoaderConfig, OptimizerConfig, Train, TrainConfig
+from Train import DataLoaderConfig, OptimizerConfig, Train, TrainConfig, create_run_directory
 
 
 def parse_args():
@@ -47,6 +47,8 @@ def main():
     if not torch.cuda.is_available():
         raise RuntimeError("CUDA is required for full-parameter Qwen3-4B SFT, but no CUDA device is available.")
     set_seed(args.seed)
+    run_dir = create_run_directory(args.output_dir, args.checkpoint)
+    print(f"run directory: {run_dir}")
     tokenizer = AutoTokenizer.from_pretrained(args.model, use_fast=True)
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token = tokenizer.eos_token
@@ -62,7 +64,7 @@ def main():
         model.gradient_checkpointing_enable()
     trainer_config = TrainConfig(
         causal_right_padding=args.causal_right_padding,
-        output_dir=args.output_dir,
+        output_dir=str(run_dir),
         max_steps=args.max_steps,
         gradient_accumulation=args.gradient_accumulation,
         valid_steps=0 if args.benchmark else args.valid_steps,
@@ -76,7 +78,7 @@ def main():
     trainer.train()
     if args.benchmark:
         return
-    final_dir = os.path.join(args.output_dir, "final")
+    final_dir = os.path.join(run_dir, "final")
     model.save_pretrained(final_dir, safe_serialization=True)
     tokenizer.save_pretrained(final_dir)
 
