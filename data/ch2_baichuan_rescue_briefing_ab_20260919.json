@@ -1,54 +1,197 @@
 {
   "schema_version": "2.0",
-  "id": "ch2_baichuan_rescue_briefing_ab_20260919",
-  "prompt": {
-    "user_request": "把第二章白川出发前对非专业救援队员的医疗对白改得更自然，并提供 A/B/保留原文供作者选择。",
-    "context": "天干只能确认第七搜索队最后一道魂火持续减弱，原因未知。白川面对的是救援小队成员，不是专业医护，因此需要把专业判断转成队员可执行的话；未知伤情不能预设一定失血。",
-    "original_text": "“按重伤准备，失血、低温和污染都不能漏。”白川拉紧包带，转向方岳，“队长，我需要能蹲下止血的位置，担架也得进得来。”"
-  },
-  "review": {
-    "provenance": "explicit_author_choice_and_reason",
-    "issue": "白川对非专业队员的对白过于专业化，且未知伤情不应预设失血。",
-    "edit_instruction": "作者先选择 A，随后明确微调：删去“乱”以避免对队员带贬义；把“叫我过去”改为“等我过去”，更符合白川就在同一救援小队中的现场关系。",
-    "reason": "A 先用“按重伤准备”覆盖未知伤情，再给非专业队员可执行的条件式指令；没有把失血当成已知事实。"
-  },
-  "sft": {
-    "eligible": true,
-    "response": "“那就按重伤准备。”白川拉紧包带，“找到人先别搬，等我过去。要是还在流血，先压住伤口。”",
-    "target_type": "accepted_local_revision"
-  },
-  "preference": {
-    "eligible": true,
-    "prompt_source": "same_as_prompt",
-    "candidates": [
-      {
-        "candidate_id": "A",
-        "response": "“那就按重伤准备。”白川拉紧包带，“找到人先别搬，等我过去。要是还在流血，先压住伤口。”",
-        "origin": "ai_candidate_verbatim",
-        "status": "chosen"
+  "scene_id": "ch2_baichuan_rescue_briefing_20260919",
+  "description": "第二章白川出发前医疗对白的真实多轮作者选择与修订。每条 preference 只保存当轮真实候选/作者明确否决的版本，不补造历史候选。",
+  "records": [
+    {
+      "id": "round1_choose_a_over_b",
+      "prompt": {
+        "user_request": "白川面对非专业救援队员，医疗对白不要过度专业；魂火减弱不能推出一定失血。",
+        "context": "天干只能确认魂火持续减弱、原因未知。",
+        "original_text": "“按重伤准备，失血、低温和污染都不能漏。”"
       },
-      {
-        "candidate_id": "B",
-        "response": "“那就多带止血的。”白川又往包里塞了两卷纱布，“找到人先喊我。伤得重的话别急着抬，越搬越容易出事。”",
-        "origin": "ai_candidate_verbatim",
-        "status": "rejected"
+      "sft": {
+        "eligible": false
+      },
+      "preference": {
+        "eligible": true,
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "response": "“那就按重伤准备。”白川拉紧包带，“找到人先别乱搬，叫我过去。要是还在流血，先压住伤口。”",
+            "origin": "ai_candidate_verbatim",
+            "status": "chosen_then_refined"
+          },
+          {
+            "candidate_id": "B",
+            "response": "“那就多带止血的。”白川又往包里塞了两卷纱布，“找到人先喊我。伤得重的话别急着抬，越搬越容易出事。”",
+            "origin": "ai_candidate_verbatim",
+            "status": "rejected"
+          }
+        ],
+        "chosen_candidate_id": "A",
+        "selection_source": "explicit_author_choice_and_reason",
+        "preference_reason": "作者选择 A，因为魂火减弱不能说明一定失血；“按重伤准备”更包罗万象。"
       }
-    ],
-    "chosen_candidate_id": "A",
-    "preference_reason": "作者认为魂火减弱不能推出一定流血，“按重伤准备”更包罗万象；随后明确要求“找到人先别搬，等我过去”，避免“乱搬”的贬义，也避免把同队的白川说成需要另行叫来的医生。",
-    "selection_source": "explicit_author_choice_and_reason"
-  },
-  "source": {
-    "repository": "ganlingwen/novels",
-    "file": "generated/chapter2.md"
-  },
-  "quality": {
-    "human_accepted": true,
-    "merged": false,
-    "contains_author_reverse": false
-  },
+    },
+    {
+      "id": "round2_remove_luan_and_wait_for_me",
+      "prompt": {
+        "user_request": "继续微调已选 A：‘乱搬’有贬义，‘叫我过去’不符合白川就在同队。",
+        "context": "白川随救援队一起出发。",
+        "original_text": "“那就按重伤准备。”白川拉紧包带，“找到人先别乱搬，叫我过去。要是还在流血，先压住伤口。”"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“那就按重伤准备。”白川拉紧包带，“找到人先别搬，等我过去。要是还在流血，先压住伤口。”",
+        "target_type": "accepted_intermediate_revision"
+      },
+      "preference": {
+        "eligible": true,
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“那就按重伤准备。”白川拉紧包带，“找到人先别搬，等我过去。要是还在流血，先压住伤口。”",
+            "origin": "author_directed_revision",
+            "status": "chosen"
+          },
+          {
+            "candidate_id": "rejected_prior",
+            "response": "“那就按重伤准备。”白川拉紧包带，“找到人先别乱搬，叫我过去。要是还在流血，先压住伤口。”",
+            "origin": "previous_ai_candidate_verbatim",
+            "status": "rejected"
+          }
+        ],
+        "chosen_candidate_id": "chosen",
+        "selection_source": "explicit_author_revision",
+        "preference_reason": "作者明确指出‘乱’有贬义，并要求‘叫我过去’改成‘等我过去’。"
+      }
+    },
+    {
+      "id": "round3_addressee_not_tiangan",
+      "prompt": {
+        "user_request": "明确‘找到人先别搬’的受话人，不能让连续对白读成对白川上级天干下指令。",
+        "context": "天干提供情报；陈锋负责前出搜索。",
+        "original_text": "“那就按重伤准备。”白川拉紧包带，“找到人先别搬，等我过去。要是还在流血，先压住伤口。”"
+      },
+      "sft": {
+        "eligible": false
+      },
+      "preference": {
+        "eligible": true,
+        "candidates": [
+          {
+            "candidate_id": "rejected",
+            "response": "“那就按重伤准备。”白川拉紧包带，“找到人先别搬，等我过去。要是还在流血，先压住伤口。”",
+            "origin": "previous_accepted_intermediate",
+            "status": "rejected"
+          },
+          {
+            "candidate_id": "chosen_direction",
+            "response": "在白川给行动指令前明确转向负责前出的陈锋。",
+            "origin": "author_feedback_normalized",
+            "status": "chosen"
+          }
+        ],
+        "chosen_candidate_id": "chosen_direction",
+        "selection_source": "explicit_author_feedback",
+        "preference_reason": "作者指出该行动指令只能对其他队员说，若按连续对白理解成对天干说就不合适。"
+      }
+    },
+    {
+      "id": "round4_respect_superior_tiangan",
+      "prompt": {
+        "user_request": "白川面对上级天干时语气要符合上下级关系。",
+        "context": "白川问天干伤情，天干是其上级。",
+        "original_text": "“那就按重伤准备。”"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“明白，我按重伤准备。”",
+        "target_type": "accepted_local_revision"
+      },
+      "preference": {
+        "eligible": true,
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“明白，我按重伤准备。”",
+            "origin": "ai_candidate_verbatim",
+            "status": "chosen"
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“那就按重伤准备。”",
+            "origin": "previous_intermediate",
+            "status": "rejected"
+          }
+        ],
+        "chosen_candidate_id": "chosen",
+        "selection_source": "explicit_author_acceptance",
+        "preference_reason": "作者指出‘那就按重伤准备’像对白川的下属拍板；‘明白，我按重伤准备’是对白川上级提供情报后的回应。"
+      }
+    },
+    {
+      "id": "round5_polite_inquiry_to_superior",
+      "prompt": {
+        "user_request": "连前一句‘伤情？’也要符合白川向上级天干询问信息的语气。",
+        "context": "天干是白川上级，且此前只能确认最后一名队员的魂火状态。",
+        "original_text": "白川……：“伤情？”"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "白川把两支抗生素、一卷止血带和剪刀依次塞入医疗包，抬头问天干：“还能判断他的伤情吗？”",
+        "target_type": "accepted_local_revision"
+      },
+      "preference": {
+        "eligible": true,
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "白川把两支抗生素、一卷止血带和剪刀依次塞入医疗包，抬头问天干：“还能判断他的伤情吗？”",
+            "origin": "ai_candidate_verbatim",
+            "status": "chosen"
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "白川把两支抗生素、一卷止血带和剪刀依次塞入医疗包：“伤情？”",
+            "origin": "original_text",
+            "status": "rejected"
+          }
+        ],
+        "chosen_candidate_id": "chosen",
+        "selection_source": "explicit_author_acceptance",
+        "preference_reason": "作者认为单说‘伤情？’过于生硬，像在要求下属或仆人汇报；完整询问更符合对白川上级天干说话。"
+      }
+    },
+    {
+      "id": "final_combined_revision",
+      "prompt": {
+        "user_request": "综合前述真实反馈，完成这一处白川对白最终版本。",
+        "context": "受话关系：白川向上级天干询问并回应情报，再转向负责前出的陈锋给行动指令。",
+        "original_text": "白川把两支抗生素、一卷止血带和剪刀依次塞入医疗包：“伤情？”\\n\\n“魂火持续减弱，原因未知。”\\n\\n“按重伤准备，失血、低温和污染都不能漏。”白川拉紧包带，转向方岳……"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "白川把两支抗生素、一卷止血带和剪刀依次塞入医疗包，抬头问天干：“还能判断他的伤情吗？”\n\n“魂火持续减弱，原因未知。”\n\n“明白，我按重伤准备。”白川拉紧包带，又看向陈锋，“找到人先别搬，等我过去。要是还在流血，先压住伤口。”她转向方岳，“队长，我需要能蹲下止血的位置，担架也得进得来。”",
+        "target_type": "accepted_final_revision"
+      },
+      "preference": {
+        "eligible": false
+      },
+      "source": {
+        "repository": "ganlingwen/novels",
+        "file": "generated/chapter2.md",
+        "pull_request": 40
+      },
+      "quality": {
+        "human_accepted": true,
+        "contains_multi_round_author_feedback": true
+      }
+    }
+  ],
   "counts": {
-    "sft_samples": 1,
-    "dpo_pairs": 1
+    "sft_samples": 4,
+    "dpo_pairs": 5
   }
 }
