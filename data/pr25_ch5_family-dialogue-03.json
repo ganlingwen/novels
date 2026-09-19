@@ -1,0 +1,53 @@
+{
+  "schema_version": "2.0",
+  "id": "pr25_ch5_family-dialogue-03",
+  "prompt": {
+    "user_request": "按作者逐轮反馈修改第五章家庭谈话中的一个局部问题；提供两个候选供选择。",
+    "context": "第五章家庭谈话：小文已见白川被收回药柜钥匙与自主施术权，自己的手出现麻木、耳鸣、僵直；尚未经历老杜抗生素申请被拒与第六章救治。父母讨论是否登记特殊异能，小文尚未决定长期瞒报。 当前局部任务：母亲回应父亲与儿子",
+    "original_text": "药和治疗的事，我跟你爸再想办法。你别光想着家里缺什么，就急着把自己报上去。"
+  },
+  "review": {
+    "provenance": "author_guided_iterative_edit",
+    "issue": "母亲回应父亲与儿子",
+    "edit_instruction": "根据作者反馈修改此处，不提前决定长期瞒报；保持人物口语和场景动作连续。",
+    "reason": "母亲此刻优先关注儿子，不应把谈话重心转回药和治疗；称呼小文使说话对象转换清楚。"
+  },
+  "sft": {
+    "eligible": true,
+    "response": "药不能停，你的治疗也不能一直拖着，这我知道。小文，你今天也看见白川了。咱们现在是缺药、缺晶核，可登记以后会怎么样，谁也说不准。你别因为惦记我跟你爸，就急着把自己的名字报上去。这事咱们再商量商量。",
+    "target_type": "accepted_local_revision"
+  },
+  "preference": {
+    "eligible": true,
+    "prompt_source": "iterative_edit_history",
+    "candidates": [
+      {
+        "candidate_id": "ch5-family-dpo-03_chosen",
+        "response": "药不能停，你的治疗也不能一直拖着，这我知道。小文，你今天也看见白川了。咱们现在是缺药、缺晶核，可登记以后会怎么样，谁也说不准。你别因为惦记我跟你爸，就急着把自己的名字报上去。这事咱们再商量商量。",
+        "origin": "final_author_selected_or_refined",
+        "status": "chosen"
+      },
+      {
+        "candidate_id": "ch5-family-dpo-03_rejected",
+        "response": "药和治疗的事，我跟你爸再想办法。你别光想着家里缺什么，就急着把自己报上去。",
+        "origin": "earlier_ai_candidate_or_pre_refinement",
+        "status": "rejected"
+      }
+    ],
+    "chosen_candidate_id": "ch5-family-dpo-03_chosen",
+    "preference_reason": "母亲此刻优先关注儿子，不应把谈话重心转回药和治疗；称呼小文使说话对象转换清楚。",
+    "selection_source": "explicit_author_multiround_choice_and_refinement"
+  },
+  "source": {
+    "repository": "ganlingwen/novels",
+    "file": "generated/chapter5.md",
+    "pr": 25,
+    "merge_commit": "b247ee39c9b9ead8daa86231b0ac022d08b87aa2",
+    "accepted_head_commit": "661203a9acef5b9e58218ff91b9572c96b09683b"
+  },
+  "quality": {
+    "human_accepted": true,
+    "merged": true,
+    "contains_author_reverse": true
+  }
+}
