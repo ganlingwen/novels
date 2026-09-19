@@ -1,0 +1,52 @@
+{
+  "schema_version": "2.0",
+  "id": "pr7_ch4_inner-wall-gate-vs-corner",
+  "prompt": {
+    "user_request": "内墙需要有一个出入口和门，不一定要转角；文字里写转角太难形容，也会显得乱。",
+    "context": "第一版补图把 M 标成“内墙转角 / 救治线”，但图上内墙是一条直墙，M 视觉上更像通行缺口。",
+    "original_text": "方岳把盾组分到涵管、正门和内墙转角。\n尸群退出西墙后，守卫和年轻工人抬起老杜，沿墙内通道送往内墙拐角。\n救治线设在内墙拐角。"
+  },
+  "review": {
+    "provenance": "explicit_author_correction",
+    "issue": "“内墙转角”要求额外建立 L 形墙体几何，既与当前 SVG 不符，也让正文承担不必要的空间解释。",
+    "edit_instruction": "把 M 定义为内墙上可关闭的门；正文统一使用“内墙门/门后”，不再使用“转角/拐角”。",
+    "reason": "门具有明确的通行与封闭功能，能同时解释撤退、第二道防线和救治线位置。"
+  },
+  "sft": {
+    "eligible": true,
+    "response": "方岳把盾组分到涵管、西墙正门和内墙门。\n\n尸群退出西墙后，守卫和年轻工人抬起老杜，沿墙内通道送过内墙门。\n\n救治线就设在门后。",
+    "target_type": "accepted_revision"
+  },
+  "preference": {
+    "eligible": true,
+    "prompt_source": "same_edit_history",
+    "candidates": [
+      {
+        "candidate_id": "chosen",
+        "response": "把 M 画成内墙上的可关闭出入口；正文写“内墙门”“送过内墙门”“救治线就设在门后”。",
+        "origin": "final_ai_revision",
+        "status": "chosen"
+      },
+      {
+        "candidate_id": "rejected_a",
+        "response": "保留 M 为“内墙转角 / 救治线”，正文继续写“内墙转角/内墙拐角”。",
+        "origin": "earlier_ai_candidate",
+        "status": "rejected"
+      }
+    ],
+    "chosen_candidate_id": "chosen",
+    "preference_reason": "作者明确认为图上 M 更像缺口，转角难以在文字中自然说明；门的方案更清楚。",
+    "selection_source": "explicit_author_choice_then_merge"
+  },
+  "source": {
+    "repository": "ganlingwen/novels",
+    "file": "generated/chapter4.md",
+    "pr": 7,
+    "merge_commit": "e2659ecb4f2a1f845a3a1edbc6fb4ab98f8dcb9c"
+  },
+  "quality": {
+    "human_accepted": true,
+    "merged": true,
+    "contains_author_reverse": true
+  }
+}
