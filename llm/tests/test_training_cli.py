@@ -1,6 +1,6 @@
 import sys
 
-from Train import create_run_directory
+from Train import create_run_directory, tensorboard_directory
 from train_qwen3_4b_sft import parse_args
 
 
@@ -29,3 +29,9 @@ def test_resume_uses_checkpoint_run_directory(tmp_path):
     checkpoint.mkdir(parents=True)
 
     assert create_run_directory(str(tmp_path), str(checkpoint)) == checkpoint.parent.parent
+
+
+def test_tensorboard_uses_run_name(tmp_path):
+    run = tmp_path / "runs" / "20260918-180919"
+
+    assert tensorboard_directory(str(run)) == tmp_path / "tensorboard" / "20260918-180919"
