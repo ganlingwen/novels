@@ -1,0 +1,67 @@
+{
+  "name": "finetune-data-collector",
+  "displayName": "Finetune Data Collector",
+  "description": "Collect human corrections and accepted edits as SFT and preference/DPO training records.",
+  "version": "0.1.1",
+  "publisher": "local",
+  "engines": { "vscode": "^1.107.0" },
+  "categories": ["Machine Learning", "Other"],
+  "activationEvents": ["onStartupFinished", "onLanguageModelTool:finetuneCollector_recordFeedback"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "finetuneCollector.startSession", "title": "Finetune Collector: Start Collection Session" },
+      { "command": "finetuneCollector.captureEdit", "title": "Finetune Collector: Capture Current Edit" }
+    ],
+    "configuration": {
+      "title": "Finetune Data Collector",
+      "properties": {
+        "finetuneCollector.outputDirectory": {
+          "type": "string",
+          "default": "./finetune-data",
+          "description": "Directory relative to the workspace root where records are written."
+        },
+        "finetuneCollector.autoTrackEdits": {
+          "type": "boolean",
+          "default": true,
+          "description": "Track saved human edits as candidate feedback sessions."
+        }
+      }
+    },
+    "languageModelTools": [
+      {
+        "name": "finetuneCollector_recordFeedback",
+        "displayName": "Record Finetune Feedback",
+        "canBeReferencedInPrompt": true,
+        "toolReferenceName": "finetuneFeedback",
+        "userDescription": "Save a real human correction or accepted result as SFT/preference training data.",
+        "modelDescription": "Use after the user clearly corrects, rejects, selects, accepts, or materially edits an AI-produced answer or patch. Preserve real candidates verbatim. Never invent rejected candidates. One independent decision per record.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "taskType": { "type": "string", "description": "For example code_edit, prose_edit, code_review, bug_fix, refactor, false_positive." },
+            "userRequest": { "type": "string" },
+            "context": { "type": "string" },
+            "original": { "type": "string" },
+            "aiCandidate": { "type": "string" },
+            "humanFinal": { "type": "string" },
+            "feedbackReason": { "type": "string" },
+            "accepted": { "type": "boolean" },
+            "sourceFile": { "type": "string" }
+          },
+          "required": ["taskType", "humanFinal"]
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/vscode": "1.107.0",
+    "typescript": "^5.6.0"
+  }
+}
