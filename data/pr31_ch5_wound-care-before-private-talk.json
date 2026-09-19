@@ -1,0 +1,38 @@
+{
+  "schema_version": "2.0",
+  "id": "pr31_ch5_wound-care-before-private-talk",
+  "prompt": {
+    "user_request": "根据作者针对第五章老杜寻药场景的具体反馈，修改局部文本并保持上下文连续。",
+    "context": "白川是女性，老杜清醒且受伤；白川已交出药柜钥匙，药柜有药但老杜申请被拒。",
+    "original_text": "白川把退回的申请单折起来，放到一旁，走到床边。\n\n“老杜，我再给您清一遍伤口。可能有点疼，您忍着些。”\n\n老杜点了点头，闭上眼睛。白川朝小文示意，两人走到门边。"
+  },
+  "review": {
+    "provenance": "author_guided_iterative_edit",
+    "issue": "先处理伤口再去门边谈话",
+    "edit_instruction": "作者指出老杜刚闭眼，白川就离开床边不自然；应先清理完伤口，再移到门边私下谈话。",
+    "reason": "作者指出老杜刚闭眼，白川就离开床边不自然；应先清理完伤口，再移到门边私下谈话。"
+  },
+  "sft": {
+    "eligible": true,
+    "response": "白川走到床边：“老杜，我再给您清一遍伤口。可能有点疼，您忍着些。”\n\n她掀开毯子，拆下旧纱布，仔细清理伤口，重新敷药包扎。老杜疼得攥紧了毯角，直到白川替他盖好毯子，才慢慢松开手，闭上眼睛。\n\n白川收拾好用过的纱布，朝小文示意了一下。两人走到门边，她回头看了一眼病床，压低声音。",
+    "target_type": "accepted_local_revision"
+  },
+  "preference": {
+    "eligible": false,
+    "prompt_source": "iterative_edit_history",
+    "candidates": [],
+    "chosen_candidate_id": null,
+    "preference_reason": "本条保留作者确认的局部 SFT；未将不同轮次的反馈拼成同提示 A/B。",
+    "selection_source": "not_applicable"
+  },
+  "source": {
+    "repository": "ganlingwen/novels",
+    "file": "generated/chapter5.md",
+    "pr": 31
+  },
+  "quality": {
+    "human_accepted": true,
+    "merged": true,
+    "contains_author_reverse": true
+  }
+}
