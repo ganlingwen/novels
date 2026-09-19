@@ -14,30 +14,32 @@ def main() -> None:
     sft = dpo_records = dpo_pairs = 0
 
     for path in files:
-        obj = json.loads(path.read_text(encoding="utf-8"))
-        if obj.get("sft", {}).get("eligible") is True:
-            sft += 1
+        bundle = json.loads(path.read_text(encoding="utf-8"))
+        records = bundle.get("records", [bundle])
+        for obj in records:
+            if obj.get("sft", {}).get("eligible") is True:
+                sft += 1
 
-        preference = obj.get("preference", {})
-        if preference.get("eligible") is not True:
-            continue
+            preference = obj.get("preference", {})
+            if preference.get("eligible") is not True:
+                continue
 
-        chosen_id = preference.get("chosen_candidate_id")
-        candidates = preference.get("candidates", [])
-        if not chosen_id or not any(
-            candidate.get("candidate_id") == chosen_id
-            for candidate in candidates
-        ):
-            continue
+            chosen_id = preference.get("chosen_candidate_id")
+            candidates = preference.get("candidates", [])
+            if not chosen_id or not any(
+                candidate.get("candidate_id") == chosen_id
+                for candidate in candidates
+            ):
+                continue
 
-        rejected_count = sum(
-            candidate.get("status") == "rejected"
-            and candidate.get("candidate_id") != chosen_id
-            for candidate in candidates
-        )
-        if rejected_count:
-            dpo_records += 1
-            dpo_pairs += rejected_count
+            rejected_count = sum(
+                candidate.get("status") == "rejected"
+                and candidate.get("candidate_id") != chosen_id
+                for candidate in candidates
+            )
+            if rejected_count:
+                dpo_records += 1
+                dpo_pairs += rejected_count
 
     print(f"JSON files: {len(files)}")
     print(f"SFT samples: {sft}")
