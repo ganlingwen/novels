@@ -9,12 +9,12 @@
   "review": {
     "provenance": "explicit_author_choice_and_reason",
     "issue": "白川对非专业队员的对白过于专业化，且未知伤情不应预设失血。",
-    "edit_instruction": "作者选择 A，并明确指出魂火减弱只能说明情况严重，不知道一定流血；“按重伤准备”包罗万象更合适。",
+    "edit_instruction": "作者先选择 A，随后明确微调：删去“乱”以避免对队员带贬义；把“叫我过去”改为“等我过去”，更符合白川就在同一救援小队中的现场关系。",
     "reason": "A 先用“按重伤准备”覆盖未知伤情，再给非专业队员可执行的条件式指令；没有把失血当成已知事实。"
   },
   "sft": {
     "eligible": true,
-    "response": "“那就按重伤准备。”白川拉紧包带，“找到人先别乱搬，叫我过去。要是还在流血，先压住伤口。”",
+    "response": "“那就按重伤准备。”白川拉紧包带，“找到人先别搬，等我过去。要是还在流血，先压住伤口。”",
     "target_type": "accepted_local_revision"
   },
   "preference": {
@@ -23,7 +23,7 @@
     "candidates": [
       {
         "candidate_id": "A",
-        "response": "“那就按重伤准备。”白川拉紧包带，“找到人先别乱搬，叫我过去。要是还在流血，先压住伤口。”",
+        "response": "“那就按重伤准备。”白川拉紧包带，“找到人先别搬，等我过去。要是还在流血，先压住伤口。”",
         "origin": "ai_candidate_verbatim",
         "status": "chosen"
       },
@@ -35,7 +35,7 @@
       }
     ],
     "chosen_candidate_id": "A",
-    "preference_reason": "作者认为魂火减弱不能推出一定流血；A 的“按重伤准备”更包罗万象，且“要是还在流血”只作为条件处理。",
+    "preference_reason": "作者认为魂火减弱不能推出一定流血，“按重伤准备”更包罗万象；随后明确要求“找到人先别搬，等我过去”，避免“乱搬”的贬义，也避免把同队的白川说成需要另行叫来的医生。",
     "selection_source": "explicit_author_choice_and_reason"
   },
   "source": {
@@ -45,7 +45,7 @@
   "quality": {
     "human_accepted": true,
     "merged": false,
-    "contains_author_reverse": true
+    "contains_author_reverse": false
   },
   "counts": {
     "sft_samples": 1,
