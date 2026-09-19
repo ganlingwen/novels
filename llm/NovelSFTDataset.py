@@ -2,7 +2,6 @@ import torch
 from datasets import concatenate_datasets, load_dataset
 from torch.utils.data import Dataset
 
-
 FILES = {
     "continuation": "base-sft/continuation.jsonl",
     "instruction": "base-sft/instruction.jsonl",
@@ -68,7 +67,16 @@ class NovelSFTDataset(Dataset):
         max_len = max(x["input_ids"].numel() for x in items)
         pad = self.tokenizer.pad_token_id
         batch = {}
-        batch["input_ids"] = torch.stack([torch.nn.functional.pad(x["input_ids"], (0, max_len - x["input_ids"].numel()), value=pad) for x in items])
-        batch["attention_mask"] = torch.stack([torch.nn.functional.pad(x["attention_mask"], (0, max_len - x["attention_mask"].numel()), value=0) for x in items])
-        batch["labels"] = torch.stack([torch.nn.functional.pad(x["labels"], (0, max_len - x["labels"].numel()), value=-100) for x in items])
+        batch["input_ids"] = torch.stack(
+            [torch.nn.functional.pad(x["input_ids"], (0, max_len - x["input_ids"].numel()), value=pad) for x in items]
+        )
+        batch["attention_mask"] = torch.stack(
+            [
+                torch.nn.functional.pad(x["attention_mask"], (0, max_len - x["attention_mask"].numel()), value=0)
+                for x in items
+            ]
+        )
+        batch["labels"] = torch.stack(
+            [torch.nn.functional.pad(x["labels"], (0, max_len - x["labels"].numel()), value=-100) for x in items]
+        )
         return batch
