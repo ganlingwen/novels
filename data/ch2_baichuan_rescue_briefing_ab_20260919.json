@@ -1,0 +1,54 @@
+{
+  "schema_version": "2.0",
+  "id": "ch2_baichuan_rescue_briefing_ab_20260919",
+  "prompt": {
+    "user_request": "把第二章白川出发前对非专业救援队员的医疗对白改得更自然，并提供 A/B/保留原文供作者选择。",
+    "context": "天干只能确认第七搜索队最后一道魂火持续减弱，原因未知。白川面对的是救援小队成员，不是专业医护，因此需要把专业判断转成队员可执行的话；未知伤情不能预设一定失血。",
+    "original_text": "“按重伤准备，失血、低温和污染都不能漏。”白川拉紧包带，转向方岳，“队长，我需要能蹲下止血的位置，担架也得进得来。”"
+  },
+  "review": {
+    "provenance": "explicit_author_choice_and_reason",
+    "issue": "白川对非专业队员的对白过于专业化，且未知伤情不应预设失血。",
+    "edit_instruction": "作者选择 A，并明确指出魂火减弱只能说明情况严重，不知道一定流血；“按重伤准备”包罗万象更合适。",
+    "reason": "A 先用“按重伤准备”覆盖未知伤情，再给非专业队员可执行的条件式指令；没有把失血当成已知事实。"
+  },
+  "sft": {
+    "eligible": true,
+    "response": "“那就按重伤准备。”白川拉紧包带，“找到人先别乱搬，叫我过去。要是还在流血，先压住伤口。”",
+    "target_type": "accepted_local_revision"
+  },
+  "preference": {
+    "eligible": true,
+    "prompt_source": "same_as_prompt",
+    "candidates": [
+      {
+        "candidate_id": "A",
+        "response": "“那就按重伤准备。”白川拉紧包带，“找到人先别乱搬，叫我过去。要是还在流血，先压住伤口。”",
+        "origin": "ai_candidate_verbatim",
+        "status": "chosen"
+      },
+      {
+        "candidate_id": "B",
+        "response": "“那就多带止血的。”白川又往包里塞了两卷纱布，“找到人先喊我。伤得重的话别急着抬，越搬越容易出事。”",
+        "origin": "ai_candidate_verbatim",
+        "status": "rejected"
+      }
+    ],
+    "chosen_candidate_id": "A",
+    "preference_reason": "作者认为魂火减弱不能推出一定流血；A 的“按重伤准备”更包罗万象，且“要是还在流血”只作为条件处理。",
+    "selection_source": "explicit_author_choice_and_reason"
+  },
+  "source": {
+    "repository": "ganlingwen/novels",
+    "file": "generated/chapter2.md"
+  },
+  "quality": {
+    "human_accepted": true,
+    "merged": false,
+    "contains_author_reverse": true
+  },
+  "counts": {
+    "sft_samples": 1,
+    "dpo_pairs": 1
+  }
+}
