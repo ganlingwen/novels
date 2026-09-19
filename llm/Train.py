@@ -33,6 +33,13 @@ def create_run_directory(output_dir: str, checkpoint: str | None = None) -> Path
     return run_dir
 
 
+def tensorboard_directory(output_dir: str) -> Path:
+    run_dir = Path(output_dir).resolve()
+    if run_dir.parent.name == "runs":
+        return run_dir.parent.parent / "tensorboard" / run_dir.name
+    return run_dir / "tensorboard" / run_dir.name
+
+
 @dataclass(frozen=True)
 class DataLoaderConfig:
     batch_size: int = 1
@@ -106,7 +113,7 @@ class Train:
             gradient_accumulation=self.gradient_accumulation,
         )
         self.checkpoint.train_shuffle_generator_state = self.train_shuffle_generator.get_state()
-        self.writer = SummaryWriter(os.path.join(self.output_dir, "tensorboard"))
+        self.writer = SummaryWriter(str(tensorboard_directory(self.output_dir)))
         self.train_iter = self.checkpoint.training_batches(self.train_loader)
 
     def train_step(self):

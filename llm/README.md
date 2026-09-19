@@ -76,8 +76,8 @@ python train_qwen3_4b_sft.py \
 outputs/qwen3-4b-novel-sft/
 ```
 
-每次运行的实际输出位于 `runs/<timestamp>/`，包含 Transformers 可直接加载的最终模型、
-最佳验证模型、checkpoints 和 TensorBoard 日志。`best/` 用于推理和选模；断点恢复仍使用
+每次运行的模型输出位于 `runs/<timestamp>/`，包含 Transformers 可直接加载的最终模型、
+最佳验证模型和 checkpoints。`best/` 用于推理和选模；断点恢复仍使用
 包含 optimizer、scheduler 和随机状态的具体 checkpoint 路径：
 
 ```bash
@@ -86,11 +86,13 @@ python train_qwen3_4b_sft.py \
   --max-steps 9000
 ```
 
-训练日志位于对应 run 的 `tensorboard/`，可用：
+训练日志按 run name 位于 `tensorboard/<timestamp>/`，可用：
 
 ```bash
-tensorboard --logdir outputs/qwen3-4b-novel-sft/runs/YYYYMMDD-HHMMSS/tensorboard
+tensorboard --logdir outputs/qwen3-4b-novel-sft/tensorboard
 ```
+
+TensorBoard 的 runs panel 会直接显示 `YYYYMMDD-HHMMSS`，可同时比较多个 run。
 
 
 
