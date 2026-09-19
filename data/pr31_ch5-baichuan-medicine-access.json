@@ -1,0 +1,38 @@
+{
+  "schema_version": "2.0",
+  "id": "pr31_ch5-baichuan-medicine-access",
+  "prompt": {
+    "user_request": "根据作者对第五章老杜寻药场景中白川对白的反馈，修改局部台词并保持前后场景一致。",
+    "context": "白川是女性、急诊医生，药柜有足量抗生素但老杜的申请未获批准，白川已交出钥匙；老杜的处置窗口仅剩九小时；第二声汽笛表示交换市场收市。",
+    "original_text": "“四十八小时的处置窗口，现在还剩九小时。”白川看了一眼门外守着药柜的人，“退回栏写的是库存不足，凑不出完整疗程。现有的药压不住。我先给他处理伤口，足量的抗生素还得找。”"
+  },
+  "review": {
+    "provenance": "author_guided_iterative_edit",
+    "issue": "白川说明药柜有药但申请被拒",
+    "edit_instruction": "作者指出猎鹰基地药柜里实际有足量抗生素，问题是老杜的申请被拒且白川已失去药柜钥匙；对白需自然地体现这一事实，并用“只剩九小时了”明确紧迫性。",
+    "reason": "作者指出猎鹰基地药柜里实际有足量抗生素，问题是老杜的申请被拒且白川已失去药柜钥匙；对白需自然地体现这一事实，并用“只剩九小时了”明确紧迫性。"
+  },
+  "sft": {
+    "eligible": true,
+    "response": "“四十八小时的处置窗口，现在只剩九小时了。单子退回来了，说是库存不足。”她看了一眼小文手里的申请单，“药柜里明明还有足够的抗生素，老杜这份就是不给批。钥匙也收走了，我想拿都拿不到。”",
+    "target_type": "accepted_local_revision"
+  },
+  "preference": {
+    "eligible": false,
+    "prompt_source": "iterative_edit_history",
+    "candidates": [],
+    "chosen_candidate_id": null,
+    "preference_reason": "此条记录作者反馈后的定稿对白，不虚构同提示 A/B 候选。",
+    "selection_source": "not_applicable"
+  },
+  "source": {
+    "repository": "ganlingwen/novels",
+    "file": "generated/chapter5.md",
+    "pr": 31
+  },
+  "quality": {
+    "human_accepted": true,
+    "merged": true,
+    "contains_author_reverse": true
+  }
+}
