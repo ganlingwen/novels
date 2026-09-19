@@ -1,0 +1,59 @@
+{
+  "schema_version": "2.0",
+  "id": "pr28_ch5_morning-medical-transition",
+  "prompt": {
+    "user_request": "第五章清晨转场要给出紧接下文的真实上下文；不要用旁白提前宣布病情，也不要隔了两场戏突然回提父子谈话中的手部反应。",
+    "context": "家庭谈话后，正文依次经过天干调查失踪记录、马克与地支处理朝贡名单两场独立戏，才以分隔符切入第二天清晨的医务区。后文紧接抗生素申请被拒、停止投入、剩余九小时及交换日汽笛；本次仅修改医务区开场。",
+    "original_text": "第二天清晨，老杜开始高热。\n\n小文赶到医务区时，晨光刚从高窗挤进来。老杜缩在两床旧毯子下面，身体仍冷得发抖，呼出的气却烫得发干。床边搪瓷缸里的水一口没动，缸壁已经被他无意识抓出几道带血的指印。\n\n白川站在窗下，手里捏着一张刚退回来的抗生素申请。\n\n纸很薄，红墨却很重。"
+  },
+  "review": {
+    "provenance": "ai_proposed_author_rejected_then_author_accepted_revision",
+    "issue": "原句以旁白直接告知老杜高热；另一候选跨过两场戏回顾小文手部反应，因错误呈现候选的实际上下文而显得突兀。",
+    "edit_instruction": "从小文赶到医务区的现场直接切入，让老杜的发抖、灼热呼吸等可感知状态交代病情；保持白川手中的申请单及后续倒计时不变。",
+    "reason": "作者明确指出 A 旁白感重、手部回顾版与实际前文相隔太远；最终接受直接入场版。另一次临时提出的‘刚走到老杜床边，他就停住了’被作者认为刻意，但作者明确要求本条 DPO 只用前两版作负样本，因此不收录该候选。"
+  },
+  "sft": {
+    "eligible": true,
+    "response": "第二天清晨，小文赶到医务区时，晨光刚从高窗挤进来。老杜缩在两床旧毯子下面，身体仍冷得发抖，呼出的气却烫得发干。床边搪瓷缸里的水一口没动，缸壁已经被他无意识抓出几道带血的指印。\n\n白川站在窗下，手里捏着一张刚退回来的抗生素申请。\n\n纸很薄，红墨却很重。",
+    "target_type": "accepted_revision"
+  },
+  "preference": {
+    "eligible": true,
+    "prompt_source": "iterative_edit_history_with_actual_scene_order",
+    "candidates": [
+      {
+        "candidate_id": "chosen",
+        "response": "第二天清晨，小文赶到医务区时，晨光刚从高窗挤进来。老杜缩在两床旧毯子下面，身体仍冷得发抖，呼出的气却烫得发干。床边搪瓷缸里的水一口没动，缸壁已经被他无意识抓出几道带血的指印。\n\n白川站在窗下，手里捏着一张刚退回来的抗生素申请。\n\n纸很薄，红墨却很重。",
+        "origin": "final_author_selected_revision_pr28",
+        "status": "chosen"
+      },
+      {
+        "candidate_id": "rejected_narrator_a",
+        "response": "第二天清晨，老杜开始高热。\n\n小文赶到医务区时，晨光刚从高窗挤进来。老杜缩在两床旧毯子下面，身体仍冷得发抖，呼出的气却烫得发干。床边搪瓷缸里的水一口没动，缸壁已经被他无意识抓出几道带血的指印。\n\n白川站在窗下，手里捏着一张刚退回来的抗生素申请。\n\n纸很薄，红墨却很重。",
+        "origin": "original_chapter_opening_author_rejected",
+        "status": "rejected"
+      },
+      {
+        "candidate_id": "rejected_hand_callback_b",
+        "response": "第二天清晨，小文醒来时试着活动了一下右手。手指仍有些发僵，他正想再试一次，老杜高热的消息就传了过来。\n\n小文赶到医务区时，晨光刚从高窗挤进来。老杜缩在两床旧毯子下面，身体仍冷得发抖，呼出的气却烫得发干。床边搪瓷缸里的水一口没动，缸壁已经被他无意识抓出几道带血的指印。\n\n白川站在窗下，手里捏着一张刚退回来的抗生素申请。\n\n纸很薄，红墨却很重。",
+        "origin": "earlier_ai_candidate_temporarily_selected_under_misleading_context_then_explicitly_rejected",
+        "status": "rejected"
+      }
+    ],
+    "chosen_candidate_id": "chosen",
+    "preference_reason": "相对 rejected_narrator_a：不先以旁白宣布高热，而以现场状态呈现。相对 rejected_hand_callback_b：真实位置前隔天干、马克与地支两场戏，突然重提手部反应会突兀；用户选 B 时误以为紧接父子对话，核对实际位置后明确否定。用户要求仅用这两个负样本，不纳入后续刻意停顿的临时候选。",
+    "selection_source": "explicit_author_rejection_and_final_acceptance"
+  },
+  "source": {
+    "repository": "ganlingwen/novels",
+    "file": "generated/chapter5.md",
+    "pr": 28,
+    "merge_commit": "2cabecc1568371ddf08e529f797b1bf4d55d4f7b",
+    "accepted_head_commit": "49874af8bb42215f735afa4bbcc0492bc77e4a33"
+  },
+  "quality": {
+    "human_accepted": true,
+    "merged": true,
+    "contains_author_reverse": true
+  }
+}
