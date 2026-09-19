@@ -1,0 +1,53 @@
+{
+  "schema_version": "2.0",
+  "id": "pr25_ch5_family-dialogue-08",
+  "prompt": {
+    "user_request": "按作者逐轮反馈修改第五章家庭谈话中的一个局部问题；提供两个候选供选择。",
+    "context": "第五章家庭谈话：小文已见白川被收回药柜钥匙与自主施术权，自己的手出现麻木、耳鸣、僵直；尚未经历老杜抗生素申请被拒与第六章救治。父母讨论是否登记特殊异能，小文尚未决定长期瞒报。 当前局部任务：小文回应叮嘱",
+    "original_text": "放心吧，真有事我肯定说。我还年轻呢，这点毛病，过两天肯定就好了。"
+  },
+  "review": {
+    "provenance": "author_guided_iterative_edit",
+    "issue": "小文回应叮嘱",
+    "edit_instruction": "根据作者反馈修改此处，不提前决定长期瞒报；保持人物口语和场景动作连续。",
+    "reason": "用户选A：小文此时对恢复仍有年轻人的乐观，轻松打趣而非抱怨父母；避免把「手还年轻」当成自然说法。"
+  },
+  "sft": {
+    "eligible": true,
+    "response": "放心吧，真有事我肯定说。我还年轻呢，说不定睡一觉，明天这手就好了。",
+    "target_type": "accepted_local_revision"
+  },
+  "preference": {
+    "eligible": true,
+    "prompt_source": "iterative_edit_history",
+    "candidates": [
+      {
+        "candidate_id": "ch5-family-dpo-08_chosen",
+        "response": "放心吧，真有事我肯定说。我还年轻呢，说不定睡一觉，明天这手就好了。",
+        "origin": "final_author_selected_or_refined",
+        "status": "chosen"
+      },
+      {
+        "candidate_id": "ch5-family-dpo-08_rejected",
+        "response": "放心吧，真有事我肯定说。我还年轻呢，这点毛病，过两天肯定就好了。",
+        "origin": "earlier_ai_candidate_or_pre_refinement",
+        "status": "rejected"
+      }
+    ],
+    "chosen_candidate_id": "ch5-family-dpo-08_chosen",
+    "preference_reason": "用户选A：小文此时对恢复仍有年轻人的乐观，轻松打趣而非抱怨父母；避免把「手还年轻」当成自然说法。",
+    "selection_source": "explicit_author_multiround_choice_and_refinement"
+  },
+  "source": {
+    "repository": "ganlingwen/novels",
+    "file": "generated/chapter5.md",
+    "pr": 25,
+    "merge_commit": "b247ee39c9b9ead8daa86231b0ac022d08b87aa2",
+    "accepted_head_commit": "661203a9acef5b9e58218ff91b9572c96b09683b"
+  },
+  "quality": {
+    "human_accepted": true,
+    "merged": true,
+    "contains_author_reverse": true
+  }
+}
