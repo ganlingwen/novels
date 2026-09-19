@@ -1,0 +1,57 @@
+{
+  "schema_version": "2.0",
+  "id": "pr33_ch4_fire_pov_author_ab",
+  "prompt": {
+    "user_request": "第四章火场段：在原文、候选 A、候选 B 和保留原文之间选择；作者明确选择 A，并要求保存真实选择作为训练数据。",
+    "context": "第四章小文贴身视角；外来搜索队从火场逃离，废仓起火使尸群转向猎鹰。保持事件结果与异能、五指伏笔不变；不把小文无法直接确认的搜索队动机写作客观旁白。",
+    "original_text": "小文转回头。北偏西已经腾起黑烟。两名披着外来搜索队灰布的人正从火场南侧逃离，其中一人背包还在滴燃油。他们为了甩掉追击点燃了高架外侧的废仓，把原本沿桥移动的尸群挤向猎鹰。"
+  },
+  "review": {
+    "provenance": "explicit_author_choice",
+    "issue": "火场远距离感知与人物动机的贴身视角边界",
+    "edit_instruction": "作者在看到原文与完整 A/B 候选后明确选择 A；保留 A 的现场线索及尸群改道描述，不再改正文。",
+    "reason": "作者明确选择 A；未提供对 B 的具体否定理由，不推断作者偏好的细节。"
+  },
+  "sft": {
+    "eligible": true,
+    "response": "小文转回头。北偏西已经腾起黑烟。两名披着外来搜索队灰布的人正从火场南侧逃离，其中一人背包下方还滴着液体。燃油味随风扑来，废仓的火势越烧越高，原本沿桥移动的尸群正被挤向猎鹰。",
+    "target_type": "accepted_local_revision"
+  },
+  "preference": {
+    "eligible": true,
+    "prompt_source": "same_as_prompt",
+    "candidates": [
+      {
+        "candidate_id": "A",
+        "response": "小文转回头。北偏西已经腾起黑烟。两名披着外来搜索队灰布的人正从火场南侧逃离，其中一人背包下方还滴着液体。燃油味随风扑来，废仓的火势越烧越高，原本沿桥移动的尸群正被挤向猎鹰。",
+        "origin": "ai_candidate_verbatim",
+        "status": "chosen"
+      },
+      {
+        "candidate_id": "B",
+        "response": "小文转回头。北偏西已经腾起黑烟。两名披着外来搜索队灰布的人从火场南侧跑出来，其中一人背包下方不断滴落液体。风把燃油味送到墙头。废仓后方，原本沿桥移动的尸群偏离了高架，朝猎鹰西墙涌来。",
+        "origin": "ai_candidate_verbatim",
+        "status": "rejected"
+      }
+    ],
+    "chosen_candidate_id": "A",
+    "preference_reason": "作者在同一提示下明确选择 A，未提供进一步理由。",
+    "selection_source": "explicit_author_choice"
+  },
+  "source": {
+    "repository": "ganlingwen/novels",
+    "file": "generated/chapter4.md",
+    "pr": 33,
+    "merge_commit": "76b0ea265eb725df8512c5d074354bfa5c0aa918"
+  },
+  "quality": {
+    "human_accepted": true,
+    "merged": true,
+    "contains_author_reverse": true
+  },
+  "counts": {
+    "sft_samples": 1,
+    "dpo_pairs": 1
+  },
+  "notes": "正文 PR #33 在作者确认前已合并；作者随后明确选择已合并的 A。此数据 PR 只补真实选择，不修改正文。"
+}
