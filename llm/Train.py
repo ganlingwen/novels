@@ -1,3 +1,4 @@
+import math
 import os
 import shutil
 import tempfile
@@ -152,23 +153,34 @@ class Train:
             loss.backward()
             total_loss += loss.detach()
             self.micro_step += 1
+        loss_value = total_loss.item()
+        if not math.isfinite(loss_value):
+            self.optimizer.zero_grad(set_to_none=True)
+            raise FloatingPointError(
+                f"Non-finite training loss before optimizer step {self.global_step + 1} (micro step {self.micro_step})."
+            )
         torch.nn.utils.clip_grad_norm_(self.model.parameters(), 1.0)
         self.optimizer.step()
         self.scheduler.step()
         self.global_step += 1
-        return total_loss.item(), total_tokens
+        return loss_value, total_tokens
 
     @torch.no_grad()
     def valid_step(self):
         self.model.eval()
         total = 0.0
         count = 0
-        for batch in self.valid_loader:
+        for batch_index, batch in enumerate(self.valid_loader):
             batch = {k: v.to(self.device, non_blocking=True) for k, v in batch.items()}
             if self.config.causal_right_padding:
                 batch.pop("attention_mask")
             with torch.autocast(device_type="cuda", dtype=torch.bfloat16):
-                total += self.model(**batch).loss.item()
+                loss = self.model(**batch).loss.item()
+            if not math.isfinite(loss):
+                raise FloatingPointError(
+                    f"Non-finite validation loss at global step {self.global_step}, batch {batch_index}."
+                )
+            total += loss
             count += 1
         return total / max(count, 1)
 
@@ -204,6 +216,8 @@ class Train:
         return path
 
     def save_best_model(self, valid_loss):
+        if not math.isfinite(valid_loss):
+            return None
         if self.best_valid_loss is not None and valid_loss >= self.best_valid_loss:
             return None
 
@@ -244,6 +258,9 @@ class Train:
         self.micro_step = state.get("micro_step", self.global_step * self.gradient_accumulation)
         self.best_valid_loss = state.get("best_valid_loss")
         self.best_global_step = state.get("best_global_step")
+        if self.best_valid_loss is not None and not math.isfinite(self.best_valid_loss):
+            self.best_valid_loss = None
+            self.best_global_step = None
         self.train_shuffle_generator_state = state.get("train_shuffle_generator_state")
         self.train_shuffle_batch_offset = state.get("train_shuffle_batch_offset", 0)
         if self.train_shuffle_generator_state is not None:

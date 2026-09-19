@@ -46,7 +46,10 @@ python train_qwen3_4b_sft.py \
 `best/validation_state.pt` 记录对应的 step 和 loss。
 
 这是**全参数 SFT**，不是 LoRA。脚本只对 assistant response 计算 loss；system/user prompt
-全部 mask 为 `-100`。Qwen3 thinking 在模板中关闭，避免把小说训练成思维链输出。
+全部 mask 为 `-100`。超过 context 长度时最多保留一半 context 给最近的 prompt tokens，
+其余位置保留 assistant response，避免长 prompt 截掉全部监督 token。Qwen3 thinking 在模板中关闭，
+避免把小说训练成思维链输出。
+训练和验证遇到非有限 loss 会立即报错；optimizer 不会应用非有限训练 step。
 
 训练入口会关闭 PyTorch 的可选 native JIT override，使用普通 CUDA 实现，避免自动触发
 Triton 编译依赖。

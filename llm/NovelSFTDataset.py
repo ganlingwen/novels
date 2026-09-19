@@ -30,6 +30,8 @@ def split_stage1_dataset(raw, validation_ratio=0.01):
 
 class NovelSFTDataset(Dataset):
     def __init__(self, raw, tokenizer, max_length=2048):
+        if max_length < 2:
+            raise ValueError("max_length must be at least 2.")
         self.tokenizer = tokenizer
         self.max_length = max_length
         self.raw = raw
@@ -42,12 +44,21 @@ class NovelSFTDataset(Dataset):
         if not messages or messages[-1].get("role") != "assistant":
             raise ValueError("Expected messages ending with assistant.")
         prompt_ids = self._tokenize(messages[:-1], add_generation_prompt=True)
-        full_ids = self._tokenize(messages, add_generation_prompt=False)[: self.max_length]
-        prompt_len = min(len(prompt_ids), len(full_ids))
+        full_ids = self._tokenize(messages, add_generation_prompt=False)
+        if full_ids[: len(prompt_ids)] != prompt_ids:
+            raise ValueError("Expected the generation prompt to prefix the full conversation.")
+        response_ids = full_ids[len(prompt_ids) :]
+        if not response_ids:
+            raise ValueError("Expected a non-empty assistant response.")
+
+        prompt_budget = min(len(prompt_ids), self.max_length // 2)
+        prompt_ids = prompt_ids[-prompt_budget:]
+        response_ids = response_ids[: self.max_length - len(prompt_ids)]
+        input_ids = prompt_ids + response_ids
         return {
-            "input_ids": torch.tensor(full_ids, dtype=torch.long),
-            "attention_mask": torch.ones(len(full_ids), dtype=torch.long),
-            "labels": torch.tensor([-100] * prompt_len + full_ids[prompt_len:], dtype=torch.long),
+            "input_ids": torch.tensor(input_ids, dtype=torch.long),
+            "attention_mask": torch.ones(len(input_ids), dtype=torch.long),
+            "labels": torch.tensor([-100] * len(prompt_ids) + response_ids, dtype=torch.long),
         }
 
     def _tokenize(self, messages, add_generation_prompt):
