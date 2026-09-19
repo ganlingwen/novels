@@ -1,0 +1,38 @@
+{
+  "schema_version": "2.0",
+  "id": "pr31_ch5-baichuan-market-whistles",
+  "prompt": {
+    "user_request": "根据作者对第五章老杜寻药场景中白川对白的反馈，修改局部台词并保持前后场景一致。",
+    "context": "白川是女性、急诊医生，药柜有足量抗生素但老杜的申请未获批准，白川已交出钥匙；老杜的处置窗口仅剩九小时；第二声汽笛表示交换市场收市。",
+    "original_text": "“今天是交换日。客运站可能有外来药商。”白川看了一眼老杜持续发抖的身体，“第二声汽笛以前带回来，还有机会。再晚，药给够也未必拦得住。”"
+  },
+  "review": {
+    "provenance": "author_guided_iterative_edit",
+    "issue": "白川区分医疗时限与市场收市汽笛",
+    "edit_instruction": "第二声汽笛表示交换市场收市，并不是老杜九小时医疗窗口的终点；修改后区分两种时限。",
+    "reason": "第二声汽笛表示交换市场收市，并不是老杜九小时医疗窗口的终点；修改后区分两种时限。"
+  },
+  "sft": {
+    "eligible": true,
+    "response": "“今天是交换日。客运站可能有外来药商。”白川说，“第一声汽笛开市，第二声收市。你得赶在收市前找到药，老杜这边也等不了多久。”",
+    "target_type": "accepted_local_revision"
+  },
+  "preference": {
+    "eligible": false,
+    "prompt_source": "iterative_edit_history",
+    "candidates": [],
+    "chosen_candidate_id": null,
+    "preference_reason": "此条记录作者反馈后的定稿对白，不虚构同提示 A/B 候选。",
+    "selection_source": "not_applicable"
+  },
+  "source": {
+    "repository": "ganlingwen/novels",
+    "file": "generated/chapter5.md",
+    "pr": 31
+  },
+  "quality": {
+    "human_accepted": true,
+    "merged": true,
+    "contains_author_reverse": true
+  }
+}
