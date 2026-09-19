@@ -1,3 +1,4 @@
+import math
 import os
 import shutil
 import tempfile
@@ -204,6 +205,8 @@ class Train:
         return path
 
     def save_best_model(self, valid_loss):
+        if not math.isfinite(valid_loss):
+            return None
         if self.best_valid_loss is not None and valid_loss >= self.best_valid_loss:
             return None
 
@@ -244,6 +247,9 @@ class Train:
         self.micro_step = state.get("micro_step", self.global_step * self.gradient_accumulation)
         self.best_valid_loss = state.get("best_valid_loss")
         self.best_global_step = state.get("best_global_step")
+        if self.best_valid_loss is not None and not math.isfinite(self.best_valid_loss):
+            self.best_valid_loss = None
+            self.best_global_step = None
         self.train_shuffle_generator_state = state.get("train_shuffle_generator_state")
         self.train_shuffle_batch_offset = state.get("train_shuffle_batch_offset", 0)
         if self.train_shuffle_generator_state is not None:
