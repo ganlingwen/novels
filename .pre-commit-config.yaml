@@ -1,0 +1,18 @@
+repos:
+  - repo: local
+    hooks:
+      - id: llm-ruff-check
+        name: llm ruff check
+        entry: llm/.venv/bin/ruff check llm
+        language: system
+        pass_filenames: false
+      - id: llm-ruff-format
+        name: llm ruff format check
+        entry: llm/.venv/bin/ruff format --check llm
+        language: system
+        pass_filenames: false
+      - id: llm-pytest
+        name: llm pytest
+        entry: llm/.venv/bin/python -m pytest llm
+        language: system
+        pass_filenames: false
