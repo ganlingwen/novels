@@ -69,6 +69,9 @@ def test_best_model_is_replaced_only_when_validation_improves(tmp_path):
         ),
     )
 
+    assert trainer.save_best_model(float("nan")) is None
+    assert not (tmp_path / "best").exists()
+
     trainer.global_step = 2
     best = trainer.save_best_model(1.5)
     assert best == tmp_path / "best"
