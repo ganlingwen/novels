@@ -1,0 +1,53 @@
+{
+  "schema_version": "2.0",
+  "id": "pr25_ch5_family-dialogue-06",
+  "prompt": {
+    "user_request": "按作者逐轮反馈修改第五章家庭谈话中的一个局部问题；提供两个候选供选择。",
+    "context": "第五章家庭谈话：小文已见白川被收回药柜钥匙与自主施术权，自己的手出现麻木、耳鸣、僵直；尚未经历老杜抗生素申请被拒与第六章救治。父母讨论是否登记特殊异能，小文尚未决定长期瞒报。 当前局部任务：母亲接住犹豫",
+    "original_text": "那就先等三天。药和治疗的事，我跟你爸再想办法。你别光想着家里缺什么，就急着把自己报上去。"
+  },
+  "review": {
+    "provenance": "author_guided_iterative_edit",
+    "issue": "母亲接住犹豫",
+    "edit_instruction": "根据作者反馈修改此处，不提前决定长期瞒报；保持人物口语和场景动作连续。",
+    "reason": "用户选A：母亲重心完全在小文，不应再次强调药和治疗；三天是观察期不是登记截止日。"
+  },
+  "sft": {
+    "eligible": true,
+    "response": "拿不准就先别急着报。三天以后要是还拿不准，咱们就再想想，没必要非得给自己定个日子。",
+    "target_type": "accepted_local_revision"
+  },
+  "preference": {
+    "eligible": true,
+    "prompt_source": "iterative_edit_history",
+    "candidates": [
+      {
+        "candidate_id": "ch5-family-dpo-06_chosen",
+        "response": "拿不准就先别急着报。三天以后要是还拿不准，咱们就再想想，没必要非得给自己定个日子。",
+        "origin": "final_author_selected_or_refined",
+        "status": "chosen"
+      },
+      {
+        "candidate_id": "ch5-family-dpo-06_rejected",
+        "response": "那就先等三天。药和治疗的事，我跟你爸再想办法。你别光想着家里缺什么，就急着把自己报上去。",
+        "origin": "earlier_ai_candidate_or_pre_refinement",
+        "status": "rejected"
+      }
+    ],
+    "chosen_candidate_id": "ch5-family-dpo-06_chosen",
+    "preference_reason": "用户选A：母亲重心完全在小文，不应再次强调药和治疗；三天是观察期不是登记截止日。",
+    "selection_source": "explicit_author_multiround_choice_and_refinement"
+  },
+  "source": {
+    "repository": "ganlingwen/novels",
+    "file": "generated/chapter5.md",
+    "pr": 25,
+    "merge_commit": "b247ee39c9b9ead8daa86231b0ac022d08b87aa2",
+    "accepted_head_commit": "661203a9acef5b9e58218ff91b9572c96b09683b"
+  },
+  "quality": {
+    "human_accepted": true,
+    "merged": true,
+    "contains_author_reverse": true
+  }
+}
