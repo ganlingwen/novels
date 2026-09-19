@@ -1,5 +1,6 @@
 import sys
 
+from Train import create_run_directory
 from train_qwen3_4b_sft import parse_args
 
 
@@ -10,3 +11,21 @@ def test_max_steps_is_explicit(monkeypatch):
 
     assert args.max_steps == 9000
     assert not hasattr(args, "epochs")
+
+
+def test_new_runs_get_unique_directories(tmp_path):
+    first = create_run_directory(str(tmp_path))
+    second = create_run_directory(str(tmp_path))
+
+    assert first.parent == tmp_path / "runs"
+    assert second.parent == tmp_path / "runs"
+    assert first != second
+    assert first.is_dir()
+    assert second.is_dir()
+
+
+def test_resume_uses_checkpoint_run_directory(tmp_path):
+    checkpoint = tmp_path / "runs" / "run-1" / "checkpoints" / "step-001000"
+    checkpoint.mkdir(parents=True)
+
+    assert create_run_directory(str(tmp_path), str(checkpoint)) == checkpoint.parent.parent
