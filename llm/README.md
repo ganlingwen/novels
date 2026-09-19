@@ -14,6 +14,15 @@ pip install -r requirements.txt
 hf auth login
 ```
 
+开发检查工具：
+
+```bash
+pip install -r requirements-dev.txt
+pytest
+ruff check .
+ruff format --check .
+```
+
 ## 训练
 
 单卡 DGX Spark / GB10 起步配置：

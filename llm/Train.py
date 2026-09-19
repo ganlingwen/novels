@@ -44,10 +44,31 @@ class Train:
         self.valid_steps = config.valid_steps
         self.save_steps = config.save_steps
         self.device = next(model.parameters()).device
-        self.train_loader = DataLoader(train_dataset, batch_size=self.batch_size, shuffle=True, num_workers=config.data_loader.num_workers, collate_fn=train_dataset.collate_fn, pin_memory=True)
-        self.valid_loader = DataLoader(valid_dataset, batch_size=self.batch_size, shuffle=False, num_workers=config.data_loader.num_workers, collate_fn=valid_dataset.collate_fn, pin_memory=True)
-        self.optimizer = torch.optim.AdamW(model.parameters(), lr=config.optimizer.learning_rate, weight_decay=config.optimizer.weight_decay, fused=config.optimizer.fused)
-        self.scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(self.optimizer, T_max=self.max_steps, eta_min=config.optimizer.learning_rate * 0.1)
+        self.train_loader = DataLoader(
+            train_dataset,
+            batch_size=self.batch_size,
+            shuffle=True,
+            num_workers=config.data_loader.num_workers,
+            collate_fn=train_dataset.collate_fn,
+            pin_memory=True,
+        )
+        self.valid_loader = DataLoader(
+            valid_dataset,
+            batch_size=self.batch_size,
+            shuffle=False,
+            num_workers=config.data_loader.num_workers,
+            collate_fn=valid_dataset.collate_fn,
+            pin_memory=True,
+        )
+        self.optimizer = torch.optim.AdamW(
+            model.parameters(),
+            lr=config.optimizer.learning_rate,
+            weight_decay=config.optimizer.weight_decay,
+            fused=config.optimizer.fused,
+        )
+        self.scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+            self.optimizer, T_max=self.max_steps, eta_min=config.optimizer.learning_rate * 0.1
+        )
         self.writer = SummaryWriter(os.path.join(self.output_dir, "tensorboard"))
         self.global_step = 0
         self.micro_step = 0
@@ -97,7 +118,15 @@ class Train:
         path = os.path.join(self.output_dir, f"checkpoint-{self.global_step}")
         os.makedirs(path, exist_ok=True)
         self.model.save_pretrained(path, safe_serialization=True)
-        torch.save({"optimizer": self.optimizer.state_dict(), "scheduler": self.scheduler.state_dict(), "global_step": self.global_step, "micro_step": self.micro_step}, os.path.join(path, "trainer_state.pt"))
+        torch.save(
+            {
+                "optimizer": self.optimizer.state_dict(),
+                "scheduler": self.scheduler.state_dict(),
+                "global_step": self.global_step,
+                "micro_step": self.micro_step,
+            },
+            os.path.join(path, "trainer_state.pt"),
+        )
 
     def load_checkpoint(self, path):
         state = torch.load(os.path.join(path, "trainer_state.pt"), map_location="cpu")
@@ -117,7 +146,7 @@ class Train:
             step_s = time.perf_counter() - started
             lr = self.optimizer.param_groups[0]["lr"]
             tokens_per_second = tokens / max(step_s, 1e-9)
-            peak_memory_gb = torch.cuda.max_memory_allocated(self.device) / (1024 ** 3)
+            peak_memory_gb = torch.cuda.max_memory_allocated(self.device) / (1024**3)
             self.writer.add_scalar("train/loss", loss, self.global_step)
             self.writer.add_scalar("train/lr", lr, self.global_step)
             self.writer.add_scalar("train/step_seconds", step_s, self.global_step)
@@ -125,9 +154,18 @@ class Train:
             self.writer.add_scalar("train/peak_memory_gb", peak_memory_gb, self.global_step)
             self.writer.add_scalar("train/batch_size", self.batch_size, self.global_step)
             self.writer.add_scalar("train/gradient_accumulation", self.gradient_accumulation, self.global_step)
-            self.writer.add_scalar("train/effective_batch_size", self.batch_size * self.gradient_accumulation, self.global_step)
+            self.writer.add_scalar(
+                "train/effective_batch_size", self.batch_size * self.gradient_accumulation, self.global_step
+            )
             progress.update(1)
-            progress.set_postfix(loss=f"{loss:.4f}", tok_s=f"{tokens_per_second / 1000:.1f}k", sec=f"{step_s:.2f}", mem=f"{peak_memory_gb:.1f}G", batch=f"{self.batch_size}x{self.gradient_accumulation}", lr=f"{lr:.2e}")
+            progress.set_postfix(
+                loss=f"{loss:.4f}",
+                tok_s=f"{tokens_per_second / 1000:.1f}k",
+                sec=f"{step_s:.2f}",
+                mem=f"{peak_memory_gb:.1f}G",
+                batch=f"{self.batch_size}x{self.gradient_accumulation}",
+                lr=f"{lr:.2e}",
+            )
             if self.valid_steps and self.global_step % self.valid_steps == 0:
                 val_loss = self.valid_step()
                 self.writer.add_scalar("valid/loss", val_loss, self.global_step)

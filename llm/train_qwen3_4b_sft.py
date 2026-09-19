@@ -30,8 +30,14 @@ def parse_args():
     p.add_argument("--num-workers", type=int, default=4)
     p.add_argument("--no-gradient-checkpointing", action="store_true")
     p.add_argument("--fused-adamw", action="store_true", help="Use PyTorch's native CUDA fused AdamW.")
-    p.add_argument("--benchmark", action="store_true", help="Run max-steps without validation or saving model/checkpoints.")
-    p.add_argument("--causal-right-padding", action="store_true", help="Use causal SDPA without a padding mask; requires right padding and ignored padding labels.")
+    p.add_argument(
+        "--benchmark", action="store_true", help="Run max-steps without validation or saving model/checkpoints."
+    )
+    p.add_argument(
+        "--causal-right-padding",
+        action="store_true",
+        help="Use causal SDPA without a padding mask; requires right padding and ignored padding labels.",
+    )
     p.add_argument("--validation-ratio", type=float, default=0.01)
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--checkpoint", default=None)
