@@ -17,6 +17,11 @@ class TinyDataset:
         return items
 
 
+class IndexDataset(TinyDataset):
+    def __len__(self):
+        return 8
+
+
 class TinyModel(nn.Module):
     def __init__(self):
         super().__init__()
@@ -88,3 +93,24 @@ def test_best_model_is_replaced_only_when_validation_improves(tmp_path):
     model_state = torch.load(best / "model.pt", weights_only=False)
     assert state == {"global_step": 4, "validation_loss": 1.25}
     assert model_state["weight"].item() == 2
+
+
+def test_checkpoint_restores_shuffle_position(tmp_path):
+    config = TrainConfig(
+        output_dir=str(tmp_path),
+        max_steps=10,
+        data_loader=DataLoaderConfig(num_workers=0),
+    )
+    dataset = IndexDataset()
+    original = Train(TinyModel(), dataset, dataset, config)
+    for _ in range(3):
+        next(original.train_iter)
+    original.global_step = 7
+    checkpoint = original.save_checkpoint()
+    expected_next_batch = next(original.train_iter)
+
+    resumed = Train(TinyModel(), dataset, dataset, config)
+    resumed.load_checkpoint(checkpoint)
+
+    assert resumed.global_step == 7
+    assert next(resumed.train_iter) == expected_next_batch
