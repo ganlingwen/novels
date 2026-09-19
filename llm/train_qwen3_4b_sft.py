@@ -75,7 +75,7 @@ def main():
     )
     trainer = Train(model, train_dataset, valid_dataset, trainer_config)
     if args.checkpoint:
-        trainer.load_checkpoint(args.checkpoint)
+        trainer.checkpoint.load(args.checkpoint)
     trainer.train()
     if args.benchmark:
         return

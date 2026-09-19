@@ -1,7 +1,5 @@
 import math
 import os
-import shutil
-import tempfile
 import time
 from dataclasses import dataclass, field
 from datetime import datetime
@@ -11,6 +9,8 @@ import torch
 from torch.utils.data import DataLoader
 from torch.utils.tensorboard import SummaryWriter
 from tqdm.auto import tqdm
+
+from Checkpoint import Checkpoint
 
 
 def create_run_directory(output_dir: str, checkpoint: str | None = None) -> Path:
@@ -31,28 +31,6 @@ def create_run_directory(output_dir: str, checkpoint: str | None = None) -> Path
         suffix += 1
     run_dir.mkdir()
     return run_dir
-
-
-def checkpoint_directory(output_dir: str) -> Path:
-    path = Path(output_dir) / "checkpoints"
-    path.mkdir(parents=True, exist_ok=True)
-    return path
-
-
-def replace_directory(source: Path, destination: Path) -> None:
-    previous = None
-    if destination.exists():
-        previous = Path(tempfile.mkdtemp(prefix=f".{destination.name}-previous-", dir=destination.parent))
-        previous.rmdir()
-        os.replace(destination, previous)
-    try:
-        os.replace(source, destination)
-    except Exception:
-        if previous is not None:
-            os.replace(previous, destination)
-        raise
-    if previous is not None:
-        shutil.rmtree(previous, ignore_errors=True)
 
 
 @dataclass(frozen=True)
@@ -112,38 +90,32 @@ class Train:
             collate_fn=valid_dataset.collate_fn,
             pin_memory=True,
         )
-        self.optimizer = torch.optim.AdamW(
+        optimizer = torch.optim.AdamW(
             model.parameters(),
             lr=config.optimizer.learning_rate,
             weight_decay=config.optimizer.weight_decay,
             fused=config.optimizer.fused,
         )
-        self.scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
-            self.optimizer, T_max=self.max_steps, eta_min=config.optimizer.learning_rate * 0.1
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+            optimizer, T_max=self.max_steps, eta_min=config.optimizer.learning_rate * 0.1
         )
+        self.checkpoint = Checkpoint(
+            model=model,
+            optimizer=optimizer,
+            scheduler=scheduler,
+            gradient_accumulation=self.gradient_accumulation,
+        )
+        self.checkpoint.train_shuffle_generator_state = self.train_shuffle_generator.get_state()
         self.writer = SummaryWriter(os.path.join(self.output_dir, "tensorboard"))
-        self.global_step = 0
-        self.micro_step = 0
-        self.best_valid_loss = None
-        self.best_global_step = None
-        self.train_shuffle_generator_state = self.train_shuffle_generator.get_state()
-        self.train_shuffle_batch_offset = 0
-        self.train_iter = iter(self.train_loader)
+        self.train_iter = self.checkpoint.training_batches(self.train_loader)
 
     def train_step(self):
         self.model.train()
-        self.optimizer.zero_grad(set_to_none=True)
+        self.checkpoint.optimizer.zero_grad(set_to_none=True)
         total_loss = torch.zeros((), device=self.device)
         total_tokens = 0
         for _ in range(self.gradient_accumulation):
-            try:
-                batch = next(self.train_iter)
-            except StopIteration:
-                self.train_shuffle_generator_state = self.train_shuffle_generator.get_state()
-                self.train_shuffle_batch_offset = 0
-                self.train_iter = iter(self.train_loader)
-                batch = next(self.train_iter)
-            self.train_shuffle_batch_offset += 1
+            batch = next(self.train_iter)
             total_tokens += int(batch["attention_mask"].sum().item())
             if self.config.causal_right_padding:
                 batch.pop("attention_mask")
@@ -152,17 +124,18 @@ class Train:
                 loss = self.model(**batch).loss / self.gradient_accumulation
             loss.backward()
             total_loss += loss.detach()
-            self.micro_step += 1
+            self.checkpoint.micro_step += 1
         loss_value = total_loss.item()
         if not math.isfinite(loss_value):
-            self.optimizer.zero_grad(set_to_none=True)
+            self.checkpoint.optimizer.zero_grad(set_to_none=True)
             raise FloatingPointError(
-                f"Non-finite training loss before optimizer step {self.global_step + 1} (micro step {self.micro_step})."
+                f"Non-finite training loss before optimizer step {self.checkpoint.global_step + 1} "
+                f"(micro step {self.checkpoint.micro_step})."
             )
         torch.nn.utils.clip_grad_norm_(self.model.parameters(), 1.0)
-        self.optimizer.step()
-        self.scheduler.step()
-        self.global_step += 1
+        self.checkpoint.optimizer.step()
+        self.checkpoint.scheduler.step()
+        self.checkpoint.global_step += 1
         return loss_value, total_tokens
 
     @torch.no_grad()
@@ -178,124 +151,43 @@ class Train:
                 loss = self.model(**batch).loss.item()
             if not math.isfinite(loss):
                 raise FloatingPointError(
-                    f"Non-finite validation loss at global step {self.global_step}, batch {batch_index}."
+                    f"Non-finite validation loss at global step {self.checkpoint.global_step}, batch {batch_index}."
                 )
             total += loss
             count += 1
         return total / max(count, 1)
 
-    def save_checkpoint(self):
-        checkpoints = checkpoint_directory(self.output_dir)
-        path = checkpoints / f"step-{self.global_step:06d}"
-        if path.exists():
-            raise FileExistsError(f"Checkpoint already exists: {path}")
-        temporary_path = Path(tempfile.mkdtemp(prefix=f".step-{self.global_step:06d}-", dir=checkpoints))
-        try:
-            self.model.save_pretrained(temporary_path, safe_serialization=True)
-            torch.save(
-                {
-                    "optimizer": self.optimizer.state_dict(),
-                    "scheduler": self.scheduler.state_dict(),
-                    "global_step": self.global_step,
-                    "micro_step": self.micro_step,
-                    "best_valid_loss": self.best_valid_loss,
-                    "best_global_step": self.best_global_step,
-                    "train_shuffle_generator_state": self.train_shuffle_generator_state,
-                    "train_shuffle_batch_offset": self.train_shuffle_batch_offset,
-                    "cpu_random_state": torch.get_rng_state(),
-                    "cuda_random_state": (
-                        torch.cuda.get_rng_state(self.device) if self.device.type == "cuda" else None
-                    ),
-                },
-                temporary_path / "trainer_state.pt",
-            )
-            os.replace(temporary_path, path)
-        except Exception:
-            shutil.rmtree(temporary_path, ignore_errors=True)
-            raise
-        return path
-
-    def save_best_model(self, valid_loss):
-        if not math.isfinite(valid_loss):
-            return None
-        if self.best_valid_loss is not None and valid_loss >= self.best_valid_loss:
-            return None
-
-        previous_loss = self.best_valid_loss
-        previous_step = self.best_global_step
-        self.best_valid_loss = valid_loss
-        self.best_global_step = self.global_step
-        output_dir = Path(self.output_dir)
-        output_dir.mkdir(parents=True, exist_ok=True)
-        path = output_dir / "best"
-        temporary_path = Path(tempfile.mkdtemp(prefix=".best-", dir=output_dir))
-        try:
-            self.model.save_pretrained(temporary_path, safe_serialization=True)
-            torch.save(
-                {
-                    "global_step": self.best_global_step,
-                    "validation_loss": self.best_valid_loss,
-                },
-                temporary_path / "validation_state.pt",
-            )
-            replace_directory(temporary_path, path)
-        except Exception:
-            self.best_valid_loss = previous_loss
-            self.best_global_step = previous_step
-            shutil.rmtree(temporary_path, ignore_errors=True)
-            raise
-        return path
-
-    def load_checkpoint(self, path):
-        state = torch.load(
-            os.path.join(path, "trainer_state.pt"),
-            map_location="cpu",
-            weights_only=False,
-        )
-        self.optimizer.load_state_dict(state["optimizer"])
-        self.scheduler.load_state_dict(state["scheduler"])
-        self.global_step = state["global_step"]
-        self.micro_step = state.get("micro_step", self.global_step * self.gradient_accumulation)
-        self.best_valid_loss = state.get("best_valid_loss")
-        self.best_global_step = state.get("best_global_step")
-        if self.best_valid_loss is not None and not math.isfinite(self.best_valid_loss):
-            self.best_valid_loss = None
-            self.best_global_step = None
-        self.train_shuffle_generator_state = state.get("train_shuffle_generator_state")
-        self.train_shuffle_batch_offset = state.get("train_shuffle_batch_offset", 0)
-        if self.train_shuffle_generator_state is not None:
-            self.train_shuffle_generator.set_state(self.train_shuffle_generator_state)
-            self.train_iter = iter(self.train_loader)
-            for _ in range(self.train_shuffle_batch_offset):
-                next(self.train_iter)
-        cpu_random_state = state.get("cpu_random_state")
-        if cpu_random_state is not None:
-            torch.set_rng_state(cpu_random_state)
-        cuda_random_state = state.get("cuda_random_state")
-        if cuda_random_state is not None and self.device.type == "cuda":
-            torch.cuda.set_rng_state(cuda_random_state, self.device)
-
     def train(self):
         os.makedirs(self.output_dir, exist_ok=True)
-        progress = tqdm(total=self.max_steps, initial=self.global_step, desc="train", unit="step", dynamic_ncols=True)
-        while self.global_step < self.max_steps:
+        progress = tqdm(
+            total=self.max_steps,
+            initial=self.checkpoint.global_step,
+            desc="train",
+            unit="step",
+            dynamic_ncols=True,
+        )
+        while self.checkpoint.global_step < self.max_steps:
             torch.cuda.synchronize(self.device)
             started = time.perf_counter()
             loss, tokens = self.train_step()
             torch.cuda.synchronize(self.device)
             step_s = time.perf_counter() - started
-            lr = self.optimizer.param_groups[0]["lr"]
+            lr = self.checkpoint.optimizer.param_groups[0]["lr"]
             tokens_per_second = tokens / max(step_s, 1e-9)
             peak_memory_gb = torch.cuda.max_memory_allocated(self.device) / (1024**3)
-            self.writer.add_scalar("train/loss", loss, self.global_step)
-            self.writer.add_scalar("train/lr", lr, self.global_step)
-            self.writer.add_scalar("train/step_seconds", step_s, self.global_step)
-            self.writer.add_scalar("train/tokens_per_second", tokens_per_second, self.global_step)
-            self.writer.add_scalar("train/peak_memory_gb", peak_memory_gb, self.global_step)
-            self.writer.add_scalar("train/batch_size", self.batch_size, self.global_step)
-            self.writer.add_scalar("train/gradient_accumulation", self.gradient_accumulation, self.global_step)
+            self.writer.add_scalar("train/loss", loss, self.checkpoint.global_step)
+            self.writer.add_scalar("train/lr", lr, self.checkpoint.global_step)
+            self.writer.add_scalar("train/step_seconds", step_s, self.checkpoint.global_step)
+            self.writer.add_scalar("train/tokens_per_second", tokens_per_second, self.checkpoint.global_step)
+            self.writer.add_scalar("train/peak_memory_gb", peak_memory_gb, self.checkpoint.global_step)
+            self.writer.add_scalar("train/batch_size", self.batch_size, self.checkpoint.global_step)
             self.writer.add_scalar(
-                "train/effective_batch_size", self.batch_size * self.gradient_accumulation, self.global_step
+                "train/gradient_accumulation", self.gradient_accumulation, self.checkpoint.global_step
+            )
+            self.writer.add_scalar(
+                "train/effective_batch_size",
+                self.batch_size * self.gradient_accumulation,
+                self.checkpoint.global_step,
             )
             progress.update(1)
             progress.set_postfix(
@@ -306,12 +198,12 @@ class Train:
                 batch=f"{self.batch_size}x{self.gradient_accumulation}",
                 lr=f"{lr:.2e}",
             )
-            if self.valid_steps and self.global_step % self.valid_steps == 0:
+            if self.valid_steps and self.checkpoint.global_step % self.valid_steps == 0:
                 val_loss = self.valid_step()
-                self.writer.add_scalar("valid/loss", val_loss, self.global_step)
-                self.save_best_model(val_loss)
+                self.writer.add_scalar("valid/loss", val_loss, self.checkpoint.global_step)
+                self.checkpoint.save_best_model(self.output_dir, val_loss)
                 progress.set_postfix(loss=f"{loss:.4f}", val=f"{val_loss:.4f}", lr=f"{lr:.2e}")
-            if self.save_steps and self.global_step % self.save_steps == 0:
-                self.save_checkpoint()
+            if self.save_steps and self.checkpoint.global_step % self.save_steps == 0:
+                self.checkpoint.save(self.output_dir)
         progress.close()
         self.writer.close()
