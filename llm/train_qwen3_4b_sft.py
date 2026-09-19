@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import argparse
-import math
 import os
 
 # PyTorch 2.13 may otherwise route a Qwen3 RoPE bmm through an optional
@@ -21,7 +20,6 @@ def parse_args():
     p.add_argument("--output-dir", default="outputs/qwen3-4b-novel-sft")
     p.add_argument("--max-length", type=int, default=2048)
     p.add_argument("--max-steps", type=int, default=9000)
-    p.add_argument("--epochs", type=float, default=None, help="Number of train-dataset passes; overrides --max-steps.")
     p.add_argument("--learning-rate", type=float, default=1e-5)
     p.add_argument("--per-device-batch-size", type=int, default=1)
     p.add_argument("--gradient-accumulation", type=int, default=16)
@@ -57,14 +55,6 @@ def main():
     train_dataset = NovelSFTDataset(train_raw, tokenizer, args.max_length)
     valid_dataset = NovelSFTDataset(valid_raw, tokenizer, args.max_length)
     print(f"train: {len(train_dataset):,}; valid: {len(valid_dataset):,}")
-    effective_batch_size = args.per_device_batch_size * args.gradient_accumulation
-    max_steps = args.max_steps
-    if args.epochs is not None:
-        if args.epochs <= 0:
-            raise ValueError("--epochs must be positive.")
-        steps_per_epoch = math.ceil(len(train_dataset) / effective_batch_size)
-        max_steps = math.ceil(steps_per_epoch * args.epochs)
-        print(f"effective batch: {effective_batch_size}; steps/epoch: {steps_per_epoch:,}; max steps: {max_steps:,}")
     model_path = args.checkpoint or args.model
     model = AutoModelForCausalLM.from_pretrained(model_path, dtype=torch.bfloat16, attn_implementation="sdpa").cuda()
     model.config.use_cache = False
@@ -73,7 +63,7 @@ def main():
     trainer_config = TrainConfig(
         causal_right_padding=args.causal_right_padding,
         output_dir=args.output_dir,
-        max_steps=max_steps,
+        max_steps=args.max_steps,
         gradient_accumulation=args.gradient_accumulation,
         valid_steps=0 if args.benchmark else args.valid_steps,
         save_steps=0 if args.benchmark else args.save_steps,
