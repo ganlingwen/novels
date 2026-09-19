@@ -30,7 +30,22 @@ For this novels repository, add this to workspace settings:
 }
 ```
 
-## Current v0.1 behavior
+## Real editing trial (v0.1.1)
+
+Open the target document, run **Finetune Collector: Start Collection Session**,
+and enter the editing request before asking AI to edit. Save the document to
+automatically collect a draft. Once you approve the result, run **Finetune
+Collector: Capture Current Edit** to write an SFT-eligible record.
+
+Drafts are not training-eligible. File changes cannot establish who authored an
+edit or prove a DPO preference, so this workflow does not create preference pairs.
+Sessions live in memory: restarting the extension requires starting a new session.
+Use the **Finetune Collector** Output channel to see saved record paths.
+
+Build with `npm ci && npm run compile`. Package using Node 22 or newer:
+`npx @vscode/vsce package --no-dependencies --allow-missing-repository --skip-license`.
+
+## Agent tool and manual capture
 
 1. Registers an agent tool named `finetuneCollector_recordFeedback`.
 2. The current VS Code agent can invoke it after explicit correction/acceptance/rejection.

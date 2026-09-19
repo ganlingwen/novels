@@ -2,14 +2,15 @@
   "name": "finetune-data-collector",
   "displayName": "Finetune Data Collector",
   "description": "Collect human corrections and accepted edits as SFT and preference/DPO training records.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "local",
-  "engines": { "vscode": "^1.95.0" },
+  "engines": { "vscode": "^1.107.0" },
   "categories": ["Machine Learning", "Other"],
   "activationEvents": ["onStartupFinished", "onLanguageModelTool:finetuneCollector_recordFeedback"],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
+      { "command": "finetuneCollector.startSession", "title": "Finetune Collector: Start Collection Session" },
       { "command": "finetuneCollector.captureEdit", "title": "Finetune Collector: Capture Current Edit" }
     ],
     "configuration": {
@@ -54,12 +55,13 @@
     ]
   },
   "scripts": {
+    "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
-    "@types/vscode": "^1.95.0",
+    "@types/vscode": "1.107.0",
     "typescript": "^5.6.0"
   }
 }

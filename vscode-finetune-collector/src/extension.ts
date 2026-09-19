@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
+import { randomUUID } from 'crypto';
 
 type FeedbackInput = {
   taskType: string;
@@ -22,6 +23,8 @@ type EditSession = {
 };
 
 const sessions = new Map<string, EditSession>();
+const armed = new Map<string, { request: string; before: string; lastSaved: string }>();
+let log: vscode.OutputChannel;
 
 function workspaceRoot(): vscode.Uri | undefined {
   return vscode.workspace.workspaceFolders?.[0]?.uri;
@@ -39,7 +42,8 @@ async function writeRecord(input: FeedbackInput, source: string) {
   if (!dir) throw new Error('Open a workspace before collecting finetune data.');
   await vscode.workspace.fs.createDirectory(dir);
 
-  const hasRealRejected = Boolean(input.aiCandidate && input.humanFinal && input.aiCandidate !== input.humanFinal);
+  // A changed file alone is not evidence of a same-prompt author preference.
+  const hasRealRejected = Boolean(input.accepted === true && input.userRequest && input.aiCandidate && input.humanFinal && input.aiCandidate !== input.humanFinal);
   const record = {
     schema_version: '3.0-draft',
     task_type: input.taskType,
@@ -53,7 +57,7 @@ async function writeRecord(input: FeedbackInput, source: string) {
       accepted: input.accepted ?? null
     },
     sft: {
-      eligible: Boolean(input.accepted || input.feedbackReason || hasRealRejected),
+      eligible: input.accepted === true && Boolean(input.userRequest),
       response: input.humanFinal,
       target_type: hasRealRejected ? 'human_corrected_revision' : 'accepted_result'
     },
@@ -80,8 +84,9 @@ async function writeRecord(input: FeedbackInput, source: string) {
 
   const stamp = new Date().toISOString().replace(/[:.]/g, '-');
   const safeType = input.taskType.replace(/[^a-zA-Z0-9_-]/g, '_');
-  const target = vscode.Uri.joinPath(dir, `${stamp}-${safeType}.json`);
+  const target = vscode.Uri.joinPath(dir, `${stamp}-${safeType}-${randomUUID()}.json`);
   await vscode.workspace.fs.writeFile(target, Buffer.from(JSON.stringify(record, null, 2) + '\n', 'utf8'));
+  log?.appendLine(`Saved ${source}: ${target.fsPath}`);
   return target;
 }
 
@@ -105,6 +110,36 @@ class RecordFeedbackTool implements vscode.LanguageModelTool<FeedbackInput> {
 }
 
 export function activate(context: vscode.ExtensionContext) {
+  log = vscode.window.createOutputChannel('Finetune Collector');
+  context.subscriptions.push(log);
+  log.appendLine('Finetune Collector activated');
+  for (const doc of vscode.workspace.textDocuments) {
+    if (doc.uri.scheme === 'file') sessions.set(doc.uri.toString(), {
+      uri: doc.uri.toString(), before: doc.getText(), after: doc.getText(),
+      languageId: doc.languageId, changedAt: new Date().toISOString()
+    });
+  }
+  context.subscriptions.push(vscode.commands.registerCommand('finetuneCollector.startSession', async () => {
+    const doc = vscode.window.activeTextEditor?.document;
+    if (!doc || doc.uri.scheme !== 'file') return;
+    const request = await vscode.window.showInputBox({ prompt: '本次编辑要求（先开始采集，再让 AI 修改）', ignoreFocusOut: true });
+    if (!request?.trim()) return;
+    armed.set(doc.uri.toString(), { request, before: doc.getText(), lastSaved: doc.getText() });
+    log.appendLine(`Session started: ${doc.uri.fsPath}`);
+    vscode.window.showInformationMessage('采集已开始：保存时自动记录待确认样本；认可最终结果后执行 Capture Current Edit。');
+  }));
+  context.subscriptions.push(vscode.workspace.onDidSaveTextDocument(async doc => {
+    const session = armed.get(doc.uri.toString());
+    if (!session || session.lastSaved === doc.getText()) return;
+    const text = doc.getText();
+    try {
+      await writeRecord({ taskType: doc.languageId === 'markdown' ? 'prose_edit' : 'code_edit',
+        userRequest: session.request, original: session.before, humanFinal: text,
+        accepted: false, sourceFile: vscode.workspace.asRelativePath(doc.uri)
+      }, 'vscode_saved_draft');
+      session.lastSaved = text;
+    } catch (error) { vscode.window.showErrorMessage(`采集失败：${String(error)}`); }
+  }));
   context.subscriptions.push(
     vscode.lm.registerTool('finetuneCollector_recordFeedback', new RecordFeedbackTool())
   );
@@ -140,18 +175,23 @@ export function activate(context: vscode.ExtensionContext) {
     if (!editor) return;
     const key = editor.document.uri.toString();
     const session = sessions.get(key);
-    if (!session || session.before === editor.document.getText()) {
+    const collection = armed.get(key);
+    if (!session || (collection?.before ?? session.before) === editor.document.getText()) {
       vscode.window.showInformationMessage('Finetune Collector: no tracked edit to capture.');
       return;
     }
+    const request = collection?.request ?? await vscode.window.showInputBox({ prompt: '本次编辑要求', ignoreFocusOut: true });
+    if (!request?.trim()) return;
     const target = await writeRecord({
-      taskType: 'code_edit',
-      original: session.before,
+      taskType: editor.document.languageId === 'markdown' ? 'prose_edit' : 'code_edit',
+      userRequest: request,
+      original: collection?.before ?? session.before,
       humanFinal: editor.document.getText(),
       accepted: true,
       sourceFile: vscode.workspace.asRelativePath(editor.document.uri)
     }, 'vscode_manual_edit_capture');
     sessions.set(key, { ...session, before: editor.document.getText(), after: editor.document.getText() });
+    armed.delete(key);
     vscode.window.showInformationMessage(`Finetune Collector: saved ${vscode.workspace.asRelativePath(target)}`);
   }));
 }
