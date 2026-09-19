@@ -1,0 +1,52 @@
+{
+  "schema_version": "2.0",
+  "id": "pr7_ch4_topology-before-prose",
+  "prompt": {
+    "user_request": "第四章西墙这一段空间有问题，先把空间关系理清，不要直接改正文。",
+    "context": "后文已经出现“内墙”、西墙正门、涵管、体育馆地下入口和救治线，但旧 scene/SVG 没有完整画出内墙和正门。",
+    "original_text": "西墙防线：涵管、正门、内墙转角。墙头弩手压制正面尸群。\nM：内墙转角救治线。白川、药箱和伤员在此。"
+  },
+  "review": {
+    "provenance": "author_corrected_ai_edit",
+    "issue": "AI 先尝试修改正文，却没有先解决事实源缺失：内墙和正门在 SVG 中没有明确位置，导致正文无法稳定描述撤退与救治路线。",
+    "edit_instruction": "先补全 scene facts 与地图：外层西墙、涵管、西墙正门、第二道内墙、内墙出入口、体育馆地下入口及两条移动路线；确认空间后再改 prose。",
+    "reason": "复杂空间应先建立自洽拓扑，再让正文只选取 POV 可见部分。"
+  },
+  "sft": {
+    "eligible": true,
+    "response": "西墙是基地最外层防线，墙内是菜地与前沿作业区；旧灌溉涵管直接穿过西墙，西墙另有正常出入的正门。西墙后方还有第二道内墙，把前沿作业区与体育馆核心区隔开；内墙设可关闭的出入口。体育馆地下入口位于内墙之后。居民撤退路线为西墙前沿 → 内墙出入口 → 体育馆地下入口；老杜受伤后从涵管沿墙内通道送过内墙出入口，在门后救治。",
+    "target_type": "accepted_scene_topology"
+  },
+  "preference": {
+    "eligible": true,
+    "prompt_source": "same_edit_history",
+    "candidates": [
+      {
+        "candidate_id": "chosen",
+        "response": "先停止改正文，补全 scene/SVG 中西墙、涵管、西墙正门、内墙、内墙出入口、体育馆地下入口及撤退/救治路线，再据此重写正文。",
+        "origin": "final_ai_revision",
+        "status": "chosen"
+      },
+      {
+        "candidate_id": "rejected_a",
+        "response": "直接在正文补充：菜地贴西墙内侧，涵管口和正门有人把守；再往后便是撤往体育馆的地下入口。",
+        "origin": "earlier_ai_candidate",
+        "status": "rejected"
+      }
+    ],
+    "chosen_candidate_id": "chosen",
+    "preference_reason": "作者指出内墙和正门在 SVG 中本身没有定义，不能靠一句正文补丁掩盖场景事实源缺失。",
+    "selection_source": "explicit_author_correction_then_merge"
+  },
+  "source": {
+    "repository": "ganlingwen/novels",
+    "file": "generated/chapter4_scene.md",
+    "pr": 7,
+    "merge_commit": "e2659ecb4f2a1f845a3a1edbc6fb4ab98f8dcb9c"
+  },
+  "quality": {
+    "human_accepted": true,
+    "merged": true,
+    "contains_author_reverse": true
+  }
+}
