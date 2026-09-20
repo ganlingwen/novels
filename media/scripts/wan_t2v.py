@@ -7,7 +7,8 @@ import sys
 import time
 
 HOST = "http://127.0.0.1:8188"
-DEFAULT_PROMPT = "一个天才青年，名字叫干灵文。在破败的街道上，在灰暗的天空下，在濛濛的细雨中，他被一群丧尸追逐着。他惊慌地向镜头方向奔跑，衣服和头发被雨水打湿，身后的丧尸快速追赶。电影感，写实风格，低饱和度，动态跟拍，人物动作自然，雨雾氛围，细节清晰。"
+DEFAULT_PROMPT = "一个天才青年，名字叫干灵文。在破败的街道上，灰暗的暴雨云压在城市上空，濛濛细雨落在湿漉漉的路面上。前景只有一名成年男子，他有短黑发，穿着鲜红色防水夹克，清晰可辨的脸正面朝向镜头，正在向镜头奔跑；四名丧尸在他身后追赶。HDR电影画面，正常曝光，主体脸部和衣服清晰锐利，冷色调但明亮通透，丰富鲜明而自然的色彩，雨水反光，动态跟拍，真实自然的人体动作，高质量。"
+DEFAULT_NEGATIVE_PROMPT = "dark, underexposed, black silhouette, ghost, translucent, spectral, motion blur, out of focus, blurry, low quality, distorted anatomy, deformed face, distorted hands, extra people, watermark, text"
 
 def build_workflow(prompt, width=832, height=480, frames=33, steps=20):
     return {
@@ -37,7 +38,7 @@ def build_workflow(prompt, width=832, height=480, frames=33, steps=20):
         "5": {
         "class_type": "CLIPTextEncode",
         "inputs": {
-            "text": "blurry, low quality, distorted, watermark, text",
+            "text": DEFAULT_NEGATIVE_PROMPT,
             "clip": ["2", 0],
         },
     },
