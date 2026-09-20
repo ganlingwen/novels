@@ -1,0 +1,126 @@
+{
+  "schema_version": "2.0",
+  "scene_id": "ch2_linxia_search_guidance_20260919",
+  "description": "林夏搜索判断与感知限制对白的真实作者选择。",
+  "records": [
+    {
+      "id": "search_probability_not_command",
+      "prompt": {
+        "user_request": "‘先查这三处’不合适；林夏是在判断可能位置，不是在下搜索命令，同时‘普通伤员的步行上限’太像报告。",
+        "original_text": "“汽修厂、纺织仓、南侧居民楼。按失联时间和普通伤员的步行上限，先查这三处。”"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“汽修厂、纺织仓，还有南边这栋居民楼。按失联时间算，他如果受了伤，应该走不了太远。这三处可能性最大。”",
+        "target_type": "author_accepted_revision"
+      },
+      "preference": {
+        "eligible": true,
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“汽修厂、纺织仓，还有南边这栋居民楼。按失联时间算，他如果受了伤，应该走不了太远。这三处可能性最大。”",
+            "status": "chosen",
+            "origin": "author_accepted_revision"
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“汽修厂、纺织仓、南侧居民楼。按失联时间和普通伤员的步行上限，先查这三处。”",
+            "status": "rejected",
+            "origin": "original_text"
+          }
+        ],
+        "chosen_candidate_id": "chosen",
+        "selection_source": "explicit_author_feedback",
+        "preference_reason": "林夏应表达位置判断而不是下令；把报告式‘步行上限’改成人说话的因果。"
+      }
+    },
+    {
+      "id": "choose_direct_hearing_limit_b",
+      "prompt": {
+        "user_request": "‘接得住’含义含混，应直接表达进楼后可能听不到。",
+        "original_text": "“雨大，我可能只能听见你的落脚。拐进屋里，我就未必接得住。”"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“雨声太大，我只能跟着你的脚步。你要是进了楼，我不一定还能听见。”",
+        "target_type": "accepted_intermediate_revision"
+      },
+      "preference": {
+        "eligible": true,
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "response": "“雨太大，你在街上我还能听见脚步。别往楼里钻，一进去我可能就听不见你了。”",
+            "status": "rejected",
+            "origin": "ai_candidate_verbatim"
+          },
+          {
+            "candidate_id": "B",
+            "response": "“雨声太大，我只能跟着你的脚步。你要是进了楼，我不一定还能听见。”",
+            "status": "chosen_then_refined",
+            "origin": "ai_candidate_verbatim"
+          }
+        ],
+        "chosen_candidate_id": "B",
+        "selection_source": "explicit_author_choice",
+        "preference_reason": "作者明确选择B方向，认为比‘接得住’自然直接，但继续指出‘只能跟着你的脚步’仍有问题。"
+      }
+    },
+    {
+      "id": "choose_progressive_warning",
+      "prompt": {
+        "user_request": "‘我只能跟着你的脚步’不自然；比较两个进一步改写。",
+        "context": "雨声干扰林夏的听觉感知，陈锋离远或进入建筑后更难被听见。"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“雨声太大，你别离我太远。进了楼，我可能就听不见你的脚步了。”",
+        "target_type": "author_selected_revision"
+      },
+      "preference": {
+        "eligible": true,
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“雨声太大，你别离我太远。进了楼，我可能就听不见你的脚步了。”",
+            "status": "chosen",
+            "origin": "ai_candidate_verbatim"
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“雨声太大，你离我远了，我可能就听不清你的脚步。要是再进楼，我更听不见。”",
+            "status": "rejected",
+            "origin": "ai_candidate_verbatim"
+          }
+        ],
+        "chosen_candidate_id": "chosen",
+        "selection_source": "explicit_author_choice",
+        "preference_reason": "作者认为 chosen 是一个连贯、层层递进的意思，更简洁，更像人在现场说话；rejected 拆成两层相近信息，不够顺。"
+      }
+    },
+    {
+      "id": "final_combined_scene",
+      "prompt": {
+        "user_request": "综合已确认修改，完成林夏这段搜索判断和对陈锋的感知提醒。",
+        "context": "下一句陈锋在林夏话还没说完时已经朝门口走，并回应‘不钻楼’。"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "林夏用指尖沿东南方向划过地图：“汽修厂、纺织仓，还有南边这栋居民楼。按失联时间算，他如果受了伤，应该走不了太远。这三处可能性最大。”她抬头看陈锋，“雨声太大，你别离我太远。进了楼，我可能就听不见你的脚步了。”\n\n林夏话还没说完，陈锋已经朝门口走了：“不钻楼。那要是看见东西跑呢？”",
+        "target_type": "accepted_final_revision"
+      },
+      "preference": {
+        "eligible": false
+      },
+      "quality": {
+        "human_accepted": true,
+        "contains_multi_round_author_feedback": true
+      }
+    }
+  ],
+  "counts": {
+    "sft_samples": 4,
+    "dpo_pairs": 3
+  }
+}
