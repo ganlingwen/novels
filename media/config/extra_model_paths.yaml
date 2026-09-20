@@ -1,0 +1,6 @@
+# Model paths owned by this novel project.
+wan_models:
+    base_path: /home/ganlingwen/repos/novels/media/models/wan2.1
+    diffusion_models: diffusion_models
+    text_encoders: text_encoders
+    vae: vae
