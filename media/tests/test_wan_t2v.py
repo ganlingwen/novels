@@ -20,6 +20,9 @@ class WanWorkflowTest(unittest.TestCase):
         self.assertEqual(workflow["6"]["inputs"]["length"], 17)
         self.assertEqual(workflow["8"]["inputs"]["steps"], 12)
         self.assertEqual(workflow["8"]["inputs"]["model"], ["1", 0])
+        self.assertIn("underexposed", workflow["5"]["inputs"]["text"])
+        self.assertIn("HDR", wan_t2v.DEFAULT_PROMPT)
+        self.assertIn("鲜红色防水夹克", wan_t2v.DEFAULT_PROMPT)
 
 
 if __name__ == "__main__":
