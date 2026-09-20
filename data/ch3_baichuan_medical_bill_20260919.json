@@ -1,0 +1,160 @@
+{
+  "schema_version": "2.0",
+  "scene_id": "ch3_baichuan_medical_bill_20260919",
+  "description": "白川向刚醒的小文解释100点抢救费用的多轮真实作者偏好。",
+  "records": [
+    {
+      "id": "initial_direction_b",
+      "prompt": {
+        "user_request": "把白川解释100点医疗账单的台词改得不像对账说明。"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "白川把单子推近些：“昨晚你差点没救回来。药和材料是一部分，中间血压又掉了一次，我还用了两次光系治疗。一百点就是这么来的。”",
+        "target_type": "chosen_then_refined"
+      },
+      "preference": {
+        "eligible": true,
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "response": "“药、材料，还有两次光系治疗。”白川把单子推近些，“你中间血压又掉了一次，只能接着抢救。这两次是我做的，一百点没算错。”",
+            "status": "rejected",
+            "origin": "ai_candidate_verbatim"
+          },
+          {
+            "candidate_id": "B",
+            "response": "白川把单子推近些：“昨晚你差点没救回来。药和材料是一部分，中间血压又掉了一次，我还用了两次光系治疗。一百点就是这么来的。”",
+            "status": "chosen_then_refined",
+            "origin": "ai_candidate_verbatim"
+          }
+        ],
+        "chosen_candidate_id": "B",
+        "selection_source": "explicit_author_choice",
+        "preference_reason": "作者更喜欢B把费用解释和昨晚的危险程度联系起来，但认为整体仍啰嗦。"
+      }
+    },
+    {
+      "id": "put_major_treatment_first",
+      "prompt": {
+        "user_request": "光系治疗应作为费用和救命过程的大头放在前面，并和当时情况危险结合；药和材料放后面补充。"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "昨晚我连续用了两次光系治疗，才把你稳住。再加上药和材料，一共一百点。",
+        "target_type": "accepted_direction_intermediate"
+      },
+      "preference": {
+        "eligible": true,
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "昨晚我连续用了两次光系治疗，才把你稳住。再加上药和材料，一共一百点。",
+            "status": "chosen_then_refined",
+            "origin": "author_directed_normalization"
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "昨晚你差点没救回来。药和材料，再加两次光系治疗，一百点就是这么来的。",
+            "status": "rejected",
+            "origin": "ai_candidate_verbatim"
+          }
+        ],
+        "chosen_candidate_id": "chosen",
+        "selection_source": "explicit_author_feedback",
+        "preference_reason": "作者要求先说主要、昂贵且关键的光系治疗，再补药和材料，而不是按账单项目平铺。"
+      }
+    },
+    {
+      "id": "remove_redundancy_and_fake_action",
+      "prompt": {
+        "user_request": "不要同时说‘差点没救回来’和‘才把你稳住’，语义重复；‘把单子推近些’动作也没有必要。"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“昨晚我连续用了两次光系治疗，才勉强把你稳住。再加上药和材料，一百点不算多。”",
+        "target_type": "chosen_composite_intermediate"
+      },
+      "preference": {
+        "eligible": true,
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "response": "“昨晚我连续用了两次光系治疗，才把你的情况稳下来。再加上药和材料，一百点不算多。”",
+            "status": "partially_chosen",
+            "origin": "ai_candidate_verbatim"
+          },
+          {
+            "candidate_id": "B",
+            "response": "“昨晚我连续用了两次光系治疗，好不容易才把你稳住。再加上药和材料，一百点并不奇怪。”",
+            "status": "rejected",
+            "origin": "ai_candidate_verbatim"
+          },
+          {
+            "candidate_id": "C",
+            "response": "“昨晚我连续用了两次光系治疗，才勉强把你稳住。再加上药和材料，这一百点不是随便算的。”",
+            "status": "partially_chosen",
+            "origin": "ai_candidate_verbatim"
+          }
+        ],
+        "chosen_candidate_id": "C+A",
+        "selection_source": "explicit_author_composite_choice",
+        "preference_reason": "作者明确选择C的‘才勉强把你稳住’，同时选择A的‘一百点不算多’，形成组合版本。"
+      }
+    },
+    {
+      "id": "not_overcharged_wording",
+      "prompt": {
+        "user_request": "‘一百点不算多’容易像在说价格便宜；要表达的是账单没有多算，并暗扣小文前面的‘一百？’。"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“昨晚我连续用了两次光系治疗，才勉强把你稳住。再加上药和材料，这一百点没多算。”",
+        "target_type": "author_selected_revision"
+      },
+      "preference": {
+        "eligible": true,
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "response": "“昨晚我连续用了两次光系治疗，才勉强把你稳住。再加上药和材料，一百点没多算。”",
+            "status": "rejected",
+            "origin": "ai_candidate_verbatim"
+          },
+          {
+            "candidate_id": "B",
+            "response": "“昨晚我连续用了两次光系治疗，才勉强把你稳住。再加上药和材料，这一百点没多算。”",
+            "status": "chosen",
+            "origin": "ai_candidate_verbatim"
+          }
+        ],
+        "chosen_candidate_id": "B",
+        "selection_source": "explicit_author_choice",
+        "preference_reason": "作者选择带‘这一百点’的版本，更直接回扣小文刚刚对100点的惊讶。"
+      }
+    },
+    {
+      "id": "final_context_confirmation",
+      "prompt": {
+        "user_request": "将最终台词放回账单上下文确认。",
+        "context": "小文看到家庭账户55、濒死抢救及用药100、任务失败不结算，惊问‘一百？’。"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“昨晚我连续用了两次光系治疗，才勉强把你稳住。再加上药和材料，这一百点没多算。”",
+        "target_type": "accepted_final_revision"
+      },
+      "preference": {
+        "eligible": false
+      },
+      "quality": {
+        "human_accepted": true,
+        "context_checked": true
+      }
+    }
+  ],
+  "counts": {
+    "sft_samples": 5,
+    "dpo_pairs": 4
+  }
+}
