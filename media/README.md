@@ -1,5 +1,8 @@
 # Novel media generation
 
+第一章的分镜、逐镜提示词与分阶段制作计划见
+[《关门之后》视频制作方案](chapter1_video_plan.md)。目前为策划草案，尚未运行生成。
+
 The scripts in `scripts/` use the ComfyUI checkout at
 `~/repos/ComfyUI` as a local inference runtime. Wan model files live under
 `models/wan2.1/` and generated videos are written to `../generated/videos/`.
