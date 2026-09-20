@@ -1,0 +1,254 @@
+{
+  "schema_version": "2.0",
+  "scene_id": "ch2_fangyue_chenfeng_rescue_banter_20260919",
+  "description": "方岳与陈锋出发前拌嘴的真实多轮作者反馈。保留作者明确选择、否决和定向修订；不补造未出现的候选。",
+  "records": [
+    {
+      "id": "choose_b_direction",
+      "prompt": {
+        "user_request": "原对话连续三四字短句不像真人；按人物卡让陈锋嘴快、用玩笑遮焦虑，方岳稳重压住冒进。",
+        "original_text": "“一百米对我只有几步。”他说，“等你们背着门板赶到，人可能都凉了。”\n\n方岳偏头看他：“谁背门板？”\n\n“你。”\n\n“这是盾。”\n\n“砸脚上都一样疼。”"
+      },
+      "sft": {
+        "eligible": false
+      },
+      "preference": {
+        "eligible": true,
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "response": "A：陈锋嘴快一点，方岳继续稳；以“你背着那么大块门板，怎么也没我快”等较完整句式展开。",
+            "origin": "ai_candidate_summary",
+            "status": "rejected"
+          },
+          {
+            "candidate_id": "B",
+            "response": "B：更明显写陈锋用玩笑遮恐惧，并让方岳重申一百米边界。",
+            "origin": "ai_candidate_summary",
+            "status": "chosen_then_refined"
+          }
+        ],
+        "chosen_candidate_id": "B",
+        "selection_source": "explicit_author_choice",
+        "preference_reason": "作者明确选择 B 的人物关系方向，但认为其中仍有大量不自然短句，需要继续改。"
+      }
+    },
+    {
+      "id": "reject_artificial_short_lines",
+      "prompt": {
+        "user_request": "B 方向保留，但不能用机器式三四字短句或刻意俏皮。",
+        "original_text": "“谁让你先过去？”\\n“腿长自己有想法。”"
+      },
+      "sft": {
+        "eligible": false
+      },
+      "preference": {
+        "eligible": true,
+        "candidates": [
+          {
+            "candidate_id": "rejected",
+            "response": "“谁让你先过去？”\\n“腿长自己有想法。”",
+            "origin": "ai_candidate_verbatim",
+            "status": "rejected"
+          },
+          {
+            "candidate_id": "chosen_direction",
+            "response": "对白改成有正常语义承接的完整口语句，不用‘腿长自己有想法’式刻意机灵。",
+            "origin": "author_feedback_normalized",
+            "status": "chosen"
+          }
+        ],
+        "chosen_candidate_id": "chosen_direction",
+        "selection_source": "explicit_author_feedback",
+        "preference_reason": "作者指出这类短句连正常口语句法和人物意图都不成立。"
+      }
+    },
+    {
+      "id": "reject_redundant_and_wrong_address",
+      "prompt": {
+        "user_request": "修正废话、称呼、门板梗和方岳的说话方式。",
+        "original_text": "“真有人躺那儿等救，多耽误一分钟都是一分钟。”；“刚才天干说的话你没听见？”；“你每次都觉得自己跑得回来。”"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“真有人伤得动不了，早点找到还能早点救。”；“刚才长官说的话没听见？前出最多一百米，到了就等我们。”；“你跑得快，也不是每次都跑得掉。”",
+        "target_type": "author_directed_revision"
+      },
+      "preference": {
+        "eligible": true,
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“真有人伤得动不了，早点找到还能早点救。”；“刚才长官说的话没听见？前出最多一百米，到了就等我们。”；“你跑得快，也不是每次都跑得掉。”",
+            "origin": "author_directed_revision",
+            "status": "chosen"
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“真有人躺那儿等救，多耽误一分钟都是一分钟。”；“刚才天干说的话你没听见？”；“你每次都觉得自己跑得回来。”",
+            "origin": "ai_candidate_verbatim",
+            "status": "rejected"
+          }
+        ],
+        "chosen_candidate_id": "chosen",
+        "selection_source": "explicit_author_feedback",
+        "preference_reason": "作者指出第一句是同义反复废话；方岳应称天干为‘长官’；‘你每次都觉得自己跑得回来’过于整齐书面。"
+      }
+    },
+    {
+      "id": "preserve_door_panel_banter",
+      "prompt": {
+        "user_request": "不要在扩写时把原来的‘门板’关系梗丢掉。",
+        "original_text": "原文用方岳的盾开‘门板’玩笑。"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“听见了，我又没说一个人冲进去。”陈锋瞥了一眼他手里的盾，“我先把路看清楚。你背着那么大块门板，怎么也没我快。”",
+        "target_type": "accepted_local_revision"
+      },
+      "preference": {
+        "eligible": true,
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "保留‘门板’并让它自然嵌入陈锋说明自己先探路的理由。",
+            "origin": "author_directed_revision",
+            "status": "chosen"
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "改成‘你们抬着担架总比我慢’，丢失门板梗。",
+            "origin": "ai_candidate_summary",
+            "status": "rejected"
+          }
+        ],
+        "chosen_candidate_id": "chosen",
+        "selection_source": "explicit_author_feedback",
+        "preference_reason": "作者明确指出改成担架后把前文‘门板’梗丢了。"
+      }
+    },
+    {
+      "id": "remove_unmotivated_glance",
+      "prompt": {
+        "user_request": "方岳提到长官时不需要先看天干；天干就在旁边，也没有请示或确认的动机。",
+        "original_text": "方岳看了天干一眼，又转回来：“刚才长官说的话没听见？”"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "方岳看着他：“刚才长官说的话没听见？前出最多一百米，到了就等我们。”",
+        "target_type": "accepted_local_revision"
+      },
+      "preference": {
+        "eligible": true,
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "方岳看着他：“刚才长官说的话没听见？前出最多一百米，到了就等我们。”",
+            "origin": "author_accepted_revision",
+            "status": "chosen"
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "方岳看了天干一眼，又转回来：“刚才长官说的话没听见？前出最多一百米，到了就等我们。”",
+            "origin": "ai_candidate_verbatim",
+            "status": "rejected"
+          }
+        ],
+        "chosen_candidate_id": "chosen",
+        "selection_source": "explicit_author_feedback",
+        "preference_reason": "作者指出看天干一眼是无动机的假动作；方岳直接对陈锋说即可。"
+      }
+    },
+    {
+      "id": "restore_gun_and_fix_departure_logic",
+      "prompt": {
+        "user_request": "保留方岳的‘滚’，并修正陈锋尚不知道搜索方向却提前往门口退、随后又收回已迈出门槛脚的动作逻辑。",
+        "original_text": "陈锋已经退到门边……方岳没理他……林夏报搜索区域……陈锋把已经迈出门槛的脚收回来。"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "陈锋又看了眼方岳的盾：“门板带稳了啊，等会儿真找到人，还得靠你挡。”\n\n方岳：“滚。”\n\n陈锋咧嘴笑了，活动着手指转向林夏：“行，不闹了。哪边？”\n\n林夏用指尖沿东南方向划过地图：“汽修厂、纺织仓、南侧居民楼。按失联时间和普通伤员的步行上限，先查这三处。”她抬头看陈锋，“雨大，我可能只能听见你的落脚。拐进屋里，我就未必接得住。”\n\n林夏话还没说完，陈锋已经朝门口走了：“不钻楼。那要是看见东西跑呢？”",
+        "target_type": "accepted_scene_revision"
+      },
+      "preference": {
+        "eligible": true,
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "陈锋又看了眼方岳的盾：“门板带稳了啊，等会儿真找到人，还得靠你挡。”\n\n方岳：“滚。”\n\n陈锋咧嘴笑了，活动着手指转向林夏：“行，不闹了。哪边？”\n\n林夏用指尖沿东南方向划过地图：“汽修厂、纺织仓、南侧居民楼。按失联时间和普通伤员的步行上限，先查这三处。”她抬头看陈锋，“雨大，我可能只能听见你的落脚。拐进屋里，我就未必接得住。”\n\n林夏话还没说完，陈锋已经朝门口走了：“不钻楼。那要是看见东西跑呢？”",
+            "origin": "author_accepted_revision",
+            "status": "chosen"
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "陈锋已经退到门边，又看了眼方岳的盾：“门板带稳了啊，等会儿真找到人，还得靠你挡。”\n\n方岳没理他，只把盾往肩上提了提。\n\n林夏用指尖沿东南方向划过地图：“汽修厂、纺织仓、南侧居民楼。按失联时间和普通伤员的步行上限，先查这三处。”她抬头看陈锋，“雨大，我可能只能听见你的落脚。拐进屋里，我就未必接得住。”\n\n陈锋把已经迈出门槛的脚收回来：“不钻楼。看见东西跑呢？”",
+            "origin": "previous_pr_version",
+            "status": "rejected"
+          }
+        ],
+        "chosen_candidate_id": "chosen",
+        "selection_source": "explicit_author_feedback",
+        "preference_reason": "作者强调‘滚’有生活气息；陈锋在林夏给出搜索区域前不知道去哪，不应提前出门。"
+      }
+    },
+    {
+      "id": "remove_explanatory_narration_and_zhecai",
+      "prompt": {
+        "user_request": "不要用‘到底没再拿他的盾开玩笑’这种说明腔，也不要用‘这才朝门口走’替动作解释因果；用陈锋自己的动作表现急性子。",
+        "original_text": "陈锋笑了一声，到底没再拿他的盾开玩笑。……陈锋这才朝门口走。"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "陈锋咧嘴笑了，活动着手指转向林夏：“行，不闹了。哪边？”……林夏话还没说完，陈锋已经朝门口走了：“不钻楼。那要是看见东西跑呢？”",
+        "target_type": "accepted_local_revision"
+      },
+      "preference": {
+        "eligible": true,
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "陈锋咧嘴笑了，活动着手指转向林夏：“行，不闹了。哪边？”……林夏话还没说完，陈锋已经朝门口走了：“不钻楼。那要是看见东西跑呢？”",
+            "origin": "author_accepted_revision",
+            "status": "chosen"
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "陈锋笑了一声，到底没再拿他的盾开玩笑。……陈锋这才朝门口走。",
+            "origin": "ai_candidate_verbatim",
+            "status": "rejected"
+          }
+        ],
+        "chosen_candidate_id": "chosen",
+        "selection_source": "explicit_author_feedback",
+        "preference_reason": "作者指出前者是多余说明腔，‘这才’也不是自然叙事；更自然的是让林夏话未说完，陈锋已经往门口走。"
+      }
+    },
+    {
+      "id": "final_scene",
+      "prompt": {
+        "user_request": "综合真实多轮反馈，完成方岳与陈锋出发前拌嘴。",
+        "context": "陈锋22岁、嘴快好胜，用玩笑遮死亡焦虑；方岳36岁、稳重，负责压住陈锋冒进。天干是现场长官。"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“一百米对我就几步。”陈锋活动着手指，“你们跟在后面，我先过去看看。真有人伤得动不了，早点找到还能早点救。”\n\n方岳看着他：“刚才长官说的话没听见？前出最多一百米，到了就等我们。”\n\n“听见了，我又没说一个人冲进去。”陈锋瞥了一眼他手里的盾，“我先把路看清楚。你背着那么大块门板，怎么也没我快。”\n\n方岳低头看了一眼盾：“你再叫一次门板，我就让你背。”\n\n陈锋笑了一声：“那还是你背着吧，我跑我的。真碰上东西，我掉头回来就是了。”\n\n“别把什么事都想得这么容易。”方岳把盾扣紧，“你跑得快，也不是每次都跑得掉。到了一百米就停，等我们跟上。”\n\n陈锋脸上的笑淡了一点。他活动了一下刚才停住的食指：“行，听你的。反正我先把路看清楚，有情况马上报。”\n\n陈锋又看了眼方岳的盾：“门板带稳了啊，等会儿真找到人，还得靠你挡。”\n\n方岳：“滚。”\n\n陈锋咧嘴笑了，活动着手指转向林夏：“行，不闹了。哪边？”\n\n林夏用指尖沿东南方向划过地图：“汽修厂、纺织仓、南侧居民楼。按失联时间和普通伤员的步行上限，先查这三处。”她抬头看陈锋，“雨大，我可能只能听见你的落脚。拐进屋里，我就未必接得住。”\n\n林夏话还没说完，陈锋已经朝门口走了：“不钻楼。那要是看见东西跑呢？”",
+        "target_type": "accepted_final_revision"
+      },
+      "preference": {
+        "eligible": false
+      },
+      "source": {
+        "repository": "ganlingwen/novels",
+        "file": "generated/chapter2.md"
+      },
+      "quality": {
+        "human_accepted": true,
+        "contains_multi_round_author_feedback": true
+      }
+    }
+  ],
+  "counts": {
+    "sft_samples": 6,
+    "dpo_pairs": 7
+  }
+}
