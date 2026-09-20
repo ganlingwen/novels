@@ -1,0 +1,4 @@
+media/models/
+media/**/__pycache__/
+generated/videos/
+generated/audio/
