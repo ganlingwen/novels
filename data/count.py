@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Count eligible SFT samples and DPO pairs in this directory.
+"""Count SFT samples and DPO pairs in this directory.
+
+Supports both the original schema-2 records and the newer compact
+{"sft": [...], "dpo": [...]} bundles.
 
 Run from any working directory: python data/count.py
 """
@@ -15,6 +18,16 @@ def main() -> None:
 
     for path in files:
         bundle = json.loads(path.read_text(encoding="utf-8"))
+
+        # New compact bundle format.
+        if isinstance(bundle.get("sft"), list) or isinstance(bundle.get("dpo"), list):
+            sft += len(bundle.get("sft", []))
+            dpo = bundle.get("dpo", [])
+            dpo_records += len(dpo)
+            dpo_pairs += len(dpo)
+            continue
+
+        # Original schema-2 format.
         records = bundle.get("records", [bundle])
         for obj in records:
             if obj.get("sft", {}).get("eligible") is True:
