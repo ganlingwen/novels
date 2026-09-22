@@ -14,7 +14,7 @@
 
 ## P0：先确认模型是否真的改善
 
-- [ ] **E01：审计 loss、日志和恢复连续性。** 找到当前 writer 实际路径（`outputs/.../tensorboard/<run>/`）并与旧 `runs/<run>/tensorboard/` 区分，按事件文件及运行时间分开曲线，避免恢复后重复 step 混合。核对有限 validation 值与 best 元数据；历史 NaN 不能直接判为显示故障。绘制每 100/500 steps 的均值、离散度及 LR。用小模型验证连续训练与保存后恢复的数据位置、optimizer、scheduler 一致。完成标准：每条曲线能对应到明确进程/代码版本，NaN 与断点行为有可复现解释。
+- [x] **E01：审计 loss、日志和恢复连续性。** 找到当前 writer 实际路径（`outputs/.../tensorboard/<run>/`）并与旧 `runs/<run>/tensorboard/` 区分，按事件文件及运行时间分开曲线，避免恢复后重复 step 混合。核对有限 validation 值与 best 元数据；历史 NaN 不能直接判为显示故障。绘制每 100/500 steps 的均值、离散度及 LR。用小模型验证连续训练与保存后恢复的数据位置、optimizer、scheduler 一致。完成标准：每条曲线能对应到明确进程/代码版本，NaN 与断点行为有可复现解释。
 
 - [ ] **E02：建立无泄漏、分类型的固定评估集。** 当前代码先拼接 continuation/instruction，再取前 1% 验证，因此验证集只覆盖 continuation。保留旧验证集作历史对照；为下一轮建立按来源/作品/相关片段分组、两类均覆盖的 train/valid/test 划分，并检查近重复。对本轮已训练样本只能报告回顾性结果，不能重新命名为未见测试集。完成标准：保存样本 ID、来源、分组和重叠审计。
 
