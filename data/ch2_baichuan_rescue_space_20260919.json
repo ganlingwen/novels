@@ -30,6 +30,12 @@
         "chosen_candidate_id": "B",
         "selection_source": "explicit_author_choice",
         "preference_reason": "作者偏好B的整体语气，但指出不能预判伤员一定需要止血；A的‘蹲下来处理伤口’也过度预设具体处理方式。"
+      },
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
       }
     },
     {
@@ -61,6 +67,12 @@
         "chosen_candidate_id": "chosen",
         "selection_source": "explicit_author_feedback",
         "preference_reason": "作者认为白川是在向队长说明需要什么条件，而不是提醒上级不要犯错。"
+      },
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
       }
     },
     {
@@ -92,6 +104,10 @@
         "chosen_candidate_id": "chosen",
         "selection_source": "explicit_author_feedback",
         "preference_reason": "‘先看看他的伤’属于显而易见的医疗动作，写出来是废话；同时作者偏好‘找到人以后’而不是‘到地方’。"
+      },
+      "tags": {
+        "primary": "scene",
+        "secondary": []
       }
     },
     {
@@ -123,6 +139,12 @@
         "chosen_candidate_id": "chosen",
         "selection_source": "explicit_author_choice",
         "preference_reason": "作者明确否定‘最好能给’的绕法，同时要求从‘留位置’进一步改成‘得有位置’，弱化命令感。"
+      },
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
       }
     },
     {
@@ -154,6 +176,10 @@
         "chosen_candidate_id": "B",
         "selection_source": "explicit_author_choice",
         "preference_reason": "作者选择B；‘有个地方让我照顾伤员’比‘照顾伤员的位置’更像现场口语。"
+      },
+      "tags": {
+        "primary": "scene",
+        "secondary": []
       }
     },
     {
@@ -173,6 +199,10 @@
       "quality": {
         "human_accepted": true,
         "contains_multi_round_author_feedback": true
+      },
+      "tags": {
+        "primary": "scene",
+        "secondary": []
       }
     }
   ],

@@ -38,6 +38,10 @@
         "chosen_candidate_id": "C",
         "selection_source": "explicit_author_choice",
         "preference_reason": "作者认为C最好，但指出动作‘把担架带往盾后挪了挪’难以理解，且‘你腿快’是双方都知道的冗余信息。"
+      },
+      "tags": {
+        "primary": "scene",
+        "secondary": []
       }
     },
     {
@@ -69,6 +73,10 @@
         "chosen_candidate_id": "chosen",
         "selection_source": "explicit_author_choice",
         "preference_reason": "作者认为‘听完’纯属废话；动作只需交代对白对象。"
+      },
+      "tags": {
+        "primary": "scene",
+        "secondary": []
       }
     },
     {
@@ -106,6 +114,10 @@
         "chosen_candidate_id": "B",
         "selection_source": "explicit_author_choice",
         "preference_reason": "作者认为A‘对陈锋说’还不如‘转向’；C的‘叫住’与事实冲突，因为陈锋尚未离开，后面还要给人开门；B的‘看向’最合适。"
+      },
+      "tags": {
+        "primary": "scene",
+        "secondary": []
       }
     },
     {
@@ -125,6 +137,10 @@
       "quality": {
         "human_accepted": true,
         "context_checked": true
+      },
+      "tags": {
+        "primary": "plot",
+        "secondary": []
       }
     }
   ],
