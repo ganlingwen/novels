@@ -95,6 +95,13 @@
             "response": "“昨晚我连续用了两次光系治疗，才勉强把你稳住。再加上药和材料，这一百点不是随便算的。”",
             "status": "partially_chosen",
             "origin": "ai_candidate_verbatim"
+          },
+          {
+            "candidate_id": "C+A",
+            "response": "“昨晚我连续用了两次光系治疗，才勉强把你稳住。再加上药和材料，一百点不算多。”",
+            "status": "chosen",
+            "origin": "author_explicit_composite_of_C_first_clause_and_A_final_clause",
+            "provenance_note": "Exact combined text assembled from the two existing candidate clauses specified by preference_reason; no new narrative content."
           }
         ],
         "chosen_candidate_id": "C+A",
