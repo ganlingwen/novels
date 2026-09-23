@@ -82,22 +82,37 @@ def make_sft_dataset(records: list[dict], tokenizer, max_length: int) -> NovelSF
 
 
 def _preference_candidates(item: dict) -> tuple[str | None, list[str]]:
+    """Expand only real, nonempty, distinct same-prompt preference candidates."""
     preference = item.get("preference", {})
     if preference.get("eligible") is not True:
         return None, []
     candidates = preference.get("candidates", [])
     chosen_id = preference.get("chosen_candidate_id")
-    chosen = next(
-        (
-            candidate.get("response")
-            for candidate in candidates
-            if candidate.get("candidate_id") == chosen_id
-            or candidate.get("status") in ("chosen", "chosen_then_refined")
-        ),
+    # An explicit author-selected ID takes precedence over an intermediate
+    # candidate whose status happens to contain "chosen".
+    selected = next(
+        (candidate for candidate in candidates if candidate.get("candidate_id") == chosen_id),
         None,
-    )
-    rejected = [candidate.get("response") for candidate in candidates if candidate.get("status") == "rejected"]
-    return chosen, [response for response in rejected if response]
+    ) if chosen_id else None
+    if selected is None:
+        selected = next(
+            (candidate for candidate in candidates
+             if candidate.get("status") in ("chosen", "chosen_then_refined")),
+            None,
+        )
+    chosen = selected.get("response") if selected else None
+    if not isinstance(chosen, str) or not chosen.strip():
+        return None, []
+    rejected = [
+        candidate.get("response")
+        for candidate in candidates
+        if candidate.get("status") == "rejected"
+        and candidate.get("candidate_id") != selected.get("candidate_id")
+        and isinstance(candidate.get("response"), str)
+        and candidate["response"].strip()
+        and candidate["response"] != chosen
+    ]
+    return chosen, rejected
 
 
 def load_local_dpo_records(data_dir: str | Path) -> list[dict]:
@@ -113,7 +128,7 @@ def load_local_dpo_records(data_dir: str | Path) -> list[dict]:
             prompt = item.get("prompt")
             chosen = item.get("chosen")
             rejected = item.get("rejected")
-            if not prompt or not chosen or not rejected:
+            if not all(isinstance(value, str) and value.strip() for value in (prompt, chosen, rejected)) or chosen == rejected:
                 continue
             rid = f"{path.name}:dpo:{index}:{hashlib.sha256((chosen + '\\n' + rejected).encode()).hexdigest()[:12]}"
             if rid not in seen:
