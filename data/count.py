@@ -5,6 +5,7 @@ Run from any working directory: python data/count.py
 """
 
 from collections import Counter
+import json
 from pathlib import Path
 import sys
 
@@ -20,9 +21,26 @@ def main() -> None:
     sft_by_file = Counter(record["source"] for record in sft_records)
     dpo_by_file = Counter(record["source"] for record in dpo_records)
 
+    # Keep the historical annotation count visible; do not silently replace it
+    # with the loader result. A gap is a data-quality or compatibility issue.
+    annotated_pairs = 0
+    for path in files:
+        bundle = json.loads(path.read_text(encoding="utf-8"))
+        annotated_pairs += len(bundle.get("dpo", []))
+        for item in bundle.get("records", [bundle]):
+            preference = item.get("preference", {})
+            if preference.get("eligible") is not True:
+                continue
+            chosen_id = preference.get("chosen_candidate_id")
+            candidates = preference.get("candidates", [])
+            if chosen_id and any(c.get("candidate_id") == chosen_id for c in candidates):
+                annotated_pairs += sum(c.get("status") == "rejected"
+                                       and c.get("candidate_id") != chosen_id for c in candidates)
     print(f"JSON files: {len(files)}")
+    print(f"DPO pairs (annotated, historical count.py rules): {annotated_pairs}")
+    print(f"DPO pairs (loader): {len(dpo_records)}")
+    print(f"Difference (annotated - loader): {annotated_pairs - len(dpo_records)}")
     print(f"SFT samples (loaded): {len(sft_records)}")
-    print(f"DPO pairs (loaded): {len(dpo_records)}")
     print("Per-file loaded counts (SFT / DPO):")
     for path in files:
         print(f"  {path.name}: {sft_by_file[path.name]} / {dpo_by_file[path.name]}")
