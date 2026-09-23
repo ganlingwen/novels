@@ -61,6 +61,7 @@ class TrainConfig:
     gradient_accumulation: int = 16
     valid_steps: int = 500
     save_steps: int = 1000
+    save_best: bool = True
     seed: int = 42
     data_loader: DataLoaderConfig = field(default_factory=DataLoaderConfig)
     optimizer: OptimizerConfig = field(default_factory=OptimizerConfig)
@@ -208,7 +209,8 @@ class Train:
             if self.valid_steps and self.checkpoint.global_step % self.valid_steps == 0:
                 val_loss = self.valid_step()
                 self.writer.add_scalar("valid/loss", val_loss, self.checkpoint.global_step)
-                self.checkpoint.save_best_model(self.output_dir, val_loss)
+                if self.config.save_best:
+                    self.checkpoint.save_best_model(self.output_dir, val_loss)
                 progress.set_postfix(loss=f"{loss:.4f}", val=f"{val_loss:.4f}", lr=f"{lr:.2e}")
             if self.save_steps and self.checkpoint.global_step % self.save_steps == 0:
                 self.checkpoint.save(self.output_dir)
