@@ -73,8 +73,8 @@
   <text x="570" y="378" class="small">木楔斜钉实土</text>
 
   <rect x="650" y="390" width="115" height="74" rx="7" class="object"/>
-  <text x="665" y="420" class="label">C 翻倒车斗</text>
-  <text x="663" y="444" class="small">老杜离车后遮住双手</text>
+  <text x="665" y="420" class="label">C 翻扣木箱</text>
+  <text x="663" y="444" class="small">老杜离箱后遮住双手</text>
 
   <circle cx="620" cy="417" r="18" fill="#3E8B62"/>
   <text x="588" y="482" class="small">小文按地</text>
