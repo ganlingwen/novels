@@ -36,5 +36,11 @@
     "human_accepted": true,
     "merged": true,
     "contains_author_reverse": true
+  },
+  "tags": {
+    "primary": "dialogue",
+    "secondary": [
+      "natural_dialogue"
+    ]
   }
 }
