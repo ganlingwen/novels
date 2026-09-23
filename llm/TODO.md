@@ -18,9 +18,9 @@
 
 - [ ] **E02：建立无泄漏、分类型的固定评估集。** 当前代码先拼接 continuation/instruction，再取前 1% 验证，因此验证集只覆盖 continuation。保留旧验证集作历史对照；为下一轮建立按来源/作品/相关片段分组、两类均覆盖的 train/valid/test 划分，并检查近重复。对本轮已训练样本只能报告回顾性结果，不能重新命名为未见测试集。完成标准：保存样本 ID、来源、分组和重叠审计。
 
-- [ ] **E03：原始模型与各 checkpoint 自动对比。** 在同一评估集上测 assistant-only、按监督 token 加权的 NLL/PPL，并按 continuation/instruction 分类。另报样本平均 NLL：当前验证代码是 batch 均值的平均，两者不混用。比较原始模型、现存 checkpoints、固定快照的 best 和 final；核对 best 的真实 step，不能假设始终为 2500。完成标准：比较表及按独立来源分组 bootstrap 的差值区间；单个初始 batch 的 loss 不充当原始模型基线。
+- [ ] **E03（部分完成）：原始模型与各 checkpoint 自动对比。** 已完成 Base 与 step 1000–9000 的 assistant-only NLL 对比和 best step 核对，记录于 [`llm/experiments/initial_evaluation.md`](experiments/initial_evaluation.md)。仍缺：使用 Stage-1 固定 validation/test 集的正式对比、PPL、continuation/instruction 分组和 bootstrap 差值区间。单个初始 batch 的 loss 不充当原始模型基线。
 
-- [ ] **E04：手工 SFT/DPO 数据作为自动编辑基准。** 审计 `data/`，只使用 eligible 的真实记录。SFT 统计接受答案的 token 平均 NLL 及相对原始模型的变化；偏好对报告 chosen/rejected 的序列 logP margin、长度归一化 margin、偏好准确率，以及相对原始模型的 margin 变化。两种 margin 含义不同，分别命名。相同场景/PR 的片段与整场记录分组，避免重复计权；小样本报告数量及区间。缺失上下文先从对应历史版本恢复或排除。编辑指令作为输入只评估“执行修改”，不能声称评估“自主发现问题”。完成标准：可重复生成逐项报告，无需新增人工评分。
+- [ ] **E04（核心指标完成）：手工 SFT/DPO 数据作为自动编辑基准。** 已完成 eligible 手工数据的 accepted-response NLL、DPO accuracy、长度归一化 margin，以及 Base/step 1000–9000 对比，记录于 [`llm/experiments/initial_evaluation.md`](experiments/initial_evaluation.md)。仍缺：按场景/PR 去重计权、缺失上下文审计和 bootstrap/不确定性区间；当前结果只能作为回顾性编辑基准，不能当作未见泛化测试。
 
 - [ ] **E05：自动生成回归与通用能力保留。** 固定小说编辑、续写及少量非小说指令任务；统一模板、thinking 设置、生成长度和解码参数。对可确定的要求统计姓名/数字保留、格式合规、禁止内容、重复 n-gram、意外截断及无须修改样本的误改率；复杂空间/剧情错误不以关键词检查冒充可靠判断。完成标准：与原始模型比较并列出检测器覆盖范围；不把自动分数直接等同文学质量。
 
