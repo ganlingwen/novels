@@ -53,5 +53,11 @@
     "sft_samples": 1,
     "dpo_pairs": 1
   },
-  "notes": "正文 PR #33 在作者确认前已合并；作者随后明确选择已合并的 A。此数据 PR 只补真实选择，不修改正文。"
+  "notes": "正文 PR #33 在作者确认前已合并；作者随后明确选择已合并的 A。此数据 PR 只补真实选择，不修改正文。",
+  "tags": {
+    "primary": "pov",
+    "secondary": [
+      "limited_pov"
+    ]
+  }
 }
