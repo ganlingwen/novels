@@ -55,5 +55,9 @@
     "autonomous_editor_sft": true,
     "reviewer_sft": true,
     "preference_dpo": false
+  },
+  "tags": {
+    "primary": "scene",
+    "secondary": []
   }
 }
