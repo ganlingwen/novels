@@ -36,5 +36,14 @@
   "training_views": {
     "preference_training": "repository_context + user_request + chapter -> chosen vs rejected",
     "reviewer_negative": "repository_context + chapter -> do_not_flag_this_as_error"
-  }
+  },
+  "dpo": [
+    {
+      "prompt": "任务：审阅小说中天干报出尸群数量的情节，判断是否需要以普通侦察方式补充信息来源。\n作者要求：复审当前章节。结合 AGENTS.md、人物卡、势力卡、力量体系、大纲和前文，找出真正需要修改的问题；每次只做必要的小修改，不改变既定剧情和设定。\n已确认设定：该判断忽略了人物卡与作者明确设定。天干是特殊感知系“魂灯”异能者；作者进一步明确本处报数就是异能表现。不能因为常人无法直接报数，就把这一表现判成逻辑漏洞，更不能擅自将异能展示改写成普通侦察。",
+      "chosen": "保持原文中天干以异能完成报数的表现，不新增常规侦察解释。",
+      "rejected": "把天干报数视为信息来源缺失，并增加瞭望岗、望远镜、守卫递消息等常规侦察解释。",
+      "reason": "该判断忽略了人物卡与作者明确设定。天干是特殊感知系“魂灯”异能者；作者进一步明确本处报数就是异能表现。不能因为常人无法直接报数，就把这一表现判成逻辑漏洞，更不能擅自将异能展示改写成普通侦察。"
+    }
+  ],
+  "conversion_note": "Reviewer preference only; do not treat chosen/rejected as novel prose or create SFT from this negative review."
 }
