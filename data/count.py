@@ -31,6 +31,9 @@ def main() -> None:
             preference = item.get("preference", {})
             if preference.get("eligible") is not True:
                 continue
+            if isinstance(preference.get("rejected"), list) and item.get("sft", {}).get("eligible") is True:
+                annotated_pairs += len(preference["rejected"])
+                continue
             chosen_id = preference.get("chosen_candidate_id")
             candidates = preference.get("candidates", [])
             if chosen_id and any(c.get("candidate_id") == chosen_id for c in candidates):
