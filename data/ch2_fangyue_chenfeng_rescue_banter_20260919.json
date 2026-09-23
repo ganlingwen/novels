@@ -31,6 +31,10 @@
         "chosen_candidate_id": "B",
         "selection_source": "explicit_author_choice",
         "preference_reason": "作者明确选择 B 的人物关系方向，但认为其中仍有大量不自然短句，需要继续改。"
+      },
+      "tags": {
+        "primary": "character",
+        "secondary": []
       }
     },
     {
@@ -61,6 +65,10 @@
         "chosen_candidate_id": "chosen_direction",
         "selection_source": "explicit_author_feedback",
         "preference_reason": "作者指出这类短句连正常口语句法和人物意图都不成立。"
+      },
+      "tags": {
+        "primary": "plot",
+        "secondary": []
       }
     },
     {
@@ -93,6 +101,12 @@
         "chosen_candidate_id": "chosen",
         "selection_source": "explicit_author_feedback",
         "preference_reason": "作者指出第一句是同义反复废话；方岳应称天干为‘长官’；‘你每次都觉得自己跑得回来’过于整齐书面。"
+      },
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
       }
     },
     {
@@ -125,6 +139,10 @@
         "chosen_candidate_id": "chosen",
         "selection_source": "explicit_author_feedback",
         "preference_reason": "作者明确指出改成担架后把前文‘门板’梗丢了。"
+      },
+      "tags": {
+        "primary": "character",
+        "secondary": []
       }
     },
     {
@@ -157,6 +175,10 @@
         "chosen_candidate_id": "chosen",
         "selection_source": "explicit_author_feedback",
         "preference_reason": "作者指出看天干一眼是无动机的假动作；方岳直接对陈锋说即可。"
+      },
+      "tags": {
+        "primary": "character",
+        "secondary": []
       }
     },
     {
@@ -189,6 +211,10 @@
         "chosen_candidate_id": "chosen",
         "selection_source": "explicit_author_feedback",
         "preference_reason": "作者强调‘滚’有生活气息；陈锋在林夏给出搜索区域前不知道去哪，不应提前出门。"
+      },
+      "tags": {
+        "primary": "scene",
+        "secondary": []
       }
     },
     {
@@ -221,6 +247,10 @@
         "chosen_candidate_id": "chosen",
         "selection_source": "explicit_author_feedback",
         "preference_reason": "作者指出前者是多余说明腔，‘这才’也不是自然叙事；更自然的是让林夏话未说完，陈锋已经往门口走。"
+      },
+      "tags": {
+        "primary": "scene",
+        "secondary": []
       }
     },
     {
@@ -244,6 +274,10 @@
       "quality": {
         "human_accepted": true,
         "contains_multi_round_author_feedback": true
+      },
+      "tags": {
+        "primary": "scene",
+        "secondary": []
       }
     }
   ],
