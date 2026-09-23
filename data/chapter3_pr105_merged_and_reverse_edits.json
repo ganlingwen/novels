@@ -22,6 +22,12 @@
       "preference": {
         "eligible": false,
         "reason": "合入 diff 不等于作者明确否决原文。"
+      },
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
       }
     },
     {
@@ -40,6 +46,12 @@
       "preference": {
         "eligible": false,
         "reason": "合入 diff 不等于作者明确否决原文。"
+      },
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
       }
     },
     {
@@ -58,6 +70,12 @@
       "preference": {
         "eligible": false,
         "reason": "合入 diff 不等于作者明确否决原文。"
+      },
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
       }
     },
     {
@@ -76,6 +94,12 @@
       "preference": {
         "eligible": false,
         "reason": "合入 diff 不等于作者明确否决原文。"
+      },
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
       }
     },
     {
@@ -94,6 +118,12 @@
       "preference": {
         "eligible": false,
         "reason": "合入 diff 不等于作者明确否决原文。"
+      },
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
       }
     },
     {
@@ -112,6 +142,12 @@
       "preference": {
         "eligible": false,
         "reason": "合入 diff 不等于作者明确否决原文。"
+      },
+      "tags": {
+        "primary": "pov",
+        "secondary": [
+          "limited_pov"
+        ]
       }
     },
     {
@@ -130,6 +166,12 @@
       "preference": {
         "eligible": false,
         "reason": "合入 diff 不等于作者明确否决原文。"
+      },
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
       }
     },
     {
@@ -177,7 +219,11 @@
           "text": "小文抬头看向马克：“我母亲三天后有一次治疗，就只差五点。能不能先让她治？差的五点，我一定想办法补上。”\n\n马克看了他一会儿：“虽然只差五点，但这个先例我们不能破。一旦破了例，就会有第二次、第三次。”\n\n小文撑着床沿坐直了些，疼得眉头一紧：“只有三天了。我现在下地都困难，很难凑齐这五点。”\n\n马克看着他的伤腿：“你的情况我理解，但基地里还有很多人等着治疗，我不能只给你一个人通融。”",
           "status": "accepted"
         }
-      ]
+      ],
+      "tags": {
+        "primary": "plot",
+        "secondary": []
+      }
     },
     {
       "id": "pr105-reverse-cost-line",
@@ -224,7 +270,13 @@
           "text": "白川抬起头看他，他低下了头。\n\n白川把笔搁下：“换药的钱我先给你垫着，明天过来，我得看看里面的伤口。”她朝门口抬了抬下巴，“走两步我看看。拐别放那么远。”",
           "status": "accepted"
         }
-      ]
+      ],
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
+      }
     }
   ],
   "review_history": [

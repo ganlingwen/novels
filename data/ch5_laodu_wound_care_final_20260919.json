@@ -45,7 +45,13 @@
         "merged": true,
         "contains_author_reverse": true
       },
-      "notes": "一个场景一个 JSON；SFT 为最终确认的整段局部定稿，preference 仅收录真实同轮 A/B；其余逐轮纠正保存在 review，不重复拆分样本。"
+      "notes": "一个场景一个 JSON；SFT 为最终确认的整段局部定稿，preference 仅收录真实同轮 A/B；其余逐轮纠正保存在 review，不重复拆分样本。",
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
+      }
     },
     {
       "schema_version": "2.0",
@@ -83,6 +89,10 @@
         "human_accepted": true,
         "merged": true,
         "contains_author_reverse": true
+      },
+      "tags": {
+        "primary": "scene",
+        "secondary": []
       }
     },
     {
@@ -121,6 +131,10 @@
         "human_accepted": true,
         "merged": true,
         "contains_author_reverse": true
+      },
+      "tags": {
+        "primary": "scene",
+        "secondary": []
       }
     },
     {
@@ -159,6 +173,12 @@
         "human_accepted": true,
         "merged": true,
         "contains_author_reverse": true
+      },
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
       }
     },
     {
@@ -197,6 +217,12 @@
         "human_accepted": true,
         "merged": true,
         "contains_author_reverse": true
+      },
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
       }
     },
     {
@@ -235,6 +261,12 @@
         "human_accepted": true,
         "merged": true,
         "contains_author_reverse": true
+      },
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
       }
     },
     {
@@ -273,6 +305,12 @@
         "human_accepted": true,
         "merged": true,
         "contains_author_reverse": true
+      },
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
       }
     },
     {
@@ -323,6 +361,12 @@
         "human_accepted": true,
         "merged": true,
         "contains_author_reverse": true
+      },
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
       }
     }
   ],
