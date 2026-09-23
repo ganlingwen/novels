@@ -26,16 +26,11 @@ def parse_args():
     parser.add_argument("--per-device-batch-size", type=int, default=1)
     parser.add_argument("--gradient-accumulation", type=int, default=16)
     parser.add_argument("--validation-ratio", type=float, default=0.1)
-    parser.add_argument("--valid-steps", type=int, default=10)
-    parser.add_argument("--save-steps", type=int, default=0)
     parser.add_argument("--num-workers", type=int, default=4)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--no-gradient-checkpointing", action="store_true")
     parser.add_argument("--fused-adamw", action="store_true")
     parser.add_argument("--causal-right-padding", action="store_true")
-    parser.add_argument(
-        "--save-best", action="store_true", help="Save best model during validation; disabled by default."
-    )
     return parser.parse_args()
 
 
@@ -65,15 +60,17 @@ def main():
         output_dir=str(run_dir),
         max_steps=args.max_steps,
         gradient_accumulation=args.gradient_accumulation,
-        valid_steps=args.valid_steps,
-        save_steps=args.save_steps,
-        save_best=args.save_best,
+        valid_steps=0,
+        save_steps=0,
+        save_best=False,
         seed=args.seed,
         data_loader=DataLoaderConfig(batch_size=args.per_device_batch_size, num_workers=args.num_workers),
         optimizer=OptimizerConfig(learning_rate=args.learning_rate, fused=args.fused_adamw),
     )
     trainer = Train(model, train_dataset, valid_dataset, config)
     trainer.train()
+    final_validation_loss = trainer.valid_step()
+    print(f"final validation loss: {final_validation_loss:.6f}")
     final_dir = run_dir / "final"
     model.save_pretrained(final_dir, safe_serialization=True)
     tokenizer.save_pretrained(final_dir)
