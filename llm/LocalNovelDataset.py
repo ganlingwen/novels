@@ -27,7 +27,7 @@ def _legacy_prompt(bundle: dict, item: dict) -> str:
     scene = bundle.get("scene") or bundle.get("description") or bundle.get("scene_id")
     if not focus and not scene:
         return ""
-    return "\\n".join(part for part in (
+    return "\n".join(part for part in (
         f"场景：{scene}" if scene else "",
         f"修改重点：{focus}" if focus else "",
         "根据上述场景与修改重点，选择更符合作者要求的写法。",
