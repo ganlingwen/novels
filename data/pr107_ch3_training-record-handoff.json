@@ -57,7 +57,12 @@
     "chapter": 3,
     "scene": "training_record",
     "edit_type": "add_action_beat_keep_handoff_chain",
-    "anti_pattern": ["split_short_lines", "overshort_handoff_lost", "preknowledge_answer", "no_action_beat"]
+    "anti_pattern": [
+      "split_short_lines",
+      "overshort_handoff_lost",
+      "preknowledge_answer",
+      "no_action_beat"
+    ]
   },
   "quality": {
     "human_accepted": true,
@@ -71,5 +76,11 @@
     "autonomous_editor_sft": true,
     "reviewer_sft": true,
     "preference_dpo": true
+  },
+  "tags": {
+    "primary": "dialogue",
+    "secondary": [
+      "natural_dialogue"
+    ]
   }
 }
