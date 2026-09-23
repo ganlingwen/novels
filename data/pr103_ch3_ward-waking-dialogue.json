@@ -1,0 +1,75 @@
+{
+  "schema_version": "2.0",
+  "language": "zh-CN",
+  "id": "novels_pr103_ch3_001",
+  "source": {
+    "repository": "ganlingwen/novels",
+    "file": "generated/chapter3.md",
+    "origin_pr": 99,
+    "accepted_pr": 103,
+    "merge_commit": "c9f39cb",
+    "accepted_head_commit": "c58487c"
+  },
+  "prompt": {
+    "user_request": "从 PR #89 拆出第三章病房苏醒段一处对白优化；把碎句合并为带动作的整句，恢复小文主动提问，避免白川未卜先知。",
+    "context": "第三章病房苏醒段。小文被抢救后次日午后醒来，看见白川在床边削苹果；右腿、肩背和后脑重伤未愈。要求：对白要带人物性格和当下处境，不要几个字几个字蹦的推进式碎句；旁白腔要少，靠动作承接推动故事；省略不能过度，读者要能接住。AGENTS.md、skills/write.md、skills/score.md、chapter3_scene.md、characters.md 中白川和小文的卡片为事实源。",
+    "original_text": "小文撑住床板。\n\n“躺回去。”\n\n“我爸昨晚——”\n\n“没去成。”白川搁下刀，托住他的左臂，“你母亲托附近医务点的人来问过。她自己走不到这边，也抬不动你父亲。已经托人回话，说你抢救过来了，还得观察。”\n\n疼痛从肩后一路烧到脚踝。小文躺回去，呼吸停了半拍。\n\n“他们知道我在这里？”\n\n“知道你活着。伤成什么样，等你回去自己说。”白川重新拿起刀，“先别把我刚缝好的地方挣开。”"
+  },
+  "review": {
+    "provenance": "ai_discovered_then_author_refined",
+    "issue": "原稿把病房苏醒段拆成多行碎句：'躺回去。'单独成段无动作承接，像几个字几个字蹦；小文'我爸昨晚——'被打断成半句，白川'没去成'像未卜先知地抢答小文未出口的内容；白川末尾'先别把我刚缝好的地方挣开'与第一处'躺回去'重复，属于连续说警句；白川口语'已经托人回话'主语不明。第一版改稿用'去成了吗'承接白川'没去成'，但'去成'省略过多，读者要补'去哪、做什么'。",
+    "edit_instruction": "把碎句合并为带动作的整句：白川'躺回去'合并到'按回去+别把刚缝好的地方挣开'，带托臂、按回的动作；把后面白川末尾重复警句删掉。小文把问句说完整——'我爸昨晚……赶上治疗了吗？'，让白川'没去成'有承接对象，也避免省略过多。白川口语'已经托人回话'改为'我已经让人回话'，主语明确。",
+    "reason": "病房苏醒段对白应是带着伤势和处境的活人感台词，而不是几个字几个字蹦的推进式碎句；动作承接（托臂、按回、搁刀）代替旁白推动；小文主动把问句说完整，白川的回应就有了承接对象，避免未卜先知；省略要适度，读者要能接住；白川卡要求不连续说警句。"
+  },
+  "sft": {
+    "eligible": true,
+    "response": "小文撑住床板。\n\n白川托住他的左臂，把他按回去：“躺好，别把刚缝好的地方挣开。”\n\n“我爸昨晚……赶上治疗了吗？”\n\n“没去成。”白川搁下刀，“你母亲托附近医务点的人来问过，她走不到这边，也抬不动你父亲。我已经让人回话，说你抢救过来了，还得观察。”\n\n疼痛从肩后一路烧到脚踝。小文躺回去，呼吸停了半拍。\n\n“他们知道我在这里？”\n\n“知道你活着。伤成什么样，等你回去自己说。”",
+    "target_type": "accepted_revision"
+  },
+  "preference": {
+    "eligible": true,
+    "prompt_source": "same_as_prompt",
+    "candidates": [
+      {
+        "candidate_id": "chosen",
+        "response": "小文撑住床板。\n\n白川托住他的左臂，把他按回去：“躺好，别把刚缝好的地方挣开。”\n\n“我爸昨晚……赶上治疗了吗？”\n\n“没去成。”白川搁下刀，“你母亲托附近医务点的人来问过，她走不到这边，也抬不动你父亲。我已经让人回话，说你抢救过来了，还得观察。”\n\n疼痛从肩后一路烧到脚踝。小文躺回去，呼吸停了半拍。\n\n“他们知道我在这里？”\n\n“知道你活着。伤成什么样，等你回去自己说。”",
+        "origin": "final_author_selected_revision",
+        "status": "chosen"
+      },
+      {
+        "candidate_id": "rejected_split_lines_preknowledge",
+        "response": "小文撑住床板。\n\n“躺回去。”\n\n“我爸昨晚——”\n\n“没去成。”白川搁下刀，托住他的左臂，“你母亲托附近医务点的人来问过。她自己走不到这边，也抬不动你父亲。已经托人回话，说你抢救过来了，还得观察。”\n\n疼痛从肩后一路烧到脚踝。小文躺回去，呼吸停了半拍。\n\n“他们知道我在这里？”\n\n“知道你活着。伤成什么样，等你回去自己说。”白川重新拿起刀，“先别把我刚缝好的地方挣开。”",
+        "origin": "pre_edit_manuscript_at_pr_99_head",
+        "status": "rejected"
+      },
+      {
+        "candidate_id": "rejected_overshort_followup",
+        "response": "小文撑住床板。\n\n白川托住他的左臂，把他按回去：“躺好，别把刚缝好的地方挣开。”\n\n“我爸昨晚……去成了吗？”\n\n“没去成。”白川搁下刀，“你母亲托附近医务点的人来问过，她走不到这边，也抬不动你父亲。我已经让人回话，说你抢救过来了，还得观察。”",
+        "origin": "intermediate_ai_candidate_rejected_by_author_overshort",
+        "status": "rejected"
+      }
+    ],
+    "chosen_candidate_id": "chosen",
+    "preference_reason": "原稿（rejected_split_lines_preknowledge，来自 PR #99 头 afb750f 真实历史版本，非事后编造）把'躺回去'拆成单独碎句无动作承接，小文'我爸昨晚——'被打断成半句，白川'没去成'像未卜先知地抢答小文未出口的内容；白川末尾'先别把我刚缝好的地方挣开'与'躺回去'重复，连续说警句。中间稿（rejected_overshort_followup）虽合并了碎句、恢复了小文主动提问，但用'去成了吗'承接白川'没去成'，省略过多——读者要补'去哪、做什么'，作者反馈'你这个省略的东西省太多了'。最终选择小文把问句说完整为'赶上治疗了吗'，白川'没去成'有了明确承接对象；同时把白川'躺回去'合并到'按回去+别把刚缝好的地方挣开'带托臂动作，删掉末尾重复警句，符合白川卡'不连续说警句'；'已经托人回话'改为'我已经让人回话'主语明确。",
+    "selection_source": "explicit_author_multiround_choice"
+  },
+  "labels": {
+    "chapter": 3,
+    "scene": "ward_waking",
+    "edit_type": "dialogue_merge_with_action",
+    "anti_pattern": ["split_short_lines", "preknowledge_answer", "repeated_warnings", "overshort_followup", "no_action_beat"]
+  },
+  "quality": {
+    "human_accepted": true,
+    "human_rejected": false,
+    "merged": true,
+    "accepted_pr": 103,
+    "contains_author_reverse": true
+  },
+  "training_views": {
+    "executor_sft": true,
+    "autonomous_editor_sft": true,
+    "reviewer_sft": true,
+    "preference_dpo": true
+  }
+}
