@@ -1,0 +1,69 @@
+{
+  "task_id": "chapter4_pr74_westwall_retreat_reverse_edit",
+  "source_pr": 74,
+  "source": "real_user_feedback_and_merged_edit",
+  "acceptance_scope": "one_local_passage_only",
+  "quality_status": "accepted_local_revision_not_whole_chapter_final",
+  "edit_history": [
+    {
+      "stage": "pr74_rebased_candidate",
+      "text": "更高处，林夏伏在女墙后，手掌贴着钢板。她朝方岳摇了一次头，又指向远处高架。方岳顺着她的手势看了一眼，立刻把盾组往涵管、正门和内墙门分。\n\n“陈锋，跑三处。”方岳把三面小旗塞过去，“哪边先坏、缺几个人，给我带回来。”\n\n陈锋抓了旗就走。十几息后，涵管方向先升起一面回旗，正门和内墙门紧跟着有了回应。\n\n人群向内墙门撤去。小文拄着木杖跟在后面。老杜落在更后头，木拐急促地敲着地面。",
+      "status": "rejected_after_spatial_logic_feedback",
+      "reason": "涵管内口无守卫，尸群压向西墙，分盾组到内墙和涵管缺乏场景依据；林夏摸钢板、陈锋送旗不能推动小文视角下的行动。"
+    },
+    {
+      "stage": "first_revision",
+      "text": "西墙上，弩手沿着女墙拉开，弩弦接连绷响。墙下搬工具的人丢下木箱，跟着人群往内墙门跑。小文回头看了一眼涵管内口，铁栅前空着，没人停下。\n\n人群向内墙门撤去。小文拄着木杖跟在后面。老杜落在更后头，木拐急促地敲着地面。",
+      "status": "rejected_after_author_feedback",
+      "reason": "重复交代人群撤往内墙；小文特意回头看涵管无人是多余的说明。"
+    },
+    {
+      "stage": "merged_pr74_final",
+      "text": "西墙上，弩手沿着女墙拉开，弩弦接连绷响。墙下搬工具的人丢下木箱，跟着人群往内墙门跑。小文拄着木杖跟在后面，老杜落在更后头，木拐急促地敲着地面。",
+      "status": "accepted_by_author_and_merged"
+    }
+  ],
+  "records": [
+    {
+      "id": "pr74-westwall-retreat-final",
+      "prompt": {
+        "user_request": "修改第四章西墙警报后的撤离衔接段。保留墙上守卫迎敌、墙下人员撤离、小文和老杜的相对位置；不增设涵管内口守卫、内墙盾组或无因果作用的林夏摸钢板、陈锋往返传令。合并重复撤离叙述，不让小文特意回头确认涵管无人；直接衔接后面的五分钟广播。",
+        "context": "第四章西墙警报后，尸群正向西墙靠近，守卫主要在墙上准备迎敌；墙下清理人员撤向内墙门。小文拄木杖跟随撤离，老杜落在更后方。涵管内口不应凭空出现守卫或盾组；下一段广播通知涵管最多再撑五分钟，小文才折返。前文已有天干命令：“西墙各处就位！别追放火的人，先守住防线！”",
+        "original_text": "更高处，林夏伏在女墙后，手掌贴着钢板。她朝方岳摇了一次头，又指向远处高架。方岳顺着她的手势看了一眼，立刻把盾组往涵管、正门和内墙门分。\n\n“陈锋，跑三处。”方岳把三面小旗塞过去，“哪边先坏、缺几个人，给我带回来。”\n\n陈锋抓了旗就走。十几息后，涵管方向先升起一面回旗，正门和内墙门紧跟着有了回应。\n\n人群向内墙门撤去。小文拄着木杖跟在后面。老杜落在更后头，木拐急促地敲着地面。"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "西墙上，弩手沿着女墙拉开，弩弦接连绷响。墙下搬工具的人丢下木箱，跟着人群往内墙门跑。小文拄着木杖跟在后面，老杜落在更后头，木拐急促地敲着地面。",
+        "target_type": "accepted_revision"
+      },
+      "preference": {
+        "eligible": true,
+        "prompt_source": "same_as_prompt",
+        "candidates": [
+          {
+            "candidate_id": "final",
+            "response": "西墙上，弩手沿着女墙拉开，弩弦接连绷响。墙下搬工具的人丢下木箱，跟着人群往内墙门跑。小文拄着木杖跟在后面，老杜落在更后头，木拐急促地敲着地面。",
+            "origin": "merged_pr74_final",
+            "status": "chosen"
+          },
+          {
+            "candidate_id": "overcommand",
+            "response": "更高处，林夏伏在女墙后，手掌贴着钢板。她朝方岳摇了一次头，又指向远处高架。方岳顺着她的手势看了一眼，立刻把盾组往涵管、正门和内墙门分。\n\n“陈锋，跑三处。”方岳把三面小旗塞过去，“哪边先坏、缺几个人，给我带回来。”\n\n陈锋抓了旗就走。十几息后，涵管方向先升起一面回旗，正门和内墙门紧跟着有了回应。\n\n人群向内墙门撤去。小文拄着木杖跟在后面。老杜落在更后头，木拐急促地敲着地面。",
+            "origin": "pr74_rebased_candidate",
+            "status": "rejected"
+          },
+          {
+            "candidate_id": "overexplain",
+            "response": "西墙上，弩手沿着女墙拉开，弩弦接连绷响。墙下搬工具的人丢下木箱，跟着人群往内墙门跑。小文回头看了一眼涵管内口，铁栅前空着，没人停下。\n\n人群向内墙门撤去。小文拄着木杖跟在后面。老杜落在更后头，木拐急促地敲着地面。",
+            "origin": "first_revision",
+            "status": "rejected"
+          }
+        ],
+        "chosen_candidate_id": "final",
+        "preference_reason": "防线集中于西墙，删去没有空间与行动依据的分兵和传令；撤离动作只写一次，不显式解释涵管无人。",
+        "selection_source": "explicit_author_feedback_and_merged_pr"
+      }
+    }
+  ],
+  "notes": "真实反向修改标定：已合入主线的前序三处修改不再作为本任务负样本；两个 rejected 均为本轮真实出现的候选，不是虚构。一个 SFT 样本，两个同提示 DPO 配对。"
+}
