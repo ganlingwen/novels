@@ -32,6 +32,12 @@
         "chosen_candidate_id": "revision",
         "selection_source": "explicit_author_feedback",
         "preference_reason": "作者认为改版比初版好很多，但指出‘东西’指代不清，小文原台词仍有说明腔和过多短句。"
+      },
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
       }
     },
     {
@@ -63,6 +69,12 @@
         "chosen_candidate_id": "chosen",
         "selection_source": "explicit_author_logic_correction",
         "preference_reason": "作者指出小文不知道战后物资去向；‘入库’和登记结果只能由白川告知。"
+      },
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
       }
     },
     {
@@ -94,6 +106,10 @@
         "chosen_candidate_id": "chosen",
         "selection_source": "explicit_author_revision",
         "preference_reason": "一句话同时交代归属主张和现实诉求，避免四五字短句和解释性尾巴。"
+      },
+      "tags": {
+        "primary": "plot",
+        "secondary": []
       }
     },
     {
@@ -125,6 +141,10 @@
         "chosen_candidate_id": "chosen",
         "selection_source": "explicit_author_feedback",
         "preference_reason": "无需由白川提前解释人证和证据链；小文下一句会自然拿钢钎作为反驳。"
+      },
+      "tags": {
+        "primary": "plot",
+        "secondary": []
       }
     },
     {
@@ -156,6 +176,10 @@
         "chosen_candidate_id": "chosen",
         "selection_source": "explicit_author_feedback",
         "preference_reason": "‘那是’明确回指钢钎，并强化小文用现场痕迹反驳后勤结论的语气。"
+      },
+      "tags": {
+        "primary": "plot",
+        "secondary": []
       }
     },
     {
@@ -174,6 +198,10 @@
       "quality": {
         "human_accepted": true,
         "context_checked": true
+      },
+      "tags": {
+        "primary": "plot",
+        "secondary": []
       }
     }
   ],

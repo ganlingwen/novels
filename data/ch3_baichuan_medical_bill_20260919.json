@@ -32,6 +32,12 @@
         "chosen_candidate_id": "B",
         "selection_source": "explicit_author_choice",
         "preference_reason": "作者更喜欢B把费用解释和昨晚的危险程度联系起来，但认为整体仍啰嗦。"
+      },
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
       }
     },
     {
@@ -63,6 +69,10 @@
         "chosen_candidate_id": "chosen",
         "selection_source": "explicit_author_feedback",
         "preference_reason": "作者要求先说主要、昂贵且关键的光系治疗，再补药和材料，而不是按账单项目平铺。"
+      },
+      "tags": {
+        "primary": "plot",
+        "secondary": []
       }
     },
     {
@@ -107,6 +117,10 @@
         "chosen_candidate_id": "C+A",
         "selection_source": "explicit_author_composite_choice",
         "preference_reason": "作者明确选择C的‘才勉强把你稳住’，同时选择A的‘一百点不算多’，形成组合版本。"
+      },
+      "tags": {
+        "primary": "scene",
+        "secondary": []
       }
     },
     {
@@ -138,6 +152,10 @@
         "chosen_candidate_id": "B",
         "selection_source": "explicit_author_choice",
         "preference_reason": "作者选择带‘这一百点’的版本，更直接回扣小文刚刚对100点的惊讶。"
+      },
+      "tags": {
+        "primary": "plot",
+        "secondary": []
       }
     },
     {
@@ -157,6 +175,12 @@
       "quality": {
         "human_accepted": true,
         "context_checked": true
+      },
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
       }
     }
   ],
