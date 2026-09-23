@@ -130,6 +130,7 @@
   ],
   "counts": {
     "sft_samples": 4,
-    "dpo_pairs": 3
-  }
+    "dpo_pairs": 5
+  },
+  "counts_note": "Three explicit preference rounds have 2 + 1 + 2 rejected candidates; each is a distinct same-prompt DPO pair."
 }
