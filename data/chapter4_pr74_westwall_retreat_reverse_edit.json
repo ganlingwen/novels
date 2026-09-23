@@ -62,6 +62,12 @@
         "chosen_candidate_id": "final",
         "preference_reason": "防线集中于西墙，删去没有空间与行动依据的分兵和传令；撤离动作只写一次，不显式解释涵管无人。",
         "selection_source": "explicit_author_feedback_and_merged_pr"
+      },
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
       }
     }
   ],
