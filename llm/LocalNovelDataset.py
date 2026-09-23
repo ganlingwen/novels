@@ -6,6 +6,7 @@ from pathlib import Path
 
 import torch
 from datasets import Dataset
+from torch.utils.data import Dataset as TorchDataset
 
 from NovelSFTDataset import NovelSFTDataset
 
@@ -151,7 +152,7 @@ def split_local_dpo(records: list[dict], validation_ratio: float = 0.1) -> tuple
     return ordered[n_valid:], ordered[:n_valid]
 
 
-class NovelDPODataset(Dataset):
+class NovelDPODataset(TorchDataset):
     def __init__(self, records: list[dict], tokenizer, max_length: int = 2048):
         if max_length < 2:
             raise ValueError("max_length must be at least 2.")
