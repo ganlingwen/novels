@@ -57,7 +57,13 @@
     "chapter": 3,
     "scene": "ward_waking",
     "edit_type": "dialogue_merge_with_action",
-    "anti_pattern": ["split_short_lines", "preknowledge_answer", "repeated_warnings", "overshort_followup", "no_action_beat"]
+    "anti_pattern": [
+      "split_short_lines",
+      "preknowledge_answer",
+      "repeated_warnings",
+      "overshort_followup",
+      "no_action_beat"
+    ]
   },
   "quality": {
     "human_accepted": true,
@@ -71,5 +77,11 @@
     "autonomous_editor_sft": true,
     "reviewer_sft": true,
     "preference_dpo": true
+  },
+  "tags": {
+    "primary": "dialogue",
+    "secondary": [
+      "natural_dialogue"
+    ]
   }
 }
