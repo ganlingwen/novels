@@ -1,0 +1,55 @@
+{
+  "task_id": "chapter3_pr89_final_two_edits",
+  "source_pr": 89,
+  "source_merge_commit": "8634654b6132ba04520c96f242ff7618a56bd141",
+  "source": "final_merged_pr89_diff",
+  "acceptance_scope": "only_two_hunks_in_final_merged_pr89",
+  "quality_status": "accepted_local_revisions_not_whole_chapter_final",
+  "records": [
+    {
+      "id": "pr89-final-apple-dialogue",
+      "prompt": {
+        "user_request": "局部精修第三章父子分苹果的对白；不改变分苹果动作与父亲手不稳的事实，让小文一句话表达完整的让苹果意图。",
+        "context": "父亲把最厚的一片苹果递给小文，小文想让父亲吃大的，自己拿小的。",
+        "original_text": "“这块给你。”小文指着父亲手里的苹果，“我拿小的。”"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“这块给你，我拿小的。”小文指着父亲手里的苹果。",
+        "target_type": "merged_pr89_final"
+      },
+      "preference": {
+        "eligible": false,
+        "reason": "原文是改写前版本；仅凭合入不能推断作者明确否决原文。"
+      }
+    },
+    {
+      "id": "pr89-final-night-care",
+      "prompt": {
+        "user_request": "局部精修第三章夜间父亲咳嗽、母亲照顾、小文隔帘醒来的叙述；不改变动作事实，将镜头先落在小文听到的床板与拍背声，再接母亲的低声对白。",
+        "context": "夜里父亲咳嗽，母亲垫枕头并拍背；小文在布帘另一边醒来。",
+        "original_text": "床板轻响。母亲压低声音：“慢点，我把枕头垫高。”\n\n小文在帘子这边撑起身。那边已经响起一下下拍背声。"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "床板轻响。小文在帘子这边撑起身，那边已经响起一下下拍背声。母亲压低声音：“慢点，我把枕头垫高。”",
+        "target_type": "merged_pr89_final"
+      },
+      "preference": {
+        "eligible": false,
+        "reason": "原文是改写前版本；仅凭合入不能推断作者明确否决原文。"
+      }
+    }
+  ],
+  "excluded_from_this_bundle": [
+    {
+      "scope": "PR105 merged edits",
+      "reason": "由 PR105 的独立标定记录负责，不在 PR89 重复收录。"
+    },
+    {
+      "scope": "PR89 earlier reverted first two hunks",
+      "reason": "作者已在 main 撤回；不是最终合入 PR89 的正样本，交由对应修改历史单独沉淀。"
+    }
+  ],
+  "notes": "最终合入的 PR89 仅有两处修改。2 SFT、0 DPO；不将普通改写前原文伪装为作者明确拒绝的 DPO 负样本。"
+}
