@@ -21,6 +21,19 @@ def _prompt_text(prompt: dict) -> str:
     return "\n\n".join(str(part) for part in parts if part)
 
 
+def _legacy_prompt(bundle: dict, item: dict) -> str:
+    """Use existing editorial metadata as an instruction when old DPO lacks prompt."""
+    focus = item.get("focus")
+    scene = bundle.get("scene") or bundle.get("description") or bundle.get("scene_id")
+    if not focus and not scene:
+        return ""
+    return "\\n".join(part for part in (
+        f"场景：{scene}" if scene else "",
+        f"修改重点：{focus}" if focus else "",
+        "根据上述场景与修改重点，选择更符合作者要求的写法。",
+    ) if part)
+
+
 def _record_id(path: Path, index: int, answer: str) -> str:
     digest = hashlib.sha256(answer.encode("utf-8")).hexdigest()[:12]
     return f"{path.name}:{index}:{digest}"
@@ -36,7 +49,7 @@ def load_local_sft_records(data_dir: str | Path) -> list[dict]:
         bundle = json.loads(path.read_text(encoding="utf-8"))
         if isinstance(bundle.get("sft"), list):
             for index, item in enumerate(bundle["sft"]):
-                prompt = item.get("instruction")
+                prompt = item.get("instruction") or _legacy_prompt(bundle, item)
                 answer = item.get("output") or item.get("response") or item.get("chosen")
                 if not prompt or not answer:
                     continue
@@ -50,7 +63,7 @@ def load_local_sft_records(data_dir: str | Path) -> list[dict]:
             sft = item.get("sft", {})
             prompt = item.get("prompt", {})
             answer = sft.get("response")
-            request = _prompt_text(prompt)
+            request = _prompt_text(prompt) if prompt else _legacy_prompt(bundle, item)
             if sft.get("eligible") is not True or not request or not answer:
                 continue
             rid = item.get("id") or _record_id(path, index, answer)
@@ -125,7 +138,7 @@ def load_local_dpo_records(data_dir: str | Path) -> list[dict]:
         bundle = json.loads(path.read_text(encoding="utf-8"))
 
         for index, item in enumerate(bundle.get("dpo", [])):
-            prompt = item.get("prompt")
+            prompt = item.get("prompt") or _legacy_prompt(bundle, item)
             chosen = item.get("chosen")
             rejected = item.get("rejected")
             if not all(isinstance(value, str) and value.strip() for value in (prompt, chosen, rejected)) or chosen == rejected:
@@ -139,7 +152,19 @@ def load_local_dpo_records(data_dir: str | Path) -> list[dict]:
 
         for index, item in enumerate(bundle.get("records", [bundle])):
             chosen, rejected = _preference_candidates(item)
-            prompt = _prompt_text(item.get("prompt", {}))
+            prompt = _prompt_text(item.get("prompt", {})) or _legacy_prompt(bundle, item)
+            # Earlier editorial records store a selected SFT response and a
+            # list of verbatim rejected alternatives instead of candidates.
+            preference = item.get("preference", {})
+            if (preference.get("eligible") is True and not chosen
+                    and isinstance(preference.get("rejected"), list)
+                    and item.get("sft", {}).get("eligible") is True):
+                chosen = item["sft"].get("response")
+                rejected = [
+                    response for response in preference["rejected"]
+                    if isinstance(response, str) and response.strip()
+                    and response != chosen
+                ]
             if not prompt or not chosen or not rejected:
                 continue
             base_id = item.get("id") or f"{path.name}:record:{index}"
