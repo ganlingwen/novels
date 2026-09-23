@@ -97,5 +97,9 @@
     "human_accepted": true,
     "merged": true,
     "contains_author_reverse": true
+  },
+  "tags": {
+    "primary": "scene",
+    "secondary": []
   }
 }

@@ -57,5 +57,9 @@
     "executor_sft": "prompt.context + prompt.original_text + review.edit_instruction -> sft.response",
     "autonomous_editor_sft": "repository_context + prompt.user_request + chapter -> accepted corrected chapter",
     "reviewer_sft": "repository_context + prompt.user_request + chapter -> review.discovered_issue"
+  },
+  "tags": {
+    "primary": "scene",
+    "secondary": []
   }
 }
