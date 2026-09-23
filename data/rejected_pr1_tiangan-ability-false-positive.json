@@ -45,5 +45,9 @@
       "reason": "该判断忽略了人物卡与作者明确设定。天干是特殊感知系“魂灯”异能者；作者进一步明确本处报数就是异能表现。不能因为常人无法直接报数，就把这一表现判成逻辑漏洞，更不能擅自将异能展示改写成普通侦察。"
     }
   ],
-  "conversion_note": "Reviewer preference only; do not treat chosen/rejected as novel prose or create SFT from this negative review."
+  "conversion_note": "Reviewer preference only; do not treat chosen/rejected as novel prose or create SFT from this negative review.",
+  "tags": {
+    "primary": "character",
+    "secondary": []
+  }
 }
