@@ -29,6 +29,7 @@ class DPOTrainerConfig:
     seed: int = 42
     data_loader: DataLoaderConfig = DataLoaderConfig(batch_size=1)
     fused_adamw: bool = False
+    lr_schedule: str = "cosine"
 
 
 def parse_args():
@@ -40,6 +41,7 @@ def parse_args():
     parser.add_argument("--max-length", type=int, default=2048)
     parser.add_argument("--max-steps", type=int, default=100)
     parser.add_argument("--learning-rate", type=float, default=5e-7)
+    parser.add_argument("--lr-schedule", choices=("cosine", "constant"), default="cosine")
     parser.add_argument("--beta", type=float, default=0.1)
     parser.add_argument("--gradient-accumulation", type=int, default=16)
     parser.add_argument("--validation-ratio", type=float, default=0.1)
@@ -123,9 +125,14 @@ class DPOTrainer:
         optimizer = torch.optim.AdamW(
             policy.parameters(), lr=config.learning_rate, weight_decay=0.1, fused=config.fused_adamw
         )
-        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
-            optimizer, T_max=config.max_steps, eta_min=config.learning_rate * 0.1
-        )
+        if config.lr_schedule == "constant":
+            scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lambda _: 1.0)
+        elif config.lr_schedule == "cosine":
+            scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+                optimizer, T_max=config.max_steps, eta_min=config.learning_rate * 0.1
+            )
+        else:
+            raise ValueError(f"Unknown learning-rate schedule: {config.lr_schedule}")
         self.checkpoint = Checkpoint(
             model=policy,
             optimizer=optimizer,
@@ -223,6 +230,7 @@ def main():
         seed=args.seed,
         data_loader=DataLoaderConfig(batch_size=1, num_workers=args.num_workers),
         fused_adamw=args.fused_adamw,
+        lr_schedule=args.lr_schedule,
     )
     trainer = DPOTrainer(policy, reference, train_dataset, valid_dataset, config)
     trainer.train()
