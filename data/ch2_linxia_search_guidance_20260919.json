@@ -33,6 +33,12 @@
         "chosen_candidate_id": "chosen",
         "selection_source": "explicit_author_feedback",
         "preference_reason": "林夏应表达位置判断而不是下令；把报告式‘步行上限’改成人说话的因果。"
+      },
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
       }
     },
     {
@@ -65,6 +71,10 @@
         "chosen_candidate_id": "B",
         "selection_source": "explicit_author_choice",
         "preference_reason": "作者明确选择B方向，认为比‘接得住’自然直接，但继续指出‘只能跟着你的脚步’仍有问题。"
+      },
+      "tags": {
+        "primary": "plot",
+        "secondary": []
       }
     },
     {
@@ -97,6 +107,10 @@
         "chosen_candidate_id": "chosen",
         "selection_source": "explicit_author_choice",
         "preference_reason": "作者认为 chosen 是一个连贯、层层递进的意思，更简洁，更像人在现场说话；rejected 拆成两层相近信息，不够顺。"
+      },
+      "tags": {
+        "primary": "plot",
+        "secondary": []
       }
     },
     {
@@ -116,6 +130,10 @@
       "quality": {
         "human_accepted": true,
         "contains_multi_round_author_feedback": true
+      },
+      "tags": {
+        "primary": "scene",
+        "secondary": []
       }
     }
   ],
