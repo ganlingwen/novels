@@ -1,6 +1,6 @@
 import sys
 
-from Train import create_run_directory, tensorboard_directory
+from SFTTrainer import create_run_directory, tensorboard_directory
 from train_qwen3_4b_sft import parse_args
 
 

@@ -99,7 +99,9 @@ TensorBoard 的 runs panel 会直接显示 `YYYYMMDD-HHMMSS`，可同时比较�
 ## 代码结构
 
 - `NovelSFTDataset.py`: 一次性加载 72,573 条数据，并显式切分 train/valid；`NovelSFTDataset(Dataset)` 只负责 tokenize 和 collate。
-- `Train.py`: `TrainConfig` 将数据加载、优化器和训练调度参数分组；`Train` 实现显式训练循环，`train_step()` 完成一个 optimizer step，`valid_step()` 完成一次 validation pass。
+- `SFTTrainer.py`: `SFTTrainerConfig` 将数据加载、优化器和训练调度参数分组；`SFTTrainer` 实现显式训练循环，`train_step()` 完成一个 optimizer step，`valid_step()` 完成一次 validation pass。
+- `DPOTrainer.py`: `DPOTrainer` 使用同一套 `Checkpoint` 状态管理 optimizer、scheduler、step、随机状态和数据迭代位置；reference model 保持冻结。
+- `Checkpoint.py`: SFT 与 DPO 共用的训练状态、断点恢复和数据迭代器状态管理。
 - `train_qwen3_4b_sft.py`: main 入口，构造 dataset/model/trainer，加载 checkpoint 并调用 `train()`。
 
 训练进度使用 tqdm，以 optimizer step 为单位显示 `loss / lr / sec`；默认每 500 step validation、每 1000 step checkpoint。

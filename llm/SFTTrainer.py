@@ -54,7 +54,7 @@ class OptimizerConfig:
 
 
 @dataclass(frozen=True)
-class TrainConfig:
+class SFTTrainerConfig:
     causal_right_padding: bool = False
     output_dir: str = "outputs/qwen3-4b-novel-sft"
     max_steps: int = 9000
@@ -67,8 +67,8 @@ class TrainConfig:
     optimizer: OptimizerConfig = field(default_factory=OptimizerConfig)
 
 
-class Train:
-    def __init__(self, model, train_dataset, valid_dataset, config: TrainConfig):
+class SFTTrainer:
+    def __init__(self, model, train_dataset, valid_dataset, config: SFTTrainerConfig):
         self.model = model
         self.config = config
         self.output_dir = config.output_dir

@@ -10,7 +10,7 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, set_seed
 
 from NovelSFTDataset import NovelSFTDataset, load_stage1_dataset, split_stage1_dataset
-from Train import DataLoaderConfig, OptimizerConfig, Train, TrainConfig, create_run_directory
+from SFTTrainer import DataLoaderConfig, OptimizerConfig, SFTTrainer, SFTTrainerConfig, create_run_directory
 
 
 def parse_args():
@@ -62,7 +62,7 @@ def main():
     model.config.use_cache = False
     if not args.no_gradient_checkpointing:
         model.gradient_checkpointing_enable()
-    trainer_config = TrainConfig(
+    trainer_config = SFTTrainerConfig(
         causal_right_padding=args.causal_right_padding,
         output_dir=str(run_dir),
         max_steps=args.max_steps,
@@ -73,7 +73,7 @@ def main():
         data_loader=DataLoaderConfig(batch_size=args.per_device_batch_size, num_workers=args.num_workers),
         optimizer=OptimizerConfig(learning_rate=args.learning_rate, fused=args.fused_adamw),
     )
-    trainer = Train(model, train_dataset, valid_dataset, trainer_config)
+    trainer = SFTTrainer(model, train_dataset, valid_dataset, trainer_config)
     if args.checkpoint:
         trainer.checkpoint.load(args.checkpoint)
     trainer.train()

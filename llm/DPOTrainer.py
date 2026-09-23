@@ -3,6 +3,7 @@
 
 import argparse
 import os
+from dataclasses import dataclass
 
 os.environ.setdefault("TORCH_DISABLE_NATIVE_JIT", "1")
 
@@ -13,8 +14,21 @@ from torch.utils.tensorboard import SummaryWriter
 from tqdm.auto import tqdm
 from transformers import AutoModelForCausalLM, AutoTokenizer, set_seed
 
+from Checkpoint import Checkpoint
 from LocalNovelDataset import NovelDPODataset, load_local_dpo_records, split_local_dpo
-from Train import DataLoaderConfig, create_run_directory, tensorboard_directory
+from SFTTrainer import DataLoaderConfig, create_run_directory, tensorboard_directory
+
+
+@dataclass(frozen=True)
+class DPOTrainerConfig:
+    output_dir: str
+    max_steps: int = 100
+    learning_rate: float = 5e-7
+    beta: float = 0.1
+    gradient_accumulation: int = 16
+    seed: int = 42
+    data_loader: DataLoaderConfig = DataLoaderConfig(batch_size=1)
+    fused_adamw: bool = False
 
 
 def parse_args():
@@ -83,6 +97,90 @@ def evaluate(policy, reference, loader, beta):
     return total_loss / total, total_correct / total, total_margin / total
 
 
+class DPOTrainer:
+    def __init__(self, policy, reference, train_dataset, valid_dataset, config: DPOTrainerConfig):
+        self.policy = policy
+        self.reference = reference.eval()
+        self.config = config
+        self.device = next(policy.parameters()).device
+        self.train_loader = DataLoader(
+            train_dataset,
+            batch_size=config.data_loader.batch_size,
+            shuffle=True,
+            num_workers=config.data_loader.num_workers,
+            collate_fn=train_dataset.collate_fn,
+            pin_memory=True,
+            generator=torch.Generator().manual_seed(config.seed),
+        )
+        self.valid_loader = DataLoader(
+            valid_dataset,
+            batch_size=config.data_loader.batch_size,
+            shuffle=False,
+            num_workers=config.data_loader.num_workers,
+            collate_fn=valid_dataset.collate_fn,
+            pin_memory=True,
+        )
+        optimizer = torch.optim.AdamW(
+            policy.parameters(), lr=config.learning_rate, weight_decay=0.1, fused=config.fused_adamw
+        )
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+            optimizer, T_max=config.max_steps, eta_min=config.learning_rate * 0.1
+        )
+        self.checkpoint = Checkpoint(
+            model=policy,
+            optimizer=optimizer,
+            scheduler=scheduler,
+            gradient_accumulation=config.gradient_accumulation,
+        )
+        self.checkpoint.train_shuffle_generator_state = self.train_loader.generator.get_state()
+        self.train_iter = self.checkpoint.training_batches(self.train_loader)
+        self.writer = SummaryWriter(str(tensorboard_directory(config.output_dir)))
+
+    def train_step(self):
+        self.policy.train()
+        self.checkpoint.optimizer.zero_grad(set_to_none=True)
+        total_loss = 0.0
+        for _ in range(self.config.gradient_accumulation):
+            batch = next(self.train_iter)
+            batch = {key: value.to(self.device, non_blocking=True) for key, value in batch.items()}
+            with torch.no_grad():
+                reference_chosen = sequence_logprob(self.reference, batch, "chosen")
+                reference_rejected = sequence_logprob(self.reference, batch, "rejected")
+            policy_chosen = sequence_logprob(self.policy, batch, "chosen")
+            policy_rejected = sequence_logprob(self.policy, batch, "rejected")
+            margin = (policy_chosen - policy_rejected) - (reference_chosen - reference_rejected)
+            loss = (-F.logsigmoid(self.config.beta * margin)).mean() / self.config.gradient_accumulation
+            if not torch.isfinite(loss):
+                self.checkpoint.optimizer.zero_grad(set_to_none=True)
+                raise FloatingPointError(f"Non-finite DPO loss at step {self.checkpoint.global_step + 1}.")
+            loss.backward()
+            total_loss += loss.detach().item()
+            self.checkpoint.micro_step += 1
+        torch.nn.utils.clip_grad_norm_(self.policy.parameters(), 1.0)
+        self.checkpoint.optimizer.step()
+        self.checkpoint.scheduler.step()
+        self.checkpoint.global_step += 1
+        return total_loss
+
+    @torch.no_grad()
+    def valid_step(self):
+        return evaluate(self.policy, self.reference, self.valid_loader, self.config.beta)
+
+    def train(self):
+        os.makedirs(self.config.output_dir, exist_ok=True)
+        progress = tqdm(total=self.config.max_steps, initial=self.checkpoint.global_step, desc="dpo", unit="step")
+        while self.checkpoint.global_step < self.config.max_steps:
+            loss = self.train_step()
+            step = self.checkpoint.global_step
+            lr = self.checkpoint.optimizer.param_groups[0]["lr"]
+            self.writer.add_scalar("train/loss", loss, step)
+            self.writer.add_scalar("train/lr", lr, step)
+            progress.update(1)
+            progress.set_postfix(loss=f"{loss:.4f}", lr=f"{lr:.2e}")
+        progress.close()
+        self.writer.close()
+
+
 def main():
     args = parse_args()
     if not torch.cuda.is_available():
@@ -116,68 +214,25 @@ def main():
     reference.config.use_cache = False
     if not args.no_gradient_checkpointing:
         policy.gradient_checkpointing_enable()
-    loader_config = DataLoaderConfig(batch_size=1, num_workers=args.num_workers)
-    train_loader = DataLoader(
-        train_dataset,
-        batch_size=loader_config.batch_size,
-        shuffle=True,
-        num_workers=loader_config.num_workers,
-        collate_fn=train_dataset.collate_fn,
-        pin_memory=True,
-        generator=torch.Generator().manual_seed(args.seed),
+    config = DPOTrainerConfig(
+        output_dir=str(run_dir),
+        max_steps=args.max_steps,
+        learning_rate=args.learning_rate,
+        beta=args.beta,
+        gradient_accumulation=args.gradient_accumulation,
+        seed=args.seed,
+        data_loader=DataLoaderConfig(batch_size=1, num_workers=args.num_workers),
+        fused_adamw=args.fused_adamw,
     )
-    valid_loader = DataLoader(
-        valid_dataset,
-        batch_size=1,
-        shuffle=False,
-        num_workers=loader_config.num_workers,
-        collate_fn=valid_dataset.collate_fn,
-        pin_memory=True,
-    )
-    optimizer = torch.optim.AdamW(policy.parameters(), lr=args.learning_rate, weight_decay=0.1, fused=args.fused_adamw)
-    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
-        optimizer, T_max=args.max_steps, eta_min=args.learning_rate * 0.1
-    )
-    writer = SummaryWriter(str(tensorboard_directory(run_dir)))
-    iterator = iter(train_loader)
-    progress = tqdm(range(args.max_steps), unit="step", desc="dpo")
-    for step in progress:
-        policy.train()
-        optimizer.zero_grad(set_to_none=True)
-        loss_value = 0.0
-        for _ in range(args.gradient_accumulation):
-            try:
-                batch = next(iterator)
-            except StopIteration:
-                iterator = iter(train_loader)
-                batch = next(iterator)
-            batch = {key: value.cuda(non_blocking=True) for key, value in batch.items()}
-            with torch.no_grad():
-                reference_chosen = sequence_logprob(reference, batch, "chosen")
-                reference_rejected = sequence_logprob(reference, batch, "rejected")
-            policy_chosen = sequence_logprob(policy, batch, "chosen")
-            policy_rejected = sequence_logprob(policy, batch, "rejected")
-            margin = (policy_chosen - policy_rejected) - (reference_chosen - reference_rejected)
-            loss = (-F.logsigmoid(args.beta * margin)).mean() / args.gradient_accumulation
-            if not torch.isfinite(loss):
-                raise FloatingPointError(f"Non-finite DPO loss at step {step + 1}.")
-            loss.backward()
-            loss_value += loss.detach().item()
-        torch.nn.utils.clip_grad_norm_(policy.parameters(), 1.0)
-        optimizer.step()
-        scheduler.step()
-        global_step = step + 1
-        writer.add_scalar("train/loss", loss_value, global_step)
-        writer.add_scalar("train/lr", scheduler.get_last_lr()[0], global_step)
-        progress.set_postfix(loss=f"{loss_value:.4f}", lr=f"{scheduler.get_last_lr()[0]:.2e}")
-    final_loss, final_accuracy, final_margin = evaluate(policy, reference, valid_loader, args.beta)
+    trainer = DPOTrainer(policy, reference, train_dataset, valid_dataset, config)
+    trainer.train()
+    final_loss, final_accuracy, final_margin = trainer.valid_step()
     print(f"final validation dpo loss: {final_loss:.6f}")
     print(f"final validation preference accuracy: {final_accuracy:.6f}")
     print(f"final validation margin: {final_margin:.6f}")
     final_dir = run_dir / "final"
-    policy.save_pretrained(final_dir, safe_serialization=True)
+    trainer.policy.save_pretrained(final_dir, safe_serialization=True)
     tokenizer.save_pretrained(final_dir)
-    writer.close()
 
 
 if __name__ == "__main__":

@@ -2,7 +2,7 @@ import pytest
 import torch
 from torch import nn
 
-from Train import DataLoaderConfig, Train, TrainConfig
+from SFTTrainer import DataLoaderConfig, SFTTrainer, SFTTrainerConfig
 
 
 class TinyDataset:
@@ -35,11 +35,11 @@ class TinyModel(nn.Module):
 def test_checkpoint_paths_are_unique_and_complete(tmp_path):
     model = TinyModel()
     dataset = TinyDataset()
-    trainer = Train(
+    trainer = SFTTrainer(
         model,
         dataset,
         dataset,
-        TrainConfig(
+        SFTTrainerConfig(
             output_dir=str(tmp_path),
             max_steps=10,
             data_loader=DataLoaderConfig(num_workers=0),
@@ -63,11 +63,11 @@ def test_checkpoint_paths_are_unique_and_complete(tmp_path):
 def test_best_model_is_replaced_only_when_validation_improves(tmp_path):
     model = TinyModel()
     dataset = TinyDataset()
-    trainer = Train(
+    trainer = SFTTrainer(
         model,
         dataset,
         dataset,
-        TrainConfig(
+        SFTTrainerConfig(
             output_dir=str(tmp_path),
             max_steps=10,
             data_loader=DataLoaderConfig(num_workers=0),
@@ -96,20 +96,20 @@ def test_best_model_is_replaced_only_when_validation_improves(tmp_path):
 
 
 def test_checkpoint_restores_shuffle_position(tmp_path):
-    config = TrainConfig(
+    config = SFTTrainerConfig(
         output_dir=str(tmp_path),
         max_steps=10,
         data_loader=DataLoaderConfig(num_workers=0),
     )
     dataset = IndexDataset()
-    original = Train(TinyModel(), dataset, dataset, config)
+    original = SFTTrainer(TinyModel(), dataset, dataset, config)
     for _ in range(3):
         next(original.train_iter)
     original.checkpoint.global_step = 7
     checkpoint = original.checkpoint.save(original.output_dir)
     expected_next_batch = next(original.train_iter)
 
-    resumed = Train(TinyModel(), dataset, dataset, config)
+    resumed = SFTTrainer(TinyModel(), dataset, dataset, config)
     resumed.checkpoint.load(checkpoint)
 
     assert resumed.checkpoint.global_step == 7
