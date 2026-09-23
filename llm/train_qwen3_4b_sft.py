@@ -21,6 +21,7 @@ def parse_args():
     p.add_argument("--max-length", type=int, default=2048)
     p.add_argument("--max-steps", type=int, default=9000)
     p.add_argument("--learning-rate", type=float, default=1e-5)
+    p.add_argument("--lr-schedule", choices=("cosine", "constant"), default="cosine")
     p.add_argument("--per-device-batch-size", type=int, default=1)
     p.add_argument("--gradient-accumulation", type=int, default=16)
     p.add_argument("--valid-steps", type=int, default=500)
@@ -72,6 +73,7 @@ def main():
         seed=args.seed,
         data_loader=DataLoaderConfig(batch_size=args.per_device_batch_size, num_workers=args.num_workers),
         optimizer=OptimizerConfig(learning_rate=args.learning_rate, fused=args.fused_adamw),
+        lr_schedule=args.lr_schedule,
     )
     trainer = SFTTrainer(model, train_dataset, valid_dataset, trainer_config)
     if args.checkpoint:

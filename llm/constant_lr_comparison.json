@@ -1,0 +1,96 @@
+{
+  "records": 151,
+  "valid_records": 15,
+  "models": {
+    "stage1": {
+      "all": {
+        "records": 151,
+        "chosen_nll": 3.109939795779965,
+        "rejected_nll": 2.9902545910185108,
+        "normalized_accuracy": 0.44370860927152317,
+        "normalized_margin": -0.24924026429653168,
+        "raw_accuracy": 0.37748344370860926
+      },
+      "valid": {
+        "records": 15,
+        "chosen_nll": 2.911085540924839,
+        "rejected_nll": 2.4711998672846933,
+        "normalized_accuracy": 0.26666666666666666,
+        "normalized_margin": -0.5922798822323482,
+        "raw_accuracy": 0.3333333333333333
+      }
+    },
+    "cosine_sft": {
+      "all": {
+        "records": 151,
+        "chosen_nll": 3.073167304401376,
+        "rejected_nll": 2.9522727861276623,
+        "normalized_accuracy": 0.44370860927152317,
+        "normalized_margin": -0.25388132815329445,
+        "raw_accuracy": 0.3708609271523179
+      },
+      "valid": {
+        "records": 15,
+        "chosen_nll": 2.881305397455417,
+        "rejected_nll": 2.4449812390416343,
+        "normalized_accuracy": 0.2,
+        "normalized_margin": -0.6031614859898885,
+        "raw_accuracy": 0.3333333333333333
+      }
+    },
+    "cosine_dpo": {
+      "all": {
+        "records": 151,
+        "chosen_nll": 3.0667191484139913,
+        "rejected_nll": 2.9515944695352907,
+        "normalized_accuracy": 0.44370860927152317,
+        "normalized_margin": -0.24936137259598598,
+        "raw_accuracy": 0.37748344370860926
+      },
+      "valid": {
+        "records": 15,
+        "chosen_nll": 2.8808156801028866,
+        "rejected_nll": 2.4425033566322747,
+        "normalized_accuracy": 0.13333333333333333,
+        "normalized_margin": -0.6059327984849612,
+        "raw_accuracy": 0.3333333333333333
+      }
+    },
+    "constant_sft": {
+      "all": {
+        "records": 151,
+        "chosen_nll": 2.04830760559421,
+        "rejected_nll": 2.5622502757476604,
+        "normalized_accuracy": 0.7152317880794702,
+        "normalized_margin": 0.4349995898884653,
+        "raw_accuracy": 0.5827814569536424
+      },
+      "valid": {
+        "records": 15,
+        "chosen_nll": 1.9939920455966162,
+        "rejected_nll": 2.2527980751712553,
+        "normalized_accuracy": 0.6,
+        "normalized_margin": 0.10958571135997772,
+        "raw_accuracy": 0.6
+      }
+    },
+    "constant_dpo": {
+      "all": {
+        "records": 151,
+        "chosen_nll": 2.7681029864445974,
+        "rejected_nll": 6.246257944921752,
+        "normalized_accuracy": 0.9801324503311258,
+        "normalized_margin": 4.053793444736114,
+        "raw_accuracy": 0.9403973509933775
+      },
+      "valid": {
+        "records": 15,
+        "chosen_nll": 3.664718489232824,
+        "rejected_nll": 4.80742228840953,
+        "normalized_accuracy": 0.8666666666666667,
+        "normalized_margin": 1.3276813050111136,
+        "raw_accuracy": 0.7333333333333333
+      }
+    }
+  }
+}

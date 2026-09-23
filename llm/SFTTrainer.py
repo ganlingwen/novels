@@ -65,6 +65,7 @@ class SFTTrainerConfig:
     seed: int = 42
     data_loader: DataLoaderConfig = field(default_factory=DataLoaderConfig)
     optimizer: OptimizerConfig = field(default_factory=OptimizerConfig)
+    lr_schedule: str = "cosine"
 
 
 class SFTTrainer:
@@ -104,9 +105,14 @@ class SFTTrainer:
             weight_decay=config.optimizer.weight_decay,
             fused=config.optimizer.fused,
         )
-        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
-            optimizer, T_max=self.max_steps, eta_min=config.optimizer.learning_rate * 0.1
-        )
+        if config.lr_schedule == "constant":
+            scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lambda _: 1.0)
+        elif config.lr_schedule == "cosine":
+            scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+                optimizer, T_max=self.max_steps, eta_min=config.optimizer.learning_rate * 0.1
+            )
+        else:
+            raise ValueError(f"Unknown learning-rate schedule: {config.lr_schedule}")
         self.checkpoint = Checkpoint(
             model=model,
             optimizer=optimizer,
