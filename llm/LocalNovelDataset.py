@@ -18,7 +18,7 @@ def _prompt_text(prompt: dict) -> str:
     original = prompt.get("original_text") or prompt.get("original")
     if original:
         parts.append(f"原文：{original}")
-    return "\n\n".join(parts)
+    return "\n\n".join(str(part) for part in parts if part)
 
 
 def _record_id(path: Path, index: int, answer: str) -> str:
