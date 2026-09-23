@@ -21,6 +21,12 @@
       "preference": {
         "eligible": false,
         "reason": "原文是改写前版本；仅凭合入不能推断作者明确否决原文。"
+      },
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
       }
     },
     {
@@ -38,6 +44,12 @@
       "preference": {
         "eligible": false,
         "reason": "原文是改写前版本；仅凭合入不能推断作者明确否决原文。"
+      },
+      "tags": {
+        "primary": "dialogue",
+        "secondary": [
+          "natural_dialogue"
+        ]
       }
     }
   ],
