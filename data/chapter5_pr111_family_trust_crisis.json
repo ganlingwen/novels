@@ -1,0 +1,114 @@
+{
+  "task_id": "chapter5_pr111_family_trust_crisis",
+  "source_pr": 111,
+  "source_merge_commit": "b6d95b139073df5af62d32a29712340324287c78",
+  "source": "final_merged_pr111_diff",
+  "acceptance_scope": "narrative_and_terminology_edits_in_final_merged_pr111",
+  "quality_status": "accepted_local_revisions_not_whole_chapter_final",
+  "records": [
+    {
+      "id": "pr111-ch5-mother-questions-stopped",
+      "prompt": {
+        "user_request": "强化第五章家庭决定段开头的父母反应：母亲看到小文把“停止”涂黑两遍，应先就“嘴上应、手上划掉”发火质问，再接回登记利弊讨论，而不是直接进入平静的登记权衡。",
+        "context": "裁决后回到住处，父亲把共同记录与私密纸板并排摊开。私密纸板上食指发麻、耳鸣、无名指僵直十分钟依次露出，最后那个被涂黑两遍的“停止”仍能辨认。父亲先解释强直规律。",
+        "original_text": "母亲把铅笔从他手里抽走，搁在两份记录中间：“先别替他把本事算得这么好听。这两张哪一张都不能原样交。只报枯葱，人家当他会催苗；把你站立、退肿和右边这些症状一起交出去，谁都知道他还能碰人。”"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "母亲把铅笔从他手里抽走，搁在两份记录中间，指尖先点住那个被涂黑两遍的“停止”：“先别替他把本事算得这么好听。这两个字你划了两遍。让你停，你嘴上应，手上划掉——这算什么？”\n\n父亲的铅笔停在半空。\n\n母亲这才把话接回登记：“这两张哪一张都不能原样交。只报枯葱，人家当他会催苗；把你站立、退肿和右边这些症状一起交出去，谁都知道他还能治人。”",
+        "target_type": "merged_pr111_final"
+      },
+      "preference": {
+        "eligible": false,
+        "reason": "单候选直接接受，未在同 prompt 下提供真实 A/B 候选；不为历史接受编辑编造 rejected。"
+      }
+    },
+    {
+      "id": "pr111-ch5-ending-broken-trust",
+      "prompt": {
+        "user_request": "改写第五章家庭决定段收尾：父母发现小文隐瞒强直、划掉“停止”后，应以真生气与不信任收束，删去“睡一觉就好”的笑谈，让小文含糊承诺、母亲立规矩，体现他还对父母有所隐瞒。",
+        "context": "父亲说“这三天先不提登记了，你手上有什么不对劲别忍着，一定要跟我们说”。原稿以小文笑答“睡一觉明天这手就好了”、父亲也笑作结，信任危机被消解。",
+        "original_text": "小文笑了笑：“放心吧，真有事我肯定说。我还年轻呢，说不定睡一觉，明天这手就好了。”\n\n父亲也笑了：“真能睡一觉就好，那可省心了。”他把共同记录压回《初醒者须知》下面，将私密纸板折好递给小文，“行了，今天折腾一天，早点歇着吧。这份先收好。”\n\n小文接过纸板，朝父亲晃了晃：“收好了。”他掀开褥子一角，把纸板塞回深处。"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "小文没有笑。他把目光从那两个涂黑的字上挪开，低低应了一声：“我记着。”\n\n父亲把共同记录压回《初醒者须知》下面，将私密纸板折好递给他，手没有立刻松：“记着什么？记着要停，还是记着怎么再瞒我们一回？”\n\n小文接过纸板，手指在折痕上捏了一下，才塞进褥子深处。“记着不能再撑。”他说，没抬头。\n\n母亲一直看着他。等他把纸板收好，她才开口：“你要真记着，就把那两个字留着。下回再划掉，我就当你是不想让我们管你了。”\n\n小文点了点头，没出声。",
+        "target_type": "merged_pr111_final"
+      },
+      "preference": {
+        "eligible": false,
+        "reason": "单候选直接接受，未在同 prompt 下提供真实 A/B 候选；不为历史接受编辑编造 rejected。"
+      }
+    },
+    {
+      "id": "pr111-ch4-returning-home-transition",
+      "prompt": {
+        "user_request": "填补第四章当晚与第五章母亲追问之间的逻辑缺口：第四章母亲要求“晚上回来拿记录”，但当晚看完老杜后直接跳到次日裁决，需补一段当晚回住处的过渡，让“记录拖到第二天才交”有原因。",
+        "context": "第四章末老杜教完小文凿夹层后，正文直接跳到“次日，裁决处传来通知”。第四章 L55 母亲已要求“晚上回来，你自己写过的记录一张不少地拿给我”。第五章 L75 裁决后回家母亲才追问、小文才交出私密纸板。中间缺一环。",
+        "original_text": "“想藏东西，别挖得四四方方。”他说，“木头不是账本。顺着纹走，才不会一眼露馅。”\n\n次日，裁决处传来通知。白川、烧伤异能者、批准改变次序的天干和最早为老杜止血的小文，都要说明西墙救治经过。"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“想藏东西，别挖得四四方方。”他说，“木头不是账本。顺着纹走，才不会一眼露馅。”\n\n回到住处已过熄灯时分。小文把木工凿塞进枕下，母亲只看了他一眼：“记录明天再说。今晚先把你这只手洗干净。”\n\n小文没接话，趁母亲去倒水，把褥子下的纸板又往里推了推。父亲在床沿咳了一阵，没有回头看他。\n\n次日，裁决处传来通知。白川、烧伤异能者、批准改变次序的天干和最早为老杜止血的小文，都要说明西墙救治经过。",
+        "target_type": "merged_pr111_final"
+      },
+      "preference": {
+        "eligible": true,
+        "prompt_source": "same_as_prompt",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "response": "回到住处已过熄灯时分。小文把木工凿塞进枕下，母亲只看了他一眼：“记录明天再说。今晚先把你这只手洗干净。”\n\n小文没接话，趁母亲去倒水，把褥子下的纸板又往里推了推。父亲在床沿咳了一阵，没有回头看他。",
+            "origin": "ai_candidate",
+            "status": "chosen"
+          },
+          {
+            "candidate_id": "B",
+            "response": "母亲没有问裁决，只问：“你自己写的那些呢？昨晚让你拿，你说累。”",
+            "origin": "ai_candidate",
+            "status": "rejected"
+          }
+        ],
+        "chosen_candidate_id": "A",
+        "preference_reason": null,
+        "selection_source": "explicit_author_choice"
+      }
+    },
+    {
+      "id": "pr111-ch3-term-zhi-ren",
+      "prompt": {
+        "user_request": "统一术语：小文对人施术是治疗（止血、退肿、抑制坏死），“碰人”应改为“治人”，与 power.md“普通植物系不能治疗动物或人类”及第五章“治疗系”“给人治伤”措辞一致。",
+        "context": "第三章临睡前母亲把花盆移远，警告小文不要再对人施术、也不要碰花盆。原稿作“不碰人，也别碰这个”。",
+        "original_text": "“不碰人，也别碰这个。头还疼就告诉我。”"
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“不治人，也别碰这个。头还疼就告诉我。”",
+        "target_type": "merged_pr111_final"
+      },
+      "preference": {
+        "eligible": false,
+        "reason": "术语统一为机械一致性修正，未提供 A/B 候选；同一决策在第五章 L85、L91 的实例已被上述家庭决定段改写记录的最终文本吸收。"
+      }
+    }
+  ],
+  "excluded_from_this_bundle": [
+    {
+      "scope": "chapter5_scene.md L40 家庭决定行同步",
+      "reason": "场景表调度行同步属事实源维护，非正文叙述改写，不作为 SFT/preference 训练记录。"
+    },
+    {
+      "scope": "chapter4_scene.md 当晚回住处调度行同步",
+      "reason": "场景表调度行同步属事实源维护，非正文叙述改写，不作为 SFT/preference 训练记录。"
+    },
+    {
+      "scope": "chapter5 L85 父亲台词 碰人→治人",
+      "reason": "该实例的最终文本已作为 pr111-ch5-mother-questions-stopped 记录 response 的一部分收录，不单独重复。"
+    },
+    {
+      "scope": "chapter5 L91 母亲台词 碰人→治人",
+      "reason": "该实例的最终文本已作为 pr111-ch5-mother-questions-stopped 记录 response 的一部分收录，不单独重复。"
+    }
+  ],
+  "notes": "最终合入的 PR111 含四处独立叙述/术语编辑。4 SFT、1 DPO（第四章当晚回住处过渡的真实 A/B：A=在第四章补叙述段，B=在第五章用对白补，作者选 A）。术语统一碰人→治人的第五章两处实例被家庭决定段改写记录吸收，第三章 L517 单独成记录。场景表同步行不计入训练记录。"
+}
