@@ -39,11 +39,23 @@ def _record_id(path: Path, index: int, answer: str) -> str:
     return f"{path.name}:{index}:{digest}"
 
 
+def _record_paths(data_dir: str | Path) -> list[Path]:
+    """Find real records under data/real, accepting either data or data/real."""
+    root = Path(data_dir)
+    record_dir = root if root.name == "real" else root / "real"
+    if not record_dir.is_dir():
+        raise FileNotFoundError(f"Real training data directory not found: {record_dir}")
+    paths = sorted(record_dir.glob("*.json"))
+    if not paths:
+        raise ValueError(f"No real training records found in {record_dir}")
+    return paths
+
+
 def load_local_sft_records(data_dir: str | Path) -> list[dict]:
     """Normalize schema-2 and compact bundles into local SFT records."""
     records = []
     seen = set()
-    for path in sorted(Path(data_dir).glob("*.json")):
+    for path in _record_paths(data_dir):
         if path.name == "schema.json":
             continue
         bundle = json.loads(path.read_text(encoding="utf-8"))
@@ -132,7 +144,7 @@ def load_local_dpo_records(data_dir: str | Path) -> list[dict]:
     """Load real same-prompt preference pairs from compact and schema-2 records."""
     records = []
     seen = set()
-    for path in sorted(Path(data_dir).glob("*.json")):
+    for path in _record_paths(data_dir):
         if path.name == "schema.json":
             continue
         bundle = json.loads(path.read_text(encoding="utf-8"))
