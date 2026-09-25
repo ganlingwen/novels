@@ -31,42 +31,6 @@
 [仅 SFT](real/pr1_ch1_occluded-pov.json)、
 [仅 reviewer DPO](real/rejected_pr1_tiangan-ability-false-positive.json)。
 
-## 2026-09-24 迁移
-
-迁移前共 76 个文件，存在三种主要布局：
-
-| 原布局 | 文件数 | 迁移 |
-| --- | ---: | --- |
-| 根对象是一条记录 | 44 | 放入 `records[]`；其中一个负例使用已有显式 DPO projection |
-| 根对象包含 `records[]` | 14 | 统一各记录字段 |
-| 根级独立 `sft[]`、`dpo[]` | 18 | 每条现有样本成为一条记录，保留原训练资格，不推测合并关联 |
-
-同时消除了 `output/response/chosen` 别名、`preference.rejected[]` 文本数组、
-按 status 猜 chosen，以及从 scene/focus 动态补 prompt 的分支。
-旧 loader 合成的 prompt 已原样落盘，并在 `prompt.metadata.provenance` 标明来源。
-11 处对象形式 context 保留旧 loader 的字符串呈现，原对象保存在
-`prompt.metadata.original_context`。正文中的真实换行和字面量 `\n` 均未转换。
-
-原始文本、候选状态、来源、review、标签和其他元数据均保留。
-根级历史注释移入文件 metadata，记录注释移入记录 metadata；旧 schema_version 和
-counts 也作为历史注释保留，不能当成当前版本或当前统计。
-迁移前后按文件比较了原始标量多重集，确认无值丢失。
-
-旧 loader 实际输出 **174 SFT / 230 DPO**。其中三条无关记录共享
-`final_context_confirmation`，全局 ID 去重错误丢弃了两条 SFT。
-迁移为以下两条补上文件名前缀，并将旧 ID 保存在 `metadata.original_id`：
-
-- `ch3_baichuan_medical_bill_20260919:final_context_confirmation`
-- `ch3_cat_kill_credit_20260919:final_context_confirmation`
-
-迁移完成时为 **176 SFT / 230 DPO**。此前全部 174 SFT 和 230 DPO 的
-ID、来源、prompt、response/chosen/rejected 及相对顺序都逐项一致；
-迁移时使用 SHA-256 摘要完成一次性核对。恢复的两条样本可能改变 SFT 训练/验证切分。
-
-迁移后的新增数据不在本 README 逐项登记；来源、审核决定和数量贡献保存在各自 JSON 中。
-当前文件数、编辑记录数、SFT 样本数和 DPO 配对数由 `python data/count.py` 动态统计，
-不维护容易过期的手工总数。
-
 ## 使用与验证
 
 安装 `llm/requirements.txt` 后，在仓库根目录执行：
