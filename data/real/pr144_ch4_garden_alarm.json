@@ -1,0 +1,935 @@
+{
+  "schema_version": "3.0",
+  "metadata": {
+    "source": "merged_pr_with_author_iterative_corrections",
+    "repository": "ganlingwen/novels",
+    "pr": 144,
+    "url": "https://github.com/ganlingwen/novels/pull/144",
+    "base_commit": "bedca1ca0dee917c1d3509d02b2080492bab2451",
+    "initial_edit_commit": "3fe66df00d3477ce3a1f5b8d34b747e062fac3ea",
+    "accepted_commit": "96f4924e772dccbd13b0910272c64befc3f0cb84",
+    "merge_commit": "78c921e7a566483089c49512c879b5e20d24a6b7",
+    "source_group_id": "chapter4-garden-alarm",
+    "scope": "菜地劳动至广播响起前的九项局部编辑决定；不采集广播后的涵管战斗、医疗和暂缓处理的病情问题。",
+    "annotation_policy": "候选逐字摘自真实 Git 版本。任务文字为明确标注的归纳；author_feedback 是本轮对话摘录。一次纠正只保留一个可溯源的被拒版本，不依据口述补造未保存的中间稿。多处联动以有序原文摘录表示，并保存字符区间。",
+    "acceptance_evidence": [
+      "pull request。",
+      "合入了，现在沉淀 SFT 和 DPO。"
+    ],
+    "exclusions": [
+      "不把未保存的“一滑”“就又”等中间变体人工重建为额外 DPO 候选。",
+      "不重复收集已由 PR #143 记录的早餐出门片段。",
+      "告警报告与火场回忆仅有合入证据，DPO 不启用。",
+      "局部采纳不代表整章、医疗方法或全部设定已经通过审核。"
+    ]
+  },
+  "records": [
+    {
+      "id": "pr144-ch4-natural-weeding-action",
+      "prompt": {
+        "user_request": "修改菜地开头的动作描写，用自然中文写清左右手各做什么、没抓稳时什么掉下来，去掉多余连接词。",
+        "context": "小文带伤清理豆秧，左手拿镰刀割旧绳，右手拢秧子。只改这一段动作表达。",
+        "original_text": "临近正午，菜畦之间还积着昨夜的雨水。小文蹲在泥地上，用左手握镰刀，慢慢割开缠在豆秧上的旧绳。右手替他拢住秧子，偶尔一滑，枯叶就落回脚边。",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_correction"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "临近正午，菜畦之间还积着昨夜的雨水。小文蹲在泥地上，左手握着镰刀，慢慢割开缠在豆秧上的旧绳，右手拢住秧子，偶尔没抓稳，秧子掉回脚边。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "临近正午，菜畦之间还积着昨夜的雨水。小文蹲在泥地上，左手握着镰刀，慢慢割开缠在豆秧上的旧绳，右手拢住秧子，偶尔没抓稳，秧子掉回脚边。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision",
+              "commit": "96f4924e772dccbd13b0910272c64befc3f0cb84"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "临近正午，菜畦之间还积着昨夜的雨水。小文蹲在泥地上，用左手握镰刀，慢慢割开缠在豆秧上的旧绳。右手替他拢住秧子，偶尔一滑，枯叶就落回脚边。",
+            "status": "rejected",
+            "pair_id": "pr144-ch4-natural-weeding-action:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_git_version",
+              "commit": "3fe66df00d3477ce3a1f5b8d34b747e062fac3ea"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "用明确的抓握动作取代含混的“一滑”，保持掉落对象为秧子；避免“右手替他”这样的生硬代理表达。",
+          "eligibility_reason": "作者指出当前片段问题，后续修订提交并合入。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-garden-alarm",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 144,
+          "original_commit": "3fe66df00d3477ce3a1f5b8d34b747e062fac3ea",
+          "accepted_commit": "96f4924e772dccbd13b0910272c64befc3f0cb84",
+          "merge_commit": "78c921e7a566483089c49512c879b5e20d24a6b7",
+          "original_segments": [
+            {
+              "start_char": 1707,
+              "end_char": 1775,
+              "start_line": 115,
+              "end_line": 115
+            }
+          ],
+          "accepted_segments": [
+            {
+              "start_char": 1707,
+              "end_char": 1773,
+              "start_line": 115,
+              "end_line": 115
+            }
+          ],
+          "segment_contract": "按数组顺序逐字摘录 Git 字符区间，以两个换行连接；未收录的中间正文不表示删除。"
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted",
+          "author_feedback": [
+            "就右手拢住秧子不就完了吗？你替他干啥？",
+            "偶尔没抓稳，秧子掉回脚边不就可以了吗？"
+          ],
+          "reason": "用明确的抓握动作取代含混的“一滑”，保持掉落对象为秧子；避免“右手替他”这样的生硬代理表达。",
+          "reason_provenance": "annotator_summary_not_verbatim_author_feedback"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "presentation",
+          "secondary": [
+            "continuity"
+          ],
+          "rationale": "用明确的抓握动作取代含混的“一滑”，保持掉落对象为秧子；避免“右手替他”这样的生硬代理表达。"
+        }
+      }
+    },
+    {
+      "id": "pr144-ch4-care-and-work-dialogue",
+      "prompt": {
+        "user_request": "重写老杜让座与小文担心点数的这几句对白，让两人的话自然接上，去掉生硬反问和蹦短句的写法。",
+        "context": "老杜在菜地修育苗架。小文带伤清理枯秧，挪动时腿疼，没能站起来；老杜已经推来空箱。清理任务完成后才结算。",
+        "original_text": "“坐这儿。地上潮，你那腿受得了？”\n\n小文用手背擦了擦下巴：“还剩这么多。下午交不出来，今天就白干了。”\n\n“又没叫你回去。”老杜将散落的枯秧拢到箱子旁，“把绳子解出来给我，架子还缺这个。你那一畦，等我把这边钉好，咱们一块儿收拾。”",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_correction"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“坐箱子上歇会儿吧，别一直蹲在泥地里。”\n\n小文用手背擦了擦下巴：“还剩很多，下午交不出来，今天的点数就拿不到了。”\n\n“等我把架子钉好，剩下的我帮你一起弄。”老杜将散落的枯秧拢到箱子旁，“你先坐下，帮我把这些绳子解出来，待会儿捆架子用。”",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "“坐箱子上歇会儿吧，别一直蹲在泥地里。”\n\n小文用手背擦了擦下巴：“还剩很多，下午交不出来，今天的点数就拿不到了。”\n\n“等我把架子钉好，剩下的我帮你一起弄。”老杜将散落的枯秧拢到箱子旁，“你先坐下，帮我把这些绳子解出来，待会儿捆架子用。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision",
+              "commit": "96f4924e772dccbd13b0910272c64befc3f0cb84"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "“坐这儿。地上潮，你那腿受得了？”\n\n小文用手背擦了擦下巴：“还剩这么多。下午交不出来，今天就白干了。”\n\n“又没叫你回去。”老杜将散落的枯秧拢到箱子旁，“把绳子解出来给我，架子还缺这个。你那一畦，等我把这边钉好，咱们一块儿收拾。”",
+            "status": "rejected",
+            "pair_id": "pr144-ch4-care-and-work-dialogue:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_git_version",
+              "commit": "3fe66df00d3477ce3a1f5b8d34b747e062fac3ea"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "小文直接说出拿不到点数的担忧，老杜答应帮忙收尾，关心落在让座与分担工作上。",
+          "eligibility_reason": "作者指出当前片段问题，后续修订提交并合入。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-garden-alarm",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 144,
+          "original_commit": "3fe66df00d3477ce3a1f5b8d34b747e062fac3ea",
+          "accepted_commit": "96f4924e772dccbd13b0910272c64befc3f0cb84",
+          "merge_commit": "78c921e7a566483089c49512c879b5e20d24a6b7",
+          "original_segments": [
+            {
+              "start_char": 1879,
+              "end_char": 1896,
+              "start_line": 123,
+              "end_line": 123
+            },
+            {
+              "start_char": 1898,
+              "end_char": 1931,
+              "start_line": 125,
+              "end_line": 125
+            },
+            {
+              "start_char": 1933,
+              "end_char": 1995,
+              "start_line": 127,
+              "end_line": 127
+            }
+          ],
+          "accepted_segments": [
+            {
+              "start_char": 1891,
+              "end_char": 1911,
+              "start_line": 123,
+              "end_line": 123
+            },
+            {
+              "start_char": 1913,
+              "end_char": 1949,
+              "start_line": 125,
+              "end_line": 125
+            },
+            {
+              "start_char": 1951,
+              "end_char": 2011,
+              "start_line": 127,
+              "end_line": 127
+            }
+          ],
+          "segment_contract": "按数组顺序逐字摘录 Git 字符区间，以两个换行连接；未收录的中间正文不表示删除。"
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted",
+          "author_feedback": [
+            "你说还剩很多不就完了吗？下午交不出来，今天的点数就拿不到了。",
+            "什么叫做又没叫你回去。",
+            "你就把后面这些对话、这个 PR 里面覆盖的，好好地重新过一下。我怎么感觉还是三两个字蹦的，而且不像人话呢？"
+          ],
+          "reason": "小文直接说出拿不到点数的担忧，老杜答应帮忙收尾，关心落在让座与分担工作上。",
+          "reason_provenance": "annotator_summary_not_verbatim_author_feedback"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "everyday_life"
+          ],
+          "rationale": "小文直接说出拿不到点数的担忧，老杜答应帮忙收尾，关心落在让座与分担工作上。"
+        }
+      }
+    },
+    {
+      "id": "pr144-ch4-rope-selection-dialogue",
+      "prompt": {
+        "user_request": "重新过一遍菜地里的日常对白，改掉三两个字蹦出来的说法；修改挑绳子这一处。",
+        "context": "小文坐下帮老杜解旧绳，老杜要用绳子捆育苗架。刚递来的一根绳子被老杜拉断，随后他接过下一根。",
+        "original_text": "“这根糟了，别留。”他把两截扔进枯秧堆，又接了下一根，“这根行。”",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_correction"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“这绳子都沤烂了，剩下的也得挑一挑。”他把两截扔进枯秧堆，又接过下一根，拉了拉，放到架子旁。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "“这绳子都沤烂了，剩下的也得挑一挑。”他把两截扔进枯秧堆，又接过下一根，拉了拉，放到架子旁。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision",
+              "commit": "96f4924e772dccbd13b0910272c64befc3f0cb84"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "“这根糟了，别留。”他把两截扔进枯秧堆，又接了下一根，“这根行。”",
+            "status": "rejected",
+            "pair_id": "pr144-ch4-rope-selection-dialogue:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_git_version",
+              "commit": "3fe66df00d3477ce3a1f5b8d34b747e062fac3ea"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "作者要求整体重过这段日常对白；挑绳子不再逐根报短句结论，第二根是否可用通过拉试、放下呈现。",
+          "eligibility_reason": "作者指出当前片段问题，后续修订提交并合入。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-garden-alarm",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 144,
+          "original_commit": "3fe66df00d3477ce3a1f5b8d34b747e062fac3ea",
+          "accepted_commit": "96f4924e772dccbd13b0910272c64befc3f0cb84",
+          "merge_commit": "78c921e7a566483089c49512c879b5e20d24a6b7",
+          "original_segments": [
+            {
+              "start_char": 2055,
+              "end_char": 2088,
+              "start_line": 133,
+              "end_line": 133
+            }
+          ],
+          "accepted_segments": [
+            {
+              "start_char": 2067,
+              "end_char": 2113,
+              "start_line": 133,
+              "end_line": 133
+            }
+          ],
+          "segment_contract": "按数组顺序逐字摘录 Git 字符区间，以两个换行连接；未收录的中间正文不表示删除。"
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted",
+          "author_feedback": [
+            "你就把后面这些对话、这个 PR 里面覆盖的，好好地重新过一下。我怎么感觉还是三两个字蹦的，而且不像人话呢？"
+          ],
+          "reason": "作者要求整体重过这段日常对白；挑绳子不再逐根报短句结论，第二根是否可用通过拉试、放下呈现。",
+          "reason_provenance": "annotator_summary_not_verbatim_author_feedback"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "presentation"
+          ],
+          "rationale": "作者要求整体重过这段日常对白；挑绳子不再逐根报短句结论，第二根是否可用通过拉试、放下呈现。"
+        }
+      }
+    },
+    {
+      "id": "pr144-ch4-crutch-introduction",
+      "prompt": {
+        "user_request": "木拐出现得突兀，请核对后文用途并理顺引入。按出场、坐下的顺序，只返回这两处需要修改的文字。",
+        "context": "老杜是独腿木匠，坐在木箱上修育苗架；他推来另一只空箱让小文坐。后面撤退和赶往涵管都要拄拐，晚间还会用木拐教夹层做法。两段摘录之间的对白保留。",
+        "original_text": "旁边的木箱上，老杜正在补育苗架。\n\n他扶稳箱子，等小文坐下，才将木拐重新靠回自己手边。",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_correction"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "老杜坐在旁边的木箱上补育苗架，木拐靠在箱边。\n\n老杜扶住箱子，小文撑着箱沿，慢慢坐了上去。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "老杜坐在旁边的木箱上补育苗架，木拐靠在箱边。\n\n老杜扶住箱子，小文撑着箱沿，慢慢坐了上去。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision",
+              "commit": "96f4924e772dccbd13b0910272c64befc3f0cb84"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "旁边的木箱上，老杜正在补育苗架。\n\n他扶稳箱子，等小文坐下，才将木拐重新靠回自己手边。",
+            "status": "rejected",
+            "pair_id": "pr144-ch4-crutch-introduction:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_git_version",
+              "commit": "3fe66df00d3477ce3a1f5b8d34b747e062fac3ea"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "保留有后续用途的木拐，在老杜出场时明确位置，删掉没有拿起动作支撑的“重新靠回”。",
+          "eligibility_reason": "作者指出当前片段问题，后续修订提交并合入。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-garden-alarm",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 144,
+          "original_commit": "3fe66df00d3477ce3a1f5b8d34b747e062fac3ea",
+          "accepted_commit": "96f4924e772dccbd13b0910272c64befc3f0cb84",
+          "merge_commit": "78c921e7a566483089c49512c879b5e20d24a6b7",
+          "original_segments": [
+            {
+              "start_char": 1777,
+              "end_char": 1793,
+              "start_line": 117,
+              "end_line": 117
+            },
+            {
+              "start_char": 1997,
+              "end_char": 2022,
+              "start_line": 129,
+              "end_line": 129
+            }
+          ],
+          "accepted_segments": [
+            {
+              "start_char": 1775,
+              "end_char": 1797,
+              "start_line": 117,
+              "end_line": 117
+            },
+            {
+              "start_char": 2013,
+              "end_char": 2034,
+              "start_line": 129,
+              "end_line": 129
+            }
+          ],
+          "segment_contract": "按数组顺序逐字摘录 Git 字符区间，以两个换行连接；未收录的中间正文不表示删除。"
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted",
+          "author_feedback": [
+            "这里不要无关地出现道具，这个木拐是怎么来的？如果后面有很重要的，你可以用。但是我目前看起来有点突兀，你如果是伏笔的话，可以考虑留下。"
+          ],
+          "reason": "保留有后续用途的木拐，在老杜出场时明确位置，删掉没有拿起动作支撑的“重新靠回”。",
+          "reason_provenance": "annotator_summary_not_verbatim_author_feedback"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "continuity",
+          "secondary": [
+            "foreshadowing"
+          ],
+          "rationale": "保留有后续用途的木拐，在老杜出场时明确位置，删掉没有拿起动作支撑的“重新靠回”。"
+        }
+      }
+    },
+    {
+      "id": "pr144-ch4-alarm-report",
+      "prompt": {
+        "user_request": "润色菜地至广播前的对白，包括墙头报告尸群动向这一句。",
+        "context": "西墙警报已经响起，小文在墙内菜地。守卫报告西环高架方向分出的尸群正往西墙来，数量约两百。",
+        "original_text": "“西环高架分出来一股，正往西墙靠！”墙头有人朝下喊，“两百上下！”",
+        "metadata": {
+          "provenance": "normalized_from_pr_scope_not_verbatim_author_prompt"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“西环高架那边分出一股尸群，正往西墙来！”墙头有人朝下喊，“大约两百只！”",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {
+          "selection_source": "merge_only_no_explicit_local_preference",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": null,
+          "eligibility_reason": "只有合入证据，不把修改前文本自动推断成被拒候选。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-garden-alarm",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 144,
+          "original_commit": "3fe66df00d3477ce3a1f5b8d34b747e062fac3ea",
+          "accepted_commit": "96f4924e772dccbd13b0910272c64befc3f0cb84",
+          "merge_commit": "78c921e7a566483089c49512c879b5e20d24a6b7",
+          "original_segments": [
+            {
+              "start_char": 2241,
+              "end_char": 2274,
+              "start_line": 145,
+              "end_line": 145
+            }
+          ],
+          "accepted_segments": [
+            {
+              "start_char": 2266,
+              "end_char": 2303,
+              "start_line": 145,
+              "end_line": 145
+            }
+          ],
+          "segment_contract": "按数组顺序逐字摘录 Git 字符区间，以两个换行连接；未收录的中间正文不表示删除。"
+        },
+        "review": {
+          "provenance": "retrospective_annotation_of_merged_diff",
+          "outcome": "accepted",
+          "author_feedback": null,
+          "reason": "合入版本补出尸群这一对象及数量单位，使报告更容易听懂；没有将局部原句单独判为作者拒绝。",
+          "reason_provenance": "annotator_summary_not_verbatim_author_feedback"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": false
+        },
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "合入版本补出尸群这一对象及数量单位，使报告更容易听懂；没有将局部原句单独判为作者拒绝。"
+        }
+      }
+    },
+    {
+      "id": "pr144-ch4-inner-and-west-wall",
+      "prompt": {
+        "user_request": "分清这两段中的内墙和西墙，明确哪边在组织撤离、哪边在指着烟柱喊话。",
+        "context": "小文在西墙内侧菜地。撤离路线经过后方内墙门，再到体育馆地下入口。烟柱在西墙外的西北方向，指着烟柱南侧喊话的人在西墙上。",
+        "original_text": "身后有人往内墙门跑，守卫一边挥旗一边催人往里撤。穿过那道门，再往后才是体育馆的地下入口。\n\n小文转回头。黑烟从西北侧的墙外升起，湿冷的风里混进一股灼热。墙头有人指着烟柱南侧喊：“放火的往那边跑了！”",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_correction"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "身后有人往内墙门跑，内墙门口的守卫一边挥旗，一边催人进门。体育馆的地下入口还在内墙后面。\n\n小文转头望向西墙。黑烟从西墙外的西北方向升起，湿冷的风里混进一股灼热。西墙上有人指着烟柱南侧喊：“放火的往那边跑了！”",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "身后有人往内墙门跑，内墙门口的守卫一边挥旗，一边催人进门。体育馆的地下入口还在内墙后面。\n\n小文转头望向西墙。黑烟从西墙外的西北方向升起，湿冷的风里混进一股灼热。西墙上有人指着烟柱南侧喊：“放火的往那边跑了！”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision",
+              "commit": "96f4924e772dccbd13b0910272c64befc3f0cb84"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "身后有人往内墙门跑，守卫一边挥旗一边催人往里撤。穿过那道门，再往后才是体育馆的地下入口。\n\n小文转回头。黑烟从西北侧的墙外升起，湿冷的风里混进一股灼热。墙头有人指着烟柱南侧喊：“放火的往那边跑了！”",
+            "status": "rejected",
+            "pair_id": "pr144-ch4-inner-and-west-wall:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_git_version",
+              "commit": "3fe66df00d3477ce3a1f5b8d34b747e062fac3ea"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "明确内墙门口守卫与西墙上喊话者的所在位置，并写清小文转头看向西墙，避免连续泛称墙造成混淆。",
+          "eligibility_reason": "作者指出当前片段问题，后续修订提交并合入。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-garden-alarm",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 144,
+          "original_commit": "3fe66df00d3477ce3a1f5b8d34b747e062fac3ea",
+          "accepted_commit": "96f4924e772dccbd13b0910272c64befc3f0cb84",
+          "merge_commit": "78c921e7a566483089c49512c879b5e20d24a6b7",
+          "original_segments": [
+            {
+              "start_char": 2371,
+              "end_char": 2415,
+              "start_line": 149,
+              "end_line": 149
+            },
+            {
+              "start_char": 2417,
+              "end_char": 2470,
+              "start_line": 151,
+              "end_line": 151
+            }
+          ],
+          "accepted_segments": [
+            {
+              "start_char": 2400,
+              "end_char": 2444,
+              "start_line": 149,
+              "end_line": 149
+            },
+            {
+              "start_char": 2446,
+              "end_char": 2505,
+              "start_line": 151,
+              "end_line": 151
+            }
+          ],
+          "segment_contract": "按数组顺序逐字摘录 Git 字符区间，以两个换行连接；未收录的中间正文不表示删除。"
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted",
+          "author_feedback": [
+            "有内墙、有西墙，你光讲墙的话有点乱。你能把这个分清一点吗？我猜你第二个地方讲的应该是西墙头有人指着烟柱南侧喊，对吧？"
+          ],
+          "reason": "明确内墙门口守卫与西墙上喊话者的所在位置，并写清小文转头看向西墙，避免连续泛称墙造成混淆。",
+          "reason_provenance": "annotator_summary_not_verbatim_author_feedback"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "spatial_logic",
+          "secondary": [
+            "pov"
+          ],
+          "rationale": "明确内墙门口守卫与西墙上喊话者的所在位置，并写清小文转头看向西墙，避免连续泛称墙造成混淆。"
+        }
+      }
+    },
+    {
+      "id": "pr144-ch4-wedges-before-retreat",
+      "prompt": {
+        "user_request": "修正老杜在撤退时突然拿废床腿劈木楔的动作。按修架子、撤离的顺序返回这两处修改，保留合理的工具来源。",
+        "context": "老杜在菜地修育苗架，清理组随后接到撤进内墙的命令。木工凿后面用于涵管加固，木楔后面也有用途；本题只处理物件在菜地的来源与撤退时的行为，不审核后续医疗。两段摘录中间的正文保留。",
+        "original_text": "老杜坐在旁边的木箱上补育苗架，木拐靠在箱边。他将拆下来的旧钉一颗颗敲直，再钉回松开的接头。小文清完一小片，试着往前挪，右腿绷带底下忽然一阵热痛。\n\n老杜已将木工凿抵住架旁一截废床腿，锤子连落几下，劈下几块斜尖的木头。他把锤、凿和木楔收进腰间的工具袋，撑起木拐。小文伸手去扶，他朝内墙门偏了偏头：“你拄好自己的拐，跟着他们走，我就在后头。”",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_correction"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "老杜坐在旁边的木箱上补育苗架，木拐靠在箱边。他用木楔垫平架脚，将拆下来的旧钉一颗颗敲直，再钉回松开的接头。小文清完一小片，试着往前挪，右腿绷带底下忽然一阵热痛。\n\n老杜把工具和剩下的木楔收进腰间的袋子，撑着木拐站起来。小文伸手去扶，他朝内墙门偏了偏头：“你拄好自己的拐，跟着他们走，我就在后头。”",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "老杜坐在旁边的木箱上补育苗架，木拐靠在箱边。他用木楔垫平架脚，将拆下来的旧钉一颗颗敲直，再钉回松开的接头。小文清完一小片，试着往前挪，右腿绷带底下忽然一阵热痛。\n\n老杜把工具和剩下的木楔收进腰间的袋子，撑着木拐站起来。小文伸手去扶，他朝内墙门偏了偏头：“你拄好自己的拐，跟着他们走，我就在后头。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision",
+              "commit": "96f4924e772dccbd13b0910272c64befc3f0cb84"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "老杜坐在旁边的木箱上补育苗架，木拐靠在箱边。他将拆下来的旧钉一颗颗敲直，再钉回松开的接头。小文清完一小片，试着往前挪，右腿绷带底下忽然一阵热痛。\n\n老杜已将木工凿抵住架旁一截废床腿，锤子连落几下，劈下几块斜尖的木头。他把锤、凿和木楔收进腰间的工具袋，撑起木拐。小文伸手去扶，他朝内墙门偏了偏头：“你拄好自己的拐，跟着他们走，我就在后头。”",
+            "status": "rejected",
+            "pair_id": "pr144-ch4-wedges-before-retreat:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_git_version",
+              "commit": "a98fda1f35a7c1c289e055f677e9a04a0cac27b7"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "去掉缺乏来源的废床腿及逃跑时临时加工木楔的行为，让木楔先用于修架子，撤退时只收起工具和余料。",
+          "eligibility_reason": "作者指出当前片段问题，后续修订提交并合入。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-garden-alarm",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 144,
+          "original_commit": "a98fda1f35a7c1c289e055f677e9a04a0cac27b7",
+          "accepted_commit": "96f4924e772dccbd13b0910272c64befc3f0cb84",
+          "merge_commit": "78c921e7a566483089c49512c879b5e20d24a6b7",
+          "original_segments": [
+            {
+              "start_char": 1775,
+              "end_char": 1847,
+              "start_line": 117,
+              "end_line": 117
+            },
+            {
+              "start_char": 2662,
+              "end_char": 2757,
+              "start_line": 159,
+              "end_line": 159
+            }
+          ],
+          "accepted_segments": [
+            {
+              "start_char": 1775,
+              "end_char": 1855,
+              "start_line": 117,
+              "end_line": 117
+            },
+            {
+              "start_char": 2670,
+              "end_char": 2736,
+              "start_line": 159,
+              "end_line": 159
+            }
+          ],
+          "segment_contract": "按数组顺序逐字摘录 Git 字符区间，以两个换行连接；未收录的中间正文不表示删除。"
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted",
+          "author_feedback": [
+            "他们不是在菜地里边吗？然后他为什么突然逃跑的时候拿起木工凿来开始敲废长腿了？"
+          ],
+          "reason": "去掉缺乏来源的废床腿及逃跑时临时加工木楔的行为，让木楔先用于修架子，撤退时只收起工具和余料。",
+          "reason_provenance": "annotator_summary_not_verbatim_author_feedback"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "continuity",
+          "secondary": [
+            "foreshadowing",
+            "tension"
+          ],
+          "rationale": "去掉缺乏来源的废床腿及逃跑时临时加工木楔的行为，让木楔先用于修架子，撤退时只收起工具和余料。"
+        }
+      }
+    },
+    {
+      "id": "pr144-ch4-retreat-with-established-group",
+      "prompt": {
+        "user_request": "删改撤离段里突然出现、前后没有作用的搬工具者和木箱，理顺清理组与小文、老杜的撤退。",
+        "context": "内墙门口的守卫已让清理组撤入内墙。老杜收好工具，叫小文先跟着人群走；两人都拄拐，小文右腿有伤，菜地泥路湿软。",
+        "original_text": "弩弦在头顶接连绷响。墙下搬工具的人丢下木箱，跟着人群往内墙门跑。小文拄着短拐跟在后面，老杜落在更后头，木拐急促地敲着地面。泥路每塌下去一步，小文便要停一下，才能把伤腿带过去。",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_correction"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "西墙上的弩弦接连绷响，清理组的人纷纷往内墙门跑。小文拄着短拐跟在后面，老杜落在更后头，木拐急促地敲着地面。每走一步，拐头都陷进湿泥，小文得拔出短拐，撑稳后才能迈下一步。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "西墙上的弩弦接连绷响，清理组的人纷纷往内墙门跑。小文拄着短拐跟在后面，老杜落在更后头，木拐急促地敲着地面。每走一步，拐头都陷进湿泥，小文得拔出短拐，撑稳后才能迈下一步。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision",
+              "commit": "96f4924e772dccbd13b0910272c64befc3f0cb84"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "弩弦在头顶接连绷响。墙下搬工具的人丢下木箱，跟着人群往内墙门跑。小文拄着短拐跟在后面，老杜落在更后头，木拐急促地敲着地面。泥路每塌下去一步，小文便要停一下，才能把伤腿带过去。",
+            "status": "rejected",
+            "pair_id": "pr144-ch4-retreat-with-established-group:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_git_version",
+              "commit": "a98fda1f35a7c1c289e055f677e9a04a0cac27b7"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "用已经出场的清理组承接撤退，删除无前后作用的搬运者与木箱，并写清短拐陷泥对移动的影响。",
+          "eligibility_reason": "作者指出当前片段问题，后续修订提交并合入。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-garden-alarm",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 144,
+          "original_commit": "a98fda1f35a7c1c289e055f677e9a04a0cac27b7",
+          "accepted_commit": "96f4924e772dccbd13b0910272c64befc3f0cb84",
+          "merge_commit": "78c921e7a566483089c49512c879b5e20d24a6b7",
+          "original_segments": [
+            {
+              "start_char": 2759,
+              "end_char": 2846,
+              "start_line": 161,
+              "end_line": 161
+            }
+          ],
+          "accepted_segments": [
+            {
+              "start_char": 2738,
+              "end_char": 2822,
+              "start_line": 161,
+              "end_line": 161
+            }
+          ],
+          "segment_contract": "按数组顺序逐字摘录 Git 字符区间，以两个换行连接；未收录的中间正文不表示删除。"
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted",
+          "author_feedback": [
+            "墙下搬工具的人和木箱怎么突然又蹦出来了？前文没有提及，后文又好像没有作用。你这块是不是之前删了什么东西，然后现在删得漏在这的呀？"
+          ],
+          "reason": "用已经出场的清理组承接撤退，删除无前后作用的搬运者与木箱，并写清短拐陷泥对移动的影响。",
+          "reason_provenance": "annotator_summary_not_verbatim_author_feedback"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "plot",
+          "secondary": [
+            "spatial_logic"
+          ],
+          "rationale": "用已经出场的清理组承接撤退，删除无前后作用的搬运者与木箱，并写清短拐陷泥对移动的影响。"
+        }
+      }
+    },
+    {
+      "id": "pr144-ch4-fire-triggered-memory",
+      "prompt": {
+        "user_request": "精修第四章菜地至广播前的片段，保留小文回忆马克救天干这一画面。",
+        "context": "当前西墙外燃起化工火，小文闻到气味。前史中，他沿东侧通道往医院送水时远远见过马克背着天干穿出火线，也见过高架下尸群转向。",
+        "original_text": "燃油味把两帧旧影叠回来：暗金火墙吞过物流园，马克背着天干穿出火线；高架阴影里，一只行动异样的丧尸中箭倒下，附近尸群先乱，三路队伍又在片刻后同时改道。",
+        "metadata": {
+          "provenance": "normalized_from_pr_scope_not_verbatim_author_prompt"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "小文握紧短拐。上回也是这股味道。东侧通道上，运水的桶磕着他的膝盖；远处物流园烧成一片暗金，马克背着天干从火里走出来，衣角还带着火。高架阴影里，那只中箭倒下的丧尸身边乱了一阵，三路尸群随后一起转了向。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {
+          "selection_source": "merge_only_no_explicit_local_preference",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": null,
+          "eligibility_reason": "只有合入证据，不把修改前文本自动推断成被拒候选。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-garden-alarm",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 144,
+          "original_commit": "bedca1ca0dee917c1d3509d02b2080492bab2451",
+          "accepted_commit": "96f4924e772dccbd13b0910272c64befc3f0cb84",
+          "merge_commit": "78c921e7a566483089c49512c879b5e20d24a6b7",
+          "original_segments": [
+            {
+              "start_char": 2240,
+              "end_char": 2314,
+              "start_line": 139,
+              "end_line": 139
+            }
+          ],
+          "accepted_segments": [
+            {
+              "start_char": 2507,
+              "end_char": 2606,
+              "start_line": 153,
+              "end_line": 153
+            }
+          ],
+          "segment_contract": "按数组顺序逐字摘录 Git 字符区间，以两个换行连接；未收录的中间正文不表示删除。"
+        },
+        "review": {
+          "provenance": "retrospective_annotation_of_merged_diff",
+          "outcome": "accepted",
+          "author_feedback": null,
+          "reason": "保存已合入的气味触发回忆与目击画面；这轮没有独立否决旧句的证据，因此仅作为 SFT。",
+          "reason_provenance": "annotator_summary_not_verbatim_author_feedback"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": false
+        },
+        "tags": {
+          "primary": "pov",
+          "secondary": [
+            "cinematic"
+          ],
+          "rationale": "保存已合入的气味触发回忆与目击画面；这轮没有独立否决旧句的证据，因此仅作为 SFT。"
+        }
+      }
+    }
+  ]
+}
