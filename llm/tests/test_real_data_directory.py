@@ -71,7 +71,7 @@ def test_missing_real_directory_fails(tmp_path):
 def test_empty_real_directory_fails(tmp_path):
     real = tmp_path / "data" / "real"
     real.mkdir(parents=True)
-    with pytest.raises(ValueError, match="No real training records"):
+    with pytest.raises(ValueError, match="No training records"):
         load_local_sft_records(tmp_path / "data")
-    with pytest.raises(ValueError, match="No real training records"):
+    with pytest.raises(ValueError, match="No training records"):
         load_local_dpo_records(tmp_path / "data")

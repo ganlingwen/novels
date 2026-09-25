@@ -1,6 +1,7 @@
 # 本地 SFT / DPO 数据
 
-`schema.json` 是可执行的 JSON Schema（Draft 2020-12），`real/*.json` 全部采用版本 `3.0`。
+`schema.json` 是可执行的 JSON Schema（Draft 2020-12），`real/*.json` 和
+`synthesized/*.json` 统一采用版本 `3.0`。
 保存新编辑记录时遵循 [training-data.md](../skills/training-data.md)。
 
 ## 统一结构
@@ -16,6 +17,10 @@
 | `dpo.eligible/chosen_candidate_id/candidates` | 是否导出 DPO、明确选择的候选、所有真实候选 |
 | `candidate.candidate_id/response/status/pair_id` | 候选文本和历史状态；可训练的 rejected 候选有唯一 pair_id，其他候选为 null |
 | 各层 `metadata` | 来源、review、质量、标签、选择理由、历史计数和其他原始注释 |
+
+`synthesized/` 中的每条记录必须声明 `metadata.data_origin="synthetic"`，并填写
+`metadata.synthetic_provenance`：父记录、来源分组、合成方法、事实源、生成模型与参数、
+评审模型与结论、审核状态。合成记录不得使用 `human_accepted` 等真实作者标签。
 
 所有候选都回答本记录的同一 prompt。每个 `status="rejected"` 的候选与明确选中的候选构成一对。
 其他历史状态仍保留，但不自动推断训练资格。SFT 最终修订可能不同于 DPO 当时选择的候选。
@@ -68,9 +73,15 @@ cd llm
 python -m pytest
 ```
 
-`load_local_sft_records()` 和 `load_local_dpo_records()` 均接受 `data/` 或 `data/real/`。
+`load_local_sft_records()` 和 `load_local_dpo_records()` 默认只加载 `real`。通过
+`sources=("synthesized",)` 或 `sources=("real", "synthesized")` 显式选择来源；
+直接传入 `data/real/` 或 `data/synthesized/` 时，sources 必须与目录一致。
 loader 使用仓库内 `data/schema.json` 验证格式，并检查跨字段候选引用、
 全局记录/pair ID 唯一性、chosen/rejected 差异。错误包含文件及记录位置，不再静默跳过。
 `count.py` 独立统计显式偏好注释并对比 loader 输出。
+
+`sample_training_records(records, {"real": 1, "synthetic": 1}, sample_count, seed)`
+按来源权重采样，再在该来源内均匀采样。权重是相对概率；`1:1` 表示两类来源各约 50%，
+不是每条记录同权。验证集不要经过此采样。
 
 有意新增或修改语料后，应审查并更新 `llm/tests/test_local_data.py` 的数量和语料摘要断言。

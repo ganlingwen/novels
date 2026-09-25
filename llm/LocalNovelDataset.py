@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+import random
 from pathlib import Path
 
 import torch
@@ -10,6 +11,8 @@ from jsonschema import Draft202012Validator, ValidationError
 from torch.utils.data import Dataset as TorchDataset
 
 from NovelSFTDataset import NovelSFTDataset
+
+DATA_SOURCES = ("real", "synthesized")
 
 
 def _prompt_text(prompt: dict) -> str:
@@ -21,24 +24,40 @@ def _prompt_text(prompt: dict) -> str:
     return "\n\n".join(parts)
 
 
-def _record_paths(data_dir: str | Path) -> list[Path]:
-    """Find real records under data/real, accepting either data or data/real."""
+def _normalize_sources(sources: tuple[str, ...] | list[str]) -> tuple[str, ...]:
+    sources = tuple(dict.fromkeys(sources))
+    unknown = set(sources) - set(DATA_SOURCES)
+    if not sources or unknown:
+        raise ValueError(f"sources must contain one or more of {DATA_SOURCES}; got {sources}")
+    return sources
+
+
+def _record_paths(data_dir: str | Path, sources: tuple[str, ...] | list[str] = ("real",)) -> list[Path]:
+    """Find records in explicitly selected source directories."""
     root = Path(data_dir)
-    record_dir = root if root.name == "real" else root / "real"
-    if not record_dir.is_dir():
-        raise FileNotFoundError(f"Real training data directory not found: {record_dir}")
-    paths = sorted(record_dir.glob("*.json"))
+    sources = _normalize_sources(sources)
+    if root.name in DATA_SOURCES:
+        if root.name not in sources:
+            raise ValueError(f"Direct data directory {root} is not selected by sources={sources}")
+        record_dirs = [root]
+    else:
+        record_dirs = [root / source for source in sources]
+    missing = [directory for directory in record_dirs if not directory.is_dir()]
+    if missing:
+        raise FileNotFoundError(f"Training data directory not found: {missing[0]}")
+    paths = sorted(path for directory in record_dirs for path in directory.glob("*.json"))
     if not paths:
-        raise ValueError(f"No real training records found in {record_dir}")
+        raise ValueError(f"No training records found in: {', '.join(map(str, record_dirs))}")
     return paths
 
 
-def _local_records(data_dir: str | Path):
+def _local_records(data_dir: str | Path, sources: tuple[str, ...] | list[str] = ("real",)):
     """Validate schema and cross-field invariants; never guess or silently drop data."""
     schema_path = Path(__file__).resolve().parents[1] / "data" / "schema.json"
     validator = Draft202012Validator(json.loads(schema_path.read_text(encoding="utf-8")))
     record_ids, pair_ids = set(), set()
-    for path in _record_paths(data_dir):
+    for path in _record_paths(data_dir, sources):
+        data_origin = "synthetic" if path.parent.name == "synthesized" else "real"
         try:
             bundle = json.loads(path.read_text(encoding="utf-8"))
             validator.validate(bundle)
@@ -48,6 +67,11 @@ def _local_records(data_dir: str | Path):
             raise ValueError(f"{path}: {error.json_path}: {error.message}") from error
         for item in bundle["records"]:
             location = f"{path}: record {item['id']!r}"
+            declared_origin = item["metadata"].get("data_origin")
+            if data_origin == "synthetic" and declared_origin != "synthetic":
+                raise ValueError(f"{location}: synthesized records must declare data_origin='synthetic'")
+            if data_origin == "real" and declared_origin not in (None, "real"):
+                raise ValueError(f"{location}: real records cannot declare data_origin={declared_origin!r}")
             if item["id"] in record_ids:
                 raise ValueError(f"{location}: duplicate record ID")
             record_ids.add(item["id"])
@@ -68,19 +92,20 @@ def _local_records(data_dir: str | Path):
                     pair_ids.add(pair_id)
                 elif pair_id is not None:
                     raise ValueError(f"{location}: pair_id is only valid for an eligible rejected candidate")
-            yield path, item
+            yield path, data_origin, item
 
 
-def load_local_sft_records(data_dir: str | Path) -> list[dict]:
+def load_local_sft_records(data_dir: str | Path, sources: tuple[str, ...] | list[str] = ("real",)) -> list[dict]:
     """Project explicitly eligible canonical records into SFT samples."""
     return [
         {
             "id": item["id"],
             "source": path.name,
+            "data_origin": data_origin,
             "prompt": _prompt_text(item["prompt"]),
             "response": item["sft"]["response"],
         }
-        for path, item in _local_records(data_dir)
+        for path, data_origin, item in _local_records(data_dir, sources)
         if item["sft"]["eligible"]
     ]
 
@@ -106,10 +131,10 @@ def make_sft_dataset(records: list[dict], tokenizer, max_length: int) -> NovelSF
     return NovelSFTDataset(Dataset.from_list(rows), tokenizer, max_length)
 
 
-def load_local_dpo_records(data_dir: str | Path) -> list[dict]:
+def load_local_dpo_records(data_dir: str | Path, sources: tuple[str, ...] | list[str] = ("real",)) -> list[dict]:
     """Pair the explicit chosen candidate with each eligible rejected candidate."""
     records = []
-    for path, item in _local_records(data_dir):
+    for path, data_origin, item in _local_records(data_dir, sources):
         dpo = item["dpo"]
         if not dpo["eligible"]:
             continue
@@ -121,12 +146,39 @@ def load_local_dpo_records(data_dir: str | Path) -> list[dict]:
                     {
                         "id": candidate["pair_id"],
                         "source": path.name,
+                        "data_origin": data_origin,
                         "prompt": _prompt_text(item["prompt"]),
                         "chosen": chosen,
                         "rejected": candidate["response"],
                     }
                 )
     return records
+
+
+def sample_training_records(
+    records: list[dict],
+    source_weights: dict[str, float],
+    sample_count: int | None = None,
+    seed: int = 42,
+) -> list[dict]:
+    """Sample sources by relative weight, then sample uniformly within each source."""
+    if not records:
+        raise ValueError("records must not be empty")
+    unknown = set(source_weights) - {"real", "synthetic"}
+    if unknown or not source_weights or any(weight < 0 for weight in source_weights.values()):
+        raise ValueError("source_weights must contain non-negative real/synthetic weights")
+    grouped = {source: [record for record in records if record["data_origin"] == source] for source in source_weights}
+    active = [source for source, weight in source_weights.items() if weight > 0]
+    missing = [source for source in active if not grouped[source]]
+    if not active or missing:
+        raise ValueError(f"Positive-weight sources must contain records; missing: {missing}")
+    if sample_count is None:
+        sample_count = len(records)
+    if sample_count < 1:
+        raise ValueError("sample_count must be at least 1")
+    rng = random.Random(seed)
+    selected_sources = rng.choices(active, weights=[source_weights[source] for source in active], k=sample_count)
+    return [rng.choice(grouped[source]) for source in selected_sources]
 
 
 def split_local_dpo(records: list[dict], validation_ratio: float = 0.1) -> tuple[list[dict], list[dict]]:

@@ -8,7 +8,7 @@
 
 ## 核心原则
 
-1. 数据写入 `data/real/*.json`；每条 `records[]` 表达一个独立编辑决策，同一轮编辑可保存在同一个文件。
+1. 真实编辑数据写入 `data/real/*.json`；合成数据只能写入 `data/synthesized/*.json`。每条 `records[]` 表达一个独立编辑决策，同一轮编辑可保存在同一个文件。
 2. 只把作者真实接受/merge 的修改作为 SFT target；不得把模型自评“正确”当作 human accepted。
 3. Preference/DPO 必须来自同一个 prompt、同一份上下文下的真实候选比较。不得为历史 accepted edit 事后编造 rejected candidate。
 4. 候选版本必须在作者选择前原样保存；chosen/rejected 都保留完整文本。
@@ -58,6 +58,15 @@ loader 将所选候选与每个 rejected 候选分别导出，SFT response 可�
 - 作者选择是真实发生的，不根据 merge 结果倒推虚构另一个候选；
 - 能保存作者理由时保存；作者只点 A/B 也有效，`preference_reason` 可为 null；
 - 对 false positive，优先保留“no change > unnecessary edit”信号。
+
+## 合成数据
+
+合成记录使用相同 schema，但必须设置 `metadata.data_origin=synthetic` 并完整填写
+`metadata.synthetic_provenance`。父记录、事实源、生成模型与参数、模板版本、评审信息和审核状态
+必须可追溯。模型评审不得标成 `human_accepted` 或 `explicit_author_choice`。
+
+合成 DPO 可以构造新的同 prompt 候选比较，但不得写回 `data/real`，也不得声称是历史作者选择。
+只有通过质量门槛的记录才可设置训练 eligibility；未通过或平局样本保留 provenance 后排除训练。
 
 ## 导出训练集
 
