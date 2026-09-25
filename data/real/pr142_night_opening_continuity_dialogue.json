@@ -1,0 +1,996 @@
+{
+  "schema_version": "3.0",
+  "metadata": {
+    "source": "merged_pr_with_author_iterative_corrections",
+    "repository": "ganlingwen/novels",
+    "pr": 142
+  },
+  "records": [
+    {
+      "id": "pr142-opening-mother-hand-not-let-go",
+      "prompt": {
+        "user_request": "精修第四章开头，改正空间错误。母亲站在小文身后，不需要退到矮桌旁。",
+        "context": "第三章结尾母亲走到小文身后，手放他肩上。第四章开头她应站在原处，不是退开。",
+        "original_text": "母亲松开手，退到矮桌旁。",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "母亲没有收手。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "dont_step_back",
+        "candidates": [
+          {
+            "candidate_id": "dont_step_back",
+            "response": "母亲没有收手。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_correction"
+            }
+          },
+          {
+            "candidate_id": "original",
+            "response": "母亲松开手，退到矮桌旁。",
+            "status": "rejected",
+            "pair_id": "pr142-opening-mother-hand-not-let-go:rejected:original",
+            "metadata": {
+              "origin": "writer_draft"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction",
+          "preference_reason": "母亲一直站在小文身后，没有理由退到矮桌。保持原位更合理。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 142
+        },
+        "tags": {
+          "primary": "spatial_logic",
+          "secondary": [],
+          "rationale": "母亲不用退后，她在小文身后保持原位即可。"
+        }
+      }
+    },
+    {
+      "id": "pr142-opening-sleeve-exaggerated",
+      "prompt": {
+        "user_request": "精修第四章开头，改正夸大描写。板缝打进来的斜雨不可能让整条袖子往下滴水。",
+        "context": "窗板缝隙进来的雨量有限，袖口湿一片合理，整条袖子滴水不成立。",
+        "original_text": "斜雨从板缝打进来，整条袖子往下滴水。",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "斜雨从板缝打进来，她袖口已经湿了一片。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "measured",
+        "candidates": [
+          {
+            "candidate_id": "measured",
+            "response": "斜雨从板缝打进来，她袖口已经湿了一片。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_correction"
+            }
+          },
+          {
+            "candidate_id": "original",
+            "response": "斜雨从板缝打进来，整条袖子往下滴水。",
+            "status": "rejected",
+            "pair_id": "pr142-opening-sleeve-exaggerated:rejected:original",
+            "metadata": {
+              "origin": "writer_draft"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction",
+          "preference_reason": "板缝进来的雨量有限，整条袖子滴水是不可能的夸张。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 142
+        },
+        "tags": {
+          "primary": "presentation",
+          "secondary": [],
+          "rationale": "物理实的感官描写，避免为制造画面而夸大。"
+        }
+      }
+    },
+    {
+      "id": "pr142-opening-no-need-to-make-way",
+      "prompt": {
+        "user_request": "精修第四章开头，删去无意义的动作描写。窄褥就在窗下，母亲不需要让路。",
+        "context": "小文站在窗边，窄褥就在他脚边窗下。母亲在他身后，不存在让出路的需要。",
+        "original_text": "母亲侧身靠着矮桌，给他让出通往窄褥的路。",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {
+          "deleted": "no_replacement_needed"
+        }
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [
+          {
+            "candidate_id": "delete",
+            "response": "[删除]",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_correction",
+              "deleted": true
+            }
+          },
+          {
+            "candidate_id": "original",
+            "response": "母亲侧身靠着矮桌，给他让出通往窄褥的路。",
+            "status": "rejected",
+            "pair_id": null,
+            "metadata": {
+              "origin": "writer_draft"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction",
+          "preference_reason": "窄褥就在窗下，二人都在窗边，不存在让路的空间逻辑。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 142
+        },
+        "tags": {
+          "primary": "spatial_logic",
+          "secondary": [
+            "presentation"
+          ],
+          "rationale": "窗和窄褥在同一位置，无需让路。"
+        }
+      }
+    },
+    {
+      "id": "pr142-spatial-left-shoulder-left-elbow",
+      "prompt": {
+        "user_request": "精修第四章开头，改正母亲手的方位。小文面东时左肩朝北（帘口方向），母亲从北侧靠近。",
+        "context": "小文面朝东关窗，左肩朝北（帘口方向）。母亲从帘口走来站在他北侧。她碰左肩，转回身后扶左肘。原稿写的右肘为空间错误。",
+        "original_text": "他从水盆边扯起布条，按住鼻子，慢慢转过身。母亲侧身靠着矮桌，给他让出通往窄褥的路。\n\n母亲从桌边重新托住他的右肘。",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "他从水盆边扯起布条，按住鼻子，慢慢转回身。\n\n母亲托住他的左肘，扶他退到褥边坐下。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "left_elbow",
+        "candidates": [
+          {
+            "candidate_id": "left_elbow",
+            "response": "他从水盆边扯起布条，按住鼻子，慢慢转回身。\n\n母亲托住他的左肘，扶他退到褥边坐下。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_correction"
+            }
+          },
+          {
+            "candidate_id": "original",
+            "response": "他从水盆边扯起布条，按住鼻子，慢慢转过身。母亲侧身靠着矮桌，给他让出通往窄褥的路。\n\n母亲从桌边重新托住他的右肘。",
+            "status": "rejected",
+            "pair_id": "pr142-spatial-left-shoulder-left-elbow:rejected:original",
+            "metadata": {
+              "origin": "writer_draft"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction",
+          "preference_reason": "小文面东关窗时左肩朝北，母亲从北侧靠近；他转身后母亲仍在北侧，只能扶左肘。右肘不可达。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 142
+        },
+        "tags": {
+          "primary": "spatial_logic",
+          "secondary": [],
+          "rationale": "根据房间布局（窗东、帘北、门南），母亲从北侧来只能碰左肩扶左肘。"
+        }
+      }
+    },
+    {
+      "id": "pr142-dialogue-wait-removed",
+      "prompt": {
+        "user_request": "删除多余的等一下。动作已经表达了等待的意思。",
+        "context": "小文试图递钟但手指抬不动——这个动作本身就在说等一下。再说出来是重复。",
+        "original_text": "小文试着抬起食指。指根绷得发疼，指尖却还贴在钟壳上。\n\n\"等一下。\"",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "小文把钟递过去，试着松开手指。指根绷得发疼，指尖却还贴在钟壳上。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "action_speaks",
+        "candidates": [
+          {
+            "candidate_id": "action_speaks",
+            "response": "小文把钟递过去，试着松开手指。指根绷得发疼，指尖却还贴在钟壳上。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_correction"
+            }
+          },
+          {
+            "candidate_id": "original",
+            "response": "小文试着抬起食指。指根绷得发疼，指尖却还贴在钟壳上。\n\n\"等一下。\"",
+            "status": "rejected",
+            "pair_id": "pr142-dialogue-wait-removed:rejected:original",
+            "metadata": {
+              "origin": "writer_draft"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction",
+          "preference_reason": "手指抬不动的动作已经表达了等一下，声音重复同一信息是对白的冗余。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 142
+        },
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "presentation"
+          ],
+          "rationale": "动作已经表达的信息不用对白重复。"
+        }
+      }
+    },
+    {
+      "id": "pr142-stool-roots-no-establishment",
+      "prompt": {
+        "user_request": "删除不合理细节。凳上的细根来源未在前文交代，读者无法形成画面。",
+        "context": "木凳上缠着细根——这是第三章花盆被推到凳下的结果，但第四章正文没有提供此信息。",
+        "original_text": "母亲扶着桌子，用鞋底踩断缠在凳脚上的细根，把木凳拖到褥边。",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "母亲起身把木凳拖到褥边。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "cleaned",
+        "candidates": [
+          {
+            "candidate_id": "cleaned",
+            "response": "母亲起身把木凳拖到褥边。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_correction"
+            }
+          },
+          {
+            "candidate_id": "original",
+            "response": "母亲扶着桌子，用鞋底踩断缠在凳脚上的细根，把木凳拖到褥边。",
+            "status": "rejected",
+            "pair_id": "pr142-stool-roots-no-establishment:rejected:original",
+            "metadata": {
+              "origin": "writer_draft"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction",
+          "preference_reason": "细根的来源需要读者从第三章末推测，第四章一开篇就出现造成画面断裂。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 142
+        },
+        "tags": {
+          "primary": "continuity",
+          "secondary": [
+            "presentation"
+          ],
+          "rationale": "前文未建立的物件细节不能在新章开头直接使用。"
+        }
+      }
+    },
+    {
+      "id": "pr142-clock-spatial-hand-under",
+      "prompt": {
+        "user_request": "改正钟的物理动作。钟放在大腿上，手伸不到底下。",
+        "context": "小文坐着，钟搁在大腿上，他的右手扣在钟壳上。不存在钟底下这个空间——钟底贴着他大腿。",
+        "original_text": "她坐下来，手伸到钟底下：\"给我，别硌着伤口。\"",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "她坐下来，伸手来接钟：\"给我，别硌着伤口。\"",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "reach_for_clock",
+        "candidates": [
+          {
+            "candidate_id": "reach_for_clock",
+            "response": "她坐下来，伸手来接钟：\"给我，别硌着伤口。\"",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_correction"
+            }
+          },
+          {
+            "candidate_id": "original",
+            "response": "她坐下来，手伸到钟底下：\"给我，别硌着伤口。\"",
+            "status": "rejected",
+            "pair_id": "pr142-clock-spatial-hand-under:rejected:original",
+            "metadata": {
+              "origin": "writer_draft"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction",
+          "preference_reason": "钟放在大腿上，钟底贴腿，手伸不到钟底下；应整体接钟。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 142
+        },
+        "tags": {
+          "primary": "spatial_logic",
+          "secondary": [],
+          "rationale": "物件放在腿上时，下方没有可伸手的空间。"
+        }
+      }
+    },
+    {
+      "id": "pr142-clock-cannot-hold-under",
+      "prompt": {
+        "user_request": "改正托钟动作。钟在腿上、手扣在上面，不可能从下方托住。",
+        "context": "母亲发现小文手指松不开后改为等待。但托住钟不成立——上次尝试接钟已失败，手在半空停了。",
+        "original_text": "她托住钟，等他松手。",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "她没有催，把伸出的手停在半空。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "hand_paused",
+        "candidates": [
+          {
+            "candidate_id": "hand_paused",
+            "response": "她没有催，把伸出的手停在半空。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_correction"
+            }
+          },
+          {
+            "candidate_id": "original",
+            "response": "她托住钟，等他松手。",
+            "status": "rejected",
+            "pair_id": "pr142-clock-cannot-hold-under:rejected:original",
+            "metadata": {
+              "origin": "writer_draft"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction",
+          "preference_reason": "钟在腿上、手扣上面，无法从下方托住。改为手停在空中的等待姿态。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 142
+        },
+        "tags": {
+          "primary": "spatial_logic",
+          "secondary": [
+            "presentation"
+          ],
+          "rationale": "无法从下方托住放在腿上的物件，应以等待动作替代。"
+        }
+      }
+    },
+    {
+      "id": "pr142-pronoun-she-not-he",
+      "prompt": {
+        "user_request": "改正代词。主语是母亲，不能用他。",
+        "context": "前一句是小文点了一下头（男性），下一句主语应是母亲（女性）。",
+        "original_text": "他没有再伸手，只说：\"下午才答应今天不试了。你等我们睡着，又起来试。\"",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "她没有再伸手，只说：\"下午才答应今天不试了。你等我们睡着，又起来试。\"",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "she_not_he",
+        "candidates": [
+          {
+            "candidate_id": "she_not_he",
+            "response": "她没有再伸手，只说：\"下午才答应今天不试了。你等我们睡着，又起来试。\"",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_correction"
+            }
+          },
+          {
+            "candidate_id": "original",
+            "response": "他没有再伸手，只说：\"下午才答应今天不试了。你等我们睡着，又起来试。\"",
+            "status": "rejected",
+            "pair_id": "pr142-pronoun-she-not-he:rejected:original",
+            "metadata": {
+              "origin": "writer_draft"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction",
+          "preference_reason": "主语是母亲（女性），不能用他。造成场景中人物混乱。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 142
+        },
+        "tags": {
+          "primary": "continuity",
+          "secondary": [],
+          "rationale": "前后人物代词性别须准确。"
+        }
+      }
+    },
+    {
+      "id": "pr142-pronoun-xiaowen-clarity",
+      "prompt": {
+        "user_request": "主语需清晰。父亲刚在帘后问话，此处他指父亲还是小文不明确。",
+        "context": "前文「帘后的父亲又问了一声怎么了」，紧跟「他还没回答」——他可指父亲也可指小文。",
+        "original_text": "帘后的父亲又问了一声怎么了，他还没回答，母亲轻轻碰了碰他的手背。\n\n他点了一下头。",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "帘后的父亲又问了一声怎么了，小文还没回答，母亲轻轻碰了碰他的手背。\n\n小文点了一下头。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "use_xiaowen",
+        "candidates": [
+          {
+            "candidate_id": "use_xiaowen",
+            "response": "帘后的父亲又问了一声怎么了，小文还没回答，母亲轻轻碰了碰他的手背。\n\n小文点了一下头。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_correction"
+            }
+          },
+          {
+            "candidate_id": "original",
+            "response": "帘后的父亲又问了一声怎么了，他还没回答，母亲轻轻碰了碰他的手背。\n\n他点了一下头。",
+            "status": "rejected",
+            "pair_id": "pr142-pronoun-xiaowen-clarity:rejected:original",
+            "metadata": {
+              "origin": "writer_draft"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction",
+          "preference_reason": "他连续出现且分别指代不同人，读者需回看反复才能确认。用小文替换后一次成图。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 142
+        },
+        "tags": {
+          "primary": "presentation",
+          "secondary": [],
+          "rationale": "多处代词引用同一人物但主语已变，须用名字重新锚定。"
+        }
+      }
+    },
+    {
+      "id": "pr142-dialogue-i-really-stopped",
+      "prompt": {
+        "user_request": "改正不自然的对话。像逻辑辩论不是活人说话。",
+        "context": "母亲责备他又起来试，儿子辩解。原稿的对白像在交换论点，没有真实情绪。",
+        "original_text": "\"我已经停了。\"\n\n\"可你的手还没松。\"",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "\"我真的没试了。\"\n\n\"那怎么还松不开。\"",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "natural_dialogue",
+        "candidates": [
+          {
+            "candidate_id": "natural_dialogue",
+            "response": "\"我真的没试了。\"\n\n\"那怎么还松不开。\"",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_correction"
+            }
+          },
+          {
+            "candidate_id": "original",
+            "response": "\"我已经停了。\"\n\n\"可你的手还没松。\"",
+            "status": "rejected",
+            "pair_id": "pr142-dialogue-i-really-stopped:rejected:original",
+            "metadata": {
+              "origin": "writer_draft"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction",
+          "preference_reason": "原稿像两人交换论据证明谁对谁错；改稿中儿子在辩解，母亲用事实轻轻驳回，更像真实母子对话。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 142
+        },
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "对白需要有人物温度和信息之外的紧张关系，不能变成逻辑问答。"
+        }
+      }
+    },
+    {
+      "id": "pr142-dialogue-nin-kan-formal",
+      "prompt": {
+        "user_request": "改正过于正式的对白。儿子对母亲说您看不自然。",
+        "context": "小文刚恢复手指活动，向母亲展示。您看过于恭敬，不像儿子对妈说话。",
+        "original_text": "\"现在能动了。您看。\"",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "\"好了，能动了。你看。\"",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "less_formal",
+        "candidates": [
+          {
+            "candidate_id": "less_formal",
+            "response": "\"好了，能动了。你看。\"",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_correction"
+            }
+          },
+          {
+            "candidate_id": "original",
+            "response": "\"现在能动了。您看。\"",
+            "status": "rejected",
+            "pair_id": "pr142-dialogue-nin-kan-formal:rejected:original",
+            "metadata": {
+              "origin": "writer_draft"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction",
+          "preference_reason": "儿子对母亲用您看过于正式，改为你看更自然，且好了带放松语气。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 142
+        },
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "母子对话应自然亲近，避免过于正式的敬语。"
+        }
+      }
+    },
+    {
+      "id": "pr142-dialogue-too-terse-naturalize",
+      "prompt": {
+        "user_request": "对白不能惜字如金。三个字不像正常人在说话。",
+        "context": "母亲连续纠正两次：第一次嫌您看太正式，第二次改成能动了又被嫌太短。自然对话应有完整语气。",
+        "original_text": "\"能动了。\"\n\n母亲握住他的手，没让他再试：\"行了，歇着。\"",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "\"好了，能动了。你看。\"\n\n母亲握住他的手，没让他再试：\"行了行了，别使劲了，歇着吧。\"",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "natural_length",
+        "candidates": [
+          {
+            "candidate_id": "natural_length",
+            "response": "\"好了，能动了。你看。\"\n\n母亲握住他的手，没让他再试：\"行了行了，别使劲了，歇着吧。\"",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_correction_second_attempt"
+            }
+          },
+          {
+            "candidate_id": "too_terse",
+            "response": "\"能动了。\"\n\n母亲握住他的手，没让他再试：\"行了，歇着。\"",
+            "status": "rejected",
+            "pair_id": "pr142-dialogue-too-terse-naturalize:rejected:too-terse",
+            "metadata": {
+              "origin": "writer_second_draft",
+              "feedback": "嫌太长改太短，变成两个字两个字蹦"
+            }
+          },
+          {
+            "candidate_id": "original",
+            "response": "\"现在能动了。您看。\"\n\n母亲握住他的手，拦下了第三次：\"不用使劲给我看。歇着。\"",
+            "status": "rejected",
+            "pair_id": "pr142-dialogue-too-terse-naturalize:rejected:original",
+            "metadata": {
+              "origin": "first_draft_too_formal",
+              "feedback": "您看太正式"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_after_two_attempts",
+          "preference_reason": "对白不能惜字如金，要有正常人说话的完整语气和长度。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 142
+        },
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "对白不能惜字如金，要有正常人说话的完整语气和长度。"
+        }
+      }
+    },
+    {
+      "id": "pr142-narration-not-speaking",
+      "prompt": {
+        "user_request": "删去说明腔。但没有再说话是旁白解释人物不做什么。",
+        "context": "刚写了母亲在旁边动一下，动作本身已包含她没说话的信息，再补但没有再说话是多余的解释。",
+        "original_text": "偶尔感觉她在旁边动一下，但没有再说话。",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "偶尔感觉她在旁边动一下。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "no_narration",
+        "candidates": [
+          {
+            "candidate_id": "no_narration",
+            "response": "偶尔感觉她在旁边动一下。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_correction"
+            }
+          },
+          {
+            "candidate_id": "original",
+            "response": "偶尔感觉她在旁边动一下，但没有再说话。",
+            "status": "rejected",
+            "pair_id": "pr142-narration-not-speaking:rejected:original",
+            "metadata": {
+              "origin": "writer_draft"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction",
+          "preference_reason": "动一下已表明她没说话，再补但没有再说话是旁白解释动作已表达的内容，属于说明腔。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 142
+        },
+        "tags": {
+          "primary": "presentation",
+          "secondary": [],
+          "rationale": "动作已传达的信息不再用旁白重复。"
+        }
+      }
+    },
+    {
+      "id": "pr142-father-asking-time",
+      "prompt": {
+        "user_request": "父亲的夜问也要改。母亲刚改成安静，父亲同样会吵到小文。",
+        "context": "母亲守夜怕吵小文所以不说话，但父亲在帘后隔一阵便问一句几点了同样会吵到他。",
+        "original_text": "父亲也没睡沉，雨声稍低，便从帘后问一句几点了。",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "父亲也没睡沉，隔一阵便翻一次身。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "quiet_father",
+        "candidates": [
+          {
+            "candidate_id": "quiet_father",
+            "response": "父亲也没睡沉，隔一阵便翻一次身。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_correction"
+            }
+          },
+          {
+            "candidate_id": "original",
+            "response": "父亲也没睡沉，雨声稍低，便从帘后问一句几点了。",
+            "status": "rejected",
+            "pair_id": "pr142-father-asking-time:rejected:original",
+            "metadata": {
+              "origin": "writer_draft"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction",
+          "preference_reason": "母亲刚改成安静陪伴，父亲若再问时间同样不合理。翻身的动作表明他睡不着但不会打扰。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 142
+        },
+        "tags": {
+          "primary": "everyday_life",
+          "secondary": [
+            "presentation"
+          ],
+          "rationale": "父母都不会在儿子需要休息时反复说话打扰。"
+        }
+      }
+    },
+    {
+      "id": "pr142-stool-surface-crack",
+      "prompt": {
+        "user_request": "删除不存在的道具。凳面裂缝在前文未建立。",
+        "context": "小文想把血布藏起来，但塞进凳面裂缝中的裂缝从未在前文出现。",
+        "original_text": "他掐断缠在凳绳上的细根，又将血布折小，塞进凳面裂缝，用底下的绑绳压住。",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {
+          "deleted": "author_directed_deletion"
+        }
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [
+          {
+            "candidate_id": "delete",
+            "response": "[删除]",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_correction",
+              "deleted": true
+            }
+          },
+          {
+            "candidate_id": "with_rope",
+            "response": "他又将血布折小，卡进凳腿的绑绳和木头之间。",
+            "status": "rejected",
+            "pair_id": null,
+            "metadata": {
+              "origin": "writer_attempted_fix"
+            }
+          },
+          {
+            "candidate_id": "original",
+            "response": "他掐断缠在凳绳上的细根，又将血布折小，塞进凳面裂缝，用底下的绑绳压住。",
+            "status": "rejected",
+            "pair_id": null,
+            "metadata": {
+              "origin": "first_writer_draft"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction",
+          "preference_reason": "凳面裂缝无法让读者形成画面，且血布不是重要道具，不值得为它增加动作。直接删除。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 142
+        },
+        "tags": {
+          "primary": "continuity",
+          "secondary": [
+            "presentation"
+          ],
+          "rationale": "未建立的重要物件不能临时出现；不重要的物件不值得为它增加动作描述。"
+        }
+      }
+    },
+    {
+      "id": "pr142-morning-continuous-timeline",
+      "prompt": {
+        "user_request": "合并连续事件的时间点。小文写完记录后母亲直接看到，不需要跳时间。",
+        "context": "小文在帘外写完记录（天快亮时），母亲从帘后出来直接看到。中间不应有天亮后的时间跳转。",
+        "original_text": "小文把私密记录塞进褥子最深处，只在共同记录第三天的反应栏里留下：\n\n**轻微头痛，休息后缓解。**\n\n天亮后，母亲把共同记录从头翻到尾。",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "小文把私密记录塞进褥子最深处，只在共同记录第三天的反应栏里留下：\n\n**轻微头痛，休息后缓解。**\n\n母亲从帘后出来，拿起共同记录从头翻到尾。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "continuous",
+        "candidates": [
+          {
+            "candidate_id": "continuous",
+            "response": "小文把私密记录塞进褥子最深处，只在共同记录第三天的反应栏里留下：\n\n**轻微头痛，休息后缓解。**\n\n母亲从帘后出来，拿起共同记录从头翻到尾。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_correction"
+            }
+          },
+          {
+            "candidate_id": "original",
+            "response": "小文把私密记录塞进褥子最深处，只在共同记录第三天的反应栏里留下：\n\n**轻微头痛，休息后缓解。**\n\n天亮后，母亲把共同记录从头翻到尾。",
+            "status": "rejected",
+            "pair_id": "pr142-morning-continuous-timeline:rejected:original",
+            "metadata": {
+              "origin": "writer_draft"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction",
+          "preference_reason": "同一场景不需要拆成两个时间点，天亮后造成不必要的断裂。母亲从帘后出来直接看到记录更连贯。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 142
+        },
+        "tags": {
+          "primary": "presentation",
+          "secondary": [],
+          "rationale": "连续发生的场景不应插入时间跳转。"
+        }
+      }
+    }
+  ]
+}

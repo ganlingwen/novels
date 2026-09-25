@@ -68,6 +68,41 @@ PR141_PAIR_IDS = {
     "pr141-ch3-rain-sound-location:rejected:keep-original",
     "pr141-ch3-afternoon-dialogue-trigger:rejected:keep-original",
 }
+PR142_SFT_IDS = {
+    "pr142-opening-mother-hand-not-let-go",
+    "pr142-opening-sleeve-exaggerated",
+    "pr142-spatial-left-shoulder-left-elbow",
+    "pr142-dialogue-wait-removed",
+    "pr142-stool-roots-no-establishment",
+    "pr142-clock-spatial-hand-under",
+    "pr142-clock-cannot-hold-under",
+    "pr142-pronoun-she-not-he",
+    "pr142-pronoun-xiaowen-clarity",
+    "pr142-dialogue-i-really-stopped",
+    "pr142-dialogue-nin-kan-formal",
+    "pr142-dialogue-too-terse-naturalize",
+    "pr142-narration-not-speaking",
+    "pr142-father-asking-time",
+    "pr142-morning-continuous-timeline",
+}
+PR142_PAIR_IDS = {
+    "pr142-opening-mother-hand-not-let-go:rejected:original",
+    "pr142-opening-sleeve-exaggerated:rejected:original",
+    "pr142-spatial-left-shoulder-left-elbow:rejected:original",
+    "pr142-dialogue-wait-removed:rejected:original",
+    "pr142-stool-roots-no-establishment:rejected:original",
+    "pr142-clock-spatial-hand-under:rejected:original",
+    "pr142-clock-cannot-hold-under:rejected:original",
+    "pr142-pronoun-she-not-he:rejected:original",
+    "pr142-pronoun-xiaowen-clarity:rejected:original",
+    "pr142-dialogue-i-really-stopped:rejected:original",
+    "pr142-dialogue-nin-kan-formal:rejected:original",
+    "pr142-dialogue-too-terse-naturalize:rejected:too-terse",
+    "pr142-dialogue-too-terse-naturalize:rejected:original",
+    "pr142-narration-not-speaking:rejected:original",
+    "pr142-father-asking-time:rejected:original",
+    "pr142-morning-continuous-timeline:rejected:original",
+}
 
 
 def _candidate(cid, response, status, pair_id=None):
@@ -225,7 +260,7 @@ def test_entire_real_corpus_matches_schema_and_preserves_migration_baseline():
     Draft202012Validator.check_schema(schema)
     validator = Draft202012Validator(schema)
     paths = sorted((DATA_DIR / "real").glob("*.json"))
-    assert len(paths) == 79
+    assert len(paths) == 80
     review_paths = sorted((DATA_DIR / "review").glob("*.json"))
     records = []
     for path in paths + review_paths:
@@ -233,7 +268,7 @@ def test_entire_real_corpus_matches_schema_and_preserves_migration_baseline():
         validator.validate(bundle)
         records.extend(bundle["records"])
 
-    assert len(records) == 312
+    assert len(records) == 329
     assert {record["metadata"]["tags"]["primary"] for record in records} == EDITORIAL_TAGS
     for record in records:
         tags = record["metadata"]["tags"]
@@ -250,21 +285,24 @@ def test_entire_real_corpus_matches_schema_and_preserves_migration_baseline():
 
     sft = load_local_sft_records(DATA_DIR)
     dpo = load_local_dpo_records(DATA_DIR)
-    assert len(sft) == 186
-    assert len(dpo) == 244
+    assert len(sft) == 201
+    assert len(dpo) == 260
     assert {r["id"] for r in sft} & RECOVERED_IDS == RECOVERED_IDS
     assert {r["id"] for r in sft} & PROMOTED_SFT_IDS == PROMOTED_SFT_IDS
     assert {r["id"] for r in sft} & PR135_138_SFT_IDS == PR135_138_SFT_IDS
     assert {r["id"] for r in sft} & PR141_SFT_IDS == PR141_SFT_IDS
+    assert {r["id"] for r in sft} & PR142_SFT_IDS == PR142_SFT_IDS
     assert {r["id"] for r in dpo} & PROMOTED_PAIR_IDS == PROMOTED_PAIR_IDS
     assert {r["id"] for r in dpo} & PR135_138_PAIR_IDS == PR135_138_PAIR_IDS
     assert {r["id"] for r in dpo} & PR141_PAIR_IDS == PR141_PAIR_IDS
+    assert {r["id"] for r in dpo} & PR142_PAIR_IDS == PR142_PAIR_IDS
     # Captured from the previous loader before migrating: protects text, literal
     # escapes, prompts, order, source filenames, and all existing training IDs.
     legacy_sft = [
         record
         for record in sft
-        if record["id"] not in RECOVERED_IDS | PROMOTED_SFT_IDS | PR135_138_SFT_IDS | PR141_SFT_IDS
+        if record["id"]
+        not in RECOVERED_IDS | PROMOTED_SFT_IDS | PR135_138_SFT_IDS | PR141_SFT_IDS | PR142_SFT_IDS
     ]
     assert _digest(_without_origin(legacy_sft)) == (
         "49dcb05972816fd968f994d606c78f7da38c7006ec860d903d67ed353d315426"
@@ -272,7 +310,7 @@ def test_entire_real_corpus_matches_schema_and_preserves_migration_baseline():
     legacy_dpo = [
         record
         for record in dpo
-        if record["id"] not in PROMOTED_PAIR_IDS | PR135_138_PAIR_IDS | PR141_PAIR_IDS
+        if record["id"] not in PROMOTED_PAIR_IDS | PR135_138_PAIR_IDS | PR141_PAIR_IDS | PR142_PAIR_IDS
     ]
     assert _digest(_without_origin(legacy_dpo)) == (
         "1fe954d442f5bf5387c8f305cf2634c5318f479937cbf7251948a8b867fa2c29"
