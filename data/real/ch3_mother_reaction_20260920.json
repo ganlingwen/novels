@@ -1,69 +1,246 @@
 {
-  "scene": "ch3_mother_reaction",
-  "date": "2026-09-20",
-  "sft": [
+  "schema_version": "3.0",
+  "metadata": {
+    "scene": "ch3_mother_reaction",
+    "date": "2026-09-20"
+  },
+  "records": [
     {
-      "id": "sft01",
-      "focus": "母亲情绪与追问",
-      "instruction": "母亲看到小文伤势后，以逐渐泛红的眼眶和完整的一句话表达心疼与后怕，避免审问式短问答。",
-      "chosen": "母亲的眼眶开始泛红：“你出门的时候明明说只是去搬粮，怎么回来就伤成这样了……这一路上，你到底遇上了多少危险？”",
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
+      "id": "ch3_mother_reaction_20260920.json:0:34d1bf1f8979",
+      "prompt": {
+        "user_request": "母亲看到小文伤势后，以逐渐泛红的眼眶和完整的一句话表达心疼与后怕，避免审问式短问答。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "母亲的眼眶开始泛红：“你出门的时候明明说只是去搬粮，怎么回来就伤成这样了……这一路上，你到底遇上了多少危险？”",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "id": "sft01",
+        "focus": "母亲情绪与追问",
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     },
     {
-      "id": "sft02",
-      "focus": "小文叙述事故",
-      "instruction": "让小文用完整自然的叙述开始解释事故，并在首次提及时直接说异化犬而非默认已知的‘那些异化犬’。",
-      "chosen": "小文握紧短拐：“本来都还算顺利。后来异化犬突然冲了出来，老秦为了让我们能走，一个人留在了后面……”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
-      }
-    }
-  ],
-  "dpo": [
-    {
-      "id": "dpo01",
-      "focus": "情绪动作",
-      "rejected": "母亲的眼眶一下红了。",
-      "chosen": "母亲的眼眶开始泛红。",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
-      }
-    },
-    {
-      "id": "dpo02",
-      "focus": "母亲语气",
-      "rejected": "“你出门的时候说的是去搬粮，是吧？到底碰上什么了？”",
-      "chosen": "“你出门的时候明明说只是去搬粮，怎么回来就伤成这样了……这一路上，你到底遇上了多少危险？”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_mother_reaction_20260920.json:1:48a0e4b5f10b",
+      "prompt": {
+        "user_request": "让小文用完整自然的叙述开始解释事故，并在首次提及时直接说异化犬而非默认已知的‘那些异化犬’。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "小文握紧短拐：“本来都还算顺利。后来异化犬突然冲了出来，老秦为了让我们能走，一个人留在了后面……”",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "id": "sft02",
+        "focus": "小文叙述事故",
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "id": "dpo03",
-      "focus": "避免机械短答",
-      "rejected": "小文握着短拐：“一开始是。”",
-      "chosen": "小文握紧短拐：“本来都还算顺利。后来异化犬突然冲了出来，老秦为了让我们能走，一个人留在了后面……”",
-      "tags": {
-        "primary": "scene",
-        "secondary": []
+      "id": "ch3_mother_reaction_20260920.json:dpo:0:d3c660841f07",
+      "prompt": {
+        "user_request": "场景：ch3_mother_reaction\n修改重点：情绪动作\n根据上述场景与修改重点，选择更符合作者要求的写法。",
+        "context": null,
+        "original_text": null,
+        "metadata": {
+          "provenance": "materialized_previous_loader_scene_focus_fallback"
+        }
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "母亲的眼眶开始泛红。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "母亲的眼眶一下红了。",
+            "status": "rejected",
+            "pair_id": "ch3_mother_reaction_20260920.json:dpo:0:d3c660841f07",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "id": "dpo01",
+        "focus": "情绪动作",
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "id": "dpo04",
-      "focus": "首次提及实体",
-      "rejected": "后来那些异化犬突然冲了出来。",
-      "chosen": "后来异化犬突然冲了出来。",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_mother_reaction_20260920.json:dpo:1:c6be7e34abcf",
+      "prompt": {
+        "user_request": "场景：ch3_mother_reaction\n修改重点：母亲语气\n根据上述场景与修改重点，选择更符合作者要求的写法。",
+        "context": null,
+        "original_text": null,
+        "metadata": {
+          "provenance": "materialized_previous_loader_scene_focus_fallback"
+        }
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“你出门的时候明明说只是去搬粮，怎么回来就伤成这样了……这一路上，你到底遇上了多少危险？”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“你出门的时候说的是去搬粮，是吧？到底碰上什么了？”",
+            "status": "rejected",
+            "pair_id": "ch3_mother_reaction_20260920.json:dpo:1:c6be7e34abcf",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "id": "dpo02",
+        "focus": "母亲语气",
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
+      }
+    },
+    {
+      "id": "ch3_mother_reaction_20260920.json:dpo:2:42b60a2bf4c9",
+      "prompt": {
+        "user_request": "场景：ch3_mother_reaction\n修改重点：避免机械短答\n根据上述场景与修改重点，选择更符合作者要求的写法。",
+        "context": null,
+        "original_text": null,
+        "metadata": {
+          "provenance": "materialized_previous_loader_scene_focus_fallback"
+        }
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "小文握紧短拐：“本来都还算顺利。后来异化犬突然冲了出来，老秦为了让我们能走，一个人留在了后面……”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "小文握着短拐：“一开始是。”",
+            "status": "rejected",
+            "pair_id": "ch3_mother_reaction_20260920.json:dpo:2:42b60a2bf4c9",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "id": "dpo03",
+        "focus": "避免机械短答",
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
+      }
+    },
+    {
+      "id": "ch3_mother_reaction_20260920.json:dpo:3:6ec4a7b2637b",
+      "prompt": {
+        "user_request": "场景：ch3_mother_reaction\n修改重点：首次提及实体\n根据上述场景与修改重点，选择更符合作者要求的写法。",
+        "context": null,
+        "original_text": null,
+        "metadata": {
+          "provenance": "materialized_previous_loader_scene_focus_fallback"
+        }
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "后来异化犬突然冲了出来。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "后来那些异化犬突然冲了出来。",
+            "status": "rejected",
+            "pair_id": "ch3_mother_reaction_20260920.json:dpo:3:6ec4a7b2637b",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "id": "dpo04",
+        "focus": "首次提及实体",
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     }
   ]

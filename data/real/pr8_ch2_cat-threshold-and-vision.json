@@ -1,78 +1,100 @@
 {
-  "schema_version": "2.0",
-  "language": "zh-CN",
-  "id": "novels_pr8_ch2_003",
-  "source": {
-    "repository": "ganlingwen/novels",
-    "file": "generated/chapter2.md",
-    "origin_pr": 7,
-    "accepted_pr": 8,
-    "merge_commit": "c7840a04ffba8af431da099db084a2c7b964c1d9"
-  },
-  "prompt": {
-    "user_request": "复审前五章，按既定设定和评分标准做必要的局部修改。",
-    "context": {
-      "facts": [
-        "AGENTS.md",
-        "skills/write.md",
-        "skills/score.md",
-        "相关 chapter scene / 人物与势力事实源"
-      ]
-    },
-    "original_text": "狸花猫绕到门柱另一侧，左前爪在门槛内点了一下，又缩回雨里；肩背始终留在外面。\\n\\n一分钟过去。\\n\\n小文右腿抖了一下，鞋底在门后积水里擦出轻响。"
-  },
-  "review": {
-    "provenance": "ai_discovered_during_review",
-    "discovered_issue": {
-      "summary": "猫的试探略重复，失血导致的发冷/视觉不稳与僵持压力没有充分叠压。"
-    },
-    "edit_instruction": "收紧试探节奏并前移失血感受，但必须保持动作画面直观；视觉歪斜必须明确是小文视野不稳，不可让读者误解院门实体歪斜。",
-    "reason": "作者明确否定抽象措辞“肩背始终不交出去”，要求恢复一眼可成图的“留在门外”；同时指出删掉视觉铺垫后“院门朝左歪着”会被误读为门本身歪。"
-  },
-  "sft": {
-    "eligible": true,
-    "response": "狸花猫绕到门柱另一侧，左前爪在门槛内点了一下，又缩回雨里；肩背始终留在门外。\\n\\n冷意已经顺着湿衣服往骨头里钻。小文右腿抖了一下，鞋底在门后积水里擦出轻响。\\n\\n狸花猫立刻伏低身体。\\n\\n小文没有动。门外那双眼睛一会儿清楚，一会儿拖成两道黄线。\\n\\n它仍然不进。\\n\\n雨势又重了一层。铁皮凹处兜起一汪黑水，后支柱每承受一阵密集敲击，锈蚀的柱脚便发出一次细小呻吟。\\n\\n他咬住舌尖，视野清楚了一瞬。可一松劲，院门又朝左歪了下去。",
-    "target_type": "accepted_revision"
-  },
-  "preference": {
-    "eligible": true,
-    "prompt_source": "same_as_prompt",
-    "candidates": [
-      {
-        "candidate_id": "rejected_abstract_cat",
-        "response": "狸花猫绕到门柱另一侧，左前爪在门槛内点了一下，又缩回雨里；肩背始终不交出去。",
-        "origin": "ai_revision_during_pr7",
-        "status": "rejected"
+  "schema_version": "3.0",
+  "metadata": {},
+  "records": [
+    {
+      "id": "novels_pr8_ch2_003",
+      "prompt": {
+        "user_request": "复审前五章，按既定设定和评分标准做必要的局部修改。",
+        "context": "{'facts': ['AGENTS.md', 'skills/write.md', 'skills/score.md', '相关 chapter scene / 人物与势力事实源']}",
+        "original_text": "狸花猫绕到门柱另一侧，左前爪在门槛内点了一下，又缩回雨里；肩背始终留在外面。\\n\\n一分钟过去。\\n\\n小文右腿抖了一下，鞋底在门后积水里擦出轻响。",
+        "metadata": {
+          "original_context": {
+            "facts": [
+              "AGENTS.md",
+              "skills/write.md",
+              "skills/score.md",
+              "相关 chapter scene / 人物与势力事实源"
+            ]
+          },
+          "context_rendering": "python_str_preserved_from_previous_loader"
+        }
       },
-      {
-        "candidate_id": "chosen_concrete_cat",
-        "response": "狸花猫绕到门柱另一侧，左前爪在门槛内点了一下，又缩回雨里；肩背始终留在门外。",
-        "origin": "author_requested_revision",
-        "status": "chosen"
+      "sft": {
+        "eligible": true,
+        "response": "狸花猫绕到门柱另一侧，左前爪在门槛内点了一下，又缩回雨里；肩背始终留在门外。\\n\\n冷意已经顺着湿衣服往骨头里钻。小文右腿抖了一下，鞋底在门后积水里擦出轻响。\\n\\n狸花猫立刻伏低身体。\\n\\n小文没有动。门外那双眼睛一会儿清楚，一会儿拖成两道黄线。\\n\\n它仍然不进。\\n\\n雨势又重了一层。铁皮凹处兜起一汪黑水，后支柱每承受一阵密集敲击，锈蚀的柱脚便发出一次细小呻吟。\\n\\n他咬住舌尖，视野清楚了一瞬。可一松劲，院门又朝左歪了下去。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen_concrete_cat",
+        "candidates": [
+          {
+            "candidate_id": "rejected_abstract_cat",
+            "response": "狸花猫绕到门柱另一侧，左前爪在门槛内点了一下，又缩回雨里；肩背始终不交出去。",
+            "status": "rejected",
+            "pair_id": "novels_pr8_ch2_003:rejected:0",
+            "metadata": {
+              "origin": "ai_revision_during_pr7"
+            }
+          },
+          {
+            "candidate_id": "chosen_concrete_cat",
+            "response": "狸花猫绕到门柱另一侧，左前爪在门槛内点了一下，又缩回雨里；肩背始终留在门外。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_requested_revision"
+            }
+          }
+        ],
+        "metadata": {
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "“不交出去”含义抽象、画面感弱；“留在门外”能快速建立空间画面。",
+          "selection_source": "explicit_author_feedback",
+          "note": "同一真实编辑链中的 reverse；最终版本已随 PR #8 merge。"
+        }
+      },
+      "metadata": {
+        "schema_version": "2.0",
+        "language": "zh-CN",
+        "source": {
+          "repository": "ganlingwen/novels",
+          "file": "generated/chapter2.md",
+          "origin_pr": 7,
+          "accepted_pr": 8,
+          "merge_commit": "c7840a04ffba8af431da099db084a2c7b964c1d9"
+        },
+        "review": {
+          "provenance": "ai_discovered_during_review",
+          "discovered_issue": {
+            "summary": "猫的试探略重复，失血导致的发冷/视觉不稳与僵持压力没有充分叠压。"
+          },
+          "edit_instruction": "收紧试探节奏并前移失血感受，但必须保持动作画面直观；视觉歪斜必须明确是小文视野不稳，不可让读者误解院门实体歪斜。",
+          "reason": "作者明确否定抽象措辞“肩背始终不交出去”，要求恢复一眼可成图的“留在门外”；同时指出删掉视觉铺垫后“院门朝左歪着”会被误读为门本身歪。"
+        },
+        "labels": {
+          "contains_author_reverse": true
+        },
+        "quality": {
+          "human_accepted": true,
+          "human_rejected": false,
+          "merged": true,
+          "accepted_pr": 8
+        },
+        "training_views": {
+          "executor_sft": true,
+          "autonomous_editor_sft": true,
+          "reviewer_sft": true,
+          "preference_dpo": true
+        },
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
-    ],
-    "chosen_candidate_id": "chosen_concrete_cat",
-    "preference_reason": "“不交出去”含义抽象、画面感弱；“留在门外”能快速建立空间画面。",
-    "selection_source": "explicit_author_feedback",
-    "note": "同一真实编辑链中的 reverse；最终版本已随 PR #8 merge。"
-  },
-  "labels": {
-    "contains_author_reverse": true
-  },
-  "quality": {
-    "human_accepted": true,
-    "human_rejected": false,
-    "merged": true,
-    "accepted_pr": 8
-  },
-  "training_views": {
-    "executor_sft": true,
-    "autonomous_editor_sft": true,
-    "reviewer_sft": true,
-    "preference_dpo": true
-  },
-  "tags": {
-    "primary": "scene",
-    "secondary": []
-  }
+    }
+  ]
 }

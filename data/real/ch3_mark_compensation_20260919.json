@@ -1,53 +1,72 @@
 {
-  "schema_version": "2.0",
-  "scene_id": "ch3_mark_compensation_20260919",
-  "description": "马克处理任务失败后的死者抚恤与出勤欠账。新流程下作者一次确认的对白改写。",
+  "schema_version": "3.0",
+  "metadata": {
+    "schema_version": "2.0",
+    "scene_id": "ch3_mark_compensation_20260919",
+    "description": "马克处理任务失败后的死者抚恤与出勤欠账。新流程下作者一次确认的对白改写。",
+    "counts": {
+      "sft_samples": 1,
+      "dpo_pairs": 1
+    }
+  },
   "records": [
     {
       "id": "final_author_acceptance",
       "prompt": {
         "user_request": "结合阿慧死亡、文员记录家属经过以及后续马克处理抢救费的上下文，把马克关于任务失败、抚恤和出勤欠账的台词改得自然，避免制度格言和公文腔。",
-        "source": "“任务失败，奖励不能发；人死在任务里，抚恤不能少。”马克把名单交回文员，“出勤欠账一并核销，别再拿旧单子找家属。”"
+        "context": null,
+        "original_text": null,
+        "metadata": {
+          "source": "“任务失败，奖励不能发；人死在任务里，抚恤不能少。”马克把名单交回文员，“出勤欠账一并核销，别再拿旧单子找家属。”"
+        }
       },
       "sft": {
         "eligible": true,
         "response": "“任务虽然失败了，抚恤照发。”马克把名单交回文员，“他们出勤欠的账也一起清掉，别再让家属还。”",
-        "target_type": "accepted_final_revision"
+        "metadata": {
+          "target_type": "accepted_final_revision"
+        }
       },
-      "preference": {
+      "dpo": {
         "eligible": true,
+        "chosen_candidate_id": "revision",
         "candidates": [
           {
             "candidate_id": "original",
             "response": "“任务失败，奖励不能发；人死在任务里，抚恤不能少。”马克把名单交回文员，“出勤欠账一并核销，别再拿旧单子找家属。”",
             "status": "rejected",
-            "origin": "source_original"
+            "pair_id": "final_author_acceptance:rejected:0",
+            "metadata": {
+              "origin": "source_original"
+            }
           },
           {
             "candidate_id": "revision",
             "response": "“任务虽然失败了，抚恤照发。”马克把名单交回文员，“他们出勤欠的账也一起清掉，别再让家属还。”",
             "status": "chosen",
-            "origin": "ai_revision"
+            "pair_id": null,
+            "metadata": {
+              "origin": "ai_revision"
+            }
           }
         ],
-        "chosen_candidate_id": "revision",
-        "selection_source": "explicit_author_acceptance",
-        "preference_reason": "作者确认该句修改没有问题。改写去掉刻意对仗的制度格言感和‘核销’公文腔；‘任务虽然失败了，抚恤照发’承接前文死者名单，同时避免与后文另发十点勇气奖励形成字面冲突。"
+        "metadata": {
+          "selection_source": "explicit_author_acceptance",
+          "preference_reason": "作者确认该句修改没有问题。改写去掉刻意对仗的制度格言感和‘核销’公文腔；‘任务虽然失败了，抚恤照发’承接前文死者名单，同时避免与后文另发十点勇气奖励形成字面冲突。"
+        }
       },
-      "quality": {
-        "human_accepted": true,
-        "context_checked": true
-      },
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
+      "metadata": {
+        "quality": {
+          "human_accepted": true,
+          "context_checked": true
+        },
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     }
-  ],
-  "counts": {
-    "sft_samples": 1,
-    "dpo_pairs": 1
-  }
+  ]
 }

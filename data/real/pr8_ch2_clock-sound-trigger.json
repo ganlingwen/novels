@@ -1,65 +1,81 @@
 {
-  "schema_version": "2.0",
-  "language": "zh-CN",
-  "id": "novels_pr8_ch2_002",
-  "source": {
-    "repository": "ganlingwen/novels",
-    "file": "generated/chapter2.md",
-    "origin_pr": 7,
-    "accepted_pr": 8,
-    "merge_commit": "c7840a04ffba8af431da099db084a2c7b964c1d9"
-  },
-  "prompt": {
-    "user_request": "复审前五章，按既定设定和评分标准做必要的局部修改。",
-    "context": {
-      "facts": [
-        "AGENTS.md",
-        "skills/write.md",
-        "skills/score.md",
-        "相关 chapter scene / 人物与势力事实源"
-      ]
-    },
-    "original_text": "家里那只机械钟在他脑子里咔哒一声，分针越过七点。"
-  },
-  "review": {
-    "provenance": "ai_discovered_during_review",
-    "discovered_issue": {
-      "summary": "机械钟联想直接从脑中冒出，缺当下感官触发。"
-    },
-    "edit_instruction": "用夹道水声触发机械钟联想。",
-    "reason": "让回忆由现场感官自然引出。"
-  },
-  "sft": {
-    "eligible": true,
-    "response": "水声在耳膜里数成家里那只机械钟的咔哒，分针越过七点。",
-    "target_type": "accepted_revision"
-  },
-  "preference": {
-    "eligible": false,
-    "prompt_source": "same_as_prompt",
-    "candidates": [],
-    "chosen_candidate_id": null,
-    "preference_reason": null,
-    "selection_source": null,
-    "note": "没有真实同 prompt 候选比较，不事后编造 rejected candidate。"
-  },
-  "labels": {},
-  "quality": {
-    "human_accepted": true,
-    "human_rejected": false,
-    "merged": true,
-    "accepted_pr": 8
-  },
-  "training_views": {
-    "executor_sft": true,
-    "autonomous_editor_sft": true,
-    "reviewer_sft": true,
-    "preference_dpo": false
-  },
-  "tags": {
-    "primary": "pov",
-    "secondary": [
-      "limited_pov"
-    ]
-  }
+  "schema_version": "3.0",
+  "metadata": {},
+  "records": [
+    {
+      "id": "novels_pr8_ch2_002",
+      "prompt": {
+        "user_request": "复审前五章，按既定设定和评分标准做必要的局部修改。",
+        "context": "{'facts': ['AGENTS.md', 'skills/write.md', 'skills/score.md', '相关 chapter scene / 人物与势力事实源']}",
+        "original_text": "家里那只机械钟在他脑子里咔哒一声，分针越过七点。",
+        "metadata": {
+          "original_context": {
+            "facts": [
+              "AGENTS.md",
+              "skills/write.md",
+              "skills/score.md",
+              "相关 chapter scene / 人物与势力事实源"
+            ]
+          },
+          "context_rendering": "python_str_preserved_from_previous_loader"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "水声在耳膜里数成家里那只机械钟的咔哒，分针越过七点。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {
+          "prompt_source": "same_as_prompt",
+          "preference_reason": null,
+          "selection_source": null,
+          "note": "没有真实同 prompt 候选比较，不事后编造 rejected candidate。"
+        }
+      },
+      "metadata": {
+        "schema_version": "2.0",
+        "language": "zh-CN",
+        "source": {
+          "repository": "ganlingwen/novels",
+          "file": "generated/chapter2.md",
+          "origin_pr": 7,
+          "accepted_pr": 8,
+          "merge_commit": "c7840a04ffba8af431da099db084a2c7b964c1d9"
+        },
+        "review": {
+          "provenance": "ai_discovered_during_review",
+          "discovered_issue": {
+            "summary": "机械钟联想直接从脑中冒出，缺当下感官触发。"
+          },
+          "edit_instruction": "用夹道水声触发机械钟联想。",
+          "reason": "让回忆由现场感官自然引出。"
+        },
+        "labels": {},
+        "quality": {
+          "human_accepted": true,
+          "human_rejected": false,
+          "merged": true,
+          "accepted_pr": 8
+        },
+        "training_views": {
+          "executor_sft": true,
+          "autonomous_editor_sft": true,
+          "reviewer_sft": true,
+          "preference_dpo": false
+        },
+        "tags": {
+          "primary": "pov",
+          "secondary": [
+            "limited_pov"
+          ]
+        }
+      }
+    }
+  ]
 }

@@ -1,63 +1,79 @@
 {
-  "schema_version": "2.0",
-  "language": "zh-CN",
-  "id": "novels_pr8_ch1_001",
-  "source": {
-    "repository": "ganlingwen/novels",
-    "file": "generated/chapter1.md",
-    "origin_pr": 7,
-    "accepted_pr": 8,
-    "merge_commit": "c7840a04ffba8af431da099db084a2c7b964c1d9"
-  },
-  "prompt": {
-    "user_request": "复审前五章，按既定设定和评分标准做必要的局部修改。",
-    "context": {
-      "facts": [
-        "AGENTS.md",
-        "skills/write.md",
-        "skills/score.md",
-        "相关 chapter scene / 人物与势力事实源"
-      ]
-    },
-    "original_text": "“市状元”三个字落在灰雾里，比路边褪色的广告还不真实。三个月前，小文还在透析楼下等班主任的志愿电话；大学没等来，送外卖记住的后门和支路反倒留了下来。"
-  },
-  "review": {
-    "provenance": "ai_discovered_during_review",
-    "discovered_issue": {
-      "summary": "背景由旁白直接补述，触发不够贴身。"
-    },
-    "edit_instruction": "用眼前/贴身物件触发外卖与升学背景，压缩解释性旁白。",
-    "reason": "落实 write.md 的物件触发原则。"
-  },
-  "sft": {
-    "eligible": true,
-    "response": "“市状元”三个字落在灰雾里，比路边褪色的广告还不真实。小文的指节蹭过腰侧那把折柄小刀——原是划外卖单用的。录取电话没等来，送外卖记下的后门和支路，反倒留了下来。",
-    "target_type": "accepted_revision"
-  },
-  "preference": {
-    "eligible": false,
-    "prompt_source": "same_as_prompt",
-    "candidates": [],
-    "chosen_candidate_id": null,
-    "preference_reason": null,
-    "selection_source": null,
-    "note": "没有真实同 prompt 候选比较，不事后编造 rejected candidate。"
-  },
-  "labels": {},
-  "quality": {
-    "human_accepted": true,
-    "human_rejected": false,
-    "merged": true,
-    "accepted_pr": 8
-  },
-  "training_views": {
-    "executor_sft": true,
-    "autonomous_editor_sft": true,
-    "reviewer_sft": true,
-    "preference_dpo": false
-  },
-  "tags": {
-    "primary": "character",
-    "secondary": []
-  }
+  "schema_version": "3.0",
+  "metadata": {},
+  "records": [
+    {
+      "id": "novels_pr8_ch1_001",
+      "prompt": {
+        "user_request": "复审前五章，按既定设定和评分标准做必要的局部修改。",
+        "context": "{'facts': ['AGENTS.md', 'skills/write.md', 'skills/score.md', '相关 chapter scene / 人物与势力事实源']}",
+        "original_text": "“市状元”三个字落在灰雾里，比路边褪色的广告还不真实。三个月前，小文还在透析楼下等班主任的志愿电话；大学没等来，送外卖记住的后门和支路反倒留了下来。",
+        "metadata": {
+          "original_context": {
+            "facts": [
+              "AGENTS.md",
+              "skills/write.md",
+              "skills/score.md",
+              "相关 chapter scene / 人物与势力事实源"
+            ]
+          },
+          "context_rendering": "python_str_preserved_from_previous_loader"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“市状元”三个字落在灰雾里，比路边褪色的广告还不真实。小文的指节蹭过腰侧那把折柄小刀——原是划外卖单用的。录取电话没等来，送外卖记下的后门和支路，反倒留了下来。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {
+          "prompt_source": "same_as_prompt",
+          "preference_reason": null,
+          "selection_source": null,
+          "note": "没有真实同 prompt 候选比较，不事后编造 rejected candidate。"
+        }
+      },
+      "metadata": {
+        "schema_version": "2.0",
+        "language": "zh-CN",
+        "source": {
+          "repository": "ganlingwen/novels",
+          "file": "generated/chapter1.md",
+          "origin_pr": 7,
+          "accepted_pr": 8,
+          "merge_commit": "c7840a04ffba8af431da099db084a2c7b964c1d9"
+        },
+        "review": {
+          "provenance": "ai_discovered_during_review",
+          "discovered_issue": {
+            "summary": "背景由旁白直接补述，触发不够贴身。"
+          },
+          "edit_instruction": "用眼前/贴身物件触发外卖与升学背景，压缩解释性旁白。",
+          "reason": "落实 write.md 的物件触发原则。"
+        },
+        "labels": {},
+        "quality": {
+          "human_accepted": true,
+          "human_rejected": false,
+          "merged": true,
+          "accepted_pr": 8
+        },
+        "training_views": {
+          "executor_sft": true,
+          "autonomous_editor_sft": true,
+          "reviewer_sft": true,
+          "preference_dpo": false
+        },
+        "tags": {
+          "primary": "character",
+          "secondary": []
+        }
+      }
+    }
+  ]
 }

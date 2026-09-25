@@ -1,130 +1,463 @@
 {
-  "source_pr": 69,
-  "scene": "第二章救援队塌楼清障与时间线",
-  "date": "2026-09-21",
-  "sft": [
+  "schema_version": "3.0",
+  "metadata": {
+    "source_pr": 69,
+    "scene": "第二章救援队塌楼清障与时间线",
+    "date": "2026-09-21"
+  },
+  "records": [
     {
-      "instruction": "重写救援队在工业区遭遇塌楼阻路的段落。目标是解释一百多米距离为何仍需数分钟抵达，同时保持障碍简单直观，不抢主线戏份。",
-      "response": "前面的巷口已经被塌楼截断。左侧半面外墙整个压进街里，断砖、钢筋和水泥块一直堆到对面二楼窗沿。一块断楼板从塌下来的断墙里斜伸出来，另一头落在街面上。\n\n楼板下面露着一个黑洞，入口被滚落的碎砖堵去大半。\n\n陈锋走过去蹲下，把手电往洞里一照。光越过砖堆，沿着楼板底下一直探进去。里面比入口高得多，再往前，雨水正在另一头落下来。",
-      "tags": {
-        "primary": "pov",
-        "secondary": [
-          "limited_pov"
-        ]
+      "id": "pr69_chapter2_rescue_roadblock_preferences.json:0:7df8f816bdb9",
+      "prompt": {
+        "user_request": "重写救援队在工业区遭遇塌楼阻路的段落。目标是解释一百多米距离为何仍需数分钟抵达，同时保持障碍简单直观，不抢主线戏份。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "前面的巷口已经被塌楼截断。左侧半面外墙整个压进街里，断砖、钢筋和水泥块一直堆到对面二楼窗沿。一块断楼板从塌下来的断墙里斜伸出来，另一头落在街面上。\n\n楼板下面露着一个黑洞，入口被滚落的碎砖堵去大半。\n\n陈锋走过去蹲下，把手电往洞里一照。光越过砖堆，沿着楼板底下一直探进去。里面比入口高得多，再往前，雨水正在另一头落下来。",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "pov",
+          "secondary": [
+            "limited_pov"
+          ]
+        }
       }
     },
     {
-      "instruction": "让人物通过动作确认楼板下通道可走，不用旁白提前解释调查结论。",
-      "response": "陈锋走过去蹲下，把手电往洞里一照。光越过砖堆，沿着楼板底下一直探进去。里面比入口高得多，再往前，雨水正在另一头落下来。\n\n他伸手拨了拨最外面的碎砖，又换了个角度往里照。\n\n“方岳，前面塌了。不过楼板下面能通，洞口堵了些砖。我先清，你们直接过来。”",
-      "tags": {
-        "primary": "pov",
-        "secondary": [
-          "limited_pov"
-        ]
+      "id": "pr69_chapter2_rescue_roadblock_preferences.json:1:581c4b21880d",
+      "prompt": {
+        "user_request": "让人物通过动作确认楼板下通道可走，不用旁白提前解释调查结论。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "陈锋走过去蹲下，把手电往洞里一照。光越过砖堆，沿着楼板底下一直探进去。里面比入口高得多，再往前，雨水正在另一头落下来。\n\n他伸手拨了拨最外面的碎砖，又换了个角度往里照。\n\n“方岳，前面塌了。不过楼板下面能通，洞口堵了些砖。我先清，你们直接过来。”",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "pov",
+          "secondary": [
+            "limited_pov"
+          ]
+        }
       }
     },
     {
-      "instruction": "清障时救人优先，不为担架专门停下来展开说明或测试；只用顺手动作兜住返程通行逻辑。",
-      "response": "陈锋伏低身体往里试了试，肩膀顺利过去。他退出来看了一眼洞口，又扫了眼白川背后的折叠担架，顺手把右边最后两块碍事的砖也拖了出去。\n\n“够了，走。”",
-      "tags": {
-        "primary": "scene",
-        "secondary": []
+      "id": "pr69_chapter2_rescue_roadblock_preferences.json:2:a418322e5150",
+      "prompt": {
+        "user_request": "清障时救人优先，不为担架专门停下来展开说明或测试；只用顺手动作兜住返程通行逻辑。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "陈锋伏低身体往里试了试，肩膀顺利过去。他退出来看了一眼洞口，又扫了眼白川背后的折叠担架，顺手把右边最后两块碍事的砖也拖了出去。\n\n“够了，走。”",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     },
     {
-      "instruction": "删除低收益的小障碍，让真正造成救援延迟的塌楼承担时间线功能。",
-      "response": "东南工业区外缘已经积了水。陈锋走在最前面，速度始终压着，隔一段便停下来扫一遍两侧的窗户和废车。\n\n方岳带着白川跟在后面。林夏走到永安路南口时忽然停下，侧过脸，右手两根手指缓慢转向东南。",
-      "tags": {
-        "primary": "scene",
-        "secondary": []
+      "id": "pr69_chapter2_rescue_roadblock_preferences.json:3:3f98eb461966",
+      "prompt": {
+        "user_request": "删除低收益的小障碍，让真正造成救援延迟的塌楼承担时间线功能。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "东南工业区外缘已经积了水。陈锋走在最前面，速度始终压着，隔一段便停下来扫一遍两侧的窗户和废车。\n\n方岳带着白川跟在后面。林夏走到永安路南口时忽然停下，侧过脸，右手两根手指缓慢转向东南。",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     },
     {
-      "instruction": "写林夏在暴雨中监听异常脚步，保持知识边界：能听出异常节奏，但不能直接断定物种、受伤原因或伤员状态。",
-      "response": "“东南，一百四十到一百七十米，有一组落地声，三重一轻。还在动，种类不能确认。”\n\n陈锋回头：“三重一轻，受伤了？”\n\n“不一定。踩空也会少一下。”林夏又听了一阵，“雨太大，后面的声音断了。魂火也在那一带，但我没听见人的脚步。”",
-      "tags": {
-        "primary": "scene",
-        "secondary": []
+      "id": "pr69_chapter2_rescue_roadblock_preferences.json:4:b7811cb2f0aa",
+      "prompt": {
+        "user_request": "写林夏在暴雨中监听异常脚步，保持知识边界：能听出异常节奏，但不能直接断定物种、受伤原因或伤员状态。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“东南，一百四十到一百七十米，有一组落地声，三重一轻。还在动，种类不能确认。”\n\n陈锋回头：“三重一轻，受伤了？”\n\n“不一定。踩空也会少一下。”林夏又听了一阵，“雨太大，后面的声音断了。魂火也在那一带，但我没听见人的脚步。”",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     },
     {
-      "instruction": "清障后快速恢复搜索节奏，并用第二次监听把救援线继续接向目标。",
-      "response": "林夏刚从洞里出来便侧过脸，重新听向东南。\n\n雨声里，那组脚步还在。\n\n她抬手指了一个方向。\n\n“还在前面。”\n\n陈锋等方岳跟上，这才重新加快脚步。",
-      "tags": {
-        "primary": "scene",
-        "secondary": []
-      }
-    }
-  ],
-  "dpo": [
-    {
-      "prompt": "描写塌楼阻路的空间，让读者快速看懂为何上方不可走、下方有通道。",
-      "chosen": "前面的巷口已经被塌楼截断。左侧半面外墙整个压进街里，断砖、钢筋和水泥块一直堆到对面二楼窗沿。一块断楼板从塌下来的断墙里斜伸出来，另一头落在街面上。\n\n楼板下面露着一个黑洞，入口被滚落的碎砖堵去大半。",
-      "rejected": "陈锋越过路口，跑到六十米处便刹住了。两排楼塌进街里，一块断楼板斜搭在砖堆上，把通向东南的巷口封住；下面只剩一条贴地的黑缝。",
-      "reason": "用可见参照物建立断墙、楼板、洞口关系；避免让砖同时像障碍又像承重物。",
-      "tags": {
-        "primary": "scene",
-        "secondary": []
-      }
-    },
-    {
-      "prompt": "设计救援队为何选择清障而不是绕行。",
-      "chosen": "“方岳，前面塌了。不过楼板下面能通，洞口堵了些砖。我先清，你们直接过来。”",
-      "rejected": "“这里能看见对面的路，可人过不去。”他报了位置，“照地图，从南头绕要多走四百来米。要不从底下清个口子？”",
-      "reason": "只依据眼前可确认的信息行动；不凭空加入精确四百米地图信息和不必要的时间算术。",
-      "tags": {
-        "primary": "scene",
-        "secondary": []
+      "id": "pr69_chapter2_rescue_roadblock_preferences.json:5:18ec4492f03d",
+      "prompt": {
+        "user_request": "清障后快速恢复搜索节奏，并用第二次监听把救援线继续接向目标。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "林夏刚从洞里出来便侧过脸，重新听向东南。\n\n雨声里，那组脚步还在。\n\n她抬手指了一个方向。\n\n“还在前面。”\n\n陈锋等方岳跟上，这才重新加快脚步。",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "写清理楼板下入口的动作，避免人为制造结构力学谜题。",
-      "chosen": "方岳蹲下抓住另一头。两个人一起把水泥块抬出去，白川也在旁边把几块松砖搬开。\n\n没多久，堵在入口的碎砖便清得差不多了。",
-      "rejected": "陈锋伸手抓住一块砖，刚往外一抽，上面的楼板便落了些灰。方岳把盾楔进板下，盾底抵住开裂的路沿，肩背顶住盾内侧：“松手。从旁边拿。”\n\n陈锋换到旁边，把松砖一块块往外扒。完整的留在手边，等缺口够大，就垫到板下。",
-      "reason": "让砖只有堵路一个功能；删除承重砖、盾牌、路沿、垫砖等过度机制。",
-      "tags": {
-        "primary": "scene",
-        "secondary": []
+      "id": "pr69_chapter2_rescue_roadblock_preferences.json:dpo:0:1dc5ecd9b69d",
+      "prompt": {
+        "user_request": "描写塌楼阻路的空间，让读者快速看懂为何上方不可走、下方有通道。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "前面的巷口已经被塌楼截断。左侧半面外墙整个压进街里，断砖、钢筋和水泥块一直堆到对面二楼窗沿。一块断楼板从塌下来的断墙里斜伸出来，另一头落在街面上。\n\n楼板下面露着一个黑洞，入口被滚落的碎砖堵去大半。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "陈锋越过路口，跑到六十米处便刹住了。两排楼塌进街里，一块断楼板斜搭在砖堆上，把通向东南的巷口封住；下面只剩一条贴地的黑缝。",
+            "status": "rejected",
+            "pair_id": "pr69_chapter2_rescue_roadblock_preferences.json:dpo:0:1dc5ecd9b69d",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "reason": "用可见参照物建立断墙、楼板、洞口关系；避免让砖同时像障碍又像承重物。",
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "处理担架返程的潜在逻辑漏洞，但不要让准备返程压过当前救人的优先级。",
-      "chosen": "陈锋伏低身体往里试了试，肩膀顺利过去。他退出来看了一眼洞口，又扫了眼白川背后的折叠担架，顺手把右边最后两块碍事的砖也拖了出去。\n\n“够了，走。”",
-      "rejected": "“从这里过。”方岳已领着另外两人赶来，“林夏看着两侧，白川等我撑住再过。”",
-      "reason": "用顺手多清两块砖兜住返程空间，几乎不耽误救援，不让担架准备抢走当前救人的优先级。",
-      "tags": {
-        "primary": "scene",
-        "secondary": []
+      "id": "pr69_chapter2_rescue_roadblock_preferences.json:dpo:1:a027f64b581e",
+      "prompt": {
+        "user_request": "设计救援队为何选择清障而不是绕行。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“方岳，前面塌了。不过楼板下面能通，洞口堵了些砖。我先清，你们直接过来。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“这里能看见对面的路，可人过不去。”他报了位置，“照地图，从南头绕要多走四百来米。要不从底下清个口子？”",
+            "status": "rejected",
+            "pair_id": "pr69_chapter2_rescue_roadblock_preferences.json:dpo:1:a027f64b581e",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "reason": "只依据眼前可确认的信息行动；不凭空加入精确四百米地图信息和不必要的时间算术。",
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "压缩救援路上的无意义小障碍，把篇幅留给真正解释时间线的塌方。",
-      "chosen": "东南工业区外缘已经积了水。陈锋走在最前面，速度始终压着，隔一段便停下来扫一遍两侧的窗户和废车。",
-      "rejected": "东南工业区外缘，陈锋刚踩进齐踝深的积水，鞋底便被水下的晾衣铁丝勾住。他硬生生收住速度，污水在身前掀起半面弧形水幕。\n\n“永安路南口，水下有铁丝。”他按住耳侧的简易通话器，“我没摔。前面暂时安全。”",
-      "reason": "水下铁丝占用篇幅却没有足够人物刻画或关键因果，并与塌楼重复承担拖延功能。",
-      "tags": {
-        "primary": "scene",
-        "secondary": []
+      "id": "pr69_chapter2_rescue_roadblock_preferences.json:dpo:2:24afa3526eb2",
+      "prompt": {
+        "user_request": "写清理楼板下入口的动作，避免人为制造结构力学谜题。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "方岳蹲下抓住另一头。两个人一起把水泥块抬出去，白川也在旁边把几块松砖搬开。\n\n没多久，堵在入口的碎砖便清得差不多了。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "陈锋伸手抓住一块砖，刚往外一抽，上面的楼板便落了些灰。方岳把盾楔进板下，盾底抵住开裂的路沿，肩背顶住盾内侧：“松手。从旁边拿。”\n\n陈锋换到旁边，把松砖一块块往外扒。完整的留在手边，等缺口够大，就垫到板下。",
+            "status": "rejected",
+            "pair_id": "pr69_chapter2_rescue_roadblock_preferences.json:dpo:2:24afa3526eb2",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "reason": "让砖只有堵路一个功能；删除承重砖、盾牌、路沿、垫砖等过度机制。",
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "写监听信息时保持人物知识边界，不因异常步态直接替角色下结论。",
-      "chosen": "“东南，一百四十到一百七十米，有一组落地声，三重一轻。还在动，种类不能确认。”\n\n陈锋回头：“三重一轻，受伤了？”\n\n“不一定。踩空也会少一下。”林夏又听了一阵，“雨太大，后面的声音断了。魂火也在那一带，但我没听见人的脚步。”",
-      "rejected": "“东南，一百四十到一百七十米，有一组落地声，三重一轻。”她睁眼，“还在动，种类不能确认。”\n\n陈锋已经站起：“三重一轻，东西伤了。”",
-      "reason": "把受伤保留为疑问并由林夏纠正，避免把异常节奏直接等同于受伤。",
-      "tags": {
-        "primary": "character",
-        "secondary": []
+      "id": "pr69_chapter2_rescue_roadblock_preferences.json:dpo:3:240df01fc7b2",
+      "prompt": {
+        "user_request": "处理担架返程的潜在逻辑漏洞，但不要让准备返程压过当前救人的优先级。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "陈锋伏低身体往里试了试，肩膀顺利过去。他退出来看了一眼洞口，又扫了眼白川背后的折叠担架，顺手把右边最后两块碍事的砖也拖了出去。\n\n“够了，走。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“从这里过。”方岳已领着另外两人赶来，“林夏看着两侧，白川等我撑住再过。”",
+            "status": "rejected",
+            "pair_id": "pr69_chapter2_rescue_roadblock_preferences.json:dpo:3:240df01fc7b2",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "reason": "用顺手多清两块砖兜住返程空间，几乎不耽误救援，不让担架准备抢走当前救人的优先级。",
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "章末同步救援队状态，避免正文继续引用已经删除的旧清障机制。",
-      "chosen": "通话器里传来急促的脚步声。方岳喘了一口气：“塌房已经过去，正在继续往东南搜索。”",
-      "rejected": "通话器里仍响着砖块磕碰的声音。方岳喘了一口气：“楼板垫住了，白川正在过。陈锋，到对面接他。”",
-      "reason": "与简化后的清障时间线一致，删除垫楼板、白川正在通过等旧机制残留。",
-      "tags": {
-        "primary": "scene",
-        "secondary": []
+      "id": "pr69_chapter2_rescue_roadblock_preferences.json:dpo:4:429af6755250",
+      "prompt": {
+        "user_request": "压缩救援路上的无意义小障碍，把篇幅留给真正解释时间线的塌方。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "东南工业区外缘已经积了水。陈锋走在最前面，速度始终压着，隔一段便停下来扫一遍两侧的窗户和废车。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "东南工业区外缘，陈锋刚踩进齐踝深的积水，鞋底便被水下的晾衣铁丝勾住。他硬生生收住速度，污水在身前掀起半面弧形水幕。\n\n“永安路南口，水下有铁丝。”他按住耳侧的简易通话器，“我没摔。前面暂时安全。”",
+            "status": "rejected",
+            "pair_id": "pr69_chapter2_rescue_roadblock_preferences.json:dpo:4:429af6755250",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "reason": "水下铁丝占用篇幅却没有足够人物刻画或关键因果，并与塌楼重复承担拖延功能。",
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
+      }
+    },
+    {
+      "id": "pr69_chapter2_rescue_roadblock_preferences.json:dpo:5:ff19fa9503d6",
+      "prompt": {
+        "user_request": "写监听信息时保持人物知识边界，不因异常步态直接替角色下结论。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“东南，一百四十到一百七十米，有一组落地声，三重一轻。还在动，种类不能确认。”\n\n陈锋回头：“三重一轻，受伤了？”\n\n“不一定。踩空也会少一下。”林夏又听了一阵，“雨太大，后面的声音断了。魂火也在那一带，但我没听见人的脚步。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“东南，一百四十到一百七十米，有一组落地声，三重一轻。”她睁眼，“还在动，种类不能确认。”\n\n陈锋已经站起：“三重一轻，东西伤了。”",
+            "status": "rejected",
+            "pair_id": "pr69_chapter2_rescue_roadblock_preferences.json:dpo:5:ff19fa9503d6",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "reason": "把受伤保留为疑问并由林夏纠正，避免把异常节奏直接等同于受伤。",
+        "tags": {
+          "primary": "character",
+          "secondary": []
+        }
+      }
+    },
+    {
+      "id": "pr69_chapter2_rescue_roadblock_preferences.json:dpo:6:78eb7a67f48e",
+      "prompt": {
+        "user_request": "章末同步救援队状态，避免正文继续引用已经删除的旧清障机制。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "通话器里传来急促的脚步声。方岳喘了一口气：“塌房已经过去，正在继续往东南搜索。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "通话器里仍响着砖块磕碰的声音。方岳喘了一口气：“楼板垫住了，白川正在过。陈锋，到对面接他。”",
+            "status": "rejected",
+            "pair_id": "pr69_chapter2_rescue_roadblock_preferences.json:dpo:6:78eb7a67f48e",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "reason": "与简化后的清障时间线一致，删除垫楼板、白川正在通过等旧机制残留。",
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     }
   ]

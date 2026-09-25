@@ -1,110 +1,435 @@
 {
-  "scene": "第三章：小文回家后从母亲查看伤势到父亲接入的调度与对白",
-  "date": "2026-09-20",
-  "sft": [
+  "schema_version": "3.0",
+  "metadata": {
+    "scene": "第三章：小文回家后从母亲查看伤势到父亲接入的调度与对白",
+    "date": "2026-09-20"
+  },
+  "records": [
     {
-      "instruction": "修正小文回家后母亲移凳、小文落座、父亲接入的空间调度，并让对白符合父母对受伤儿子的真实关注。避免短促问答和重复询问已经说过的伤情。",
-      "output": "“好了好了，不说了。”母亲打断他，“那些事别再回忆了。”\n\n她回身把刚才坐的木凳往矮桌旁挪了挪：“慢点，别急。”\n\n小文拄着短拐过去，一手扶住矮桌，慢慢坐下。\n\n布帘没有合严。父亲撑着床慢慢坐起身，把紧挨床沿的矮桌上几个药盒往里收了收。\n\n他看着小文悬着的右脚，过了一会儿才说：“都这样了，就在家好好歇几天。腿没养好之前，别想着出去干活。”\n\n小文低着头，没有应声。他从贴身衣袋里取出医疗单和两张凭证，放到父亲刚腾出来的地方。\n\n父亲的目光落到那两张凭证上：“家里的也带回来了？”\n\n“嗯。我的抢救费也从里面扣了。”小文把医疗单往父亲那边推了推，“本来要扣一百点，白医生帮我去找了首领，最后只扣了一半。首领还给我们补了十点奖励，所以现在还剩十五。”\n\n父亲低头看着医疗单，手指停在最后那行数字上。\n\n母亲也凑近了些：“只剩十五了？”\n\n小文点了点头。",
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
+      "id": "ch3_homecoming_blocking_20260920.json:0:e107abf45ca4",
+      "prompt": {
+        "user_request": "修正小文回家后母亲移凳、小文落座、父亲接入的空间调度，并让对白符合父母对受伤儿子的真实关注。避免短促问答和重复询问已经说过的伤情。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“好了好了，不说了。”母亲打断他，“那些事别再回忆了。”\n\n她回身把刚才坐的木凳往矮桌旁挪了挪：“慢点，别急。”\n\n小文拄着短拐过去，一手扶住矮桌，慢慢坐下。\n\n布帘没有合严。父亲撑着床慢慢坐起身，把紧挨床沿的矮桌上几个药盒往里收了收。\n\n他看着小文悬着的右脚，过了一会儿才说：“都这样了，就在家好好歇几天。腿没养好之前，别想着出去干活。”\n\n小文低着头，没有应声。他从贴身衣袋里取出医疗单和两张凭证，放到父亲刚腾出来的地方。\n\n父亲的目光落到那两张凭证上：“家里的也带回来了？”\n\n“嗯。我的抢救费也从里面扣了。”小文把医疗单往父亲那边推了推，“本来要扣一百点，白医生帮我去找了首领，最后只扣了一半。首领还给我们补了十点奖励，所以现在还剩十五。”\n\n父亲低头看着医疗单，手指停在最后那行数字上。\n\n母亲也凑近了些：“只剩十五了？”\n\n小文点了点头。",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     },
     {
-      "instruction": "场景事实与正文冲突时，以更自然的视觉和人物调度修正场景设置：母亲应坐在开门后小文能直接看见的位置，同时保持后续把木凳移到矮桌旁的动作成立。",
-      "output": "木凳 S 初始位于 D 与布帘之间、靠近帘口一侧。小文推门后可直接看见坐在凳上的母亲。母亲起身到门边查看小文伤势，之后将 S 从原位移到 A 西南侧；A 始终固定在父亲东侧床沿、帘口东侧。",
-      "tags": {
-        "primary": "scene",
-        "secondary": []
-      }
-    }
-  ],
-  "dpo": [
-    {
-      "prompt": "母亲查看完小文伤势后，让受伤的小文到矮桌旁坐下。",
-      "chosen": "她回身把刚才坐的木凳往矮桌旁挪了挪：“慢点，别急。”\n\n小文拄着短拐过去，一手扶住矮桌，慢慢坐下。",
-      "rejected": "母亲把木凳拖到床边的矮桌旁。父亲伸出手：“先坐。右脚别落地。”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
-      }
-    },
-    {
-      "prompt": "父亲在帘后已经听完母子关于伤势、老秦和阿慧的谈话，现在自然接入场景。",
-      "chosen": "布帘没有合严。父亲撑着床慢慢坐起身，把紧挨床沿的矮桌上几个药盒往里收了收。",
-      "rejected": "父亲听见响动，双手撑住床沿想站起来。",
-      "tags": {
-        "primary": "scene",
-        "secondary": []
+      "id": "ch3_homecoming_blocking_20260920.json:1:e3b3bada2533",
+      "prompt": {
+        "user_request": "场景事实与正文冲突时，以更自然的视觉和人物调度修正场景设置：母亲应坐在开门后小文能直接看见的位置，同时保持后续把木凳移到矮桌旁的动作成立。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "木凳 S 初始位于 D 与布帘之间、靠近帘口一侧。小文推门后可直接看见坐在凳上的母亲。母亲起身到门边查看小文伤势，之后将 S 从原位移到 A 西南侧；A 始终固定在父亲东侧床沿、帘口东侧。",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "父亲看到小文腿伤后表达心疼，同时自然阻止他继续外出干活。",
-      "chosen": "他看着小文悬着的右脚，过了一会儿才说：“都这样了，就在家好好歇几天。腿没养好之前，别想着出去干活。”",
-      "rejected": "“伤成这样，就安心歇几天。”父亲说，“家里的事有我和你妈。”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_homecoming_blocking_20260920.json:dpo:0:10ff9b8278a7",
+      "prompt": {
+        "user_request": "母亲查看完小文伤势后，让受伤的小文到矮桌旁坐下。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "她回身把刚才坐的木凳往矮桌旁挪了挪：“慢点，别急。”\n\n小文拄着短拐过去，一手扶住矮桌，慢慢坐下。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "母亲把木凳拖到床边的矮桌旁。父亲伸出手：“先坐。右脚别落地。”",
+            "status": "rejected",
+            "pair_id": "ch3_homecoming_blocking_20260920.json:dpo:0:10ff9b8278a7",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "父亲看到小文伤腿后的第一句话，不要凭空回应小文尚未表达的担忧。",
-      "chosen": "“都这样了，就在家好好歇几天。腿没养好之前，别想着出去干活。”",
-      "rejected": "“都伤成这样了，还惦记什么家里的事。这几天什么都别管，好好把伤养住。”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_homecoming_blocking_20260920.json:dpo:1:824fe17456ed",
+      "prompt": {
+        "user_request": "父亲在帘后已经听完母子关于伤势、老秦和阿慧的谈话，现在自然接入场景。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "布帘没有合严。父亲撑着床慢慢坐起身，把紧挨床沿的矮桌上几个药盒往里收了收。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "父亲听见响动，双手撑住床沿想站起来。",
+            "status": "rejected",
+            "pair_id": "ch3_homecoming_blocking_20260920.json:dpo:1:824fe17456ed",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "小文把医疗单和家庭凭证拿出来时，利用矮桌紧邻父亲床沿的既定空间，不制造多余递接动作。",
-      "chosen": "小文低着头，没有应声。他从贴身衣袋里取出医疗单和两张凭证，放到父亲刚腾出来的地方。",
-      "rejected": "小文把医疗单递给父亲。父亲伸手拿过医疗单。",
-      "tags": {
-        "primary": "scene",
-        "secondary": []
+      "id": "ch3_homecoming_blocking_20260920.json:dpo:2:765e3c429d07",
+      "prompt": {
+        "user_request": "父亲看到小文腿伤后表达心疼，同时自然阻止他继续外出干活。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "他看着小文悬着的右脚，过了一会儿才说：“都这样了，就在家好好歇几天。腿没养好之前，别想着出去干活。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“伤成这样，就安心歇几天。”父亲说，“家里的事有我和你妈。”",
+            "status": "rejected",
+            "pair_id": "ch3_homecoming_blocking_20260920.json:dpo:2:765e3c429d07",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "父亲看到凭证后，自然引出家庭账户和抢救扣费，不要突然像查账一样问医院花了多少。",
-      "chosen": "父亲的目光落到那两张凭证上：“家里的也带回来了？”\n\n“嗯。我的抢救费也从里面扣了。”",
-      "rejected": "父亲看着他：“医院花了多少？”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_homecoming_blocking_20260920.json:dpo:3:eb2965715cbb",
+      "prompt": {
+        "user_request": "父亲看到小文伤腿后的第一句话，不要凭空回应小文尚未表达的担忧。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“都这样了，就在家好好歇几天。腿没养好之前，别想着出去干活。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“都伤成这样了，还惦记什么家里的事。这几天什么都别管，好好把伤养住。”",
+            "status": "rejected",
+            "pair_id": "ch3_homecoming_blocking_20260920.json:dpo:3:eb2965715cbb",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "小文向父母解释抢救费减免和奖励，保留较完整的口语句子，不要像报账一样逐项念数字。",
-      "chosen": "“本来要扣一百点，白医生帮我去找了首领，最后只扣了一半。首领还给我们补了十点奖励，所以现在还剩十五。”",
-      "rejected": "“抢救算了一百点。马克给减了五十，又补了十点任务奖励。”",
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
+      "id": "ch3_homecoming_blocking_20260920.json:dpo:4:f8cefa921f72",
+      "prompt": {
+        "user_request": "小文把医疗单和家庭凭证拿出来时，利用矮桌紧邻父亲床沿的既定空间，不制造多余递接动作。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "小文低着头，没有应声。他从贴身衣袋里取出医疗单和两张凭证，放到父亲刚腾出来的地方。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "小文把医疗单递给父亲。父亲伸手拿过医疗单。",
+            "status": "rejected",
+            "pair_id": "ch3_homecoming_blocking_20260920.json:dpo:4:f8cefa921f72",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "描述抢救费被减免一半时使用自然口语，并准确说明十点奖励的来源。",
-      "chosen": "“白医生帮我去找了首领，最后只扣了一半。首领还给我们补了十点奖励。”",
-      "rejected": "“白医生帮我去找了首领，最后少扣了一半，任务那边也补了十点。”",
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
+      "id": "ch3_homecoming_blocking_20260920.json:dpo:5:3ee0e0f4c391",
+      "prompt": {
+        "user_request": "父亲看到凭证后，自然引出家庭账户和抢救扣费，不要突然像查账一样问医院花了多少。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "父亲的目光落到那两张凭证上：“家里的也带回来了？”\n\n“嗯。我的抢救费也从里面扣了。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "父亲看着他：“医院花了多少？”",
+            "status": "rejected",
+            "pair_id": "ch3_homecoming_blocking_20260920.json:dpo:5:3ee0e0f4c391",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "设定木凳初始位置，使小文开门后能自然第一眼看见母亲，并与后续移凳动作连续。",
-      "chosen": "S 初在 D 与布帘之间、靠近帘口一侧；小文推门后可直接看见坐在凳上的母亲。",
-      "rejected": "S 初在 D 内侧，正文据此把“坐在布帘旁矮木凳上的母亲”改成“坐在门内侧矮木凳上的母亲”。",
-      "tags": {
-        "primary": "scene",
-        "secondary": []
+      "id": "ch3_homecoming_blocking_20260920.json:dpo:6:a97e3e355545",
+      "prompt": {
+        "user_request": "小文向父母解释抢救费减免和奖励，保留较完整的口语句子，不要像报账一样逐项念数字。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“本来要扣一百点，白医生帮我去找了首领，最后只扣了一半。首领还给我们补了十点奖励，所以现在还剩十五。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“抢救算了一百点。马克给减了五十，又补了十点任务奖励。”",
+            "status": "rejected",
+            "pair_id": "ch3_homecoming_blocking_20260920.json:dpo:6:a97e3e355545",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ch3_homecoming_blocking_20260920.json:dpo:7:1ec8f26b4bb3",
+      "prompt": {
+        "user_request": "描述抢救费被减免一半时使用自然口语，并准确说明十点奖励的来源。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“白医生帮我去找了首领，最后只扣了一半。首领还给我们补了十点奖励。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“白医生帮我去找了首领，最后少扣了一半，任务那边也补了十点。”",
+            "status": "rejected",
+            "pair_id": "ch3_homecoming_blocking_20260920.json:dpo:7:1ec8f26b4bb3",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ch3_homecoming_blocking_20260920.json:dpo:8:a87ced29a736",
+      "prompt": {
+        "user_request": "设定木凳初始位置，使小文开门后能自然第一眼看见母亲，并与后续移凳动作连续。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "S 初在 D 与布帘之间、靠近帘口一侧；小文推门后可直接看见坐在凳上的母亲。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "S 初在 D 内侧，正文据此把“坐在布帘旁矮木凳上的母亲”改成“坐在门内侧矮木凳上的母亲”。",
+            "status": "rejected",
+            "pair_id": "ch3_homecoming_blocking_20260920.json:dpo:8:a87ced29a736",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     }
   ]

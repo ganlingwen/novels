@@ -1,152 +1,215 @@
 {
-  "schema_version": "2.0",
-  "scene_id": "ch2_fangyue_stretcher_route_20260919",
-  "description": "方岳接白川的担架需求，向陈锋交代探路、报位置和担架路线。保留真实多轮作者偏好。",
+  "schema_version": "3.0",
+  "metadata": {
+    "schema_version": "2.0",
+    "scene_id": "ch2_fangyue_stretcher_route_20260919",
+    "description": "方岳接白川的担架需求，向陈锋交代探路、报位置和担架路线。保留真实多轮作者偏好。",
+    "counts": {
+      "sft_samples": 4,
+      "dpo_pairs": 5
+    },
+    "counts_note": "Three explicit preference rounds have 2 + 1 + 2 rejected candidates; each is a distinct same-prompt DPO pair."
+  },
   "records": [
     {
       "id": "initial_three_way_choice",
       "prompt": {
-        "user_request": "把方岳‘位置和退路一起报。你快，先替担架找能走的路’改得更自然，减少任务简报腔。"
+        "user_request": "把方岳‘位置和退路一起报。你快，先替担架找能走的路’改得更自然，减少任务简报腔。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
       },
       "sft": {
         "eligible": true,
         "response": "方岳把担架带往盾后挪了挪，转头叫陈锋：“你腿快，先去看看。找到人就报位置，顺便看看我们抬担架怎么过去。”",
-        "target_type": "chosen_then_refined"
+        "metadata": {
+          "target_type": "chosen_then_refined"
+        }
       },
-      "preference": {
+      "dpo": {
         "eligible": true,
+        "chosen_candidate_id": "C",
         "candidates": [
           {
             "candidate_id": "A",
             "response": "方岳把担架带往盾后挪了挪：“陈锋，你先过去看看。找到人先报位置，再看看担架从哪边能进去。”",
             "status": "rejected",
-            "origin": "ai_candidate_verbatim"
+            "pair_id": "initial_three_way_choice:rejected:0",
+            "metadata": {
+              "origin": "ai_candidate_verbatim"
+            }
           },
           {
             "candidate_id": "B",
             "response": "方岳把担架带往盾后挪了挪：“陈锋，你先探路。找到人把位置报回来，再看看哪条路能抬担架进去。”",
             "status": "rejected",
-            "origin": "ai_candidate_verbatim"
+            "pair_id": "initial_three_way_choice:rejected:1",
+            "metadata": {
+              "origin": "ai_candidate_verbatim"
+            }
           },
           {
             "candidate_id": "C",
             "response": "方岳把担架带往盾后挪了挪，转头叫陈锋：“你腿快，先去看看。找到人就报位置，顺便看看我们抬担架怎么过去。”",
             "status": "chosen_then_refined",
-            "origin": "ai_candidate_verbatim"
+            "pair_id": null,
+            "metadata": {
+              "origin": "ai_candidate_verbatim"
+            }
           }
         ],
-        "chosen_candidate_id": "C",
-        "selection_source": "explicit_author_choice",
-        "preference_reason": "作者认为C最好，但指出动作‘把担架带往盾后挪了挪’难以理解，且‘你腿快’是双方都知道的冗余信息。"
+        "metadata": {
+          "selection_source": "explicit_author_choice",
+          "preference_reason": "作者认为C最好，但指出动作‘把担架带往盾后挪了挪’难以理解，且‘你腿快’是双方都知道的冗余信息。"
+        }
       },
-      "tags": {
-        "primary": "scene",
-        "secondary": []
+      "metadata": {
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     },
     {
       "id": "remove_fake_action_and_obvious_trait",
       "prompt": {
-        "user_request": "删除看不懂的担架动作和‘你腿快’，保留后半句。"
+        "user_request": "删除看不懂的担架动作和‘你腿快’，保留后半句。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
       },
       "sft": {
         "eligible": true,
         "response": "方岳转向陈锋：“你先去看看。找到人就报位置，顺便看看我们抬担架怎么过去。”",
-        "target_type": "accepted_intermediate_revision"
+        "metadata": {
+          "target_type": "accepted_intermediate_revision"
+        }
       },
-      "preference": {
+      "dpo": {
         "eligible": true,
+        "chosen_candidate_id": "chosen",
         "candidates": [
           {
             "candidate_id": "chosen",
             "response": "方岳转向陈锋：“你先去看看。找到人就报位置，顺便看看我们抬担架怎么过去。”",
             "status": "chosen_then_refined",
-            "origin": "author_directed_revision"
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_directed_revision"
+            }
           },
           {
             "candidate_id": "rejected",
             "response": "方岳听完，转向陈锋：“你先去看看。找到人就报位置，顺便看看我们抬担架怎么过去。”",
             "status": "rejected",
-            "origin": "ai_candidate_verbatim"
+            "pair_id": "remove_fake_action_and_obvious_trait:rejected:0",
+            "metadata": {
+              "origin": "ai_candidate_verbatim"
+            }
           }
         ],
-        "chosen_candidate_id": "chosen",
-        "selection_source": "explicit_author_choice",
-        "preference_reason": "作者认为‘听完’纯属废话；动作只需交代对白对象。"
+        "metadata": {
+          "selection_source": "explicit_author_choice",
+          "preference_reason": "作者认为‘听完’纯属废话；动作只需交代对白对象。"
+        }
       },
-      "tags": {
-        "primary": "scene",
-        "secondary": []
+      "metadata": {
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     },
     {
       "id": "replace_repeated_turn_action",
       "prompt": {
-        "user_request": "‘转向’在附近文本出现太多，换一个不制造额外剧情含义的动作。"
+        "user_request": "‘转向’在附近文本出现太多，换一个不制造额外剧情含义的动作。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
       },
       "sft": {
         "eligible": true,
         "response": "方岳看向陈锋：“你先去看看。找到人就报位置，顺便看看我们抬担架怎么过去。”",
-        "target_type": "author_selected_revision"
+        "metadata": {
+          "target_type": "author_selected_revision"
+        }
       },
-      "preference": {
+      "dpo": {
         "eligible": true,
+        "chosen_candidate_id": "B",
         "candidates": [
           {
             "candidate_id": "A",
             "response": "方岳对陈锋说：“你先去看看。找到人就报位置，顺便看看我们抬担架怎么过去。”",
             "status": "rejected",
-            "origin": "ai_candidate_verbatim"
+            "pair_id": "replace_repeated_turn_action:rejected:0",
+            "metadata": {
+              "origin": "ai_candidate_verbatim"
+            }
           },
           {
             "candidate_id": "B",
             "response": "方岳看向陈锋：“你先去看看。找到人就报位置，顺便看看我们抬担架怎么过去。”",
             "status": "chosen",
-            "origin": "ai_candidate_verbatim"
+            "pair_id": null,
+            "metadata": {
+              "origin": "ai_candidate_verbatim"
+            }
           },
           {
             "candidate_id": "C",
             "response": "方岳叫住陈锋：“你先去看看。找到人就报位置，顺便看看我们抬担架怎么过去。”",
             "status": "rejected",
-            "origin": "ai_candidate_verbatim"
+            "pair_id": "replace_repeated_turn_action:rejected:1",
+            "metadata": {
+              "origin": "ai_candidate_verbatim"
+            }
           }
         ],
-        "chosen_candidate_id": "B",
-        "selection_source": "explicit_author_choice",
-        "preference_reason": "作者认为A‘对陈锋说’还不如‘转向’；C的‘叫住’与事实冲突，因为陈锋尚未离开，后面还要给人开门；B的‘看向’最合适。"
+        "metadata": {
+          "selection_source": "explicit_author_choice",
+          "preference_reason": "作者认为A‘对陈锋说’还不如‘转向’；C的‘叫住’与事实冲突，因为陈锋尚未离开，后面还要给人开门；B的‘看向’最合适。"
+        }
       },
-      "tags": {
-        "primary": "scene",
-        "secondary": []
+      "metadata": {
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     },
     {
       "id": "final_context_confirmation",
       "prompt": {
         "user_request": "把修改放回上下文确认后采用。",
-        "context": "白川刚说明需要照顾伤员的地方以及担架通路，随后方岳向陈锋交代先行查看。"
+        "context": "白川刚说明需要照顾伤员的地方以及担架通路，随后方岳向陈锋交代先行查看。",
+        "original_text": null,
+        "metadata": {}
       },
       "sft": {
         "eligible": true,
         "response": "方岳看向陈锋：“你先去看看。找到人就报位置，顺便看看我们抬担架怎么过去。”",
-        "target_type": "accepted_final_revision"
+        "metadata": {
+          "target_type": "accepted_final_revision"
+        }
       },
-      "preference": {
-        "eligible": false
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
       },
-      "quality": {
-        "human_accepted": true,
-        "context_checked": true
-      },
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "metadata": {
+        "quality": {
+          "human_accepted": true,
+          "context_checked": true
+        },
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     }
-  ],
-  "counts": {
-    "sft_samples": 4,
-    "dpo_pairs": 5
-  },
-  "counts_note": "Three explicit preference rounds have 2 + 1 + 2 rejected candidates; each is a distinct same-prompt DPO pair."
+  ]
 }

@@ -1,56 +1,75 @@
 {
-  "schema_version": "2.0",
-  "id": "pr10_ch5_baichuan-controlled-escort",
-  "prompt": {
-    "user_request": "把 PR7 里面第五章的改动单独整理成 PR，并修好地理位置和白川被守卫一前一后控制着进去的关系。不要写成白川带领守卫进去。",
-    "context": "白川正在被基地收回独立用药/施术权限；两名守卫的站位必须表现监督和控制，而不是下属跟随。",
-    "original_text": "白川带着两名守卫进去。"
-  },
-  "review": {
-    "provenance": "author_corrected_ai_edit",
-    "issue": "AI 改写把两名守卫监督白川误写成白川带领守卫，反转了人物权力关系并削弱后文收权伏笔。",
-    "edit_instruction": "保持白川受控语义；守卫一前一后或门口/身后形成控制，不使用“白川带着两名守卫”。",
-    "reason": "身份和权力决定动作语义；局部措辞不能反转既定关系。"
-  },
-  "sft": {
-    "eligible": true,
-    "response": "白川站在药柜前，身后一名守卫，门边还守着一个。",
-    "target_type": "accepted_revision"
-  },
-  "preference": {
-    "eligible": true,
-    "prompt_source": "same_edit_history",
-    "candidates": [
-      {
-        "candidate_id": "chosen",
-        "response": "白川站在药柜前，身后一名守卫，门边还守着一个。",
-        "origin": "final_ai_revision",
-        "status": "chosen"
+  "schema_version": "3.0",
+  "metadata": {},
+  "records": [
+    {
+      "id": "pr10_ch5_baichuan-controlled-escort",
+      "prompt": {
+        "user_request": "把 PR7 里面第五章的改动单独整理成 PR，并修好地理位置和白川被守卫一前一后控制着进去的关系。不要写成白川带领守卫进去。",
+        "context": "白川正在被基地收回独立用药/施术权限；两名守卫的站位必须表现监督和控制，而不是下属跟随。",
+        "original_text": "白川带着两名守卫进去。",
+        "metadata": {}
       },
-      {
-        "candidate_id": "rejected",
-        "response": "白川带着两名守卫进去。",
-        "origin": "earlier_ai_candidate",
-        "status": "rejected"
+      "sft": {
+        "eligible": true,
+        "response": "白川站在药柜前，身后一名守卫，门边还守着一个。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "白川站在药柜前，身后一名守卫，门边还守着一个。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "final_ai_revision"
+            }
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "白川带着两名守卫进去。",
+            "status": "rejected",
+            "pair_id": "pr10_ch5_baichuan-controlled-escort:rejected:0",
+            "metadata": {
+              "origin": "earlier_ai_candidate"
+            }
+          }
+        ],
+        "metadata": {
+          "prompt_source": "same_edit_history",
+          "preference_reason": "“带着”反转权力关系；最终版本保持守卫控制白川。",
+          "selection_source": "explicit_author_correction_then_merge"
+        }
+      },
+      "metadata": {
+        "schema_version": "2.0",
+        "review": {
+          "provenance": "author_corrected_ai_edit",
+          "issue": "AI 改写把两名守卫监督白川误写成白川带领守卫，反转了人物权力关系并削弱后文收权伏笔。",
+          "edit_instruction": "保持白川受控语义；守卫一前一后或门口/身后形成控制，不使用“白川带着两名守卫”。",
+          "reason": "身份和权力决定动作语义；局部措辞不能反转既定关系。"
+        },
+        "source": {
+          "repository": "ganlingwen/novels",
+          "file": "generated/chapter5.md",
+          "pr": 10,
+          "merge_commit": "574e55abe4e3240438781addf62a1e47fbde094a"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "contains_author_reverse": true
+        },
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
-    ],
-    "chosen_candidate_id": "chosen",
-    "preference_reason": "“带着”反转权力关系；最终版本保持守卫控制白川。",
-    "selection_source": "explicit_author_correction_then_merge"
-  },
-  "source": {
-    "repository": "ganlingwen/novels",
-    "file": "generated/chapter5.md",
-    "pr": 10,
-    "merge_commit": "574e55abe4e3240438781addf62a1e47fbde094a"
-  },
-  "quality": {
-    "human_accepted": true,
-    "merged": true,
-    "contains_author_reverse": true
-  },
-  "tags": {
-    "primary": "scene",
-    "secondary": []
-  }
+    }
+  ]
 }

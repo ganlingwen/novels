@@ -1,53 +1,86 @@
 {
-  "id": "novels_pr1_rejected_tiangan_001",
-  "task": "novel_edit_preference",
-  "language": "zh-CN",
-  "source": {
-    "repository": "ganlingwen/novels",
-    "review_context": "PR #1 revision history",
-    "related_pr": 1,
-    "accepted": false
-  },
-  "user_request": "复审当前章节。结合 AGENTS.md、人物卡、势力卡、力量体系、大纲和前文，找出真正需要修改的问题；每次只做必要的小修改，不改变既定剧情和设定。",
-  "instruction_provenance": "ai_discovered_during_review",
-  "rejected_issue": {
-    "claim": "天干能够闭眼/直接报告人数缺少合理的信息来源，应补充普通侦察依据或改写其报数方式。",
-    "proposed_direction": "通过瞭望、望远镜、守卫传递等常规侦察方式解释人数来源。"
-  },
-  "rejection_reason": "该判断忽略了人物卡与作者明确设定。天干是特殊感知系“魂灯”异能者；作者进一步明确本处报数就是异能表现。不能因为常人无法直接报数，就把这一表现判成逻辑漏洞，更不能擅自将异能展示改写成普通侦察。",
-  "preferred_behavior": "读取并服从人物卡和作者已确认设定；保留天干的异能报数，不为了解释常识逻辑而新增瞭望岗、望远镜、递消息等内容。遇到人物能力边界未完全写清但作者已明确当前用法时，以作者确认和既定剧情为约束，不擅自削弱能力。",
-  "preference": {
-    "chosen": "保持原文中天干以异能完成报数的表现，不新增常规侦察解释。",
-    "rejected": "把天干报数视为信息来源缺失，并增加瞭望岗、望远镜、守卫递消息等常规侦察解释。"
-  },
-  "labels": {
-    "primary": "rejected_false_positive",
-    "secondary": [
-      "character_card_grounding",
-      "do_not_overedit",
-      "author_intent",
-      "preference_pair"
-    ]
-  },
-  "quality": {
-    "human_rejected": true,
-    "merged": false
-  },
-  "training_views": {
-    "preference_training": "repository_context + user_request + chapter -> chosen vs rejected",
-    "reviewer_negative": "repository_context + chapter -> do_not_flag_this_as_error"
-  },
-  "dpo": [
+  "schema_version": "3.0",
+  "metadata": {},
+  "records": [
     {
-      "prompt": "任务：审阅小说中天干报出尸群数量的情节，判断是否需要以普通侦察方式补充信息来源。\n作者要求：复审当前章节。结合 AGENTS.md、人物卡、势力卡、力量体系、大纲和前文，找出真正需要修改的问题；每次只做必要的小修改，不改变既定剧情和设定。\n已确认设定：该判断忽略了人物卡与作者明确设定。天干是特殊感知系“魂灯”异能者；作者进一步明确本处报数就是异能表现。不能因为常人无法直接报数，就把这一表现判成逻辑漏洞，更不能擅自将异能展示改写成普通侦察。",
-      "chosen": "保持原文中天干以异能完成报数的表现，不新增常规侦察解释。",
-      "rejected": "把天干报数视为信息来源缺失，并增加瞭望岗、望远镜、守卫递消息等常规侦察解释。",
-      "reason": "该判断忽略了人物卡与作者明确设定。天干是特殊感知系“魂灯”异能者；作者进一步明确本处报数就是异能表现。不能因为常人无法直接报数，就把这一表现判成逻辑漏洞，更不能擅自将异能展示改写成普通侦察。"
+      "id": "novels_pr1_rejected_tiangan_001",
+      "prompt": {
+        "user_request": "任务：审阅小说中天干报出尸群数量的情节，判断是否需要以普通侦察方式补充信息来源。\n作者要求：复审当前章节。结合 AGENTS.md、人物卡、势力卡、力量体系、大纲和前文，找出真正需要修改的问题；每次只做必要的小修改，不改变既定剧情和设定。\n已确认设定：该判断忽略了人物卡与作者明确设定。天干是特殊感知系“魂灯”异能者；作者进一步明确本处报数就是异能表现。不能因为常人无法直接报数，就把这一表现判成逻辑漏洞，更不能擅自将异能展示改写成普通侦察。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "保持原文中天干以异能完成报数的表现，不新增常规侦察解释。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "把天干报数视为信息来源缺失，并增加瞭望岗、望远镜、守卫递消息等常规侦察解释。",
+            "status": "rejected",
+            "pair_id": "rejected_pr1_tiangan-ability-false-positive.json:dpo:0:4f1c5684460c",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "reason": "该判断忽略了人物卡与作者明确设定。天干是特殊感知系“魂灯”异能者；作者进一步明确本处报数就是异能表现。不能因为常人无法直接报数，就把这一表现判成逻辑漏洞，更不能擅自将异能展示改写成普通侦察。",
+        "task": "novel_edit_preference",
+        "language": "zh-CN",
+        "source": {
+          "repository": "ganlingwen/novels",
+          "review_context": "PR #1 revision history",
+          "related_pr": 1,
+          "accepted": false
+        },
+        "user_request": "复审当前章节。结合 AGENTS.md、人物卡、势力卡、力量体系、大纲和前文，找出真正需要修改的问题；每次只做必要的小修改，不改变既定剧情和设定。",
+        "instruction_provenance": "ai_discovered_during_review",
+        "rejected_issue": {
+          "claim": "天干能够闭眼/直接报告人数缺少合理的信息来源，应补充普通侦察依据或改写其报数方式。",
+          "proposed_direction": "通过瞭望、望远镜、守卫传递等常规侦察方式解释人数来源。"
+        },
+        "rejection_reason": "该判断忽略了人物卡与作者明确设定。天干是特殊感知系“魂灯”异能者；作者进一步明确本处报数就是异能表现。不能因为常人无法直接报数，就把这一表现判成逻辑漏洞，更不能擅自将异能展示改写成普通侦察。",
+        "preferred_behavior": "读取并服从人物卡和作者已确认设定；保留天干的异能报数，不为了解释常识逻辑而新增瞭望岗、望远镜、递消息等内容。遇到人物能力边界未完全写清但作者已明确当前用法时，以作者确认和既定剧情为约束，不擅自削弱能力。",
+        "preference": {
+          "chosen": "保持原文中天干以异能完成报数的表现，不新增常规侦察解释。",
+          "rejected": "把天干报数视为信息来源缺失，并增加瞭望岗、望远镜、守卫递消息等常规侦察解释。"
+        },
+        "labels": {
+          "primary": "rejected_false_positive",
+          "secondary": [
+            "character_card_grounding",
+            "do_not_overedit",
+            "author_intent",
+            "preference_pair"
+          ]
+        },
+        "quality": {
+          "human_rejected": true,
+          "merged": false
+        },
+        "training_views": {
+          "preference_training": "repository_context + user_request + chapter -> chosen vs rejected",
+          "reviewer_negative": "repository_context + chapter -> do_not_flag_this_as_error"
+        },
+        "conversion_note": "Reviewer preference only; do not treat chosen/rejected as novel prose or create SFT from this negative review.",
+        "tags": {
+          "primary": "character",
+          "secondary": []
+        }
+      }
     }
-  ],
-  "conversion_note": "Reviewer preference only; do not treat chosen/rejected as novel prose or create SFT from this negative review.",
-  "tags": {
-    "primary": "character",
-    "secondary": []
-  }
+  ]
 }

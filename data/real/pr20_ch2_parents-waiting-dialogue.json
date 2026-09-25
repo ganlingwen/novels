@@ -1,71 +1,96 @@
 {
-  "schema_version": "2.0",
-  "id": "pr20_ch2_parents-waiting-dialogue",
-  "prompt": {
-    "user_request": "修改下一处；一处一处改，每次给候选让我选，用于 DPO。",
-    "context": "第二章父母等待小文归来。夫妻都真正担心儿子；多年夫妻之间互相挤兑是日常，不应把情绪重心写成因拌嘴而生气。目标是减少“信息—判断—信息—判断”的工整感，让对话更像自然口语。",
-    "original_text": "“从五点到现在，你把这杯水端起来五次，一口没喝。”她说，“刚才算路的时候看窗户，现在算雨，又开始看地。你还有什么最好听的，一起说完。”\n\n父亲的拇指沿着杯沿蹭了一圈：“任务布告写了六个人，两辆板车。真找到粮食，他们可能先封好仓库，再等基地派车。”\n\n“你是在等儿子，还是在替任务处写解释？”"
-  },
-  "review": {
-    "provenance": "ai_discovered_then_author_refined",
-    "issue": "母亲后半句把父亲的紧张解释得过满；删减后若父亲立刻开始背任务信息，又会形成机械的提示—回答。父亲此刻应是担忧儿子、强装镇定被戳穿后的短暂失措，而非因夫妻拌嘴而不悦。",
-    "edit_instruction": "母亲用一句日常挤兑逼问；父亲先有短暂口语化的失措/遮挡，再滑回任务信息给自己找理由。避免“皱眉”等把情绪写成恼怒的表情。",
-    "reason": "让夫妻多年形成的说话习惯和共同焦虑通过停顿、口头反应和信息回避自然显现，而不是由整齐问答或解释性台词完成。"
-  },
-  "sft": {
-    "eligible": true,
-    "response": "“从五点到现在，你把这杯水端起来五次，一口没喝。”她说，“再编一个，我听着。”\n\n父亲张了张嘴：“你这人……任务布告不是写了吗，六个人，两辆板车。真找到粮食，兴许先封仓库，再等基地派车。”\n\n“你是在等儿子，还是在替任务处写解释？”",
-    "target_type": "accepted_revision"
-  },
-  "preference": {
-    "eligible": true,
-    "prompt_source": "same_edit_history",
-    "candidates": [
-      {
-        "candidate_id": "chosen",
+  "schema_version": "3.0",
+  "metadata": {},
+  "records": [
+    {
+      "id": "pr20_ch2_parents-waiting-dialogue",
+      "prompt": {
+        "user_request": "修改下一处；一处一处改，每次给候选让我选，用于 DPO。",
+        "context": "第二章父母等待小文归来。夫妻都真正担心儿子；多年夫妻之间互相挤兑是日常，不应把情绪重心写成因拌嘴而生气。目标是减少“信息—判断—信息—判断”的工整感，让对话更像自然口语。",
+        "original_text": "“从五点到现在，你把这杯水端起来五次，一口没喝。”她说，“刚才算路的时候看窗户，现在算雨，又开始看地。你还有什么最好听的，一起说完。”\n\n父亲的拇指沿着杯沿蹭了一圈：“任务布告写了六个人，两辆板车。真找到粮食，他们可能先封好仓库，再等基地派车。”\n\n“你是在等儿子，还是在替任务处写解释？”",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
         "response": "“从五点到现在，你把这杯水端起来五次，一口没喝。”她说，“再编一个，我听着。”\n\n父亲张了张嘴：“你这人……任务布告不是写了吗，六个人，两辆板车。真找到粮食，兴许先封仓库，再等基地派车。”\n\n“你是在等儿子，还是在替任务处写解释？”",
-        "origin": "final_author_selected_revision",
-        "status": "chosen"
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
       },
-      {
-        "candidate_id": "rejected_first_a",
-        "response": "“从五点到现在，你把这杯水端起来五次，一口没喝。”她说，“你到底在怕什么？”\n\n父亲的拇指沿着杯沿蹭了一圈：“任务布告写了六个人，两辆板车。真找到粮食，他们可能先封好仓库，再等基地派车。”\n\n“你是在等儿子，还是在替任务处写解释？”",
-        "origin": "first_ai_candidate",
-        "status": "rejected"
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“从五点到现在，你把这杯水端起来五次，一口没喝。”她说，“再编一个，我听着。”\n\n父亲张了张嘴：“你这人……任务布告不是写了吗，六个人，两辆板车。真找到粮食，兴许先封仓库，再等基地派车。”\n\n“你是在等儿子，还是在替任务处写解释？”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "final_author_selected_revision"
+            }
+          },
+          {
+            "candidate_id": "rejected_first_a",
+            "response": "“从五点到现在，你把这杯水端起来五次，一口没喝。”她说，“你到底在怕什么？”\n\n父亲的拇指沿着杯沿蹭了一圈：“任务布告写了六个人，两辆板车。真找到粮食，他们可能先封好仓库，再等基地派车。”\n\n“你是在等儿子，还是在替任务处写解释？”",
+            "status": "rejected",
+            "pair_id": "pr20_ch2_parents-waiting-dialogue:rejected:0",
+            "metadata": {
+              "origin": "first_ai_candidate"
+            }
+          },
+          {
+            "candidate_id": "rejected_first_b_unbridged",
+            "response": "“从五点到现在，你把这杯水端起来五次，一口没喝。”她说，“再编一个，我听着。”\n\n父亲的拇指沿着杯沿蹭了一圈：“任务布告写了六个人，两辆板车。真找到粮食，他们可能先封好仓库，再等基地派车。”\n\n“你是在等儿子，还是在替任务处写解释？”",
+            "status": "rejected",
+            "pair_id": "pr20_ch2_parents-waiting-dialogue:rejected:1",
+            "metadata": {
+              "origin": "first_ai_candidate_component_selected_then_refined"
+            }
+          },
+          {
+            "candidate_id": "rejected_second_a",
+            "response": "“从五点到现在，你把这杯水端起来五次，一口没喝。”她说，“再编一个，我听着。”\n\n父亲皱了下眉：“什么叫编？任务布告上写得清清楚楚，六个人，两辆板车。真找到粮食，他们可能先封好仓库，再等基地派车。”\n\n“你是在等儿子，还是在替任务处写解释？”",
+            "status": "rejected",
+            "pair_id": "pr20_ch2_parents-waiting-dialogue:rejected:2",
+            "metadata": {
+              "origin": "second_ai_candidate"
+            }
+          }
+        ],
+        "metadata": {
+          "prompt_source": "same_edit_history",
+          "preference_reason": "作者先选“再编一个，我听着”，认为比“你到底在怕什么”更自然、更像一句日常口语；随后指出父亲不能被提示后立刻开始解释，需要一个被戳穿后的转接。二次候选中拒绝“皱了下眉”，因为这会把情绪重心误写成夫妻拌嘴；最终选择“张了张嘴”“你这人……”和省略号，表现担忧儿子时强装镇定被看穿后的慌张与停顿。",
+          "selection_source": "explicit_author_multiround_choice"
+        }
       },
-      {
-        "candidate_id": "rejected_first_b_unbridged",
-        "response": "“从五点到现在，你把这杯水端起来五次，一口没喝。”她说，“再编一个，我听着。”\n\n父亲的拇指沿着杯沿蹭了一圈：“任务布告写了六个人，两辆板车。真找到粮食，他们可能先封好仓库，再等基地派车。”\n\n“你是在等儿子，还是在替任务处写解释？”",
-        "origin": "first_ai_candidate_component_selected_then_refined",
-        "status": "rejected"
-      },
-      {
-        "candidate_id": "rejected_second_a",
-        "response": "“从五点到现在，你把这杯水端起来五次，一口没喝。”她说，“再编一个，我听着。”\n\n父亲皱了下眉：“什么叫编？任务布告上写得清清楚楚，六个人，两辆板车。真找到粮食，他们可能先封好仓库，再等基地派车。”\n\n“你是在等儿子，还是在替任务处写解释？”",
-        "origin": "second_ai_candidate",
-        "status": "rejected"
+      "metadata": {
+        "schema_version": "2.0",
+        "review": {
+          "provenance": "ai_discovered_then_author_refined",
+          "issue": "母亲后半句把父亲的紧张解释得过满；删减后若父亲立刻开始背任务信息，又会形成机械的提示—回答。父亲此刻应是担忧儿子、强装镇定被戳穿后的短暂失措，而非因夫妻拌嘴而不悦。",
+          "edit_instruction": "母亲用一句日常挤兑逼问；父亲先有短暂口语化的失措/遮挡，再滑回任务信息给自己找理由。避免“皱眉”等把情绪写成恼怒的表情。",
+          "reason": "让夫妻多年形成的说话习惯和共同焦虑通过停顿、口头反应和信息回避自然显现，而不是由整齐问答或解释性台词完成。"
+        },
+        "source": {
+          "repository": "ganlingwen/novels",
+          "file": "generated/chapter2.md",
+          "pr": 20,
+          "merge_commit": "6d7c8a34d9a27cf155b3b019f7222d6bb4301756",
+          "accepted_head_commit": "77c3bfbedab73d614aa611326ef9b164e7da3dbe"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "contains_author_reverse": true
+        },
+        "tags": {
+          "primary": "pov",
+          "secondary": [
+            "limited_pov"
+          ]
+        }
       }
-    ],
-    "chosen_candidate_id": "chosen",
-    "preference_reason": "作者先选“再编一个，我听着”，认为比“你到底在怕什么”更自然、更像一句日常口语；随后指出父亲不能被提示后立刻开始解释，需要一个被戳穿后的转接。二次候选中拒绝“皱了下眉”，因为这会把情绪重心误写成夫妻拌嘴；最终选择“张了张嘴”“你这人……”和省略号，表现担忧儿子时强装镇定被看穿后的慌张与停顿。",
-    "selection_source": "explicit_author_multiround_choice"
-  },
-  "source": {
-    "repository": "ganlingwen/novels",
-    "file": "generated/chapter2.md",
-    "pr": 20,
-    "merge_commit": "6d7c8a34d9a27cf155b3b019f7222d6bb4301756",
-    "accepted_head_commit": "77c3bfbedab73d614aa611326ef9b164e7da3dbe"
-  },
-  "quality": {
-    "human_accepted": true,
-    "merged": true,
-    "contains_author_reverse": true
-  },
-  "tags": {
-    "primary": "pov",
-    "secondary": [
-      "limited_pov"
-    ]
-  }
+    }
+  ]
 }

@@ -1,91 +1,366 @@
 {
-  "scene": "ch3_mother_stops_recall",
-  "date": "2026-09-20",
-  "sft": [
+  "schema_version": "3.0",
+  "metadata": {
+    "scene": "ch3_mother_stops_recall",
+    "date": "2026-09-20"
+  },
+  "records": [
     {
-      "instruction": "修改小文回家后母亲追问阿慧的段落：避免重复此前天干问询已经交代过的事故细节，保留机械钟作为重要道具，并让母亲在察觉小文无法继续回忆时主动终止追问。",
-      "output": "屋里的机械钟咔哒了几声。母亲问：“阿慧也和你们在一起吧？她呢？”\n\n小文低下头，嘴唇几度张合，却没能说出话。\n\n“好了好了，不说了。”母亲打断他，“那些事别再回忆了。”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
-      }
-    }
-  ],
-  "dpo": [
-    {
-      "prompt": "机械钟在小文回家场景中是否应该删除，改用普通停顿？",
-      "chosen": "屋里的机械钟咔哒了几声。母亲问：“阿慧也和你们在一起吧？她呢？”",
-      "rejected": "过了一会儿，母亲问：“阿慧也和你们在一起吧？她呢？”",
-      "tags": {
-        "primary": "scene",
-        "secondary": []
-      }
-    },
-    {
-      "prompt": "机械钟已经承担停顿和时间感时，是否还需要额外说明母亲沉默？",
-      "chosen": "屋里的机械钟咔哒了几声。母亲问：“阿慧也和你们在一起吧？她呢？”",
-      "rejected": "屋里的机械钟咔哒一声。母亲没有马上说话。过了一会儿，她问：“阿慧也和你们在一起吧？她呢？”",
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
-      }
-    },
-    {
-      "prompt": "母亲问阿慧前是否需要加入扶墙等动作来打断对白？",
-      "chosen": "屋里的机械钟咔哒了几声。母亲问：“阿慧也和你们在一起吧？她呢？”",
-      "rejected": "母亲扶着墙，过了一会儿才问：“阿慧也和你们在一起吧？她呢？”",
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
+      "id": "ch3_mother_stops_recall_20260920.json:0:ee148c31cd8e",
+      "prompt": {
+        "user_request": "修改小文回家后母亲追问阿慧的段落：避免重复此前天干问询已经交代过的事故细节，保留机械钟作为重要道具，并让母亲在察觉小文无法继续回忆时主动终止追问。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "屋里的机械钟咔哒了几声。母亲问：“阿慧也和你们在一起吧？她呢？”\n\n小文低下头，嘴唇几度张合，却没能说出话。\n\n“好了好了，不说了。”母亲打断他，“那些事别再回忆了。”",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "如何用机械钟自然承接短暂的停顿，避免不必要的连接词？",
-      "chosen": "屋里的机械钟咔哒了几声。母亲问：“阿慧也和你们在一起吧？她呢？”",
-      "rejected": "屋里的机械钟咔哒几声过后，母亲才问：“阿慧也和你们在一起吧？她呢？”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_mother_stops_recall_20260920.json:dpo:0:d133228ffa61",
+      "prompt": {
+        "user_request": "机械钟在小文回家场景中是否应该删除，改用普通停顿？",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "屋里的机械钟咔哒了几声。母亲问：“阿慧也和你们在一起吧？她呢？”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "过了一会儿，母亲问：“阿慧也和你们在一起吧？她呢？”",
+            "status": "rejected",
+            "pair_id": "ch3_mother_stops_recall_20260920.json:dpo:0:d133228ffa61",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "此前天干问询已经详细交代阿慧遇袭，母亲再问阿慧时应该如何处理？",
-      "chosen": "母亲问：“阿慧也和你们在一起吧？她呢？”\n\n小文低下头，嘴唇几度张合，却没能说出话。",
-      "rejected": "母亲问：“阿慧也和你们在一起吧？她呢？”\n\n小文低下头：“后来又碰上了一头异化野猪。阿慧为了救我，把我推进旁边的凹槽里……我最后看到她的时候，她被那头野猪撞飞了。”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_mother_stops_recall_20260920.json:dpo:1:290ffc1a80a7",
+      "prompt": {
+        "user_request": "机械钟已经承担停顿和时间感时，是否还需要额外说明母亲沉默？",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "屋里的机械钟咔哒了几声。母亲问：“阿慧也和你们在一起吧？她呢？”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "屋里的机械钟咔哒一声。母亲没有马上说话。过了一会儿，她问：“阿慧也和你们在一起吧？她呢？”",
+            "status": "rejected",
+            "pair_id": "ch3_mother_stops_recall_20260920.json:dpo:1:290ffc1a80a7",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     },
     {
-      "prompt": "如何表现小文几次想回答阿慧的下落却始终说不出口？",
-      "chosen": "小文低下头，嘴唇几度张合，却没能说出话。",
-      "rejected": "小文低下头，张了张嘴，却没能说出话。",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_mother_stops_recall_20260920.json:dpo:2:492bab227e9d",
+      "prompt": {
+        "user_request": "母亲问阿慧前是否需要加入扶墙等动作来打断对白？",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "屋里的机械钟咔哒了几声。母亲问：“阿慧也和你们在一起吧？她呢？”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "母亲扶着墙，过了一会儿才问：“阿慧也和你们在一起吧？她呢？”",
+            "status": "rejected",
+            "pair_id": "ch3_mother_stops_recall_20260920.json:dpo:2:492bab227e9d",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     },
     {
-      "prompt": "母亲看到小文无法说出阿慧的事后，如何体现焦虑和心疼，而不是冷静旁观？",
-      "chosen": "“好了好了，不说了。”母亲打断他，“那些事别再回忆了。”",
-      "rejected": "母亲看了他一会儿：“好了，不说了。那些事别再回忆了。”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_mother_stops_recall_20260920.json:dpo:3:bc74aa1198d1",
+      "prompt": {
+        "user_request": "如何用机械钟自然承接短暂的停顿，避免不必要的连接词？",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "屋里的机械钟咔哒了几声。母亲问：“阿慧也和你们在一起吧？她呢？”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "屋里的机械钟咔哒几声过后，母亲才问：“阿慧也和你们在一起吧？她呢？”",
+            "status": "rejected",
+            "pair_id": "ch3_mother_stops_recall_20260920.json:dpo:3:bc74aa1198d1",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "母亲制止小文继续触碰创伤记忆时，哪种措辞更准确？",
-      "chosen": "“好了好了，不说了。”母亲打断他，“那些事别再回忆了。”",
-      "rejected": "“好了，不说了。”母亲说，“那些事先别想了。”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_mother_stops_recall_20260920.json:dpo:4:f833bcba242d",
+      "prompt": {
+        "user_request": "此前天干问询已经详细交代阿慧遇袭，母亲再问阿慧时应该如何处理？",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "母亲问：“阿慧也和你们在一起吧？她呢？”\n\n小文低下头，嘴唇几度张合，却没能说出话。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "母亲问：“阿慧也和你们在一起吧？她呢？”\n\n小文低下头：“后来又碰上了一头异化野猪。阿慧为了救我，把我推进旁边的凹槽里……我最后看到她的时候，她被那头野猪撞飞了。”",
+            "status": "rejected",
+            "pair_id": "ch3_mother_stops_recall_20260920.json:dpo:4:f833bcba242d",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
+      }
+    },
+    {
+      "id": "ch3_mother_stops_recall_20260920.json:dpo:5:a3651e9cf2fd",
+      "prompt": {
+        "user_request": "如何表现小文几次想回答阿慧的下落却始终说不出口？",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "小文低下头，嘴唇几度张合，却没能说出话。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "小文低下头，张了张嘴，却没能说出话。",
+            "status": "rejected",
+            "pair_id": "ch3_mother_stops_recall_20260920.json:dpo:5:a3651e9cf2fd",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
+      }
+    },
+    {
+      "id": "ch3_mother_stops_recall_20260920.json:dpo:6:ab2a05bc7a98",
+      "prompt": {
+        "user_request": "母亲看到小文无法说出阿慧的事后，如何体现焦虑和心疼，而不是冷静旁观？",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“好了好了，不说了。”母亲打断他，“那些事别再回忆了。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "母亲看了他一会儿：“好了，不说了。那些事别再回忆了。”",
+            "status": "rejected",
+            "pair_id": "ch3_mother_stops_recall_20260920.json:dpo:6:ab2a05bc7a98",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
+      }
+    },
+    {
+      "id": "ch3_mother_stops_recall_20260920.json:dpo:7:4ab1d1ef2550",
+      "prompt": {
+        "user_request": "母亲制止小文继续触碰创伤记忆时，哪种措辞更准确？",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“好了好了，不说了。”母亲打断他，“那些事别再回忆了。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“好了，不说了。”母亲说，“那些事先别想了。”",
+            "status": "rejected",
+            "pair_id": "ch3_mother_stops_recall_20260920.json:dpo:7:4ab1d1ef2550",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     }
   ]

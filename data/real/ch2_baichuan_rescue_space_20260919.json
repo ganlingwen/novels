@@ -1,213 +1,300 @@
 {
-  "schema_version": "2.0",
-  "scene_id": "ch2_baichuan_rescue_space_20260919",
-  "description": "白川向方岳说明救援现场空间与担架通道需求的多轮真实作者偏好。",
+  "schema_version": "3.0",
+  "metadata": {
+    "schema_version": "2.0",
+    "scene_id": "ch2_baichuan_rescue_space_20260919",
+    "description": "白川向方岳说明救援现场空间与担架通道需求的多轮真实作者偏好。",
+    "counts": {
+      "sft_samples": 5,
+      "dpo_pairs": 5
+    }
+  },
   "records": [
     {
       "id": "group1_choose_b",
       "prompt": {
-        "user_request": "把‘我需要能蹲下止血的位置，担架也得进得来’改得更像白川现场跟队长说话。"
+        "user_request": "把‘我需要能蹲下止血的位置，担架也得进得来’改得更像白川现场跟队长说话。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
       },
       "sft": {
-        "eligible": false
+        "eligible": false,
+        "response": null,
+        "metadata": {}
       },
-      "preference": {
+      "dpo": {
         "eligible": true,
+        "chosen_candidate_id": "B",
         "candidates": [
           {
             "candidate_id": "A",
             "response": "队长，找到人以后先帮我腾个地方，我得蹲下来处理伤口。担架也得留条路。",
             "status": "rejected",
-            "origin": "ai_candidate_verbatim"
+            "pair_id": "group1_choose_b:rejected:0",
+            "metadata": {
+              "origin": "ai_candidate_verbatim"
+            }
           },
           {
             "candidate_id": "B",
             "response": "队长，到地方先帮我留点位置，我得给他止血。担架也得能抬进去。",
             "status": "chosen_then_refined",
-            "origin": "ai_candidate_verbatim"
+            "pair_id": null,
+            "metadata": {
+              "origin": "ai_candidate_verbatim"
+            }
           }
         ],
-        "chosen_candidate_id": "B",
-        "selection_source": "explicit_author_choice",
-        "preference_reason": "作者偏好B的整体语气，但指出不能预判伤员一定需要止血；A的‘蹲下来处理伤口’也过度预设具体处理方式。"
+        "metadata": {
+          "selection_source": "explicit_author_choice",
+          "preference_reason": "作者偏好B的整体语气，但指出不能预判伤员一定需要止血；A的‘蹲下来处理伤口’也过度预设具体处理方式。"
+        }
       },
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     },
     {
       "id": "positive_requirement_not_negative_warning",
       "prompt": {
-        "user_request": "对白应正向说明需要的救援条件，不要用‘别围得太紧’或‘别把路堵死了’这种对长官的负面命令式说法。"
+        "user_request": "对白应正向说明需要的救援条件，不要用‘别围得太紧’或‘别把路堵死了’这种对长官的负面命令式说法。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
       },
       "sft": {
         "eligible": true,
         "response": "找到人以后需要有医疗处理的空间，并给担架留出能通过的路。",
-        "target_type": "author_direction_normalized"
+        "metadata": {
+          "target_type": "author_direction_normalized"
+        }
       },
-      "preference": {
+      "dpo": {
         "eligible": true,
+        "chosen_candidate_id": "chosen",
         "candidates": [
           {
             "candidate_id": "chosen",
             "response": "找到人以后得留点空间，担架也得留条能过去的路。",
             "status": "chosen_direction",
-            "origin": "author_feedback_normalized"
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_feedback_normalized"
+            }
           },
           {
             "candidate_id": "rejected",
             "response": "找到人以后别围得太紧……还有担架，别把路堵死了。",
             "status": "rejected",
-            "origin": "ai_candidate_summary"
+            "pair_id": "positive_requirement_not_negative_warning:rejected:0",
+            "metadata": {
+              "origin": "ai_candidate_summary"
+            }
           }
         ],
-        "chosen_candidate_id": "chosen",
-        "selection_source": "explicit_author_feedback",
-        "preference_reason": "作者认为白川是在向队长说明需要什么条件，而不是提醒上级不要犯错。"
+        "metadata": {
+          "selection_source": "explicit_author_feedback",
+          "preference_reason": "作者认为白川是在向队长说明需要什么条件，而不是提醒上级不要犯错。"
+        }
       },
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     },
     {
       "id": "remove_obvious_medical_explanation",
       "prompt": {
-        "user_request": "A/B各取一部分，并删掉‘我得先看看他的伤’，因为这是医疗人员找到伤员后的显然动作，不必解释。"
+        "user_request": "A/B各取一部分，并删掉‘我得先看看他的伤’，因为这是医疗人员找到伤员后的显然动作，不必解释。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
       },
       "sft": {
         "eligible": true,
         "response": "队长，找到人以后给我留点位置，担架也得留条能过去的路。",
-        "target_type": "accepted_intermediate_revision"
+        "metadata": {
+          "target_type": "accepted_intermediate_revision"
+        }
       },
-      "preference": {
+      "dpo": {
         "eligible": true,
+        "chosen_candidate_id": "chosen",
         "candidates": [
           {
             "candidate_id": "chosen",
             "response": "队长，找到人以后给我留点位置，担架也得留条能过去的路。",
             "status": "chosen_then_refined",
-            "origin": "author_composed_revision"
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_composed_revision"
+            }
           },
           {
             "candidate_id": "rejected",
             "response": "队长，找到人以后给我留点位置，我得先看看他伤在哪儿。再给担架留条能过去的路。",
             "status": "rejected",
-            "origin": "ai_candidate_verbatim"
+            "pair_id": "remove_obvious_medical_explanation:rejected:0",
+            "metadata": {
+              "origin": "ai_candidate_verbatim"
+            }
           }
         ],
-        "chosen_candidate_id": "chosen",
-        "selection_source": "explicit_author_feedback",
-        "preference_reason": "‘先看看他的伤’属于显而易见的医疗动作，写出来是废话；同时作者偏好‘找到人以后’而不是‘到地方’。"
+        "metadata": {
+          "selection_source": "explicit_author_feedback",
+          "preference_reason": "‘先看看他的伤’属于显而易见的医疗动作，写出来是废话；同时作者偏好‘找到人以后’而不是‘到地方’。"
+        }
       },
-      "tags": {
-        "primary": "scene",
-        "secondary": []
+      "metadata": {
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     },
     {
       "id": "avoid_command_tone",
       "prompt": {
-        "user_request": "‘给我留点位置’仍稍偏命令型，改成陈述现场需要具备的条件。"
+        "user_request": "‘给我留点位置’仍稍偏命令型，改成陈述现场需要具备的条件。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
       },
       "sft": {
         "eligible": true,
         "response": "队长，找到人以后，我这边得有点位置，担架也得有条能过去的路。",
-        "target_type": "accepted_direction_intermediate"
+        "metadata": {
+          "target_type": "accepted_direction_intermediate"
+        }
       },
-      "preference": {
+      "dpo": {
         "eligible": true,
+        "chosen_candidate_id": "chosen",
         "candidates": [
           {
             "candidate_id": "chosen",
             "response": "队长，找到人以后，我这边得有点位置，担架也得有条能过去的路。",
             "status": "chosen_then_refined",
-            "origin": "ai_candidate_verbatim"
+            "pair_id": null,
+            "metadata": {
+              "origin": "ai_candidate_verbatim"
+            }
           },
           {
             "candidate_id": "rejected",
             "response": "队长，找到人以后，最好能给我留点位置，担架也得有条能过去的路。",
             "status": "rejected",
-            "origin": "ai_candidate_verbatim"
+            "pair_id": "avoid_command_tone:rejected:0",
+            "metadata": {
+              "origin": "ai_candidate_verbatim"
+            }
           }
         ],
-        "chosen_candidate_id": "chosen",
-        "selection_source": "explicit_author_choice",
-        "preference_reason": "作者明确否定‘最好能给’的绕法，同时要求从‘留位置’进一步改成‘得有位置’，弱化命令感。"
+        "metadata": {
+          "selection_source": "explicit_author_choice",
+          "preference_reason": "作者明确否定‘最好能给’的绕法，同时要求从‘留位置’进一步改成‘得有位置’，弱化命令感。"
+        }
       },
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     },
     {
       "id": "final_choose_care_space_b",
       "prompt": {
-        "user_request": "不要说‘我这边得有点位置’或‘能站下的位置’，应表达这里需要有照顾伤员的地方。"
+        "user_request": "不要说‘我这边得有点位置’或‘能站下的位置’，应表达这里需要有照顾伤员的地方。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
       },
       "sft": {
         "eligible": true,
         "response": "白川转向方岳：“队长，找到人以后，得有个地方让我照顾伤员，担架也得有条能过去的路。”",
-        "target_type": "author_selected_revision"
+        "metadata": {
+          "target_type": "author_selected_revision"
+        }
       },
-      "preference": {
+      "dpo": {
         "eligible": true,
+        "chosen_candidate_id": "B",
         "candidates": [
           {
             "candidate_id": "A",
             "response": "白川转向方岳：“队长，找到人以后，这边得有个照顾伤员的位置，担架也得有条能过去的路。”",
             "status": "rejected",
-            "origin": "ai_candidate_verbatim"
+            "pair_id": "final_choose_care_space_b:rejected:0",
+            "metadata": {
+              "origin": "ai_candidate_verbatim"
+            }
           },
           {
             "candidate_id": "B",
             "response": "白川转向方岳：“队长，找到人以后，得有个地方让我照顾伤员，担架也得有条能过去的路。”",
             "status": "chosen",
-            "origin": "ai_candidate_verbatim"
+            "pair_id": null,
+            "metadata": {
+              "origin": "ai_candidate_verbatim"
+            }
           }
         ],
-        "chosen_candidate_id": "B",
-        "selection_source": "explicit_author_choice",
-        "preference_reason": "作者选择B；‘有个地方让我照顾伤员’比‘照顾伤员的位置’更像现场口语。"
+        "metadata": {
+          "selection_source": "explicit_author_choice",
+          "preference_reason": "作者选择B；‘有个地方让我照顾伤员’比‘照顾伤员的位置’更像现场口语。"
+        }
       },
-      "tags": {
-        "primary": "scene",
-        "secondary": []
+      "metadata": {
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     },
     {
       "id": "final_combined",
       "prompt": {
         "user_request": "结合上下文确认白川对方岳的最终一句。",
-        "context": "白川此前已向陈锋交代找到人先别搬；此处转向队长方岳说明现场空间和担架通道需求。"
+        "context": "白川此前已向陈锋交代找到人先别搬；此处转向队长方岳说明现场空间和担架通道需求。",
+        "original_text": null,
+        "metadata": {}
       },
       "sft": {
         "eligible": true,
         "response": "她转向方岳，“队长，找到人以后，得有个地方让我照顾伤员，担架也得有条能过去的路。”",
-        "target_type": "accepted_final_revision"
+        "metadata": {
+          "target_type": "accepted_final_revision"
+        }
       },
-      "preference": {
-        "eligible": false
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
       },
-      "quality": {
-        "human_accepted": true,
-        "contains_multi_round_author_feedback": true
-      },
-      "tags": {
-        "primary": "scene",
-        "secondary": []
+      "metadata": {
+        "quality": {
+          "human_accepted": true,
+          "contains_multi_round_author_feedback": true
+        },
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     }
-  ],
-  "counts": {
-    "sft_samples": 5,
-    "dpo_pairs": 5
-  }
+  ]
 }

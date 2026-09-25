@@ -1,152 +1,517 @@
 {
-  "source_pr": 64,
-  "scene": "第一章对白、节奏与受限视角修订",
-  "date": "2026-09-20",
-  "sft": [
+  "schema_version": "3.0",
+  "metadata": {
+    "source_pr": 64,
+    "scene": "第一章对白、节奏与受限视角修订",
+    "date": "2026-09-20"
+  },
+  "records": [
     {
-      "instruction": "把非紧急场景中碎片化的短问短答改成自然完整的交流，让人物在一句话里说清观察、顾虑和请求。",
-      "output": "“这辆车是刚来的吧，昨天的侦察图上这儿还是空的。”小文指了指后轮，“泥还湿着，跟旁边那些车不一样。老秦，咱们换条路走？”",
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
+      "id": "ch1_pr64_dialogue_pov_20260920.json:0:045fcc357714",
+      "prompt": {
+        "user_request": "把非紧急场景中碎片化的短问短答改成自然完整的交流，让人物在一句话里说清观察、顾虑和请求。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“这辆车是刚来的吧，昨天的侦察图上这儿还是空的。”小文指了指后轮，“泥还湿着，跟旁边那些车不一样。老秦，咱们换条路走？”",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     },
     {
-      "instruction": "重写搬粮时的日常对白，让人物关系和具体关心进入台词，不要只用机锋或几字短句推进。",
-      "output": "阿慧把一只空袋塞到他手里：“那这袋你自己背啊，别等装完了，又都让大刘扛。他腰上还贴着药呢。”",
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
+      "id": "ch1_pr64_dialogue_pov_20260920.json:1:db450922c5e0",
+      "prompt": {
+        "user_request": "重写搬粮时的日常对白，让人物关系和具体关心进入台词，不要只用机锋或几字短句推进。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "阿慧把一只空袋塞到他手里：“那这袋你自己背啊，别等装完了，又都让大刘扛。他腰上还贴着药呢。”",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     },
     {
-      "instruction": "写角色保留食物给生病孩子的理由，用完整自然口语体现照顾关系。",
-      "output": "沈蓉隔着衣服护住那半包糖：“这是给她留的。她一闻见药味就不肯张嘴，我还指着这个哄她呢。”",
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "character"
-        ]
+      "id": "ch1_pr64_dialogue_pov_20260920.json:2:5563a4cfebc1",
+      "prompt": {
+        "user_request": "写角色保留食物给生病孩子的理由，用完整自然口语体现照顾关系。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "沈蓉隔着衣服护住那半包糖：“这是给她留的。她一闻见药味就不肯张嘴，我还指着这个哄她呢。”",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "character"
+          ]
+        }
       }
     },
     {
-      "instruction": "高压逃生中删掉重复争执，让清障动作和外部威胁本身承担节奏压力。",
-      "output": "“这管子都压瘪了，顶不了几下！”周勇抬头看向尽头，“你们得快点！”\n\n阿慧扣住第二块保温板的铁边，沈蓉从另一头托起，两人把板竖到凹位西侧，与第一块靠在一起。下面的箱子露了出来。\n\n她们拖开一摞箱，挤到北墙下。箱角凸进过道，阿慧用鞋跟踢回去。贴地的手电光顺着南侧空出的路照到墙根，又被最后一摞套箱截住。",
-      "tags": {
-        "primary": "scene",
-        "secondary": []
+      "id": "ch1_pr64_dialogue_pov_20260920.json:3:9bf3ad725037",
+      "prompt": {
+        "user_request": "高压逃生中删掉重复争执，让清障动作和外部威胁本身承担节奏压力。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“这管子都压瘪了，顶不了几下！”周勇抬头看向尽头，“你们得快点！”\n\n阿慧扣住第二块保温板的铁边，沈蓉从另一头托起，两人把板竖到凹位西侧，与第一块靠在一起。下面的箱子露了出来。\n\n她们拖开一摞箱，挤到北墙下。箱角凸进过道，阿慧用鞋跟踢回去。贴地的手电光顺着南侧空出的路照到墙根，又被最后一摞套箱截住。",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     },
     {
-      "instruction": "严格使用受限视角描写角色在门外遭袭：只写视点人物能看到和听到的部分，不越过遮挡展示完整受击过程。",
-      "output": "周勇已经跨过门槛。獠牙从背包下方扎进他的腰背，双脚猛地离地。他向门框抓了一下，手指擦过铁皮，被野猪顶了出去。\n\n猪背堵住大半门洞。周勇从它头前跌出小文的视野，门外的钢踏步接连响了两声。",
-      "tags": {
-        "primary": "pov",
-        "secondary": [
-          "limited_pov"
-        ]
+      "id": "ch1_pr64_dialogue_pov_20260920.json:4:1bcb89eb3f2e",
+      "prompt": {
+        "user_request": "严格使用受限视角描写角色在门外遭袭：只写视点人物能看到和听到的部分，不越过遮挡展示完整受击过程。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "周勇已经跨过门槛。獠牙从背包下方扎进他的腰背，双脚猛地离地。他向门框抓了一下，手指擦过铁皮，被野猪顶了出去。\n\n猪背堵住大半门洞。周勇从它头前跌出小文的视野，门外的钢踏步接连响了两声。",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "pov",
+          "secondary": [
+            "limited_pov"
+          ]
+        }
       }
     },
     {
-      "instruction": "角色被遮挡后，用触感、局部可见信息和声音表现受击，不让视点人物看见不可能看见的完整动作。",
-      "output": "小文后背撞上凹位内墙。阿慧的右膝磕上开口，手还抵在他肩头。她身后闪过一截獠牙，扎进侧腰，那只手骤然压重，随即从他肩上滑脱。\n\n她被挑得横甩出去，消失在开口西侧的墙沿后。冷库门框传来一声闷响。小文左手伸出去，只碰到溅上凹位边沿的水。",
-      "tags": {
-        "primary": "pov",
-        "secondary": [
-          "limited_pov"
-        ]
-      }
-    }
-  ],
-  "dpo": [
-    {
-      "prompt": "非紧急侦察对白应自然完整，不要把一个意思拆成连续短问短答。",
-      "chosen": "“这辆车是刚来的吧，昨天的侦察图上这儿还是空的。”小文指了指后轮，“泥还湿着，跟旁边那些车不一样。老秦，咱们换条路走？”",
-      "rejected": "“昨天没有这辆车。”小文说。",
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
-      }
-    },
-    {
-      "prompt": "人物反对继续装货时，应把自己的经历和当前诉求说完整。",
-      "chosen": "周勇正往板车上压一袋米：“那就不能是临时有事走了？我上回去救个被门压住的人，等把人弄出来，店都让人搬空了。你要查就查，让我们先装着不行吗？”",
-      "rejected": "周勇把米袋往里一推：“也许他们死了人，也许临时被叫走。我上回就是离开仓库救人，回来连腰包都没剩。你要查，让他们先装，行不行？”",
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
+      "id": "ch1_pr64_dialogue_pov_20260920.json:5:c3bda41983d7",
+      "prompt": {
+        "user_request": "角色被遮挡后，用触感、局部可见信息和声音表现受击，不让视点人物看见不可能看见的完整动作。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "小文后背撞上凹位内墙。阿慧的右膝磕上开口，手还抵在他肩头。她身后闪过一截獠牙，扎进侧腰，那只手骤然压重，随即从他肩上滑脱。\n\n她被挑得横甩出去，消失在开口西侧的墙沿后。冷库门框传来一声闷响。小文左手伸出去，只碰到溅上凹位边沿的水。",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "pov",
+          "secondary": [
+            "limited_pov"
+          ]
+        }
       }
     },
     {
-      "prompt": "生活场景对白应体现具体关系和关心，而不是只用俏皮短句。",
-      "chosen": "阿慧把一只空袋塞到他手里：“那这袋你自己背啊，别等装完了，又都让大刘扛。他腰上还贴着药呢。”",
-      "rejected": "“你先把自己那份背起来。”阿慧拍开他伸向第三桶油的手，“嘴已经搬了三车，腰一次没弯。”",
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
+      "id": "ch1_pr64_dialogue_pov_20260920.json:dpo:0:0ac760e5de44",
+      "prompt": {
+        "user_request": "非紧急侦察对白应自然完整，不要把一个意思拆成连续短问短答。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“这辆车是刚来的吧，昨天的侦察图上这儿还是空的。”小文指了指后轮，“泥还湿着，跟旁边那些车不一样。老秦，咱们换条路走？”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“昨天没有这辆车。”小文说。",
+            "status": "rejected",
+            "pair_id": "ch1_pr64_dialogue_pov_20260920.json:dpo:0:0ac760e5de44",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     },
     {
-      "prompt": "角色留糖给生病孩子时，让动机通过自然交流展开，避免三四个字一轮的机械对话。",
-      "chosen": "沈蓉隔着衣服护住那半包糖：“这是给她留的。她一闻见药味就不肯张嘴，我还指着这个哄她呢。”",
-      "rejected": "“受潮的，后勤不收。”\n\n“我收。”",
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "character"
-        ]
+      "id": "ch1_pr64_dialogue_pov_20260920.json:dpo:1:9015bd6732bc",
+      "prompt": {
+        "user_request": "人物反对继续装货时，应把自己的经历和当前诉求说完整。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "周勇正往板车上压一袋米：“那就不能是临时有事走了？我上回去救个被门压住的人，等把人弄出来，店都让人搬空了。你要查就查，让我们先装着不行吗？”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "周勇把米袋往里一推：“也许他们死了人，也许临时被叫走。我上回就是离开仓库救人，回来连腰包都没剩。你要查，让他们先装，行不行？”",
+            "status": "rejected",
+            "pair_id": "ch1_pr64_dialogue_pov_20260920.json:dpo:1:9015bd6732bc",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     },
     {
-      "prompt": "高压清障段落中，重复争执会切碎逃生节奏，应让动作推进承担压力。",
-      "chosen": "“这管子都压瘪了，顶不了几下！”周勇抬头看向尽头，“你们得快点！”\n\n阿慧扣住第二块保温板的铁边，沈蓉从另一头托起，两人把板竖到凹位西侧，与第一块靠在一起。下面的箱子露了出来。",
-      "rejected": "“还有多少？”他问。\n\n“最后一摞。”沈蓉说。\n\n“你刚才也说最后。”\n\n阿慧把一只套箱往外拔：“刚才最后一块板，现在最后一摞箱。你站得远，看不见。”\n\n“我在替你们挡猪！”\n\n“那就看猪。”",
-      "tags": {
-        "primary": "scene",
-        "secondary": []
+      "id": "ch1_pr64_dialogue_pov_20260920.json:dpo:2:392ccd2e7129",
+      "prompt": {
+        "user_request": "生活场景对白应体现具体关系和关心，而不是只用俏皮短句。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "阿慧把一只空袋塞到他手里：“那这袋你自己背啊，别等装完了，又都让大刘扛。他腰上还贴着药呢。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“你先把自己那份背起来。”阿慧拍开他伸向第三桶油的手，“嘴已经搬了三车，腰一次没弯。”",
+            "status": "rejected",
+            "pair_id": "ch1_pr64_dialogue_pov_20260920.json:dpo:2:392ccd2e7129",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     },
     {
-      "prompt": "受限视角下，人物跌出门外后不要继续展示视点人物看不到的完整受击和坠落过程。",
-      "chosen": "猪背堵住大半门洞。周勇从它头前跌出小文的视野，门外的钢踏步接连响了两声。",
-      "rejected": "一截染红的獠牙从他胸前顶了出来。\n\n野猪顶着他向前冲。周勇从獠牙上滑脱，腰背先砸中第二级踏步，又翻落到最下面一层。",
-      "tags": {
-        "primary": "pov",
-        "secondary": [
-          "limited_pov"
-        ]
+      "id": "ch1_pr64_dialogue_pov_20260920.json:dpo:3:2b2ddd4fbdbd",
+      "prompt": {
+        "user_request": "角色留糖给生病孩子时，让动机通过自然交流展开，避免三四个字一轮的机械对话。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "沈蓉隔着衣服护住那半包糖：“这是给她留的。她一闻见药味就不肯张嘴，我还指着这个哄她呢。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“受潮的，后勤不收。”\n\n“我收。”",
+            "status": "rejected",
+            "pair_id": "ch1_pr64_dialogue_pov_20260920.json:dpo:3:2b2ddd4fbdbd",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "character"
+          ]
+        }
       }
     },
     {
-      "prompt": "遮挡条件下描写同伴受击，应使用局部视觉、触感和声音，而非越过墙沿给出完整镜头。",
-      "chosen": "她被挑得横甩出去，消失在开口西侧的墙沿后。冷库门框传来一声闷响。小文左手伸出去，只碰到溅上凹位边沿的水。",
-      "rejected": "阿慧跟着往里扑，右膝刚落上高出积水的地面，獠牙便挑中她侧腰，把她甩回西侧的冷库门框。铁框发出一声闷响。她落下去时右手还朝凹位抬了一下，五指随即没进黑水。",
-      "tags": {
-        "primary": "pov",
-        "secondary": [
-          "limited_pov"
-        ]
+      "id": "ch1_pr64_dialogue_pov_20260920.json:dpo:4:76c1424f6e1a",
+      "prompt": {
+        "user_request": "高压清障段落中，重复争执会切碎逃生节奏，应让动作推进承担压力。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“这管子都压瘪了，顶不了几下！”周勇抬头看向尽头，“你们得快点！”\n\n阿慧扣住第二块保温板的铁边，沈蓉从另一头托起，两人把板竖到凹位西侧，与第一块靠在一起。下面的箱子露了出来。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“还有多少？”他问。\n\n“最后一摞。”沈蓉说。\n\n“你刚才也说最后。”\n\n阿慧把一只套箱往外拔：“刚才最后一块板，现在最后一摞箱。你站得远，看不见。”\n\n“我在替你们挡猪！”\n\n“那就看猪。”",
+            "status": "rejected",
+            "pair_id": "ch1_pr64_dialogue_pov_20260920.json:dpo:4:76c1424f6e1a",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "紧急命令可以短，但要清楚表达方向、对象和行动，避免压缩成报告式口令。",
-      "chosen": "老秦连射两箭，回头扫过五个人：“小文，你带他们往前走，阿慧跟紧他。大刘、周勇，你们走最后，谁也别掉队！”",
-      "rejected": "老秦连射两箭，回头扫过五个人：“小文带路。阿慧看伤员。大刘、周勇压后。进去以后不许散！”",
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
+      "id": "ch1_pr64_dialogue_pov_20260920.json:dpo:5:b7246e5ec24f",
+      "prompt": {
+        "user_request": "受限视角下，人物跌出门外后不要继续展示视点人物看不到的完整受击和坠落过程。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "猪背堵住大半门洞。周勇从它头前跌出小文的视野，门外的钢踏步接连响了两声。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "一截染红的獠牙从他胸前顶了出来。\n\n野猪顶着他向前冲。周勇从獠牙上滑脱，腰背先砸中第二级踏步，又翻落到最下面一层。",
+            "status": "rejected",
+            "pair_id": "ch1_pr64_dialogue_pov_20260920.json:dpo:5:b7246e5ec24f",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "pov",
+          "secondary": [
+            "limited_pov"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ch1_pr64_dialogue_pov_20260920.json:dpo:6:e2ee905258b8",
+      "prompt": {
+        "user_request": "遮挡条件下描写同伴受击，应使用局部视觉、触感和声音，而非越过墙沿给出完整镜头。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "她被挑得横甩出去，消失在开口西侧的墙沿后。冷库门框传来一声闷响。小文左手伸出去，只碰到溅上凹位边沿的水。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "阿慧跟着往里扑，右膝刚落上高出积水的地面，獠牙便挑中她侧腰，把她甩回西侧的冷库门框。铁框发出一声闷响。她落下去时右手还朝凹位抬了一下，五指随即没进黑水。",
+            "status": "rejected",
+            "pair_id": "ch1_pr64_dialogue_pov_20260920.json:dpo:6:e2ee905258b8",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "pov",
+          "secondary": [
+            "limited_pov"
+          ]
+        }
+      }
+    },
+    {
+      "id": "ch1_pr64_dialogue_pov_20260920.json:dpo:7:fb462ddc34d0",
+      "prompt": {
+        "user_request": "紧急命令可以短，但要清楚表达方向、对象和行动，避免压缩成报告式口令。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "老秦连射两箭，回头扫过五个人：“小文，你带他们往前走，阿慧跟紧他。大刘、周勇，你们走最后，谁也别掉队！”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "老秦连射两箭，回头扫过五个人：“小文带路。阿慧看伤员。大刘、周勇压后。进去以后不许散！”",
+            "status": "rejected",
+            "pair_id": "ch1_pr64_dialogue_pov_20260920.json:dpo:7:fb462ddc34d0",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     }
   ]

@@ -1,182 +1,647 @@
 {
-  "source_pr": 66,
-  "scene": "第二章救援时间线、汽修厂空间、受限视角与人物动作修订",
-  "date": "2026-09-21",
-  "sft": [
+  "schema_version": "3.0",
+  "metadata": {
+    "source_pr": 66,
+    "scene": "第二章救援时间线、汽修厂空间、受限视角与人物动作修订",
+    "date": "2026-09-21"
+  },
+  "records": [
     {
-      "instruction": "把等待失联家人的场景写得更像真实夫妻交流：保留担忧与分歧，让动作服务关系，不用刻薄机锋替代照顾。",
-      "output": "父亲没接话，撑住床沿起身。母亲起身走到他身旁。\n\n双脚刚落地，他的膝盖便开始发抖。\n\n母亲伸手托住他的手肘。他没能站直，又坐了回去。\n\n“我可以歇两次。”父亲说。\n\n“你要是倒在半路，我去找你，还是在家等小文？”母亲在床边坐下，“真要去，也得先找个能扶你的人。”",
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
+      "id": "pr66_chapter2_preferences.json:0:8e1729007cb3",
+      "prompt": {
+        "user_request": "把等待失联家人的场景写得更像真实夫妻交流：保留担忧与分歧，让动作服务关系，不用刻薄机锋替代照顾。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "父亲没接话，撑住床沿起身。母亲起身走到他身旁。\n\n双脚刚落地，他的膝盖便开始发抖。\n\n母亲伸手托住他的手肘。他没能站直，又坐了回去。\n\n“我可以歇两次。”父亲说。\n\n“你要是倒在半路，我去找你，还是在家等小文？”母亲在床边坐下，“真要去，也得先找个能扶你的人。”",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     },
     {
-      "instruction": "追猎场景中固定怪物体型，不让角色凭空知道尺寸；用已亲历的窄缝作为尺度参照。",
-      "output": "小文退到洞边，伸手量了一下开口。自己勉强能过，和刚才货车旁那道缝差不多宽。",
-      "tags": {
-        "primary": "scene",
-        "secondary": []
+      "id": "pr66_chapter2_preferences.json:1:9653ff7a099c",
+      "prompt": {
+        "user_request": "追猎场景中固定怪物体型，不让角色凭空知道尺寸；用已亲历的窄缝作为尺度参照。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "小文退到洞边，伸手量了一下开口。自己勉强能过，和刚才货车旁那道缝差不多宽。",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     },
     {
-      "instruction": "复杂伏击空间不要一次说明机关答案；让视点人物通过走路、摸柱、试洞、放工具逐步建立空间。",
-      "output": "北端砖墙挡住了路。那根弯柱就在东北角，旁边的千斤顶仍顶着横梁。小文摸到柱脚，指腹带下一片锈壳，露出的裂缝绕了大半圈。\n\n柱旁的东墙上有个检修口。他侧身挤进去，肩膀擦着两边砖沿。墙后是一条狭窄夹道，没了雨棚，水迎头浇下来。夹道往北不到两步就是封墙，往南堵着坍下的砖垛。",
-      "tags": {
-        "primary": "pov",
-        "secondary": [
-          "limited_pov"
-        ]
+      "id": "pr66_chapter2_preferences.json:2:3d82f9775dbb",
+      "prompt": {
+        "user_request": "复杂伏击空间不要一次说明机关答案；让视点人物通过走路、摸柱、试洞、放工具逐步建立空间。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "北端砖墙挡住了路。那根弯柱就在东北角，旁边的千斤顶仍顶着横梁。小文摸到柱脚，指腹带下一片锈壳，露出的裂缝绕了大半圈。\n\n柱旁的东墙上有个检修口。他侧身挤进去，肩膀擦着两边砖沿。墙后是一条狭窄夹道，没了雨棚，水迎头浇下来。夹道往北不到两步就是封墙，往南堵着坍下的砖垛。",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "pov",
+          "secondary": [
+            "limited_pov"
+          ]
+        }
       }
     },
     {
-      "instruction": "首次能力前兆要轻微、可被人物当作身体波动，不让人物提前理解能力机制，也不直接治好已有伤势。",
-      "output": "左手撑地时压断了半截枯藤，干皮底下露出一点青白。一丝凉意沿掌纹刺进腕骨，他下意识缩了缩手。一路堵在胸口的闷意像是松了一瞬，没等他分辨，砖缝里的雨水已经冲过指间。",
-      "tags": {
-        "primary": "pov",
-        "secondary": [
-          "limited_pov"
-        ]
+      "id": "pr66_chapter2_preferences.json:3:14cfbfcd02c7",
+      "prompt": {
+        "user_request": "首次能力前兆要轻微、可被人物当作身体波动，不让人物提前理解能力机制，也不直接治好已有伤势。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "左手撑地时压断了半截枯藤，干皮底下露出一点青白。一丝凉意沿掌纹刺进腕骨，他下意识缩了缩手。一路堵在胸口的闷意像是松了一瞬，没等他分辨，砖缝里的雨水已经冲过指间。",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "pov",
+          "secondary": [
+            "limited_pov"
+          ]
+        }
       }
     },
     {
-      "instruction": "检修口内的移动方向要用人物目标表达，避免“往深处”造成错误的南北朝向想象。",
-      "output": "小文用左肘撑地，拼命往远离洞口的方向挪。",
-      "tags": {
-        "primary": "character",
-        "secondary": []
+      "id": "pr66_chapter2_preferences.json:4:959f386971d1",
+      "prompt": {
+        "user_request": "检修口内的移动方向要用人物目标表达，避免“往深处”造成错误的南北朝向想象。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "小文用左肘撑地，拼命往远离洞口的方向挪。",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "character",
+          "secondary": []
+        }
       }
     },
     {
-      "instruction": "视线被怪物头部和洞沿遮住后，不越过遮挡展示柱子断裂和雨棚坍塌；改用局部可见变化、声音和水流表现。",
-      "output": "猫再一拧身，洞口北侧簌簌落下几粒锈渣。\n\n一声撕布似的长响。\n\n猫背后的光猛地一暗。墙外紧接着响起沉重的金属撞地声，整片水泼进洞口。猫头猛地往下一沉，尖叫被轰鸣吞没，碎砖和泥水一齐拍上小文的脸。",
-      "tags": {
-        "primary": "pov",
-        "secondary": [
-          "limited_pov"
-        ]
+      "id": "pr66_chapter2_preferences.json:5:e08f7b579ed9",
+      "prompt": {
+        "user_request": "视线被怪物头部和洞沿遮住后，不越过遮挡展示柱子断裂和雨棚坍塌；改用局部可见变化、声音和水流表现。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "猫再一拧身，洞口北侧簌簌落下几粒锈渣。\n\n一声撕布似的长响。\n\n猫背后的光猛地一暗。墙外紧接着响起沉重的金属撞地声，整片水泼进洞口。猫头猛地往下一沉，尖叫被轰鸣吞没，碎砖和泥水一齐拍上小文的脸。",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "pov",
+          "secondary": [
+            "limited_pov"
+          ]
+        }
       }
     },
     {
-      "instruction": "受限视角下回收预放道具时，明确它此前的位置，让动作连续且不显得道具临时出现。",
-      "output": "雨棚挡不住这里的雨。水顺着夹道墙面冲下来，先前放在北侧墙根的钢钎就在半步外，暗得只剩一线锈光。",
-      "tags": {
-        "primary": "pov",
-        "secondary": [
-          "limited_pov"
-        ]
+      "id": "pr66_chapter2_preferences.json:6:edbf2a2cebca",
+      "prompt": {
+        "user_request": "受限视角下回收预放道具时，明确它此前的位置，让动作连续且不显得道具临时出现。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "雨棚挡不住这里的雨。水顺着夹道墙面冲下来，先前放在北侧墙根的钢钎就在半步外，暗得只剩一线锈光。",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "pov",
+          "secondary": [
+            "limited_pov"
+          ]
+        }
       }
     },
     {
-      "instruction": "角色在重伤和倒计时中想到家人时，只写他能知道的时间与准备，不越权宣布异地事件已经发生。",
-      "output": "水声在耳膜里数成家里那只机械钟的咔哒。七点该到了。他今早把父亲赴诊穿的外套搭在床头，袖口还特意朝外，等回去就能替他套上。",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
-      }
-    }
-  ],
-  "dpo": [
-    {
-      "prompt": "家人担忧场景中，照顾动作应符合人物身体状态和关系，不要用刻薄短句制造所谓生活感。",
-      "chosen": "母亲伸手托住他的手肘。他没能站直，又坐了回去。\n\n“我可以歇两次。”父亲说。\n\n“你要是倒在半路，我去找你，还是在家等小文？”母亲在床边坐下，“真要去，也得先找个能扶你的人。”",
-      "rejected": "母亲伸手托住他的手肘，把他按回床上：“门口都没到，还北门。”\n\n“我可以歇两次。”\n\n“你歇到换岗，守卫正好回来告诉我，你晕在半路。”",
-      "tags": {
-        "primary": "scene",
-        "secondary": []
-      }
-    },
-    {
-      "prompt": "怪物体型与窄口关系必须来自角色可观察的证据，不能让角色直接知道未测量的肩宽。",
-      "chosen": "小文退到洞边，伸手量了一下开口。自己勉强能过，和刚才货车旁那道缝差不多宽。",
-      "rejected": "小文退到洞边，伸手量了一下开口。自己勉强能过，那只猫的肩背比洞还宽。",
-      "tags": {
-        "primary": "character",
-        "secondary": []
+      "id": "pr66_chapter2_preferences.json:7:09cded65fc2f",
+      "prompt": {
+        "user_request": "角色在重伤和倒计时中想到家人时，只写他能知道的时间与准备，不越权宣布异地事件已经发生。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "水声在耳膜里数成家里那只机械钟的咔哒。七点该到了。他今早把父亲赴诊穿的外套搭在床头，袖口还特意朝外，等回去就能替他套上。",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "描写怪物利用轮胎堆遮挡时，不要写成钻进不符合体型的空间；只表达被遮挡。",
-      "chosen": "猫藏到后面，他就看不见了。",
-      "rejected": "猫藏进去，他就看不见了。",
-      "tags": {
-        "primary": "pov",
-        "secondary": [
-          "limited_pov"
-        ]
+      "id": "pr66_chapter2_preferences.json:dpo:0:3b528aceae43",
+      "prompt": {
+        "user_request": "家人担忧场景中，照顾动作应符合人物身体状态和关系，不要用刻薄短句制造所谓生活感。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "母亲伸手托住他的手肘。他没能站直，又坐了回去。\n\n“我可以歇两次。”父亲说。\n\n“你要是倒在半路，我去找你，还是在家等小文？”母亲在床边坐下，“真要去，也得先找个能扶你的人。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "母亲伸手托住他的手肘，把他按回床上：“门口都没到，还北门。”\n\n“我可以歇两次。”\n\n“你歇到换岗，守卫正好回来告诉我，你晕在半路。”",
+            "status": "rejected",
+            "pair_id": "pr66_chapter2_preferences.json:dpo:0:3b528aceae43",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "首次植物能力前兆应保持含混，只给轻微身体反馈，不能让角色在第二章就理解或确认治疗效果。",
-      "chosen": "一丝凉意沿掌纹刺进腕骨，他下意识缩了缩手。一路堵在胸口的闷意像是松了一瞬，没等他分辨，砖缝里的雨水已经冲过指间。",
-      "rejected": "一丝凉意沿掌纹刺进腕骨，他抬起手，砖缝里的雨水正好冲过指间。",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "pr66_chapter2_preferences.json:dpo:1:0e8f4d9ead87",
+      "prompt": {
+        "user_request": "怪物体型与窄口关系必须来自角色可观察的证据，不能让角色直接知道未测量的肩宽。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "小文退到洞边，伸手量了一下开口。自己勉强能过，和刚才货车旁那道缝差不多宽。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "小文退到洞边，伸手量了一下开口。自己勉强能过，那只猫的肩背比洞还宽。",
+            "status": "rejected",
+            "pair_id": "pr66_chapter2_preferences.json:dpo:1:0e8f4d9ead87",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "character",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "检修夹道的移动方向要避免“深处”误导读者想象角色沿南北轴爬行。",
-      "chosen": "小文用左肘撑地，拼命往远离洞口的方向挪。",
-      "rejected": "小文用左肘往夹道深处爬。",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "pr66_chapter2_preferences.json:dpo:2:4980a3e66515",
+      "prompt": {
+        "user_request": "描写怪物利用轮胎堆遮挡时，不要写成钻进不符合体型的空间；只表达被遮挡。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "猫藏到后面，他就看不见了。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "猫藏进去，他就看不见了。",
+            "status": "rejected",
+            "pair_id": "pr66_chapter2_preferences.json:dpo:2:4980a3e66515",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "pov",
+          "secondary": [
+            "limited_pov"
+          ]
+        }
       }
     },
     {
-      "prompt": "视点人物被猫头和洞沿遮挡后，坍塌过程只能通过他能感知的信息呈现，不能直接展示完整结构运动。",
-      "chosen": "猫再一拧身，洞口北侧簌簌落下几粒锈渣。\n\n一声撕布似的长响。\n\n猫背后的光猛地一暗。墙外紧接着响起沉重的金属撞地声，整片水泼进洞口。",
-      "rejected": "洞口北侧那半截弯柱颤了一下，锈渣溅进水里。猫再一拧身，柱边的砖缝跟着张开。\n\n一声撕布似的长响。\n\n柱影折向猫背后，从洞边消失了。墙外先响起沉重的金属撞地声，随即整片水泼进洞口。",
-      "tags": {
-        "primary": "pov",
-        "secondary": [
-          "limited_pov"
-        ]
+      "id": "pr66_chapter2_preferences.json:dpo:3:b666eb80c788",
+      "prompt": {
+        "user_request": "首次植物能力前兆应保持含混，只给轻微身体反馈，不能让角色在第二章就理解或确认治疗效果。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "一丝凉意沿掌纹刺进腕骨，他下意识缩了缩手。一路堵在胸口的闷意像是松了一瞬，没等他分辨，砖缝里的雨水已经冲过指间。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "一丝凉意沿掌纹刺进腕骨，他抬起手，砖缝里的雨水正好冲过指间。",
+            "status": "rejected",
+            "pair_id": "pr66_chapter2_preferences.json:dpo:3:b666eb80c788",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "受限视角的坍塌高潮不要切到上帝视角解释后支柱、横梁、千斤顶和雨棚的完整机械过程。",
-      "chosen": "猫背后的光猛地一暗。墙外紧接着响起沉重的金属撞地声，整片水泼进洞口。猫头猛地往下一沉，尖叫被轰鸣吞没，碎砖和泥水一齐拍上小文的脸。",
-      "rejected": "锈铁里传出撕布般的长响。后支柱从脚下裂开，朝车道折过猫的肩背。头顶横梁猛地横滑，擦过千斤顶托盘。\n\n千斤顶翻倒。\n\n雨棚后半截向下砸进东侧车道。积水先整片泼落，紧接着是铁皮、生锈支架和断砖。轰鸣压碎了猫的尖叫，泥水从检修口灌进来，拍上小文的脸。",
-      "tags": {
-        "primary": "pov",
-        "secondary": [
-          "limited_pov"
-        ]
+      "id": "pr66_chapter2_preferences.json:dpo:4:df252b500287",
+      "prompt": {
+        "user_request": "检修夹道的移动方向要避免“深处”误导读者想象角色沿南北轴爬行。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "小文用左肘撑地，拼命往远离洞口的方向挪。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "小文用左肘往夹道深处爬。",
+            "status": "rejected",
+            "pair_id": "pr66_chapter2_preferences.json:dpo:4:df252b500287",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "重伤角色想到七点治疗时，不要让贴身视角越权知道家里已经发生的结果；改成他的推算和出门前记忆。",
-      "chosen": "水声在耳膜里数成家里那只机械钟的咔哒。七点该到了。他今早把父亲赴诊穿的外套搭在床头，袖口还特意朝外，等回去就能替他套上。",
-      "rejected": "水声在耳膜里数成家里那只机械钟的咔哒，分针越过七点。\n\n父亲赴诊才穿的旧外套，今晚没能穿出门。母亲那半片药，还压在杯底。",
-      "tags": {
-        "primary": "pov",
-        "secondary": [
-          "limited_pov"
-        ]
+      "id": "pr66_chapter2_preferences.json:dpo:5:4cb383795bdc",
+      "prompt": {
+        "user_request": "视点人物被猫头和洞沿遮挡后，坍塌过程只能通过他能感知的信息呈现，不能直接展示完整结构运动。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "猫再一拧身，洞口北侧簌簌落下几粒锈渣。\n\n一声撕布似的长响。\n\n猫背后的光猛地一暗。墙外紧接着响起沉重的金属撞地声，整片水泼进洞口。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "洞口北侧那半截弯柱颤了一下，锈渣溅进水里。猫再一拧身，柱边的砖缝跟着张开。\n\n一声撕布似的长响。\n\n柱影折向猫背后，从洞边消失了。墙外先响起沉重的金属撞地声，随即整片水泼进洞口。",
+            "status": "rejected",
+            "pair_id": "pr66_chapter2_preferences.json:dpo:5:4cb383795bdc",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "pov",
+          "secondary": [
+            "limited_pov"
+          ]
+        }
       }
     },
     {
-      "prompt": "角色回收预先放置的钢钎时，应保持物件位置连续，不要让道具在高潮中像临时生成。",
-      "chosen": "雨棚挡不住这里的雨。水顺着夹道墙面冲下来，先前放在北侧墙根的钢钎就在半步外，暗得只剩一线锈光。",
-      "rejected": "雨棚挡不住这里的雨。水顺着夹道墙面冲下来，钢钎躺在半步外，暗得只剩一线锈光。",
-      "tags": {
-        "primary": "scene",
-        "secondary": []
+      "id": "pr66_chapter2_preferences.json:dpo:6:e52ff24612c7",
+      "prompt": {
+        "user_request": "受限视角的坍塌高潮不要切到上帝视角解释后支柱、横梁、千斤顶和雨棚的完整机械过程。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "猫背后的光猛地一暗。墙外紧接着响起沉重的金属撞地声，整片水泼进洞口。猫头猛地往下一沉，尖叫被轰鸣吞没，碎砖和泥水一齐拍上小文的脸。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "锈铁里传出撕布般的长响。后支柱从脚下裂开，朝车道折过猫的肩背。头顶横梁猛地横滑，擦过千斤顶托盘。\n\n千斤顶翻倒。\n\n雨棚后半截向下砸进东侧车道。积水先整片泼落，紧接着是铁皮、生锈支架和断砖。轰鸣压碎了猫的尖叫，泥水从检修口灌进来，拍上小文的脸。",
+            "status": "rejected",
+            "pair_id": "pr66_chapter2_preferences.json:dpo:6:e52ff24612c7",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "pov",
+          "secondary": [
+            "limited_pov"
+          ]
+        }
       }
     },
     {
-      "prompt": "写猫逼近时，用可见的步态和伤爪状态表现谨慎，不要替动物解释抽象战术意图。",
-      "chosen": "他退一步，它跟一步；扳手刚一抬高，它便停下，左前爪压进水里，受伤的右爪仍悬着。",
-      "rejected": "他退一步，它跟一步；他握紧扳手，它便停下。那道腹部伤口越裂越长，它仍没有把身体交给一次没有把握的扑击。",
-      "tags": {
-        "primary": "pov",
-        "secondary": [
-          "limited_pov"
-        ]
+      "id": "pr66_chapter2_preferences.json:dpo:7:cf8000680b30",
+      "prompt": {
+        "user_request": "重伤角色想到七点治疗时，不要让贴身视角越权知道家里已经发生的结果；改成他的推算和出门前记忆。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "水声在耳膜里数成家里那只机械钟的咔哒。七点该到了。他今早把父亲赴诊穿的外套搭在床头，袖口还特意朝外，等回去就能替他套上。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "水声在耳膜里数成家里那只机械钟的咔哒，分针越过七点。\n\n父亲赴诊才穿的旧外套，今晚没能穿出门。母亲那半片药，还压在杯底。",
+            "status": "rejected",
+            "pair_id": "pr66_chapter2_preferences.json:dpo:7:cf8000680b30",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "pov",
+          "secondary": [
+            "limited_pov"
+          ]
+        }
+      }
+    },
+    {
+      "id": "pr66_chapter2_preferences.json:dpo:8:dfce9189745f",
+      "prompt": {
+        "user_request": "角色回收预先放置的钢钎时，应保持物件位置连续，不要让道具在高潮中像临时生成。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "雨棚挡不住这里的雨。水顺着夹道墙面冲下来，先前放在北侧墙根的钢钎就在半步外，暗得只剩一线锈光。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "雨棚挡不住这里的雨。水顺着夹道墙面冲下来，钢钎躺在半步外，暗得只剩一线锈光。",
+            "status": "rejected",
+            "pair_id": "pr66_chapter2_preferences.json:dpo:8:dfce9189745f",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
+      }
+    },
+    {
+      "id": "pr66_chapter2_preferences.json:dpo:9:7848177e88f1",
+      "prompt": {
+        "user_request": "写猫逼近时，用可见的步态和伤爪状态表现谨慎，不要替动物解释抽象战术意图。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "他退一步，它跟一步；扳手刚一抬高，它便停下，左前爪压进水里，受伤的右爪仍悬着。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "他退一步，它跟一步；他握紧扳手，它便停下。那道腹部伤口越裂越长，它仍没有把身体交给一次没有把握的扑击。",
+            "status": "rejected",
+            "pair_id": "pr66_chapter2_preferences.json:dpo:9:7848177e88f1",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "pov",
+          "secondary": [
+            "limited_pov"
+          ]
+        }
       }
     }
   ]

@@ -1,84 +1,106 @@
 {
-  "schema_version": "2.0",
-  "id": "novels_pr3_ch4_001",
-  "language": "zh-CN",
-  "source": {
-    "repository": "ganlingwen/novels",
-    "file": "generated/chapter4.md",
-    "pr": 3,
-    "base_commit": "40ed25fcf151c7d3e289f6cf27a459d5f5d13e11",
-    "accepted_candidate_commit": "ee2f755ac37168fb2f901ff1cc5f3e7dedf2e7de",
-    "merge_commit": "3468eb6fdf485a3a2ae1c36de2e1427de36b882d",
-    "accepted": true
-  },
-  "prompt": {
-    "user_request": "按照前面已经找出来的问题继续修改，一次只改一处，做必要的小修改，不改变既定剧情。",
-    "context": {
-      "continuity_requirement": "第四章老杜被钢筋贯穿残端；第五章证词已经明确提到“钢筋拔出后”，第四章需要补足钢筋脱离伤口的动作桥。",
-      "preserve": "不改变伤势、感染窗口、战斗结果或章末钩子。"
-    },
-    "original_text": "居民在墙下欢呼，以为首领再次逼退尸王。小文跪在老杜的血里，记住了那五根手指，也记住尸王指向涵管时，马克没有低头确认位置。\n\n尸群退出西墙后，守卫和年轻工人抬起老杜，沿墙内通道送往内墙拐角。小文一路跟在担架旁，双手没有离开压住残端的衣摆和木楔。"
-  },
-  "review": {
-    "provenance": "ai_discovered_during_review",
-    "discovered_issue": {
-      "problem": "第四章缺少钢筋从老杜残端退出的动作桥，而第五章已经以“钢筋拔出后”为既成事实。",
-      "evidence": [
-        "PR #3 针对此连续性缺口补桥。",
-        "最终修改只补钢筋退出及再次出血，随后直接衔接原有担架转运段。"
-      ]
-    },
-    "edit_instruction": "补足钢筋脱离伤口的必要动作桥。只交代白川到场、小文压住布结、守卫沿原方向退出钢筋以及再次出血；避免重复下一段已有的尸群退开、抬担架和小文继续压住残端等信息。",
-    "reason": "需要补齐第四章到第五章的连续性事实，但第一版补桥过长，并与紧随其后的转运段重复。"
-  },
-  "sft": {
-    "eligible": true,
-    "response": "钢筋还卡在老杜的残端。白川赶到后让小文压紧布结，守卫夹住外露的弯头，沿原来的方向将钢筋退出。血立刻又从布下涌了出来。",
-    "target_type": "accepted_revision"
-  },
-  "preference": {
-    "eligible": true,
-    "prompt_source": "same_as_prompt",
-    "candidates": [
-      {
-        "candidate_id": "A",
-        "response": "钢筋还卡在老杜的残端。尸群退开后，守卫用两根木楔夹住露在外面的弯头，白川赶到时让小文继续压住布结，沿原来的方向把钢筋退出。钢筋一松，血又从布下涌出，老杜被抬上担架，小文重新压住残端。",
-        "origin": "ai_candidate",
-        "status": "rejected"
+  "schema_version": "3.0",
+  "metadata": {},
+  "records": [
+    {
+      "id": "novels_pr3_ch4_001",
+      "prompt": {
+        "user_request": "按照前面已经找出来的问题继续修改，一次只改一处，做必要的小修改，不改变既定剧情。",
+        "context": "{'continuity_requirement': '第四章老杜被钢筋贯穿残端；第五章证词已经明确提到“钢筋拔出后”，第四章需要补足钢筋脱离伤口的动作桥。', 'preserve': '不改变伤势、感染窗口、战斗结果或章末钩子。'}",
+        "original_text": "居民在墙下欢呼，以为首领再次逼退尸王。小文跪在老杜的血里，记住了那五根手指，也记住尸王指向涵管时，马克没有低头确认位置。\n\n尸群退出西墙后，守卫和年轻工人抬起老杜，沿墙内通道送往内墙拐角。小文一路跟在担架旁，双手没有离开压住残端的衣摆和木楔。",
+        "metadata": {
+          "original_context": {
+            "continuity_requirement": "第四章老杜被钢筋贯穿残端；第五章证词已经明确提到“钢筋拔出后”，第四章需要补足钢筋脱离伤口的动作桥。",
+            "preserve": "不改变伤势、感染窗口、战斗结果或章末钩子。"
+          },
+          "context_rendering": "python_str_preserved_from_previous_loader"
+        }
       },
-      {
-        "candidate_id": "B",
+      "sft": {
+        "eligible": true,
         "response": "钢筋还卡在老杜的残端。白川赶到后让小文压紧布结，守卫夹住外露的弯头，沿原来的方向将钢筋退出。血立刻又从布下涌了出来。",
-        "origin": "ai_candidate",
-        "status": "chosen"
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "B",
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "response": "钢筋还卡在老杜的残端。尸群退开后，守卫用两根木楔夹住露在外面的弯头，白川赶到时让小文继续压住布结，沿原来的方向把钢筋退出。钢筋一松，血又从布下涌出，老杜被抬上担架，小文重新压住残端。",
+            "status": "rejected",
+            "pair_id": "novels_pr3_ch4_001:rejected:0",
+            "metadata": {
+              "origin": "ai_candidate"
+            }
+          },
+          {
+            "candidate_id": "B",
+            "response": "钢筋还卡在老杜的残端。白川赶到后让小文压紧布结，守卫夹住外露的弯头，沿原来的方向将钢筋退出。血立刻又从布下涌了出来。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "ai_candidate"
+            }
+          }
+        ],
+        "metadata": {
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "A 有点长，而且与下一段已有的尸群退开、抬担架、小文继续压住残端等内容重复；B 只保留必要动作桥。",
+          "selection_source": "explicit_author_choice"
+        }
+      },
+      "metadata": {
+        "schema_version": "2.0",
+        "language": "zh-CN",
+        "source": {
+          "repository": "ganlingwen/novels",
+          "file": "generated/chapter4.md",
+          "pr": 3,
+          "base_commit": "40ed25fcf151c7d3e289f6cf27a459d5f5d13e11",
+          "accepted_candidate_commit": "ee2f755ac37168fb2f901ff1cc5f3e7dedf2e7de",
+          "merge_commit": "3468eb6fdf485a3a2ae1c36de2e1427de36b882d",
+          "accepted": true
+        },
+        "review": {
+          "provenance": "ai_discovered_during_review",
+          "discovered_issue": {
+            "problem": "第四章缺少钢筋从老杜残端退出的动作桥，而第五章已经以“钢筋拔出后”为既成事实。",
+            "evidence": [
+              "PR #3 针对此连续性缺口补桥。",
+              "最终修改只补钢筋退出及再次出血，随后直接衔接原有担架转运段。"
+            ]
+          },
+          "edit_instruction": "补足钢筋脱离伤口的必要动作桥。只交代白川到场、小文压住布结、守卫沿原方向退出钢筋以及再次出血；避免重复下一段已有的尸群退开、抬担架和小文继续压住残端等信息。",
+          "reason": "需要补齐第四章到第五章的连续性事实，但第一版补桥过长，并与紧随其后的转运段重复。"
+        },
+        "labels": {
+          "primary": "continuity_bridge",
+          "secondary": [
+            "conciseness",
+            "avoid_repetition",
+            "minimal_edit",
+            "preference_pair",
+            "preserve_plot"
+          ]
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "training_views": {
+          "executor_sft": "prompt.context + prompt.original_text + review.edit_instruction -> sft.response",
+          "autonomous_editor_sft": "repository_context + prompt.user_request + chapter -> accepted corrected chapter",
+          "preference_training": "same prompt/context -> B > A"
+        },
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
-    ],
-    "chosen_candidate_id": "B",
-    "preference_reason": "A 有点长，而且与下一段已有的尸群退开、抬担架、小文继续压住残端等内容重复；B 只保留必要动作桥。",
-    "selection_source": "explicit_author_choice"
-  },
-  "labels": {
-    "primary": "continuity_bridge",
-    "secondary": [
-      "conciseness",
-      "avoid_repetition",
-      "minimal_edit",
-      "preference_pair",
-      "preserve_plot"
-    ]
-  },
-  "quality": {
-    "human_accepted": true,
-    "merged": true,
-    "human_preference": true
-  },
-  "training_views": {
-    "executor_sft": "prompt.context + prompt.original_text + review.edit_instruction -> sft.response",
-    "autonomous_editor_sft": "repository_context + prompt.user_request + chapter -> accepted corrected chapter",
-    "preference_training": "same prompt/context -> B > A"
-  },
-  "tags": {
-    "primary": "scene",
-    "secondary": []
-  }
+    }
+  ]
 }

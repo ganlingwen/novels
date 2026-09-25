@@ -1,58 +1,77 @@
 {
-  "schema_version": "2.0",
-  "id": "pr7_ch4_spatial-reveal-pov",
-  "prompt": {
-    "user_request": "空间现在没有问题了，改正文吧。",
-    "context": "已确认拓扑：墙外 → 西墙（涵管与西墙正门）→ 西墙前沿菜地 → 内墙门 → 核心区 → 体育馆地下入口。正文应从小文贴身视角随动作自然揭示，不写成地图说明。",
-    "original_text": "空气里很快多出一股刺鼻的化工燃烧味。小文爬上半截土坡。脚下的菜地贴着西墙内侧铺开，墙头弩位沿南北排成一线；离他不远的墙脚，旧灌溉涵管从墙基穿过，内口装着铁栅。涵管口和正门都有人把守；再往后便是撤往体育馆的地下入口。他望向北偏西，那里正腾起黑烟。"
-  },
-  "review": {
-    "provenance": "ai_revision_after_author_approved_topology",
-    "issue": "上一版虽然塞入了正确名词，但仍像俯视地图说明，而且遗漏内墙门这一关键层级。",
-    "edit_instruction": "让小文起身时先看到菜地尽头的西墙与弩手，再通过往南的正门、近处涵管和身后撤退人流依次建立空间；最后转回北偏西黑烟，继续原剧情。",
-    "reason": "空间信息跟随视线和现场动作出现，读者无需查看地图也能重建路线。"
-  },
-  "sft": {
-    "eligible": true,
-    "response": "空气里很快多出一股刺鼻的化工燃烧味。小文撑着土坡站起来。菜地尽头就是西墙，墙头的弩手已经沿着女墙散开。往南，正门前的守卫正把最后一辆板车拖回墙内；更近的墙脚，旧灌溉涵管从墙基下穿过，内口的铁栅还锁着。\n\n身后有人往内墙门跑，守卫一边挥旗一边催人往里撤。穿过那道门，再往后才是体育馆的地下入口。\n\n小文转回头。北偏西已经腾起黑烟。",
-    "target_type": "accepted_revision"
-  },
-  "preference": {
-    "eligible": true,
-    "prompt_source": "same_edit_history",
-    "candidates": [
-      {
-        "candidate_id": "chosen",
-        "response": "空气里很快多出一股刺鼻的化工燃烧味。小文撑着土坡站起来。菜地尽头就是西墙，墙头的弩手已经沿着女墙散开。往南，正门前的守卫正把最后一辆板车拖回墙内；更近的墙脚，旧灌溉涵管从墙基下穿过，内口的铁栅还锁着。\n\n身后有人往内墙门跑，守卫一边挥旗一边催人往里撤。穿过那道门，再往后才是体育馆的地下入口。\n\n小文转回头。北偏西已经腾起黑烟。",
-        "origin": "final_ai_revision",
-        "status": "chosen"
+  "schema_version": "3.0",
+  "metadata": {},
+  "records": [
+    {
+      "id": "pr7_ch4_spatial-reveal-pov",
+      "prompt": {
+        "user_request": "空间现在没有问题了，改正文吧。",
+        "context": "已确认拓扑：墙外 → 西墙（涵管与西墙正门）→ 西墙前沿菜地 → 内墙门 → 核心区 → 体育馆地下入口。正文应从小文贴身视角随动作自然揭示，不写成地图说明。",
+        "original_text": "空气里很快多出一股刺鼻的化工燃烧味。小文爬上半截土坡。脚下的菜地贴着西墙内侧铺开，墙头弩位沿南北排成一线；离他不远的墙脚，旧灌溉涵管从墙基穿过，内口装着铁栅。涵管口和正门都有人把守；再往后便是撤往体育馆的地下入口。他望向北偏西，那里正腾起黑烟。",
+        "metadata": {}
       },
-      {
-        "candidate_id": "rejected_a",
-        "response": "空气里很快多出一股刺鼻的化工燃烧味。小文爬上半截土坡。脚下的菜地贴着西墙内侧铺开，墙头弩位沿南北排成一线；离他不远的墙脚，旧灌溉涵管从墙基穿过，内口装着铁栅。涵管口和正门都有人把守；再往后便是撤往体育馆的地下入口。他望向北偏西，那里正腾起黑烟。",
-        "origin": "earlier_ai_candidate",
-        "status": "rejected"
+      "sft": {
+        "eligible": true,
+        "response": "空气里很快多出一股刺鼻的化工燃烧味。小文撑着土坡站起来。菜地尽头就是西墙，墙头的弩手已经沿着女墙散开。往南，正门前的守卫正把最后一辆板车拖回墙内；更近的墙脚，旧灌溉涵管从墙基下穿过，内口的铁栅还锁着。\n\n身后有人往内墙门跑，守卫一边挥旗一边催人往里撤。穿过那道门，再往后才是体育馆的地下入口。\n\n小文转回头。北偏西已经腾起黑烟。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "空气里很快多出一股刺鼻的化工燃烧味。小文撑着土坡站起来。菜地尽头就是西墙，墙头的弩手已经沿着女墙散开。往南，正门前的守卫正把最后一辆板车拖回墙内；更近的墙脚，旧灌溉涵管从墙基下穿过，内口的铁栅还锁着。\n\n身后有人往内墙门跑，守卫一边挥旗一边催人往里撤。穿过那道门，再往后才是体育馆的地下入口。\n\n小文转回头。北偏西已经腾起黑烟。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "final_ai_revision"
+            }
+          },
+          {
+            "candidate_id": "rejected_a",
+            "response": "空气里很快多出一股刺鼻的化工燃烧味。小文爬上半截土坡。脚下的菜地贴着西墙内侧铺开，墙头弩位沿南北排成一线；离他不远的墙脚，旧灌溉涵管从墙基穿过，内口装着铁栅。涵管口和正门都有人把守；再往后便是撤往体育馆的地下入口。他望向北偏西，那里正腾起黑烟。",
+            "status": "rejected",
+            "pair_id": "pr7_ch4_spatial-reveal-pov:rejected:0",
+            "metadata": {
+              "origin": "earlier_ai_candidate"
+            }
+          }
+        ],
+        "metadata": {
+          "prompt_source": "same_edit_history",
+          "preference_reason": "最终版把已确认的拓扑转成小文可感知的动作、视线和撤退人流；旧版仍是俯视式空间说明且缺少内墙门。",
+          "selection_source": "explicit_author_approval_of_topology_then_merge"
+        }
+      },
+      "metadata": {
+        "schema_version": "2.0",
+        "review": {
+          "provenance": "ai_revision_after_author_approved_topology",
+          "issue": "上一版虽然塞入了正确名词，但仍像俯视地图说明，而且遗漏内墙门这一关键层级。",
+          "edit_instruction": "让小文起身时先看到菜地尽头的西墙与弩手，再通过往南的正门、近处涵管和身后撤退人流依次建立空间；最后转回北偏西黑烟，继续原剧情。",
+          "reason": "空间信息跟随视线和现场动作出现，读者无需查看地图也能重建路线。"
+        },
+        "source": {
+          "repository": "ganlingwen/novels",
+          "file": "generated/chapter4.md",
+          "pr": 7,
+          "merge_commit": "e2659ecb4f2a1f845a3a1edbc6fb4ab98f8dcb9c"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "contains_author_reverse": true
+        },
+        "tags": {
+          "primary": "pov",
+          "secondary": [
+            "limited_pov"
+          ]
+        }
       }
-    ],
-    "chosen_candidate_id": "chosen",
-    "preference_reason": "最终版把已确认的拓扑转成小文可感知的动作、视线和撤退人流；旧版仍是俯视式空间说明且缺少内墙门。",
-    "selection_source": "explicit_author_approval_of_topology_then_merge"
-  },
-  "source": {
-    "repository": "ganlingwen/novels",
-    "file": "generated/chapter4.md",
-    "pr": 7,
-    "merge_commit": "e2659ecb4f2a1f845a3a1edbc6fb4ab98f8dcb9c"
-  },
-  "quality": {
-    "human_accepted": true,
-    "merged": true,
-    "contains_author_reverse": true
-  },
-  "tags": {
-    "primary": "pov",
-    "secondary": [
-      "limited_pov"
-    ]
-  }
+    }
+  ]
 }

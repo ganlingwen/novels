@@ -1,4 +1,4 @@
-"""Local manual SFT data loader for Stage-2 training."""
+"""Validated canonical SFT and DPO data loader for Stage-2 training."""
 
 import hashlib
 import json
@@ -6,37 +6,19 @@ from pathlib import Path
 
 import torch
 from datasets import Dataset
+from jsonschema import Draft202012Validator, ValidationError
 from torch.utils.data import Dataset as TorchDataset
 
 from NovelSFTDataset import NovelSFTDataset
 
 
 def _prompt_text(prompt: dict) -> str:
-    parts = [prompt.get("user_request") or ""]
-    if prompt.get("context"):
+    parts = [prompt["user_request"]]
+    if prompt["context"]:
         parts.append(f"上下文：{prompt['context']}")
-    original = prompt.get("original_text") or prompt.get("original")
-    if original:
-        parts.append(f"原文：{original}")
-    return "\n\n".join(str(part) for part in parts if part)
-
-
-def _legacy_prompt(bundle: dict, item: dict) -> str:
-    """Use existing editorial metadata as an instruction when old DPO lacks prompt."""
-    focus = item.get("focus")
-    scene = bundle.get("scene") or bundle.get("description") or bundle.get("scene_id")
-    if not focus and not scene:
-        return ""
-    return "\n".join(part for part in (
-        f"场景：{scene}" if scene else "",
-        f"修改重点：{focus}" if focus else "",
-        "根据上述场景与修改重点，选择更符合作者要求的写法。",
-    ) if part)
-
-
-def _record_id(path: Path, index: int, answer: str) -> str:
-    digest = hashlib.sha256(answer.encode("utf-8")).hexdigest()[:12]
-    return f"{path.name}:{index}:{digest}"
+    if prompt["original_text"]:
+        parts.append(f"原文：{prompt['original_text']}")
+    return "\n\n".join(parts)
 
 
 def _record_paths(data_dir: str | Path) -> list[Path]:
@@ -51,38 +33,56 @@ def _record_paths(data_dir: str | Path) -> list[Path]:
     return paths
 
 
-def load_local_sft_records(data_dir: str | Path) -> list[dict]:
-    """Normalize schema-2 and compact bundles into local SFT records."""
-    records = []
-    seen = set()
+def _local_records(data_dir: str | Path):
+    """Validate schema and cross-field invariants; never guess or silently drop data."""
+    schema_path = Path(__file__).resolve().parents[1] / "data" / "schema.json"
+    validator = Draft202012Validator(json.loads(schema_path.read_text(encoding="utf-8")))
+    record_ids, pair_ids = set(), set()
     for path in _record_paths(data_dir):
-        if path.name == "schema.json":
-            continue
-        bundle = json.loads(path.read_text(encoding="utf-8"))
-        if isinstance(bundle.get("sft"), list):
-            for index, item in enumerate(bundle["sft"]):
-                prompt = item.get("instruction") or _legacy_prompt(bundle, item)
-                answer = item.get("output") or item.get("response") or item.get("chosen")
-                if not prompt or not answer:
-                    continue
-                rid = _record_id(path, index, answer)
-                if rid not in seen:
-                    seen.add(rid)
-                    records.append({"id": rid, "source": path.name, "prompt": prompt, "response": answer})
-            continue
+        try:
+            bundle = json.loads(path.read_text(encoding="utf-8"))
+            validator.validate(bundle)
+        except json.JSONDecodeError as error:
+            raise ValueError(f"{path}: invalid JSON: {error}") from error
+        except ValidationError as error:
+            raise ValueError(f"{path}: {error.json_path}: {error.message}") from error
+        for item in bundle["records"]:
+            location = f"{path}: record {item['id']!r}"
+            if item["id"] in record_ids:
+                raise ValueError(f"{location}: duplicate record ID")
+            record_ids.add(item["id"])
+            dpo = item["dpo"]
+            candidates = {c["candidate_id"]: c for c in dpo["candidates"]}
+            if len(candidates) != len(dpo["candidates"]):
+                raise ValueError(f"{location}: duplicate candidate ID")
+            chosen_id = dpo["chosen_candidate_id"]
+            if chosen_id is not None and chosen_id not in candidates:
+                raise ValueError(f"{location}: chosen_candidate_id does not reference a candidate")
+            for candidate in candidates.values():
+                pair_id = candidate["pair_id"]
+                if dpo["eligible"] and candidate["status"] == "rejected":
+                    if candidate["response"] == candidates[chosen_id]["response"]:
+                        raise ValueError(f"{location}: chosen and rejected responses must differ")
+                    if pair_id is None or pair_id in pair_ids:
+                        raise ValueError(f"{location}: missing or duplicate pair ID")
+                    pair_ids.add(pair_id)
+                elif pair_id is not None:
+                    raise ValueError(f"{location}: pair_id is only valid for an eligible rejected candidate")
+            yield path, item
 
-        for index, item in enumerate(bundle.get("records", [bundle])):
-            sft = item.get("sft", {})
-            prompt = item.get("prompt", {})
-            answer = sft.get("response")
-            request = _prompt_text(prompt) if prompt else _legacy_prompt(bundle, item)
-            if sft.get("eligible") is not True or not request or not answer:
-                continue
-            rid = item.get("id") or _record_id(path, index, answer)
-            if rid not in seen:
-                seen.add(rid)
-                records.append({"id": rid, "source": path.name, "prompt": request, "response": answer})
-    return records
+
+def load_local_sft_records(data_dir: str | Path) -> list[dict]:
+    """Project explicitly eligible canonical records into SFT samples."""
+    return [
+        {
+            "id": item["id"],
+            "source": path.name,
+            "prompt": _prompt_text(item["prompt"]),
+            "response": item["sft"]["response"],
+        }
+        for path, item in _local_records(data_dir)
+        if item["sft"]["eligible"]
+    ]
 
 
 def split_local_sft(records: list[dict], validation_ratio: float = 0.1) -> tuple[list[dict], list[dict]]:
@@ -106,93 +106,26 @@ def make_sft_dataset(records: list[dict], tokenizer, max_length: int) -> NovelSF
     return NovelSFTDataset(Dataset.from_list(rows), tokenizer, max_length)
 
 
-def _preference_candidates(item: dict) -> tuple[str | None, list[str]]:
-    """Expand only real, nonempty, distinct same-prompt preference candidates."""
-    preference = item.get("preference", {})
-    if preference.get("eligible") is not True:
-        return None, []
-    candidates = preference.get("candidates", [])
-    chosen_id = preference.get("chosen_candidate_id")
-    # An explicit author-selected ID takes precedence over an intermediate
-    # candidate whose status happens to contain "chosen".
-    selected = next(
-        (candidate for candidate in candidates if candidate.get("candidate_id") == chosen_id),
-        None,
-    ) if chosen_id else None
-    if selected is None:
-        selected = next(
-            (candidate for candidate in candidates
-             if candidate.get("status") in ("chosen", "chosen_then_refined")),
-            None,
-        )
-    chosen = selected.get("response") if selected else None
-    if not isinstance(chosen, str) or not chosen.strip():
-        return None, []
-    rejected = [
-        candidate.get("response")
-        for candidate in candidates
-        if candidate.get("status") == "rejected"
-        and candidate.get("candidate_id") != selected.get("candidate_id")
-        and isinstance(candidate.get("response"), str)
-        and candidate["response"].strip()
-        and candidate["response"] != chosen
-    ]
-    return chosen, rejected
-
-
 def load_local_dpo_records(data_dir: str | Path) -> list[dict]:
-    """Load real same-prompt preference pairs from compact and schema-2 records."""
+    """Pair the explicit chosen candidate with each eligible rejected candidate."""
     records = []
-    seen = set()
-    for path in _record_paths(data_dir):
-        if path.name == "schema.json":
+    for path, item in _local_records(data_dir):
+        dpo = item["dpo"]
+        if not dpo["eligible"]:
             continue
-        bundle = json.loads(path.read_text(encoding="utf-8"))
-
-        for index, item in enumerate(bundle.get("dpo", [])):
-            prompt = item.get("prompt") or _legacy_prompt(bundle, item)
-            chosen = item.get("chosen")
-            rejected = item.get("rejected")
-            if not all(isinstance(value, str) and value.strip() for value in (prompt, chosen, rejected)) or chosen == rejected:
-                continue
-            rid = f"{path.name}:dpo:{index}:{hashlib.sha256((chosen + '\\n' + rejected).encode()).hexdigest()[:12]}"
-            if rid not in seen:
-                seen.add(rid)
+        candidates = {c["candidate_id"]: c for c in dpo["candidates"]}
+        chosen = candidates[dpo["chosen_candidate_id"]]["response"]
+        for candidate in candidates.values():
+            if candidate["status"] == "rejected":
                 records.append(
-                    {"id": rid, "source": path.name, "prompt": prompt, "chosen": chosen, "rejected": rejected}
+                    {
+                        "id": candidate["pair_id"],
+                        "source": path.name,
+                        "prompt": _prompt_text(item["prompt"]),
+                        "chosen": chosen,
+                        "rejected": candidate["response"],
+                    }
                 )
-
-        for index, item in enumerate(bundle.get("records", [bundle])):
-            chosen, rejected = _preference_candidates(item)
-            prompt = _prompt_text(item.get("prompt", {})) or _legacy_prompt(bundle, item)
-            # Earlier editorial records store a selected SFT response and a
-            # list of verbatim rejected alternatives instead of candidates.
-            preference = item.get("preference", {})
-            if (preference.get("eligible") is True and not chosen
-                    and isinstance(preference.get("rejected"), list)
-                    and item.get("sft", {}).get("eligible") is True):
-                chosen = item["sft"].get("response")
-                rejected = [
-                    response for response in preference["rejected"]
-                    if isinstance(response, str) and response.strip()
-                    and response != chosen
-                ]
-            if not prompt or not chosen or not rejected:
-                continue
-            base_id = item.get("id") or f"{path.name}:record:{index}"
-            for rejected_index, rejected_response in enumerate(rejected):
-                rid = f"{base_id}:rejected:{rejected_index}"
-                if rid not in seen:
-                    seen.add(rid)
-                    records.append(
-                        {
-                            "id": rid,
-                            "source": path.name,
-                            "prompt": prompt,
-                            "chosen": chosen,
-                            "rejected": rejected_response,
-                        }
-                    )
     return records
 
 
