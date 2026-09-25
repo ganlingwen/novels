@@ -76,8 +76,11 @@ python -m pytest
 `load_local_sft_records()` 和 `load_local_dpo_records()` 默认只加载 `real`。通过
 `sources=("synthesized",)` 或 `sources=("real", "synthesized")` 显式选择来源；
 直接传入 `data/real/` 或 `data/synthesized/` 时，sources 必须与目录一致。
+直接子目录仅允许选择该单一来源；选择两个来源时必须传入父目录 `data/`。
 loader 使用仓库内 `data/schema.json` 验证格式，并检查跨字段候选引用、
 全局记录/pair ID 唯一性、chosen/rejected 差异。错误包含文件及记录位置，不再静默跳过。
+合成记录只要 SFT 或 DPO 任一 eligible=true，judge.decision 就必须为 accepted；
+rejected/tie 记录只能在两个 eligible 均为 false 时保留为档案。
 `count.py` 独立统计显式偏好注释并对比 loader 输出。
 
 `sample_training_records(records, {"real": 1, "synthetic": 1}, sample_count, seed)`
@@ -85,3 +88,10 @@ loader 使用仓库内 `data/schema.json` 验证格式，并检查跨字段候�
 不是每条记录同权。验证集不要经过此采样。
 
 有意新增或修改语料后，应审查并更新 `llm/tests/test_local_data.py` 的数量和语料摘要断言。
+
+## 作者审核中的正文修改
+
+`review/*.json` 保存尚未接受的真实正文编辑提案，使用同一 schema，所有 eligibility 为 false。
+该目录不由训练 loader 加载；审核前不改正文，不给候选标 chosen/rejected。
+作者接受修订后再应用并迁入 `real/`；DPO 还需要明确的同题候选优劣判断。
+分类与一致率口径见 [editorial_preferences.md](editorial_preferences.md)。

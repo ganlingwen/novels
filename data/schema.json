@@ -168,6 +168,31 @@
         "dpo": {"$ref": "#/$defs/dpo"},
         "metadata": {"$ref": "#/$defs/recordMetadata"}
       },
+      "if": {
+        "properties": {
+          "metadata": {
+            "required": ["data_origin"],
+            "properties": {"data_origin": {"const": "synthetic"}}
+          }
+        },
+        "anyOf": [
+          {"properties": {"sft": {"properties": {"eligible": {"const": true}}}}},
+          {"properties": {"dpo": {"properties": {"eligible": {"const": true}}}}}
+        ]
+      },
+      "then": {
+        "properties": {
+          "metadata": {
+            "properties": {
+              "synthetic_provenance": {
+                "properties": {
+                  "judge": {"properties": {"decision": {"const": "accepted"}}}
+                }
+              }
+            }
+          }
+        }
+      },
       "$comment": "LocalNovelDataset additionally validates unique record/candidate/pair IDs, chosen-ID references, pair-ID eligibility, and distinct chosen/rejected text."
     }
   }

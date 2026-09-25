@@ -255,3 +255,45 @@ def test_synthesized_record_requires_full_provenance_and_explicit_source(tmp_pat
 def test_source_weight_sampling_rejects_invalid_configuration(weights, message):
     with pytest.raises(ValueError, match=message):
         sample_training_records([{"id": "real-1", "data_origin": "real"}], weights)
+
+
+@pytest.mark.parametrize("source", ["real", "synthesized"])
+@pytest.mark.parametrize("loader", [load_local_sft_records, load_local_dpo_records])
+def test_direct_directory_cannot_silently_drop_selected_source(tmp_path, source, loader):
+    directory = tmp_path / source
+    directory.mkdir()
+    with pytest.raises(ValueError, match="parent data directory"):
+        loader(directory, sources=("real", "synthesized"))
+
+
+@pytest.mark.parametrize("decision", ["accepted", "rejected", "tie"])
+@pytest.mark.parametrize("sft_eligible,dpo_eligible", [(True, True), (True, False), (False, True), (False, False)])
+def test_synthetic_judgment_controls_training_eligibility(tmp_path, record, decision, sft_eligible, dpo_eligible):
+    record["metadata"] = {
+        "data_origin": "synthetic",
+        "synthetic_provenance": {
+            "parent_record_ids": ["parent"],
+            "source_group_id": "group",
+            "synthesis_method": "new_edit",
+            "fact_sources": ["characters.md"],
+            "generator": {"model": "generator", "prompt_template_version": "v1", "sampling": {}},
+            "judge": {"model": "judge", "rubric_version": "v1", "decision": decision},
+            "audit_status": "machine_reviewed",
+        },
+    }
+    record["sft"]["eligible"] = sft_eligible
+    record["dpo"]["eligible"] = dpo_eligible
+    if not dpo_eligible:
+        for candidate in record["dpo"]["candidates"]:
+            candidate["pair_id"] = None
+    _write(tmp_path, [record], source="synthesized")
+    bundle = {"schema_version": "3.0", "metadata": {}, "records": [record]}
+    validator = Draft202012Validator(json.loads((DATA_DIR / "schema.json").read_text(encoding="utf-8")))
+    invalid = decision != "accepted" and (sft_eligible or dpo_eligible)
+    assert validator.is_valid(bundle) is not invalid
+    for loader, count in ((load_local_sft_records, int(sft_eligible)), (load_local_dpo_records, 2 * int(dpo_eligible))):
+        if invalid:
+            with pytest.raises(ValueError, match="accepted"):
+                loader(tmp_path, sources=("synthesized",))
+        else:
+            assert len(loader(tmp_path, sources=("synthesized",))) == count

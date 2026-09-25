@@ -37,8 +37,11 @@ def _record_paths(data_dir: str | Path, sources: tuple[str, ...] | list[str] = (
     root = Path(data_dir)
     sources = _normalize_sources(sources)
     if root.name in DATA_SOURCES:
-        if root.name not in sources:
-            raise ValueError(f"Direct data directory {root} is not selected by sources={sources}")
+        if sources != (root.name,):
+            raise ValueError(
+                f"Direct data directory {root} requires sources=({root.name!r},); "
+                "pass the parent data directory to select multiple sources"
+            )
         record_dirs = [root]
     else:
         record_dirs = [root / source for source in sources]
