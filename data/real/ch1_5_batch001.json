@@ -2,8 +2,8 @@
   "schema_version": "3.0",
   "metadata": {
     "workflow": "live_manuscript_editorial_review",
-    "author_review_status": "pending",
-    "note": "真实正文编辑提案，非已接受训练数据；本目录不参与 loader。A/B 已在作者选择前保存。模型预选仅为生成者自评，不是独立双评审。",
+    "author_review_status": "completed",
+    "note": "A/B 在作者选择前保存；作者逐条选择 A、保留原文、A。模型预选仅为生成者自评，不是独立双评审。",
     "source_commit": "6bca1836bf656f92520a6d1c85951b3fca291246"
   },
   "records": [
@@ -19,18 +19,20 @@
         }
       },
       "sft": {
-        "eligible": false,
-        "response": null,
-        "metadata": {}
+        "eligible": true,
+        "response": "陈锋握住门把：“知道。找人、报位置、等你过去。”",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
       },
       "dpo": {
-        "eligible": false,
-        "chosen_candidate_id": null,
+        "eligible": true,
+        "chosen_candidate_id": "A",
         "candidates": [
           {
             "candidate_id": "A",
             "response": "陈锋握住门把：“知道。找人、报位置、等你过去。”",
-            "status": "pending",
+            "status": "chosen",
             "pair_id": null,
             "metadata": {
               "origin": "ai_candidate"
@@ -39,8 +41,8 @@
           {
             "candidate_id": "B",
             "response": "陈锋站到门边：“知道。找人、报位置、等你过去。”",
-            "status": "pending",
-            "pair_id": null,
+            "status": "rejected",
+            "pair_id": "review-ch1-5-b001-01-door:rejected:B",
             "metadata": {
               "origin": "ai_candidate"
             }
@@ -48,8 +50,8 @@
           {
             "candidate_id": "original",
             "response": "陈锋拉开铁门：“知道。找人、报位置、等你过去。”",
-            "status": "pending",
-            "pair_id": null,
+            "status": "rejected",
+            "pair_id": "review-ch1-5-b001-01-door:rejected:original",
             "metadata": {
               "origin": "current_manuscript",
               "purpose": "no_change_option"
@@ -57,7 +59,8 @@
           }
         ],
         "metadata": {
-          "selection_source": null
+          "selection_source": "explicit_author_choice",
+          "preference_reason": "作者明确选择 A；握住门把既保留陈锋准备出发的急切，也避免与后文再次推门冲突。"
         }
       },
       "metadata": {
@@ -67,7 +70,7 @@
           "line_start": 253,
           "line_end": 253
         },
-        "author_review_status": "pending",
+        "author_review_status": "accepted",
         "review": {
           "provenance": "ai_discovered_during_review",
           "issue": "同一段里陈锋先拉开、后推开同一扇铁门，中间没有关门。将前一处改成准备出门，让后面统一完成开门与让白川先过。",
@@ -79,7 +82,7 @@
           "model_preference_before_author": "A",
           "model_preference_reason": "握门把保留陈锋准备立即出发的急切，同时后续可以继续听白川补充担架路线。",
           "judgment_source": "generator_self_review_not_independent",
-          "training_note": "两种写法都修复重复动作。作者若只认可修复而未表达明确偏好，只收 SFT。"
+          "training_note": "作者明确选择 A，可同时进入 SFT 与 DPO。"
         },
         "tags": {
           "primary": "continuity",
@@ -105,14 +108,14 @@
         "metadata": {}
       },
       "dpo": {
-        "eligible": false,
-        "chosen_candidate_id": null,
+        "eligible": true,
+        "chosen_candidate_id": "original",
         "candidates": [
           {
             "candidate_id": "A",
             "response": "老杜看了看他撑在木杖上的手，又回头望向涵管。",
-            "status": "pending",
-            "pair_id": null,
+            "status": "rejected",
+            "pair_id": "review-ch1-5-b001-02-laodu-pov:rejected:A",
             "metadata": {
               "origin": "ai_candidate"
             }
@@ -120,8 +123,8 @@
           {
             "candidate_id": "B",
             "response": "老杜没再催他撤，伸手扶住了他的胳膊。",
-            "status": "pending",
-            "pair_id": null,
+            "status": "rejected",
+            "pair_id": "review-ch1-5-b001-02-laodu-pov:rejected:B",
             "metadata": {
               "origin": "ai_candidate"
             }
@@ -129,7 +132,7 @@
           {
             "candidate_id": "original",
             "response": "老杜望着他，一个月前女儿挡在他身后，催他快走的画面爬上了记忆。",
-            "status": "pending",
+            "status": "chosen",
             "pair_id": null,
             "metadata": {
               "origin": "current_manuscript",
@@ -138,7 +141,8 @@
           }
         ],
         "metadata": {
-          "selection_source": null
+          "selection_source": "explicit_author_choice",
+          "preference_reason": "作者认为此处回忆是正常的内心切入，不构成 POV 越界，并为老杜帮助小文、决定同行提供动机。"
         }
       },
       "metadata": {
@@ -148,7 +152,7 @@
           "line_start": 105,
           "line_end": 105
         },
-        "author_review_status": "pending",
+        "author_review_status": "no_change",
         "review": {
           "provenance": "ai_discovered_during_review",
           "issue": "无视角分隔就进入老杜私密记忆，同时补入人物卡没有的女儿经历。用小文可见的动作承接老杜决定同行。",
@@ -159,14 +163,17 @@
           ],
           "model_preference_before_author": "B",
           "model_preference_reason": "扶住胳膊把对小文的担忧落实为当场帮助，后面再由小文搀扶老杜同行，关系更具体。",
-          "judgment_source": "generator_self_review_not_independent"
+          "judgment_source": "generator_self_review_not_independent",
+          "outcome": "no_change",
+          "false_positive": true,
+          "author_feedback": "回忆不是 POV 误判；它还在为老杜帮助小文的选择提供合理动机。"
         },
         "tags": {
           "primary": "pov",
           "secondary": [
-            "continuity"
+            "plot"
           ],
-          "rationale": "无视角分隔进入老杜私密记忆且新增未设定女儿经历，应改为小文可见动作。"
+          "rationale": "回忆可自然切入老杜内心，不构成 POV 越界；同时为其帮助小文和决定同行提供动机。"
         }
       }
     },
@@ -182,18 +189,20 @@
         }
       },
       "sft": {
-        "eligible": false,
-        "response": null,
-        "metadata": {}
+        "eligible": true,
+        "response": "父亲的手停在半空。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
       },
       "dpo": {
-        "eligible": false,
-        "chosen_candidate_id": null,
+        "eligible": true,
+        "chosen_candidate_id": "A",
         "candidates": [
           {
             "candidate_id": "A",
             "response": "父亲的手停在半空。",
-            "status": "pending",
+            "status": "chosen",
             "pair_id": null,
             "metadata": {
               "origin": "ai_candidate"
@@ -202,8 +211,8 @@
           {
             "candidate_id": "B",
             "response": "父亲把空着的手收了回去。",
-            "status": "pending",
-            "pair_id": null,
+            "status": "rejected",
+            "pair_id": "review-ch1-5-b001-03-pencil:rejected:B",
             "metadata": {
               "origin": "ai_candidate"
             }
@@ -211,8 +220,8 @@
           {
             "candidate_id": "original",
             "response": "父亲的铅笔停在半空。",
-            "status": "pending",
-            "pair_id": null,
+            "status": "rejected",
+            "pair_id": "review-ch1-5-b001-03-pencil:rejected:original",
             "metadata": {
               "origin": "current_manuscript",
               "purpose": "no_change_option"
@@ -220,7 +229,8 @@
           }
         ],
         "metadata": {
-          "selection_source": null
+          "selection_source": "explicit_author_choice",
+          "preference_reason": "作者查看完整上下文后选择 A；只移除已经被母亲拿走的铅笔，保留父亲被质问打断的停顿。"
         }
       },
       "metadata": {
@@ -230,7 +240,7 @@
           "line_start": 89,
           "line_end": 89
         },
-        "author_review_status": "pending",
+        "author_review_status": "accepted",
         "review": {
           "provenance": "ai_discovered_during_review",
           "issue": "铅笔上一段已被母亲抽走放到桌上，此处却又悬在父亲手里。修正物件归属，保留打断后的反应。",
@@ -242,7 +252,7 @@
           "model_preference_before_author": "A",
           "model_preference_reason": "只替换错误物件，保留父亲被打断时的停顿，不额外改变动作节奏。",
           "judgment_source": "generator_self_review_not_independent",
-          "training_note": "两种写法都修复道具连续性；无明确风格偏好时仅收 SFT。"
+          "training_note": "作者查看上下文后明确选择 A，可同时进入 SFT 与 DPO。"
         },
         "tags": {
           "primary": "continuity",
