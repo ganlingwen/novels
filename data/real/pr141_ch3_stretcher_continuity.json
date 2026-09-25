@@ -1,0 +1,306 @@
+{
+  "schema_version": "3.0",
+  "metadata": {
+    "source": "merged_pr_with_explicit_author_acceptance",
+    "repository": "ganlingwen/novels",
+    "pr": 141
+  },
+  "records": [
+    {
+      "id": "pr141-ch3-folding-stretcher-continuity",
+      "prompt": {
+        "user_request": "统一第三章开头的担架设定，使其与第二章已经交代的折叠担架一致。",
+        "context": "第二章已明确白川背着折叠担架赶往这次救援，第三章临时改成钢管和门板会造成跨章连续性冲突。这里选择折叠担架只因为前文已有该设定，不表示其他场景中的担架都必须是折叠式。",
+        "original_text": "白川护住小文的肩颈和右腿，两双手从洞外接住他，将他侧着移出检修口。两根钢管已经穿进拆下的门板，临时担架就铺在车道积水里。\n\n门板抬过门槛时晃了一下，白川的手一直压着他的腿。",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "白川护住小文的肩颈和右腿，两双手从洞外接住他，将他侧着移出检修口。折叠担架已经在车道边铺开。\n\n担架抬过门槛时晃了一下，白川的手一直压着他的腿。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "use_folding_stretcher",
+        "candidates": [
+          {
+            "candidate_id": "use_folding_stretcher",
+            "response": "白川护住小文的肩颈和右腿，两双手从洞外接住他，将他侧着移出检修口。折叠担架已经在车道边铺开。\n\n担架抬过门槛时晃了一下，白川的手一直压着他的腿。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_pr_revision"
+            }
+          },
+          {
+            "candidate_id": "keep_improvised_door_stretcher",
+            "response": "白川护住小文的肩颈和右腿，两双手从洞外接住他，将他侧着移出检修口。两根钢管已经穿进拆下的门板，临时担架就铺在车道积水里。\n\n门板抬过门槛时晃了一下，白川的手一直压着他的腿。",
+            "status": "rejected",
+            "pair_id": "pr141-ch3-folding-stretcher-continuity:rejected:keep-original",
+            "metadata": {
+              "origin": "pre_edit_main"
+            }
+          }
+        ],
+        "metadata": {
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "作者合并 PR #141，接受以折叠担架替代临时门板担架的修订。",
+          "selection_source": "merged_pr"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "language": "zh-CN",
+        "source": {
+          "repository": "ganlingwen/novels",
+          "file": "generated/chapter3.md",
+          "pr": 141,
+          "base_commit": "eebe3e0c078ad4f72a51b67b6641ec8812a40b01",
+          "edit_commit": "139e3b183dec4f65f377fd8b3a5eb749e5517e3b",
+          "merge_commit": "98914a21c70e543716b4949796bd9406ecaaec9e",
+          "accepted": true
+        },
+        "review": {
+          "provenance": "merged_pr",
+          "outcome": "accepted",
+          "edit_instruction": "将临时门板担架统一为第二章已经出现的折叠担架。",
+          "reason": "第二章已经明确本次救援携带的是折叠担架，第三章临时改成门板担架会造成跨章连续性冲突。"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "continuity",
+          "secondary": ["spatial_logic"],
+          "rationale": "统一跨章道具设定，并同步担架通过门槛时的称呼。"
+        }
+      }
+    },
+    {
+      "id": "pr141-ch3-stretcher-dry-placement",
+      "prompt": {
+        "user_request": "修正担架铺设位置，避免把重伤员转移到积水中。",
+        "context": "救援发生在坍塌雨棚附近，车道有积水；小文低温、失血且多处受伤，需要平移上担架。原文把担架铺在积水里，泡在水里的担架不可能用于承接当前重伤员，属于物理与救援逻辑硬伤；问题不在于担架必须固定放在车道边。",
+        "original_text": "白川护住小文的肩颈和右腿，两双手从洞外接住他，将他侧着移出检修口。两根钢管已经穿进拆下的门板，临时担架就铺在车道积水里。",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "白川护住小文的肩颈和右腿，两双手从洞外接住他，将他侧着移出检修口。折叠担架已经在车道边铺开。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "place_stretcher_beside_lane",
+        "candidates": [
+          {
+            "candidate_id": "place_stretcher_beside_lane",
+            "response": "白川护住小文的肩颈和右腿，两双手从洞外接住他，将他侧着移出检修口。折叠担架已经在车道边铺开。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_pr_revision"
+            }
+          },
+          {
+            "candidate_id": "place_stretcher_in_puddle",
+            "response": "白川护住小文的肩颈和右腿，两双手从洞外接住他，将他侧着移出检修口。两根钢管已经穿进拆下的门板，临时担架就铺在车道积水里。",
+            "status": "rejected",
+            "pair_id": "pr141-ch3-stretcher-dry-placement:rejected:keep-original",
+            "metadata": {
+              "origin": "pre_edit_main"
+            }
+          }
+        ],
+        "metadata": {
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "作者合并 PR #141，接受将担架从车道积水改到车道边的修订。",
+          "selection_source": "merged_pr"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "language": "zh-CN",
+        "source": {
+          "repository": "ganlingwen/novels",
+          "file": "generated/chapter3.md",
+          "pr": 141,
+          "base_commit": "eebe3e0c078ad4f72a51b67b6641ec8812a40b01",
+          "edit_commit": "139e3b183dec4f65f377fd8b3a5eb749e5517e3b",
+          "merge_commit": "98914a21c70e543716b4949796bd9406ecaaec9e",
+          "accepted": true
+        },
+        "review": {
+          "provenance": "merged_pr",
+          "outcome": "accepted",
+          "edit_instruction": "把担架铺设位置从车道积水改到车道边。",
+          "reason": "原文把担架铺在积水里，而泡在水里的担架不可能用于承接当前重伤员，属于物理与救援逻辑硬伤。"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "spatial_logic",
+          "secondary": ["continuity"],
+          "rationale": "修正担架、积水与伤员转移动线之间的物理关系。"
+        }
+      }
+    },
+    {
+      "id": "pr141-ch3-rain-sound-location",
+      "prompt": {
+        "user_request": "修正突兀的雨声受体，不要临时引入来源不明的钢管。",
+        "context": "前文已经确定使用折叠担架，并建立了铁皮雨棚；此处突然写雨点敲在毯外铁杆上，没有交代这根钢管来自哪里，定位突兀。改成雨棚铁皮是因为它已在现场建立，不表示其他场景的雨声都必须落在雨棚上。",
+        "original_text": "门板抬过门槛时晃了一下，白川的手一直压着他的腿。\n\n雨点敲在毯外的铁杆上。\n\n一下，又一下。",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "担架抬过门槛时晃了一下，白川的手一直压着他的腿。\n\n雨点敲在雨棚铁皮上。\n\n一下，又一下。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "rain_hits_canopy",
+        "candidates": [
+          {
+            "candidate_id": "rain_hits_canopy",
+            "response": "担架抬过门槛时晃了一下，白川的手一直压着他的腿。\n\n雨点敲在雨棚铁皮上。\n\n一下，又一下。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_pr_revision"
+            }
+          },
+          {
+            "candidate_id": "rain_hits_stretcher_rod",
+            "response": "门板抬过门槛时晃了一下，白川的手一直压着他的腿。\n\n雨点敲在毯外的铁杆上。\n\n一下，又一下。",
+            "status": "rejected",
+            "pair_id": "pr141-ch3-rain-sound-location:rejected:keep-original",
+            "metadata": {
+              "origin": "pre_edit_main"
+            }
+          }
+        ],
+        "metadata": {
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "作者合并 PR #141，接受让雨点敲击雨棚铁皮的修订。",
+          "selection_source": "merged_pr"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "language": "zh-CN",
+        "source": {
+          "repository": "ganlingwen/novels",
+          "file": "generated/chapter3.md",
+          "pr": 141,
+          "base_commit": "eebe3e0c078ad4f72a51b67b6641ec8812a40b01",
+          "edit_commit": "139e3b183dec4f65f377fd8b3a5eb749e5517e3b",
+          "merge_commit": "98914a21c70e543716b4949796bd9406ecaaec9e",
+          "accepted": true
+        },
+        "review": {
+          "provenance": "merged_pr",
+          "outcome": "accepted",
+          "edit_instruction": "将雨点敲击对象从毯外铁杆改为雨棚铁皮。",
+          "reason": "折叠担架旁突然出现一根没有来源和定位的钢管，画面突兀；改用前文已经建立的雨棚铁皮承接雨声。"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "continuity",
+          "secondary": ["cinematic", "spatial_logic"],
+          "rationale": "删除来源不明的钢管，让声音细节落在此前已经建立的场景物件上。"
+        }
+      }
+    },
+    {
+      "id": "pr141-ch3-afternoon-dialogue-trigger",
+      "prompt": {
+        "user_request": "给“下午了”补上可见的对话触发，避免白川无缘无故主动报时。",
+        "context": "小文抢救后在病房醒来，窗户被木板封住大半，午后的灰光落在床尾；白川坐在床边。原文中白川上来就说“下午了”，像在回答一个没人问的问题，前后没头没尾；需要先建立小文想确认时间的可见触发。看向窗缝只是本场景的具体承接方式，不是固定动作模板。",
+        "original_text": "小文动了一下右手。\n\n白川坐在床边削苹果。那只苹果皱得厉害，一侧已经发黑，她用小刀把坏掉的部分一点点旋下来，只留下薄薄一圈果肉。\n\n“下午了。”白川顺着他的目光看向窗缝，“昨晚送进来的。别急着动。”",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "小文动了一下右手，目光扫向窗缝。\n\n白川坐在床边削苹果。那只苹果皱得厉害，一侧已经发黑，她用小刀把坏掉的部分一点点旋下来，只留下薄薄一圈果肉。\n\n“下午了。”白川顺着他的目光看过去，“昨晚送进来的。别急着动。”",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "show_time_question_with_gaze",
+        "candidates": [
+          {
+            "candidate_id": "show_time_question_with_gaze",
+            "response": "小文动了一下右手，目光扫向窗缝。\n\n白川坐在床边削苹果。那只苹果皱得厉害，一侧已经发黑，她用小刀把坏掉的部分一点点旋下来，只留下薄薄一圈果肉。\n\n“下午了。”白川顺着他的目光看过去，“昨晚送进来的。别急着动。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_pr_revision"
+            }
+          },
+          {
+            "candidate_id": "state_time_without_trigger",
+            "response": "小文动了一下右手。\n\n白川坐在床边削苹果。那只苹果皱得厉害，一侧已经发黑，她用小刀把坏掉的部分一点点旋下来，只留下薄薄一圈果肉。\n\n“下午了。”白川顺着他的目光看向窗缝，“昨晚送进来的。别急着动。”",
+            "status": "rejected",
+            "pair_id": "pr141-ch3-afternoon-dialogue-trigger:rejected:keep-original",
+            "metadata": {
+              "origin": "pre_edit_main"
+            }
+          }
+        ],
+        "metadata": {
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "作者合并 PR #141，接受以小文看向窗缝触发白川报时的修订。",
+          "selection_source": "merged_pr"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "language": "zh-CN",
+        "source": {
+          "repository": "ganlingwen/novels",
+          "file": "generated/chapter3.md",
+          "pr": 141,
+          "base_commit": "eebe3e0c078ad4f72a51b67b6641ec8812a40b01",
+          "edit_commit": "139e3b183dec4f65f377fd8b3a5eb749e5517e3b",
+          "merge_commit": "98914a21c70e543716b4949796bd9406ecaaec9e",
+          "accepted": true
+        },
+        "review": {
+          "provenance": "merged_pr",
+          "outcome": "accepted",
+          "edit_instruction": "让小文先看向窗缝，再由白川顺着视线回答时间。",
+          "reason": "白川上来就说“下午了”，像在回答一个没人问的问题，前后没头没尾；需要先建立小文想确认时间的可见触发，再让对白自然承接。"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "dialogue",
+          "secondary": ["presentation"],
+          "rationale": "用视线动作触发报时，让对白回应人物当下关注而非凭空说明。"
+        }
+      }
+    }
+  ]
+}
