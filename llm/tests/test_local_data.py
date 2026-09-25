@@ -44,6 +44,18 @@ PROMOTED_PAIR_IDS = {
     "review-ch1-5-b001-03-pencil:rejected:B",
     "review-ch1-5-b001-03-pencil:rejected:original",
 }
+PR135_138_SFT_IDS = {
+    "pr135-ch3-ch5-baichuan-pronouns",
+    "pr136-ch4-tiangan-rescue-witness",
+    "pr137-ch4-wound-transport-order",
+    "pr138-ch5-hidden-testimony-presentation",
+}
+PR135_138_PAIR_IDS = {
+    "pr135-ch3-ch5-baichuan-pronouns:rejected:keep-original",
+    "pr136-ch4-tiangan-rescue-witness:rejected:remove-rescue",
+    "pr137-ch4-wound-transport-order:rejected:keep-original",
+    "pr138-ch5-hidden-testimony-presentation:rejected:keep-original",
+}
 
 
 def _candidate(cid, response, status, pair_id=None):
@@ -201,7 +213,7 @@ def test_entire_real_corpus_matches_schema_and_preserves_migration_baseline():
     Draft202012Validator.check_schema(schema)
     validator = Draft202012Validator(schema)
     paths = sorted((DATA_DIR / "real").glob("*.json"))
-    assert len(paths) == 77
+    assert len(paths) == 78
     review_paths = sorted((DATA_DIR / "review").glob("*.json"))
     records = []
     for path in paths + review_paths:
@@ -209,7 +221,7 @@ def test_entire_real_corpus_matches_schema_and_preserves_migration_baseline():
         validator.validate(bundle)
         records.extend(bundle["records"])
 
-    assert len(records) == 304
+    assert len(records) == 308
     assert {record["metadata"]["tags"]["primary"] for record in records} == EDITORIAL_TAGS
     for record in records:
         tags = record["metadata"]["tags"]
@@ -226,22 +238,28 @@ def test_entire_real_corpus_matches_schema_and_preserves_migration_baseline():
 
     sft = load_local_sft_records(DATA_DIR)
     dpo = load_local_dpo_records(DATA_DIR)
-    assert len(sft) == 178
-    assert len(dpo) == 236
+    assert len(sft) == 182
+    assert len(dpo) == 240
     assert {r["id"] for r in sft} & RECOVERED_IDS == RECOVERED_IDS
     assert {r["id"] for r in sft} & PROMOTED_SFT_IDS == PROMOTED_SFT_IDS
+    assert {r["id"] for r in sft} & PR135_138_SFT_IDS == PR135_138_SFT_IDS
     assert {r["id"] for r in dpo} & PROMOTED_PAIR_IDS == PROMOTED_PAIR_IDS
+    assert {r["id"] for r in dpo} & PR135_138_PAIR_IDS == PR135_138_PAIR_IDS
     # Captured from the previous loader before migrating: protects text, literal
     # escapes, prompts, order, source filenames, and all existing training IDs.
     legacy_sft = [
         record
         for record in sft
-        if record["id"] not in RECOVERED_IDS | PROMOTED_SFT_IDS
+        if record["id"] not in RECOVERED_IDS | PROMOTED_SFT_IDS | PR135_138_SFT_IDS
     ]
     assert _digest(_without_origin(legacy_sft)) == (
         "49dcb05972816fd968f994d606c78f7da38c7006ec860d903d67ed353d315426"
     )
-    legacy_dpo = [record for record in dpo if record["id"] not in PROMOTED_PAIR_IDS]
+    legacy_dpo = [
+        record
+        for record in dpo
+        if record["id"] not in PROMOTED_PAIR_IDS | PR135_138_PAIR_IDS
+    ]
     assert _digest(_without_origin(legacy_dpo)) == (
         "1fe954d442f5bf5387c8f305cf2634c5318f479937cbf7251948a8b867fa2c29"
     )
