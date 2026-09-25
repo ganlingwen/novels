@@ -1,183 +1,626 @@
 {
-  "scene": "ch3_medical_tiangan_dialogue",
-  "date": "2026-09-19",
-  "sft": [
+  "schema_version": "3.0",
+  "metadata": {
+    "scene": "ch3_medical_tiangan_dialogue",
+    "date": "2026-09-19"
+  },
+  "records": [
     {
-      "id": "sft01",
-      "focus": "医疗请求自然化",
-      "instruction": "将小文请求母亲先治疗的对白改得自然、明确，并保留只差五点的压力。",
-      "chosen": "小文抬头看向马克：“我母亲三天后有一次治疗，就只差五点。能不能先让她治？差的五点，我一定想办法补上。”",
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
+      "id": "ch3_medical_tiangan_dialogue_20260919.json:0:9702925c083e",
+      "prompt": {
+        "user_request": "将小文请求母亲先治疗的对白改得自然、明确，并保留只差五点的压力。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "小文抬头看向马克：“我母亲三天后有一次治疗，就只差五点。能不能先让她治？差的五点，我一定想办法补上。”",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "id": "sft01",
+        "focus": "医疗请求自然化",
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     },
     {
-      "id": "sft02",
-      "focus": "规则拒绝",
-      "instruction": "让马克拒绝破例时像人在说话，同时体现制度立场。",
-      "chosen": "马克看了他一会儿：“虽然只差五点，但这个先例我们不能破。一旦破了例，就会有第二次、第三次。”",
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
+      "id": "ch3_medical_tiangan_dialogue_20260919.json:1:2120d9991374",
+      "prompt": {
+        "user_request": "让马克拒绝破例时像人在说话，同时体现制度立场。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "马克看了他一会儿：“虽然只差五点，但这个先例我们不能破。一旦破了例，就会有第二次、第三次。”",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "id": "sft02",
+        "focus": "规则拒绝",
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     },
     {
-      "id": "sft03",
-      "focus": "伤势作为恳求",
-      "instruction": "让小文继续争取，但通过具体处境而非情绪标签表达焦急。",
-      "chosen": "小文撑着床沿坐直了些，疼得眉头一紧：“只有三天了。我现在下地都困难，很难凑齐这五点。”",
-      "tags": {
-        "primary": "character",
-        "secondary": []
+      "id": "ch3_medical_tiangan_dialogue_20260919.json:2:5ceb6fe8be67",
+      "prompt": {
+        "user_request": "让小文继续争取，但通过具体处境而非情绪标签表达焦急。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "小文撑着床沿坐直了些，疼得眉头一紧：“只有三天了。我现在下地都困难，很难凑齐这五点。”",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "id": "sft03",
+        "focus": "伤势作为恳求",
+        "tags": {
+          "primary": "character",
+          "secondary": []
+        }
       }
     },
     {
-      "id": "sft04",
-      "focus": "第二次拒绝",
-      "instruction": "马克理解小文处境但不能单独通融，避免制度套话和同义反复。",
-      "chosen": "马克看着他的伤腿：“你的情况我理解，但基地里还有很多人等着治疗，我不能只给你一个人通融。”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_medical_tiangan_dialogue_20260919.json:3:1d801de9ab70",
+      "prompt": {
+        "user_request": "马克理解小文处境但不能单独通融，避免制度套话和同义反复。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "马克看着他的伤腿：“你的情况我理解，但基地里还有很多人等着治疗，我不能只给你一个人通融。”",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "id": "sft04",
+        "focus": "第二次拒绝",
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "id": "sft05",
-      "focus": "礼貌结束话题",
-      "instruction": "让马克自然结束医疗请求并把话题交给天干。",
-      "chosen": "马克转向天干：“你不是还有事情要问他吗？”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_medical_tiangan_dialogue_20260919.json:4:3ea12f73f1d8",
+      "prompt": {
+        "user_request": "让马克自然结束医疗请求并把话题交给天干。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "马克转向天干：“你不是还有事情要问他吗？”",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "id": "sft05",
+        "focus": "礼貌结束话题",
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "id": "sft06",
-      "focus": "埋伏线索压缩",
-      "instruction": "用尽量少的调查对白把巨熊标记、未动粮袋、鱼线机关、犬群和野猪串成一次证词，使人为埋伏及嫁祸巨熊的伏笔进入猎鹰高层视野。",
-      "chosen": "“查过，当时没发现什么危险。”小文说，“不过那地方有点怪。上面有刚留下不久的巨熊基地标记，里面的粮袋几乎没被动过。还有老秦在板车下面发现了一根鱼线，一头系着后轴，一头钻进墙里。我们装完货，板车一动，鱼线就被拉紧了。几乎同时，那些异化犬就冲进后仓了。我们逃进走廊以后，一头异化野猪突然从死角冲了出来。”",
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
+      "id": "ch3_medical_tiangan_dialogue_20260919.json:5:71052dec89f8",
+      "prompt": {
+        "user_request": "用尽量少的调查对白把巨熊标记、未动粮袋、鱼线机关、犬群和野猪串成一次证词，使人为埋伏及嫁祸巨熊的伏笔进入猎鹰高层视野。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“查过，当时没发现什么危险。”小文说，“不过那地方有点怪。上面有刚留下不久的巨熊基地标记，里面的粮袋几乎没被动过。还有老秦在板车下面发现了一根鱼线，一头系着后轴，一头钻进墙里。我们装完货，板车一动，鱼线就被拉紧了。几乎同时，那些异化犬就冲进后仓了。我们逃进走廊以后，一头异化野猪突然从死角冲了出来。”",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "id": "sft06",
+        "focus": "埋伏线索压缩",
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     },
     {
-      "id": "sft07",
-      "focus": "调查速记",
-      "instruction": "天干只做简短现场速记，不写成完整会议纪要。",
-      "chosen": "天干低头记了几笔：**超市勿入，复查。**",
-      "tags": {
-        "primary": "scene",
-        "secondary": []
+      "id": "ch3_medical_tiangan_dialogue_20260919.json:6:a4cd7a248c95",
+      "prompt": {
+        "user_request": "天干只做简短现场速记，不写成完整会议纪要。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "天干低头记了几笔：**超市勿入，复查。**",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "id": "sft07",
+        "focus": "调查速记",
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     },
     {
-      "id": "sft08",
-      "focus": "枯藤知识边界",
-      "instruction": "让小文先说自己记得的事实，再说明不知道藤如何缠上凶猫，保持觉醒伏笔。",
-      "chosen": "小文看着袋子里的断藤：“那只猫把我拖到洞口的时候，我好像碰到过类似的藤。后来雨棚塌下来，我就看不清外面了。具体那些藤怎么缠在凶猫身上的，我不知道。”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_medical_tiangan_dialogue_20260919.json:7:066f1190d0f8",
+      "prompt": {
+        "user_request": "让小文先说自己记得的事实，再说明不知道藤如何缠上凶猫，保持觉醒伏笔。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "小文看着袋子里的断藤：“那只猫把我拖到洞口的时候，我好像碰到过类似的藤。后来雨棚塌下来，我就看不清外面了。具体那些藤怎么缠在凶猫身上的，我不知道。”",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "id": "sft08",
+        "focus": "枯藤知识边界",
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "id": "sft09",
-      "focus": "觉醒伏笔与医嘱",
-      "instruction": "简短处理可能觉醒的伏笔，不提前展开须知全文。",
-      "chosen": "马克对白川说：“这件事也记进病历。等他的伤稳定一些，再看看是不是觉醒了。”\n\n白川点头，从柜子里抽出一张《初醒者须知》，递给小文。\n\n“先拿回去看看。”她说，“身体有什么变化，记得回来告诉我。”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
-      }
-    }
-  ],
-  "dpo": [
-    {
-      "id": "dpo01",
-      "focus": "请求措辞",
-      "rejected": "“首领，还差五点。”他抬起头，“能不能先留她这一次？五点记着，等我的腿……”",
-      "chosen": "小文抬头看向马克：“我母亲三天后有一次治疗，就只差五点。能不能先让她治？差的五点，我一定想办法补上。”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
-      }
-    },
-    {
-      "id": "dpo02",
-      "focus": "拒绝制度腔",
-      "rejected": "“腿还在出血，先不要许诺什么时候还。”他将凭证推回小文手边，“病历留着。治疗不能欠点预排，这一项今天不改。”",
-      "chosen": "马克看了他一会儿：“虽然只差五点，但这个先例我们不能破。一旦破了例，就会有第二次、第三次。”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_medical_tiangan_dialogue_20260919.json:8:394b2a7fb5b7",
+      "prompt": {
+        "user_request": "简短处理可能觉醒的伏笔，不提前展开须知全文。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "马克对白川说：“这件事也记进病历。等他的伤稳定一些，再看看是不是觉醒了。”\n\n白川点头，从柜子里抽出一张《初醒者须知》，递给小文。\n\n“先拿回去看看。”她说，“身体有什么变化，记得回来告诉我。”",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "id": "sft09",
+        "focus": "觉醒伏笔与医嘱",
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "id": "dpo03",
-      "focus": "调查开场机器感",
-      "rejected": "“三个问题。”他说，“只回答亲眼所见。推测单独说明。”",
-      "chosen": "天干拉过一把椅子，在床边坐下：“你刚才说，老秦留下来挡异化犬。你们进去搜索之前，没有查过附近的危险情况吗？”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_medical_tiangan_dialogue_20260919.json:dpo:0:1a381acb383c",
+      "prompt": {
+        "user_request": "场景：ch3_medical_tiangan_dialogue\n修改重点：请求措辞\n根据上述场景与修改重点，选择更符合作者要求的写法。",
+        "context": null,
+        "original_text": null,
+        "metadata": {
+          "provenance": "materialized_previous_loader_scene_focus_fallback"
+        }
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "小文抬头看向马克：“我母亲三天后有一次治疗，就只差五点。能不能先让她治？差的五点，我一定想办法补上。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“首领，还差五点。”他抬起头，“能不能先留她这一次？五点记着，等我的腿……”",
+            "status": "rejected",
+            "pair_id": "ch3_medical_tiangan_dialogue_20260919.json:dpo:0:1a381acb383c",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "id": "dpo01",
+        "focus": "请求措辞",
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "id": "dpo04",
-      "focus": "避免复述机关结构",
-      "rejected": "“没见着人。西侧门从外面焊死了，板车后轴拴着鱼线，隔间里还有兽笼。”小文咽了一下，“是谁放的，我不知道。”",
-      "chosen": "“查过，当时没发现什么危险。”小文说，“不过那地方有点怪。上面有刚留下不久的巨熊基地标记，里面的粮袋几乎没被动过。还有老秦在板车下面发现了一根鱼线，一头系着后轴，一头钻进墙里。我们装完货，板车一动，鱼线就被拉紧了。几乎同时，那些异化犬就冲进后仓了。我们逃进走廊以后，一头异化野猪突然从死角冲了出来。”",
-      "tags": {
-        "primary": "scene",
-        "secondary": []
+      "id": "ch3_medical_tiangan_dialogue_20260919.json:dpo:1:fe2a81bc3d23",
+      "prompt": {
+        "user_request": "场景：ch3_medical_tiangan_dialogue\n修改重点：拒绝制度腔\n根据上述场景与修改重点，选择更符合作者要求的写法。",
+        "context": null,
+        "original_text": null,
+        "metadata": {
+          "provenance": "materialized_previous_loader_scene_focus_fallback"
+        }
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "马克看了他一会儿：“虽然只差五点，但这个先例我们不能破。一旦破了例，就会有第二次、第三次。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“腿还在出血，先不要许诺什么时候还。”他将凭证推回小文手边，“病历留着。治疗不能欠点预排，这一项今天不改。”",
+            "status": "rejected",
+            "pair_id": "ch3_medical_tiangan_dialogue_20260919.json:dpo:1:fe2a81bc3d23",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "id": "dpo02",
+        "focus": "拒绝制度腔",
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "id": "dpo05",
-      "focus": "巨熊标记语义精度",
-      "rejected": "外面有巨熊基地刚留下不久的标记。",
-      "chosen": "上面有刚留下不久的巨熊基地标记。",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_medical_tiangan_dialogue_20260919.json:dpo:2:e3f9cc40b312",
+      "prompt": {
+        "user_request": "场景：ch3_medical_tiangan_dialogue\n修改重点：调查开场机器感\n根据上述场景与修改重点，选择更符合作者要求的写法。",
+        "context": null,
+        "original_text": null,
+        "metadata": {
+          "provenance": "materialized_previous_loader_scene_focus_fallback"
+        }
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "天干拉过一把椅子，在床边坐下：“你刚才说，老秦留下来挡异化犬。你们进去搜索之前，没有查过附近的危险情况吗？”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“三个问题。”他说，“只回答亲眼所见。推测单独说明。”",
+            "status": "rejected",
+            "pair_id": "ch3_medical_tiangan_dialogue_20260919.json:dpo:2:e3f9cc40b312",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "id": "dpo03",
+        "focus": "调查开场机器感",
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "id": "dpo06",
-      "focus": "枯藤回答顺序",
-      "rejected": "“不知道。那只猫把我拖到洞口的时候，我抓过墙根。后来雨棚塌下来，我就看不清外面了。”",
-      "chosen": "“那只猫把我拖到洞口的时候，我好像碰到过类似的藤。后来雨棚塌下来，我就看不清外面了。具体那些藤怎么缠在凶猫身上的，我不知道。”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_medical_tiangan_dialogue_20260919.json:dpo:3:440d844b958f",
+      "prompt": {
+        "user_request": "场景：ch3_medical_tiangan_dialogue\n修改重点：避免复述机关结构\n根据上述场景与修改重点，选择更符合作者要求的写法。",
+        "context": null,
+        "original_text": null,
+        "metadata": {
+          "provenance": "materialized_previous_loader_scene_focus_fallback"
+        }
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“查过，当时没发现什么危险。”小文说，“不过那地方有点怪。上面有刚留下不久的巨熊基地标记，里面的粮袋几乎没被动过。还有老秦在板车下面发现了一根鱼线，一头系着后轴，一头钻进墙里。我们装完货，板车一动，鱼线就被拉紧了。几乎同时，那些异化犬就冲进后仓了。我们逃进走廊以后，一头异化野猪突然从死角冲了出来。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“没见着人。西侧门从外面焊死了，板车后轴拴着鱼线，隔间里还有兽笼。”小文咽了一下，“是谁放的，我不知道。”",
+            "status": "rejected",
+            "pair_id": "ch3_medical_tiangan_dialogue_20260919.json:dpo:3:440d844b958f",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "id": "dpo04",
+        "focus": "避免复述机关结构",
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
     },
     {
-      "id": "dpo07",
-      "focus": "删除无推进调查总结",
-      "rejected": "天干合上册子，转向马克：“超市有人为机关。建议封锁，调查组先行复核。”\n\n“照办。”马克说。\n\n小文攥住被角：“长官，那边还会派我们这样的人进去吗？”\n\n天干看向他：“威胁排除前，不会。”",
-      "chosen": "天干低头记了几笔：**超市勿入，复查。**",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_medical_tiangan_dialogue_20260919.json:dpo:4:c7db243d689f",
+      "prompt": {
+        "user_request": "场景：ch3_medical_tiangan_dialogue\n修改重点：巨熊标记语义精度\n根据上述场景与修改重点，选择更符合作者要求的写法。",
+        "context": null,
+        "original_text": null,
+        "metadata": {
+          "provenance": "materialized_previous_loader_scene_focus_fallback"
+        }
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "上面有刚留下不久的巨熊基地标记。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "外面有巨熊基地刚留下不久的标记。",
+            "status": "rejected",
+            "pair_id": "ch3_medical_tiangan_dialogue_20260919.json:dpo:4:c7db243d689f",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "id": "dpo05",
+        "focus": "巨熊标记语义精度",
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "id": "dpo08",
-      "focus": "医嘱自然化",
-      "rejected": "“拿回去看，有变化别瞒着。”",
-      "chosen": "“先拿回去看看。”她说，“身体有什么变化，记得回来告诉我。”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_medical_tiangan_dialogue_20260919.json:dpo:5:23a84b84aeeb",
+      "prompt": {
+        "user_request": "场景：ch3_medical_tiangan_dialogue\n修改重点：枯藤回答顺序\n根据上述场景与修改重点，选择更符合作者要求的写法。",
+        "context": null,
+        "original_text": null,
+        "metadata": {
+          "provenance": "materialized_previous_loader_scene_focus_fallback"
+        }
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“那只猫把我拖到洞口的时候，我好像碰到过类似的藤。后来雨棚塌下来，我就看不清外面了。具体那些藤怎么缠在凶猫身上的，我不知道。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“不知道。那只猫把我拖到洞口的时候，我抓过墙根。后来雨棚塌下来，我就看不清外面了。”",
+            "status": "rejected",
+            "pair_id": "ch3_medical_tiangan_dialogue_20260919.json:dpo:5:23a84b84aeeb",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "id": "dpo06",
+        "focus": "枯藤回答顺序",
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
+      }
+    },
+    {
+      "id": "ch3_medical_tiangan_dialogue_20260919.json:dpo:6:bf38dd1b98e0",
+      "prompt": {
+        "user_request": "场景：ch3_medical_tiangan_dialogue\n修改重点：删除无推进调查总结\n根据上述场景与修改重点，选择更符合作者要求的写法。",
+        "context": null,
+        "original_text": null,
+        "metadata": {
+          "provenance": "materialized_previous_loader_scene_focus_fallback"
+        }
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "天干低头记了几笔：**超市勿入，复查。**",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "天干合上册子，转向马克：“超市有人为机关。建议封锁，调查组先行复核。”\n\n“照办。”马克说。\n\n小文攥住被角：“长官，那边还会派我们这样的人进去吗？”\n\n天干看向他：“威胁排除前，不会。”",
+            "status": "rejected",
+            "pair_id": "ch3_medical_tiangan_dialogue_20260919.json:dpo:6:bf38dd1b98e0",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "id": "dpo07",
+        "focus": "删除无推进调查总结",
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
+      }
+    },
+    {
+      "id": "ch3_medical_tiangan_dialogue_20260919.json:dpo:7:ea785ad87f59",
+      "prompt": {
+        "user_request": "场景：ch3_medical_tiangan_dialogue\n修改重点：医嘱自然化\n根据上述场景与修改重点，选择更符合作者要求的写法。",
+        "context": null,
+        "original_text": null,
+        "metadata": {
+          "provenance": "materialized_previous_loader_scene_focus_fallback"
+        }
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“先拿回去看看。”她说，“身体有什么变化，记得回来告诉我。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“拿回去看，有变化别瞒着。”",
+            "status": "rejected",
+            "pair_id": "ch3_medical_tiangan_dialogue_20260919.json:dpo:7:ea785ad87f59",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "id": "dpo08",
+        "focus": "医嘱自然化",
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     }
   ]

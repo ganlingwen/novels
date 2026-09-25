@@ -1,6 +1,7 @@
 torch>=2.6
 transformers>=4.51
 datasets>=3.5
+jsonschema>=4.23
 accelerate>=1.6
 tensorboard>=2.18
 huggingface_hub>=0.30

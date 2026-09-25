@@ -1,59 +1,78 @@
 {
-  "schema_version": "2.0",
-  "id": "pr25_ch5_family-dialogue-04",
-  "prompt": {
-    "user_request": "按作者逐轮反馈修改第五章家庭谈话中的一个局部问题；提供两个候选供选择。",
-    "context": "第五章家庭谈话：小文已见白川被收回药柜钥匙与自主施术权，自己的手出现麻木、耳鸣、僵直；尚未经历老杜抗生素申请被拒与第六章救治。父母讨论是否登记特殊异能，小文尚未决定长期瞒报。 当前局部任务：父亲提出缓三天",
-    "original_text": "要不先放三天？这几天再看看你的手有没有别的反应，也看看药还能撑多久。"
-  },
-  "review": {
-    "provenance": "author_guided_iterative_edit",
-    "issue": "父亲提出缓三天",
-    "edit_instruction": "根据作者反馈修改此处，不提前决定长期瞒报；保持人物口语和场景动作连续。",
-    "reason": "用户指出药量已知，没必要等三天才知道；父亲更担心异常反应是否加剧或出现新的反应，并应征询小文意见。"
-  },
-  "sft": {
-    "eligible": true,
-    "response": "要不先缓三天？你这手才刚出问题，咱们总得先弄清楚，接下来还会不会有别的反应。我跟你妈说了半天，还没听你说呢。登记这事，你怎么看？",
-    "target_type": "accepted_local_revision"
-  },
-  "preference": {
-    "eligible": true,
-    "prompt_source": "iterative_edit_history",
-    "candidates": [
-      {
-        "candidate_id": "ch5-family-dpo-04_chosen",
-        "response": "要不先缓三天？你这手才刚出问题，咱们总得先弄清楚，接下来还会不会有别的反应。我跟你妈说了半天，还没听你说呢。登记这事，你怎么看？",
-        "origin": "final_author_selected_or_refined",
-        "status": "chosen"
+  "schema_version": "3.0",
+  "metadata": {},
+  "records": [
+    {
+      "id": "pr25_ch5_family-dialogue-04",
+      "prompt": {
+        "user_request": "按作者逐轮反馈修改第五章家庭谈话中的一个局部问题；提供两个候选供选择。",
+        "context": "第五章家庭谈话：小文已见白川被收回药柜钥匙与自主施术权，自己的手出现麻木、耳鸣、僵直；尚未经历老杜抗生素申请被拒与第六章救治。父母讨论是否登记特殊异能，小文尚未决定长期瞒报。 当前局部任务：父亲提出缓三天",
+        "original_text": "要不先放三天？这几天再看看你的手有没有别的反应，也看看药还能撑多久。",
+        "metadata": {}
       },
-      {
-        "candidate_id": "ch5-family-dpo-04_rejected",
-        "response": "要不先放三天？这几天再看看你的手有没有别的反应，也看看药还能撑多久。",
-        "origin": "earlier_ai_candidate_or_pre_refinement",
-        "status": "rejected"
+      "sft": {
+        "eligible": true,
+        "response": "要不先缓三天？你这手才刚出问题，咱们总得先弄清楚，接下来还会不会有别的反应。我跟你妈说了半天，还没听你说呢。登记这事，你怎么看？",
+        "metadata": {
+          "target_type": "accepted_local_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "ch5-family-dpo-04_chosen",
+        "candidates": [
+          {
+            "candidate_id": "ch5-family-dpo-04_chosen",
+            "response": "要不先缓三天？你这手才刚出问题，咱们总得先弄清楚，接下来还会不会有别的反应。我跟你妈说了半天，还没听你说呢。登记这事，你怎么看？",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "final_author_selected_or_refined"
+            }
+          },
+          {
+            "candidate_id": "ch5-family-dpo-04_rejected",
+            "response": "要不先放三天？这几天再看看你的手有没有别的反应，也看看药还能撑多久。",
+            "status": "rejected",
+            "pair_id": "pr25_ch5_family-dialogue-04:rejected:0",
+            "metadata": {
+              "origin": "earlier_ai_candidate_or_pre_refinement"
+            }
+          }
+        ],
+        "metadata": {
+          "prompt_source": "iterative_edit_history",
+          "preference_reason": "用户指出药量已知，没必要等三天才知道；父亲更担心异常反应是否加剧或出现新的反应，并应征询小文意见。",
+          "selection_source": "explicit_author_multiround_choice_and_refinement"
+        }
+      },
+      "metadata": {
+        "schema_version": "2.0",
+        "review": {
+          "provenance": "author_guided_iterative_edit",
+          "issue": "父亲提出缓三天",
+          "edit_instruction": "根据作者反馈修改此处，不提前决定长期瞒报；保持人物口语和场景动作连续。",
+          "reason": "用户指出药量已知，没必要等三天才知道；父亲更担心异常反应是否加剧或出现新的反应，并应征询小文意见。"
+        },
+        "source": {
+          "repository": "ganlingwen/novels",
+          "file": "generated/chapter5.md",
+          "pr": 25,
+          "merge_commit": "b247ee39c9b9ead8daa86231b0ac022d08b87aa2",
+          "accepted_head_commit": "661203a9acef5b9e58218ff91b9572c96b09683b"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "contains_author_reverse": true
+        },
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
-    ],
-    "chosen_candidate_id": "ch5-family-dpo-04_chosen",
-    "preference_reason": "用户指出药量已知，没必要等三天才知道；父亲更担心异常反应是否加剧或出现新的反应，并应征询小文意见。",
-    "selection_source": "explicit_author_multiround_choice_and_refinement"
-  },
-  "source": {
-    "repository": "ganlingwen/novels",
-    "file": "generated/chapter5.md",
-    "pr": 25,
-    "merge_commit": "b247ee39c9b9ead8daa86231b0ac022d08b87aa2",
-    "accepted_head_commit": "661203a9acef5b9e58218ff91b9572c96b09683b"
-  },
-  "quality": {
-    "human_accepted": true,
-    "merged": true,
-    "contains_author_reverse": true
-  },
-  "tags": {
-    "primary": "dialogue",
-    "secondary": [
-      "natural_dialogue"
-    ]
-  }
+    }
+  ]
 }

@@ -1,63 +1,79 @@
 {
-  "schema_version": "2.0",
-  "language": "zh-CN",
-  "id": "novels_pr8_ch2_001",
-  "source": {
-    "repository": "ganlingwen/novels",
-    "file": "generated/chapter2.md",
-    "origin_pr": 7,
-    "accepted_pr": 8,
-    "merge_commit": "c7840a04ffba8af431da099db084a2c7b964c1d9"
-  },
-  "prompt": {
-    "user_request": "复审前五章，按既定设定和评分标准做必要的局部修改。",
-    "context": {
-      "facts": [
-        "AGENTS.md",
-        "skills/write.md",
-        "skills/score.md",
-        "相关 chapter scene / 人物与势力事实源"
-      ]
-    },
-    "original_text": "“第七搜索队。”天干站在门内，“出发时标记六道魂火，五道已经熄灭。最后一道仍在移动，强度不足三成，已经偏离北侧回程线，方向东南。方位误差约七度。”"
-  },
-  "review": {
-    "provenance": "ai_discovered_during_review",
-    "discovered_issue": {
-      "summary": "此前已给出魂火数据，口述再次完整复述，信息重复。"
-    },
-    "edit_instruction": "压缩为天干式简短正式报告，保留关键确认事实。",
-    "reason": "符合人物口吻并减少重复。"
-  },
-  "sft": {
-    "eligible": true,
-    "response": "“第七搜索队。”天干站在门内，“六道魂火熄灭五道，末道强度不足三成，偏离回程线向东南，方位误差七度。”",
-    "target_type": "accepted_revision"
-  },
-  "preference": {
-    "eligible": false,
-    "prompt_source": "same_as_prompt",
-    "candidates": [],
-    "chosen_candidate_id": null,
-    "preference_reason": null,
-    "selection_source": null,
-    "note": "没有真实同 prompt 候选比较，不事后编造 rejected candidate。"
-  },
-  "labels": {},
-  "quality": {
-    "human_accepted": true,
-    "human_rejected": false,
-    "merged": true,
-    "accepted_pr": 8
-  },
-  "training_views": {
-    "executor_sft": true,
-    "autonomous_editor_sft": true,
-    "reviewer_sft": true,
-    "preference_dpo": false
-  },
-  "tags": {
-    "primary": "scene",
-    "secondary": []
-  }
+  "schema_version": "3.0",
+  "metadata": {},
+  "records": [
+    {
+      "id": "novels_pr8_ch2_001",
+      "prompt": {
+        "user_request": "复审前五章，按既定设定和评分标准做必要的局部修改。",
+        "context": "{'facts': ['AGENTS.md', 'skills/write.md', 'skills/score.md', '相关 chapter scene / 人物与势力事实源']}",
+        "original_text": "“第七搜索队。”天干站在门内，“出发时标记六道魂火，五道已经熄灭。最后一道仍在移动，强度不足三成，已经偏离北侧回程线，方向东南。方位误差约七度。”",
+        "metadata": {
+          "original_context": {
+            "facts": [
+              "AGENTS.md",
+              "skills/write.md",
+              "skills/score.md",
+              "相关 chapter scene / 人物与势力事实源"
+            ]
+          },
+          "context_rendering": "python_str_preserved_from_previous_loader"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“第七搜索队。”天干站在门内，“六道魂火熄灭五道，末道强度不足三成，偏离回程线向东南，方位误差七度。”",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {
+          "prompt_source": "same_as_prompt",
+          "preference_reason": null,
+          "selection_source": null,
+          "note": "没有真实同 prompt 候选比较，不事后编造 rejected candidate。"
+        }
+      },
+      "metadata": {
+        "schema_version": "2.0",
+        "language": "zh-CN",
+        "source": {
+          "repository": "ganlingwen/novels",
+          "file": "generated/chapter2.md",
+          "origin_pr": 7,
+          "accepted_pr": 8,
+          "merge_commit": "c7840a04ffba8af431da099db084a2c7b964c1d9"
+        },
+        "review": {
+          "provenance": "ai_discovered_during_review",
+          "discovered_issue": {
+            "summary": "此前已给出魂火数据，口述再次完整复述，信息重复。"
+          },
+          "edit_instruction": "压缩为天干式简短正式报告，保留关键确认事实。",
+          "reason": "符合人物口吻并减少重复。"
+        },
+        "labels": {},
+        "quality": {
+          "human_accepted": true,
+          "human_rejected": false,
+          "merged": true,
+          "accepted_pr": 8
+        },
+        "training_views": {
+          "executor_sft": true,
+          "autonomous_editor_sft": true,
+          "reviewer_sft": true,
+          "preference_dpo": false
+        },
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
+      }
+    }
+  ]
 }

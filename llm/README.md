@@ -23,6 +23,11 @@ ruff check .
 ruff format --check .
 ```
 
+本地 Stage-2 SFT/DPO 使用 `../data/real/*.json`，统一遵循
+[`data/schema.json`](../data/schema.json) 的 3.0 格式。`LocalNovelDataset.py`
+验证结构与候选引用，不再兼容旧 JSON 布局或从元数据推测 prompt。
+格式、迁移记录及计数命令见 [`data/README.md`](../data/README.md)。
+
 ## 训练
 
 单卡 DGX Spark / GB10 起步配置：

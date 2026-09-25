@@ -1,105 +1,148 @@
 {
-  "schema_version": "2.0",
-  "id": "pr18_ch4_zombie-gesture-hidden-contract",
-  "prompt": {
-    "user_request": "一处一处改。每次给2个让我选。dpo嘛",
-    "context": "第四章西墙战斗尾声。尸王有智慧；马克是己方最强主战力。此处需要保留尸王“五根手指”的隐性信息，但公开场面必须能被居民合理理解为马克到场后逼退尸王，不能把双方可能存在的默契或契约写得过明。",
-    "original_text": "马克登上西墙。暗金火焰沿他脚下铺开，却没有追击。高架上的尸王先指向黑烟，再指向涵管，最后张开一只手。\n\n五根手指。\n\n马克没有回应，只让人降下弩弓。\n\n居民在墙下欢呼，以为首领再次逼退尸王。小文跪在老杜的血里，记住了那五根手指，也记住尸王指向涵管时，马克没有低头确认位置。"
-  },
-  "review": {
-    "provenance": "author_guided_iterative_edit",
-    "issue": "原文用“小文记住了”“马克没有低头确认位置”直接标记伏笔，且中间候选一度让己方弩手在最强战力到场、敌方尸王仍在场时主动放低武器，公开战术因果不成立。",
-    "edit_instruction": "让表层因果独立成立：马克到场后摆出更强的迎战姿态并进一步施压；有智慧的尸王经过短暂权衡后主动撤退。暗层只保留“五根手指”等可回看的动作，不解释双方关系。",
-    "reason": "读者首次阅读应能自然接受“尸王判断占不到便宜而撤军”；后续若揭示隐性契约，同一组动作又能被重新解释。"
-  },
-  "sft": {
-    "eligible": true,
-    "response": "马克登上西墙。暗金火焰沿墙头铺开，弩手重新上弦，箭锋齐齐转向高架。\n\n尸王没有退。它先指向黑烟，又指向涵管，最后张开一只手。\n\n五根手指。\n\n马克向前一步，火焰顺着墙砖窜起。\n\n几息后，尸王先收了手。它退进灰雾，桥上的尸群也开始后撤。\n\n墙下的欢呼声轰然炸开。",
-    "target_type": "accepted_revision"
-  },
-  "preference": {
-    "eligible": true,
-    "prompt_source": "same_edit_history",
-    "candidates": [
-      {
-        "candidate_id": "chosen",
+  "schema_version": "3.0",
+  "metadata": {},
+  "records": [
+    {
+      "id": "pr18_ch4_zombie-gesture-hidden-contract",
+      "prompt": {
+        "user_request": "一处一处改。每次给2个让我选。dpo嘛",
+        "context": "第四章西墙战斗尾声。尸王有智慧；马克是己方最强主战力。此处需要保留尸王“五根手指”的隐性信息，但公开场面必须能被居民合理理解为马克到场后逼退尸王，不能把双方可能存在的默契或契约写得过明。",
+        "original_text": "马克登上西墙。暗金火焰沿他脚下铺开，却没有追击。高架上的尸王先指向黑烟，再指向涵管，最后张开一只手。\n\n五根手指。\n\n马克没有回应，只让人降下弩弓。\n\n居民在墙下欢呼，以为首领再次逼退尸王。小文跪在老杜的血里，记住了那五根手指，也记住尸王指向涵管时，马克没有低头确认位置。",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
         "response": "马克登上西墙。暗金火焰沿墙头铺开，弩手重新上弦，箭锋齐齐转向高架。\n\n尸王没有退。它先指向黑烟，又指向涵管，最后张开一只手。\n\n五根手指。\n\n马克向前一步，火焰顺着墙砖窜起。\n\n几息后，尸王先收了手。它退进灰雾，桥上的尸群也开始后撤。\n\n墙下的欢呼声轰然炸开。",
-        "origin": "author_composed_from_ai_candidates",
-        "status": "chosen"
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
       },
-      {
-        "candidate_id": "rejected_explicit_mirror",
-        "response": "马克盯着那只手，抬起自己的右手。\n\n五指张开。\n\n高架上的尸王收回了手。",
-        "origin": "earlier_ai_candidate",
-        "status": "rejected"
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "马克登上西墙。暗金火焰沿墙头铺开，弩手重新上弦，箭锋齐齐转向高架。\n\n尸王没有退。它先指向黑烟，又指向涵管，最后张开一只手。\n\n五根手指。\n\n马克向前一步，火焰顺着墙砖窜起。\n\n几息后，尸王先收了手。它退进灰雾，桥上的尸群也开始后撤。\n\n墙下的欢呼声轰然炸开。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_composed_from_ai_candidates"
+            }
+          },
+          {
+            "candidate_id": "rejected_explicit_mirror",
+            "response": "马克盯着那只手，抬起自己的右手。\n\n五指张开。\n\n高架上的尸王收回了手。",
+            "status": "rejected",
+            "pair_id": "pr18_ch4_zombie-gesture-hidden-contract:rejected:0",
+            "metadata": {
+              "origin": "earlier_ai_candidate"
+            }
+          },
+          {
+            "candidate_id": "rejected_lower_bows",
+            "response": "马克没有追击。\n\n他只抬起一只手，墙头的弩手随即放低武器。\n\n高架上的尸王等到最后一张弩放下，才收回那五根手指。",
+            "status": "rejected",
+            "pair_id": "pr18_ch4_zombie-gesture-hidden-contract:rejected:1",
+            "metadata": {
+              "origin": "earlier_ai_candidate"
+            }
+          },
+          {
+            "candidate_id": "rejected_causal_pair",
+            "response": "马克没有追击，只让人降下弩弓。\n\n墙头最后一张弩垂下去时，高架上的尸王也收回了手。它停了两息，转身没入灰雾。",
+            "status": "rejected",
+            "pair_id": "pr18_ch4_zombie-gesture-hidden-contract:rejected:2",
+            "metadata": {
+              "origin": "earlier_ai_candidate"
+            }
+          },
+          {
+            "candidate_id": "rejected_c1",
+            "response": "马克登上西墙。暗金火焰沿他脚下铺开。\n\n他让人降下弩弓。\n\n墙头最后一张弩垂下去。高架上的尸王收回五指，转身没入灰雾。",
+            "status": "rejected",
+            "pair_id": "pr18_ch4_zombie-gesture-hidden-contract:rejected:3",
+            "metadata": {
+              "origin": "earlier_ai_candidate"
+            }
+          },
+          {
+            "candidate_id": "rejected_c2",
+            "response": "马克登上西墙。暗金火焰沿他脚下铺开。\n\n墙头的弩弓一张张放低。\n\n最后一根弩箭垂向墙外时，高架上的尸王合拢五指，转身没入灰雾。",
+            "status": "rejected",
+            "pair_id": "pr18_ch4_zombie-gesture-hidden-contract:rejected:4",
+            "metadata": {
+              "origin": "earlier_ai_candidate_initially_selected_then_reversed"
+            }
+          },
+          {
+            "candidate_id": "rejected_a_tactical_signal",
+            "response": "马克登上西墙。暗金火焰沿他脚下铺开。高架上的尸王先指向黑烟，再指向涵管，最后张开一只手。\n\n五根手指。\n\n一名弩手刚把弩口转向高架，马克抬手压了一下。\n\n弩口停住。\n\n高架上的尸王合拢五指，转身没入灰雾。",
+            "status": "rejected",
+            "pair_id": "pr18_ch4_zombie-gesture-hidden-contract:rejected:5",
+            "metadata": {
+              "origin": "later_ai_candidate"
+            }
+          },
+          {
+            "candidate_id": "rejected_b_hold_fire",
+            "response": "马克登上西墙。暗金火焰沿他脚下铺开。高架上的尸王先指向黑烟，再指向涵管，最后张开一只手。\n\n五根手指。\n\n墙头的弩弓仍对着高架。马克站在最前，没有下令放箭。\n\n高架上的尸王合拢五指，转身没入灰雾。",
+            "status": "rejected",
+            "pair_id": "pr18_ch4_zombie-gesture-hidden-contract:rejected:6",
+            "metadata": {
+              "origin": "later_ai_candidate"
+            }
+          },
+          {
+            "candidate_id": "rejected_a_pressure",
+            "response": "马克登上西墙。暗金火焰沿墙头铺开，弩手重新上弦，箭锋齐齐转向高架。\n\n尸王没有退。它先指向黑烟，又指向涵管，最后张开一只手。\n\n五根手指。\n\n马克向前一步，火焰顺着墙砖窜起。\n\n高架上的尸王盯了他片刻，合拢五指，转身没入灰雾。\n\n墙下的欢呼声轰然炸开。",
+            "status": "rejected_as_full_candidate",
+            "pair_id": null,
+            "metadata": {
+              "origin": "later_ai_candidate_component_selected"
+            }
+          },
+          {
+            "candidate_id": "rejected_b_delayed-retreat",
+            "response": "马克踏上墙头时，暗金火焰已经烧过垛口。弩手随即上弦，原本散开的箭锋重新对准高架。\n\n尸王停在那里。它指了指黑烟，又指向涵管，最后朝马克张开五指。\n\n五根手指。\n\n马克没有动。脚边的火却越烧越高。\n\n几息后，尸王先收了手。它退进灰雾，桥上的尸群也开始后撤。\n\n墙下有人喊出了马克的名字。",
+            "status": "rejected_as_full_candidate",
+            "pair_id": null,
+            "metadata": {
+              "origin": "later_ai_candidate_component_selected"
+            }
+          }
+        ],
+        "metadata": {
+          "prompt_source": "same_edit_history",
+          "preference_reason": "作者先认为直接回应五指过于明显；随后认可更隐蔽的动作呼应，但指出己方最强战力到场后弩手自行放下武器不合理。最终要求采用 A 中“马克向前一步、火焰递进”的施压动作，并结合 B 中“几息后尸王先收手、撤入灰雾、尸群后撤”的延迟撤退，使公开因果表现为尸王评估后主动撤军，同时保留隐性契约的二刷解释空间。",
+          "selection_source": "explicit_author_iterative_choice_and_composition"
+        }
       },
-      {
-        "candidate_id": "rejected_lower_bows",
-        "response": "马克没有追击。\n\n他只抬起一只手，墙头的弩手随即放低武器。\n\n高架上的尸王等到最后一张弩放下，才收回那五根手指。",
-        "origin": "earlier_ai_candidate",
-        "status": "rejected"
-      },
-      {
-        "candidate_id": "rejected_causal_pair",
-        "response": "马克没有追击，只让人降下弩弓。\n\n墙头最后一张弩垂下去时，高架上的尸王也收回了手。它停了两息，转身没入灰雾。",
-        "origin": "earlier_ai_candidate",
-        "status": "rejected"
-      },
-      {
-        "candidate_id": "rejected_c1",
-        "response": "马克登上西墙。暗金火焰沿他脚下铺开。\n\n他让人降下弩弓。\n\n墙头最后一张弩垂下去。高架上的尸王收回五指，转身没入灰雾。",
-        "origin": "earlier_ai_candidate",
-        "status": "rejected"
-      },
-      {
-        "candidate_id": "rejected_c2",
-        "response": "马克登上西墙。暗金火焰沿他脚下铺开。\n\n墙头的弩弓一张张放低。\n\n最后一根弩箭垂向墙外时，高架上的尸王合拢五指，转身没入灰雾。",
-        "origin": "earlier_ai_candidate_initially_selected_then_reversed",
-        "status": "rejected"
-      },
-      {
-        "candidate_id": "rejected_a_tactical_signal",
-        "response": "马克登上西墙。暗金火焰沿他脚下铺开。高架上的尸王先指向黑烟，再指向涵管，最后张开一只手。\n\n五根手指。\n\n一名弩手刚把弩口转向高架，马克抬手压了一下。\n\n弩口停住。\n\n高架上的尸王合拢五指，转身没入灰雾。",
-        "origin": "later_ai_candidate",
-        "status": "rejected"
-      },
-      {
-        "candidate_id": "rejected_b_hold_fire",
-        "response": "马克登上西墙。暗金火焰沿他脚下铺开。高架上的尸王先指向黑烟，再指向涵管，最后张开一只手。\n\n五根手指。\n\n墙头的弩弓仍对着高架。马克站在最前，没有下令放箭。\n\n高架上的尸王合拢五指，转身没入灰雾。",
-        "origin": "later_ai_candidate",
-        "status": "rejected"
-      },
-      {
-        "candidate_id": "rejected_a_pressure",
-        "response": "马克登上西墙。暗金火焰沿墙头铺开，弩手重新上弦，箭锋齐齐转向高架。\n\n尸王没有退。它先指向黑烟，又指向涵管，最后张开一只手。\n\n五根手指。\n\n马克向前一步，火焰顺着墙砖窜起。\n\n高架上的尸王盯了他片刻，合拢五指，转身没入灰雾。\n\n墙下的欢呼声轰然炸开。",
-        "origin": "later_ai_candidate_component_selected",
-        "status": "rejected_as_full_candidate"
-      },
-      {
-        "candidate_id": "rejected_b_delayed-retreat",
-        "response": "马克踏上墙头时，暗金火焰已经烧过垛口。弩手随即上弦，原本散开的箭锋重新对准高架。\n\n尸王停在那里。它指了指黑烟，又指向涵管，最后朝马克张开五指。\n\n五根手指。\n\n马克没有动。脚边的火却越烧越高。\n\n几息后，尸王先收了手。它退进灰雾，桥上的尸群也开始后撤。\n\n墙下有人喊出了马克的名字。",
-        "origin": "later_ai_candidate_component_selected",
-        "status": "rejected_as_full_candidate"
+      "metadata": {
+        "schema_version": "2.0",
+        "review": {
+          "provenance": "author_guided_iterative_edit",
+          "issue": "原文用“小文记住了”“马克没有低头确认位置”直接标记伏笔，且中间候选一度让己方弩手在最强战力到场、敌方尸王仍在场时主动放低武器，公开战术因果不成立。",
+          "edit_instruction": "让表层因果独立成立：马克到场后摆出更强的迎战姿态并进一步施压；有智慧的尸王经过短暂权衡后主动撤退。暗层只保留“五根手指”等可回看的动作，不解释双方关系。",
+          "reason": "读者首次阅读应能自然接受“尸王判断占不到便宜而撤军”；后续若揭示隐性契约，同一组动作又能被重新解释。"
+        },
+        "source": {
+          "repository": "ganlingwen/novels",
+          "file": "generated/chapter4.md",
+          "pr": 18,
+          "merge_commit": "462ca76c481cc87664c632f06dd0ea82d0a75533",
+          "accepted_head_commit": "c5f81e424ea45845eb5bdb6b66fb94c4d0a7ad38"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "contains_author_reverse": true
+        },
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
       }
-    ],
-    "chosen_candidate_id": "chosen",
-    "preference_reason": "作者先认为直接回应五指过于明显；随后认可更隐蔽的动作呼应，但指出己方最强战力到场后弩手自行放下武器不合理。最终要求采用 A 中“马克向前一步、火焰递进”的施压动作，并结合 B 中“几息后尸王先收手、撤入灰雾、尸群后撤”的延迟撤退，使公开因果表现为尸王评估后主动撤军，同时保留隐性契约的二刷解释空间。",
-    "selection_source": "explicit_author_iterative_choice_and_composition"
-  },
-  "source": {
-    "repository": "ganlingwen/novels",
-    "file": "generated/chapter4.md",
-    "pr": 18,
-    "merge_commit": "462ca76c481cc87664c632f06dd0ea82d0a75533",
-    "accepted_head_commit": "c5f81e424ea45845eb5bdb6b66fb94c4d0a7ad38"
-  },
-  "quality": {
-    "human_accepted": true,
-    "merged": true,
-    "contains_author_reverse": true
-  },
-  "tags": {
-    "primary": "scene",
-    "secondary": []
-  }
+    }
+  ]
 }

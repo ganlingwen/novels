@@ -1,0 +1,76 @@
+# 本地 SFT / DPO 数据
+
+`schema.json` 是可执行的 JSON Schema（Draft 2020-12），`real/*.json` 全部采用版本 `3.0`。
+保存新编辑记录时遵循 [training-data.md](../skills/training-data.md)。
+
+## 统一结构
+
+每个文件只有 `schema_version`、`metadata`、`records` 三个根字段。
+每条 record 都有 `id`、`prompt`、`sft`、`dpo`、`metadata`：
+
+| 字段 | 用途 |
+| --- | --- |
+| `id` | 全数据集唯一的记录 ID，也是 SFT ID |
+| `prompt.user_request/context/original_text` | 显式任务、字符串上下文、原文；后两者可为 null |
+| `sft.eligible/response` | 是否导出 SFT，以及作者最终接受的文本 |
+| `dpo.eligible/chosen_candidate_id/candidates` | 是否导出 DPO、明确选择的候选、所有真实候选 |
+| `candidate.candidate_id/response/status/pair_id` | 候选文本和历史状态；可训练的 rejected 候选有唯一 pair_id，其他候选为 null |
+| 各层 `metadata` | 来源、review、质量、标签、选择理由、历史计数和其他原始注释 |
+
+所有候选都回答本记录的同一 prompt。每个 `status="rejected"` 的候选与明确选中的候选构成一对。
+其他历史状态仍保留，但不自动推断训练资格。SFT 最终修订可能不同于 DPO 当时选择的候选。
+只有明确设为 eligible 的部分参与训练；不会从 DPO 自动生成 SFT。
+
+完整实例：
+[SFT + DPO](real/pr103_ch3_ward-waking-dialogue.json)、
+[仅 SFT](real/pr1_ch1_occluded-pov.json)、
+[仅 reviewer DPO](real/rejected_pr1_tiangan-ability-false-positive.json)。
+
+## 2026-09-24 迁移
+
+迁移前共 76 个文件，存在三种主要布局：
+
+| 原布局 | 文件数 | 迁移 |
+| --- | ---: | --- |
+| 根对象是一条记录 | 44 | 放入 `records[]`；其中一个负例使用已有显式 DPO projection |
+| 根对象包含 `records[]` | 14 | 统一各记录字段 |
+| 根级独立 `sft[]`、`dpo[]` | 18 | 每条现有样本成为一条记录，保留原训练资格，不推测合并关联 |
+
+同时消除了 `output/response/chosen` 别名、`preference.rejected[]` 文本数组、
+按 status 猜 chosen，以及从 scene/focus 动态补 prompt 的分支。
+旧 loader 合成的 prompt 已原样落盘，并在 `prompt.metadata.provenance` 标明来源。
+11 处对象形式 context 保留旧 loader 的字符串呈现，原对象保存在
+`prompt.metadata.original_context`。正文中的真实换行和字面量 `\n` 均未转换。
+
+原始文本、候选状态、来源、review、标签和其他元数据均保留。
+根级历史注释移入文件 metadata，记录注释移入记录 metadata；旧 schema_version 和
+counts 也作为历史注释保留，不能当成当前版本或当前统计。
+迁移前后按文件比较了原始标量多重集，确认无值丢失。
+
+旧 loader 实际输出 **174 SFT / 230 DPO**。其中三条无关记录共享
+`final_context_confirmation`，全局 ID 去重错误丢弃了两条 SFT。
+迁移为以下两条补上文件名前缀，并将旧 ID 保存在 `metadata.original_id`：
+
+- `ch3_baichuan_medical_bill_20260919:final_context_confirmation`
+- `ch3_cat_kill_credit_20260919:final_context_confirmation`
+
+当前为 **176 SFT / 230 DPO**。此前全部 174 SFT 和 230 DPO 的
+ID、来源、prompt、response/chosen/rejected 及相对顺序都逐项一致；
+回归测试保存了迁移前输出的 SHA-256 摘要。恢复的两条样本可能改变 SFT 训练/验证切分。
+
+## 使用与验证
+
+安装 `llm/requirements.txt` 后，在仓库根目录执行：
+
+```bash
+python data/count.py
+cd llm
+python -m pytest
+```
+
+`load_local_sft_records()` 和 `load_local_dpo_records()` 均接受 `data/` 或 `data/real/`。
+loader 使用仓库内 `data/schema.json` 验证格式，并检查跨字段候选引用、
+全局记录/pair ID 唯一性、chosen/rejected 差异。错误包含文件及记录位置，不再静默跳过。
+`count.py` 独立统计显式偏好注释并对比 loader 输出。
+
+有意新增或修改语料后，应审查并更新 `llm/tests/test_local_data.py` 的数量和语料摘要断言。

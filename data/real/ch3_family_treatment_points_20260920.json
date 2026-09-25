@@ -1,132 +1,521 @@
 {
-  "scene": "第三章：家庭十五点余额与父亲治疗争执",
-  "date": "2026-09-20",
-  "sft": [
+  "schema_version": "3.0",
+  "metadata": {
+    "scene": "第三章：家庭十五点余额与父亲治疗争执",
+    "date": "2026-09-20"
+  },
+  "records": [
     {
-      "instruction": "重写家庭只剩十五点后，父亲想暂缓自己治疗、母亲反对、小文阻止父亲收起凭证的家庭对白。人物首先关心家人，不要用短促问答机械推进账目剧情。",
-      "output": "父亲看着桌上的两张凭证，伸手把自己的那张往旁边推了推：“我的可以先放放。你妈三天后还得去，你腿上的伤也不能拖，家里这些点数，你们先用。”\n\n“你已经耽误一晚上了。”母亲没有去拿自己的凭证，“昨晚喘成什么样你忘了？躺都躺不平，垫了两个枕头才勉强睡着。”\n\n父亲低头理了理凭证的纸角：“我晚几天没事。缸底还有些粮，晚上那份先别去取了，小文腿脚还不方便。”\n\n母亲看着他：“粮的事先不说。你昨天晚上都成那样了，今天好一点，就觉得自己没事了？”\n\n父亲没有回答，只把自己的凭证折起来。\n\n小文伸手按住了纸：“爸，你别收。妈的治疗还有三天，我明天也只是去换药，现在还没到非得决定停谁的时候。”\n\n父亲的手停了一下，目光落到他的伤腿上：“你现在走路都得拄着拐，就别替我操心了。我的治疗晚几天没什么，你先把自己的伤养好。”\n\n小文按着凭证没有松手：“可你昨晚已经没去成了。我没说现在就出去挣点数，你先把纸留着，过几天到底怎么用，我们到时候再算。”\n\n父亲握住凭证的一角，慢慢往回抽：“就是留在这里，你才会一直惦记。你这孩子什么性子，我还不知道？真差那几分，你腿没好就敢往外跑。”\n\n母亲伸手压住两个人中间的凭证：“行了，都别抢。小文刚回来，饭还没吃，你们爷俩先为这个争起来了。两张都放这儿，谁的也不收，等吃完饭再慢慢商量。”",
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
+      "id": "ch3_family_treatment_points_20260920.json:0:95a2a3e7e9c6",
+      "prompt": {
+        "user_request": "重写家庭只剩十五点后，父亲想暂缓自己治疗、母亲反对、小文阻止父亲收起凭证的家庭对白。人物首先关心家人，不要用短促问答机械推进账目剧情。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "父亲看着桌上的两张凭证，伸手把自己的那张往旁边推了推：“我的可以先放放。你妈三天后还得去，你腿上的伤也不能拖，家里这些点数，你们先用。”\n\n“你已经耽误一晚上了。”母亲没有去拿自己的凭证，“昨晚喘成什么样你忘了？躺都躺不平，垫了两个枕头才勉强睡着。”\n\n父亲低头理了理凭证的纸角：“我晚几天没事。缸底还有些粮，晚上那份先别去取了，小文腿脚还不方便。”\n\n母亲看着他：“粮的事先不说。你昨天晚上都成那样了，今天好一点，就觉得自己没事了？”\n\n父亲没有回答，只把自己的凭证折起来。\n\n小文伸手按住了纸：“爸，你别收。妈的治疗还有三天，我明天也只是去换药，现在还没到非得决定停谁的时候。”\n\n父亲的手停了一下，目光落到他的伤腿上：“你现在走路都得拄着拐，就别替我操心了。我的治疗晚几天没什么，你先把自己的伤养好。”\n\n小文按着凭证没有松手：“可你昨晚已经没去成了。我没说现在就出去挣点数，你先把纸留着，过几天到底怎么用，我们到时候再算。”\n\n父亲握住凭证的一角，慢慢往回抽：“就是留在这里，你才会一直惦记。你这孩子什么性子，我还不知道？真差那几分，你腿没好就敢往外跑。”\n\n母亲伸手压住两个人中间的凭证：“行了，都别抢。小文刚回来，饭还没吃，你们爷俩先为这个争起来了。两张都放这儿，谁的也不收，等吃完饭再慢慢商量。”",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     },
     {
-      "instruction": "让家庭争执自然触发小文第一次能力，不额外增加解释性调度。",
-      "output": "父亲还握着纸角。小文怕他真的收回去，身体往前探了一点。右腿使不上力，左手一下按进桌角花盆的湿土，右手扣住了父亲的手腕。",
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
-      }
-    }
-  ],
-  "dpo": [
-    {
-      "prompt": "父亲发现家庭只剩十五点后，表达暂缓自己治疗。",
-      "chosen": "“我的可以先放放。你妈三天后还得去，你腿上的伤也不能拖，家里这些点数，你们先用。”",
-      "rejected": "“我的先不补排。原来的四十，减掉二十。后面有点数，先给你妈凑，你的换药也不能断。”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
-      }
-    },
-    {
-      "prompt": "父亲表达暂缓自己治疗时，不要像宣布彻底放弃。",
-      "chosen": "“我的可以先放放。”",
-      "rejected": "“那就先别管我的了。”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_family_treatment_points_20260920.json:1:ed0ebbd35484",
+      "prompt": {
+        "user_request": "让家庭争执自然触发小文第一次能力，不额外增加解释性调度。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "父亲还握着纸角。小文怕他真的收回去，身体往前探了一点。右腿使不上力，左手一下按进桌角花盆的湿土，右手扣住了父亲的手腕。",
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     },
     {
-      "prompt": "父亲把家庭点数优先给妻儿时使用自然家庭口吻。",
-      "chosen": "“家里这些点数，你们先用。”",
-      "rejected": "“家里剩下这点，先留给你们。”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_family_treatment_points_20260920.json:dpo:0:f2b4e565ae75",
+      "prompt": {
+        "user_request": "父亲发现家庭只剩十五点后，表达暂缓自己治疗。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“我的可以先放放。你妈三天后还得去，你腿上的伤也不能拖，家里这些点数，你们先用。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“我的先不补排。原来的四十，减掉二十。后面有点数，先给你妈凑，你的换药也不能断。”",
+            "status": "rejected",
+            "pair_id": "ch3_family_treatment_points_20260920.json:dpo:0:f2b4e565ae75",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "母亲指出父亲昨晚已经错过治疗。",
-      "chosen": "“你已经耽误一晚上了。”",
-      "rejected": "“你的已经耽误一晚上了。”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_family_treatment_points_20260920.json:dpo:1:42ad4cc2ac61",
+      "prompt": {
+        "user_request": "父亲表达暂缓自己治疗时，不要像宣布彻底放弃。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“我的可以先放放。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“那就先别管我的了。”",
+            "status": "rejected",
+            "pair_id": "ch3_family_treatment_points_20260920.json:dpo:1:42ad4cc2ac61",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "母亲用昨晚真实病情反驳父亲淡化病情，避免碎句。",
-      "chosen": "“昨晚喘成什么样你忘了？躺都躺不平，垫了两个枕头才勉强睡着。”",
-      "rejected": "“昨晚喘成什么样，你自己忘了？躺都躺不平，我给你垫了两个枕头。”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_family_treatment_points_20260920.json:dpo:2:ac4acbc05441",
+      "prompt": {
+        "user_request": "父亲把家庭点数优先给妻儿时使用自然家庭口吻。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“家里这些点数，你们先用。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“家里剩下这点，先留给你们。”",
+            "status": "rejected",
+            "pair_id": "ch3_family_treatment_points_20260920.json:dpo:2:ac4acbc05441",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "不要把与当前争执无关的旧外套和领口动作硬塞进母亲的反驳。",
-      "chosen": "“昨晚喘成什么样你忘了？躺都躺不平，垫了两个枕头才勉强睡着。”",
-      "rejected": "“衣服穿了脱、脱了穿，临出门还嫌领口皱，让我给你抻了两遍。”",
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
+      "id": "ch3_family_treatment_points_20260920.json:dpo:3:b75415e42efa",
+      "prompt": {
+        "user_request": "母亲指出父亲昨晚已经错过治疗。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“你已经耽误一晚上了。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“你的已经耽误一晚上了。”",
+            "status": "rejected",
+            "pair_id": "ch3_family_treatment_points_20260920.json:dpo:3:b75415e42efa",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "父亲淡化自己延迟治疗时采用家庭口语。",
-      "chosen": "“我晚几天没事。”",
-      "rejected": "“晚几天不碍事。”",
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
+      "id": "ch3_family_treatment_points_20260920.json:dpo:4:1ec64ba72707",
+      "prompt": {
+        "user_request": "母亲用昨晚真实病情反驳父亲淡化病情，避免碎句。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“昨晚喘成什么样你忘了？躺都躺不平，垫了两个枕头才勉强睡着。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“昨晚喘成什么样，你自己忘了？躺都躺不平，我给你垫了两个枕头。”",
+            "status": "rejected",
+            "pair_id": "ch3_family_treatment_points_20260920.json:dpo:4:1ec64ba72707",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "父亲考虑晚上的粮食领取时体现对受伤儿子的关心，避免嫌弃感和多余语气词。",
-      "chosen": "“缸底还有些粮，晚上那份先别去取了，小文腿脚还不方便。”",
-      "rejected": "“缸底还有些粮，晚上那份也先别去取了，省得小文拖着这条腿来回跑。”",
-      "tags": {
-        "primary": "character",
-        "secondary": []
+      "id": "ch3_family_treatment_points_20260920.json:dpo:5:4b3ee53de2ef",
+      "prompt": {
+        "user_request": "不要把与当前争执无关的旧外套和领口动作硬塞进母亲的反驳。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“昨晚喘成什么样你忘了？躺都躺不平，垫了两个枕头才勉强睡着。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“衣服穿了脱、脱了穿，临出门还嫌领口皱，让我给你抻了两遍。”",
+            "status": "rejected",
+            "pair_id": "ch3_family_treatment_points_20260920.json:dpo:5:4b3ee53de2ef",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     },
     {
-      "prompt": "小文阻止父亲现在就放弃治疗，论点应逻辑成立，不要同时说把点数留着又谁都不停。",
-      "chosen": "“爸，你别收。妈的治疗还有三天，我明天也只是去换药，现在还没到非得决定停谁的时候。”",
-      "rejected": "“爸，你别收。妈的治疗还有三天，我这边明天只是去换药，十五点先留着，谁的都别停。”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_family_treatment_points_20260920.json:dpo:6:8c40e483a098",
+      "prompt": {
+        "user_request": "父亲淡化自己延迟治疗时采用家庭口语。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“我晚几天没事。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“晚几天不碍事。”",
+            "status": "rejected",
+            "pair_id": "ch3_family_treatment_points_20260920.json:dpo:6:8c40e483a098",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     },
     {
-      "prompt": "父亲劝小文不要为自己的治疗带伤挣点数，不要使用短促的一问一答。",
-      "chosen": "“就是留在这里，你才会一直惦记。你这孩子什么性子，我还不知道？真差那几分，你腿没好就敢往外跑。”",
-      "rejected": "“我还能等。”\n\n“你昨晚已经等过了。”",
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "id": "ch3_family_treatment_points_20260920.json:dpo:7:94e3d8ba0aa3",
+      "prompt": {
+        "user_request": "父亲考虑晚上的粮食领取时体现对受伤儿子的关心，避免嫌弃感和多余语气词。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“缸底还有些粮，晚上那份先别去取了，小文腿脚还不方便。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“缸底还有些粮，晚上那份也先别去取了，省得小文拖着这条腿来回跑。”",
+            "status": "rejected",
+            "pair_id": "ch3_family_treatment_points_20260920.json:dpo:7:94e3d8ba0aa3",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "character",
+          "secondary": []
+        }
       }
     },
     {
-      "prompt": "母亲结束父子抢凭证的争执，保持完整家庭对白。",
-      "chosen": "“行了，都别抢。小文刚回来，饭还没吃，你们爷俩先为这个争起来了。两张都放这儿，谁的也不收，等吃完饭再慢慢商量。”",
-      "rejected": "“松手，纸湿了。”",
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
+      "id": "ch3_family_treatment_points_20260920.json:dpo:8:6120268c2fe7",
+      "prompt": {
+        "user_request": "小文阻止父亲现在就放弃治疗，论点应逻辑成立，不要同时说把点数留着又谁都不停。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“爸，你别收。妈的治疗还有三天，我明天也只是去换药，现在还没到非得决定停谁的时候。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“爸，你别收。妈的治疗还有三天，我这边明天只是去换药，十五点先留着，谁的都别停。”",
+            "status": "rejected",
+            "pair_id": "ch3_family_treatment_points_20260920.json:dpo:8:6120268c2fe7",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
+      }
+    },
+    {
+      "id": "ch3_family_treatment_points_20260920.json:dpo:9:ca8e6a7f058f",
+      "prompt": {
+        "user_request": "父亲劝小文不要为自己的治疗带伤挣点数，不要使用短促的一问一答。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“就是留在这里，你才会一直惦记。你这孩子什么性子，我还不知道？真差那几分，你腿没好就敢往外跑。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“我还能等。”\n\n“你昨晚已经等过了。”",
+            "status": "rejected",
+            "pair_id": "ch3_family_treatment_points_20260920.json:dpo:9:ca8e6a7f058f",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
+      }
+    },
+    {
+      "id": "ch3_family_treatment_points_20260920.json:dpo:10:f422327868f7",
+      "prompt": {
+        "user_request": "母亲结束父子抢凭证的争执，保持完整家庭对白。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": false,
+        "response": null,
+        "metadata": {}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“行了，都别抢。小文刚回来，饭还没吃，你们爷俩先为这个争起来了。两张都放这儿，谁的也不收，等吃完饭再慢慢商量。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {}
+          },
+          {
+            "candidate_id": "rejected",
+            "response": "“松手，纸湿了。”",
+            "status": "rejected",
+            "pair_id": "ch3_family_treatment_points_20260920.json:dpo:10:f422327868f7",
+            "metadata": {}
+          }
+        ],
+        "metadata": {}
+      },
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     }
   ]

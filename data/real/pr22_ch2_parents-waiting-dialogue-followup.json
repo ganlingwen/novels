@@ -1,107 +1,150 @@
 {
-  "schema_version": "2.0",
-  "id": "pr22_ch2_parents-waiting-dialogue-followup",
-  "prompt": {
-    "user_request": "继续逐句修改这一处父母等待小文归来的对白；一处一处改，每次给两个候选让我选，用于 DPO。",
-    "context": "第二章父母等待小文归来。父亲的情绪中心始终是儿子迟迟未归，而不是与妻子争吵；母亲说话干练、会反呛丈夫，但应像多年夫妻的自然口语，不能像说明书或日程播报。动作还必须保持连续，已经放下的杯子不能再次被放下。",
-    "original_text": "“七点。”父亲说，“七点还没有消息，我去北门问。”\n\n“七点也是你最后一轮治疗。”\n\n“他不回来，我连医务点都去不了。”父亲把杯子放下，“那就先问人。”\n\n母亲看了一眼他的腿：“你先走到门口。”\n\n父亲扶住床沿。双脚刚落地，膝盖便抖得撑不住身体。"
-  },
-  "review": {
-    "provenance": "ai_discovered_then_author_refined",
-    "issue": "原段多句对白过于压缩、说明性强；迭代候选还暴露出重复放杯子的动作连续性错误，以及把父亲写成与妻子拌嘴、理性分析信息渠道的问题。",
-    "edit_instruction": "把母亲的治疗提醒和走到门口改成自然夫妻口语；父亲的回应应回到对儿子的执拗担心，不要把情绪中心写成夫妻争执或理性分析；保持杯子动作连续。",
-    "reason": "这一场的张力来自父母共同担心儿子、但应对方式不同。口语应省掉双方本来就知道的日程定义，让人物通过习惯性的说法、停顿和身体行动表达关系与焦虑。"
-  },
-  "sft": {
-    "eligible": true,
-    "response": "“七点。”父亲说，“七点还没有消息，我去北门问问。”\n\n母亲看着他：“七点去北门，治疗不就赶不上了？”\n\n“他不回来，我还治什么。”父亲把杯子放下，“我就在北门等。他什么时候回来，我什么时候回来。”\n\n母亲看了一眼他的腿：“你先走到门口再说。”\n\n父亲没接话，撑住床沿起身。母亲也没拦。\n\n双脚刚落地，他的膝盖便开始发抖。",
-    "target_type": "accepted_revision"
-  },
-  "preference": {
-    "eligible": true,
-    "prompt_source": "iterative_edit_history",
-    "candidates": [
-      {
-        "candidate_id": "chosen",
+  "schema_version": "3.0",
+  "metadata": {},
+  "records": [
+    {
+      "id": "pr22_ch2_parents-waiting-dialogue-followup",
+      "prompt": {
+        "user_request": "继续逐句修改这一处父母等待小文归来的对白；一处一处改，每次给两个候选让我选，用于 DPO。",
+        "context": "第二章父母等待小文归来。父亲的情绪中心始终是儿子迟迟未归，而不是与妻子争吵；母亲说话干练、会反呛丈夫，但应像多年夫妻的自然口语，不能像说明书或日程播报。动作还必须保持连续，已经放下的杯子不能再次被放下。",
+        "original_text": "“七点。”父亲说，“七点还没有消息，我去北门问。”\n\n“七点也是你最后一轮治疗。”\n\n“他不回来，我连医务点都去不了。”父亲把杯子放下，“那就先问人。”\n\n母亲看了一眼他的腿：“你先走到门口。”\n\n父亲扶住床沿。双脚刚落地，膝盖便抖得撑不住身体。",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
         "response": "“七点。”父亲说，“七点还没有消息，我去北门问问。”\n\n母亲看着他：“七点去北门，治疗不就赶不上了？”\n\n“他不回来，我还治什么。”父亲把杯子放下，“我就在北门等。他什么时候回来，我什么时候回来。”\n\n母亲看了一眼他的腿：“你先走到门口再说。”\n\n父亲没接话，撑住床沿起身。母亲也没拦。\n\n双脚刚落地，他的膝盖便开始发抖。",
-        "origin": "final_author_selected_revision",
-        "status": "chosen"
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
       },
-      {
-        "candidate_id": "rejected_standup_a",
-        "response": "母亲看了一眼他的腿：“你先走到门口。”\n\n“门口有什么——”\n\n父亲撑住床沿起身。话还没说完，双膝已经抖起来。他扶了一把木箱，没扶稳，又坐回床沿。",
-        "origin": "first_ai_candidate",
-        "status": "rejected"
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“七点。”父亲说，“七点还没有消息，我去北门问问。”\n\n母亲看着他：“七点去北门，治疗不就赶不上了？”\n\n“他不回来，我还治什么。”父亲把杯子放下，“我就在北门等。他什么时候回来，我什么时候回来。”\n\n母亲看了一眼他的腿：“你先走到门口再说。”\n\n父亲没接话，撑住床沿起身。母亲也没拦。\n\n双脚刚落地，他的膝盖便开始发抖。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "final_author_selected_revision"
+            }
+          },
+          {
+            "candidate_id": "rejected_standup_a",
+            "response": "母亲看了一眼他的腿：“你先走到门口。”\n\n“门口有什么——”\n\n父亲撑住床沿起身。话还没说完，双膝已经抖起来。他扶了一把木箱，没扶稳，又坐回床沿。",
+            "status": "rejected",
+            "pair_id": "pr22_ch2_parents-waiting-dialogue-followup:rejected:0",
+            "metadata": {
+              "origin": "first_ai_candidate"
+            }
+          },
+          {
+            "candidate_id": "rejected_standup_b_continuity_error",
+            "response": "母亲看了一眼他的腿：“你先走到门口。”\n\n父亲没接话，把杯子往木箱上一搁，撑住床沿起身。母亲也没拦。\n\n双脚刚落地，他的膝盖便开始发抖。",
+            "status": "rejected",
+            "pair_id": "pr22_ch2_parents-waiting-dialogue-followup:rejected:1",
+            "metadata": {
+              "origin": "first_ai_candidate_component_selected_then_refined"
+            }
+          },
+          {
+            "candidate_id": "rejected_route_a_too_rational",
+            "response": "“他不回来，我连医务点都去不了。”父亲把杯子放下，“我先去北门问问搜索队有没有消息。”",
+            "status": "rejected",
+            "pair_id": "pr22_ch2_parents-waiting-dialogue-followup:rejected:2",
+            "metadata": {
+              "origin": "second_ai_candidate"
+            }
+          },
+          {
+            "candidate_id": "rejected_route_b_pre_refinement",
+            "response": "“他不回来，我还治什么。”父亲把杯子放下，“我去北门等着，总能等到回来的人。”",
+            "status": "rejected",
+            "pair_id": "pr22_ch2_parents-waiting-dialogue-followup:rejected:3",
+            "metadata": {
+              "origin": "second_ai_candidate_component_selected_then_refined"
+            }
+          },
+          {
+            "candidate_id": "rejected_mother_soft_b",
+            "response": "母亲看了一眼他的腿：“你先走到门口再说吧。”",
+            "status": "rejected",
+            "pair_id": "pr22_ch2_parents-waiting-dialogue-followup:rejected:4",
+            "metadata": {
+              "origin": "ai_candidate"
+            }
+          },
+          {
+            "candidate_id": "rejected_treatment_a_verbose",
+            "response": "母亲看着他：“你七点去北门，最后一轮治疗不就赶不上了？”",
+            "status": "rejected",
+            "pair_id": "pr22_ch2_parents-waiting-dialogue-followup:rejected:5",
+            "metadata": {
+              "origin": "ai_candidate_component_selected_then_refined"
+            }
+          },
+          {
+            "candidate_id": "rejected_treatment_b_too_confrontational",
+            "response": "母亲看了他一眼：“你还七点去？最后一轮治疗怎么办？”",
+            "status": "rejected",
+            "pair_id": "pr22_ch2_parents-waiting-dialogue-followup:rejected:6",
+            "metadata": {
+              "origin": "ai_candidate"
+            }
+          },
+          {
+            "candidate_id": "rejected_father_a_argumentative",
+            "response": "“他不回来，我还治什么。”父亲把杯子放下，“我去北门等着，不等到他我就不回来。”",
+            "status": "rejected",
+            "pair_id": "pr22_ch2_parents-waiting-dialogue-followup:rejected:7",
+            "metadata": {
+              "origin": "ai_candidate"
+            }
+          },
+          {
+            "candidate_id": "chosen_father_b_component",
+            "response": "“他不回来，我还治什么。”父亲把杯子放下，“我就在北门等。他什么时候回来，我什么时候回来。”",
+            "status": "chosen_component",
+            "pair_id": null,
+            "metadata": {
+              "origin": "ai_candidate_component_selected_into_final"
+            }
+          }
+        ],
+        "metadata": {
+          "prompt_source": "iterative_edit_history",
+          "preference_reason": "作者先认为站起动作 B 的安静方向优于 A，A 像为了拌嘴而拌嘴；同时指出 B 重复放杯子。随后选择“你先走到门口再说”而拒绝“再说吧”，因为后者过软。治疗提醒中要求删去“最后一轮”等说明性定义。最后选择“我就在北门等。他什么时候回来，我什么时候回来”，因为另一版像在跟妻子吵架，而最终版把重点放回儿子。",
+          "selection_source": "explicit_author_multiround_choice"
+        }
       },
-      {
-        "candidate_id": "rejected_standup_b_continuity_error",
-        "response": "母亲看了一眼他的腿：“你先走到门口。”\n\n父亲没接话，把杯子往木箱上一搁，撑住床沿起身。母亲也没拦。\n\n双脚刚落地，他的膝盖便开始发抖。",
-        "origin": "first_ai_candidate_component_selected_then_refined",
-        "status": "rejected"
-      },
-      {
-        "candidate_id": "rejected_route_a_too_rational",
-        "response": "“他不回来，我连医务点都去不了。”父亲把杯子放下，“我先去北门问问搜索队有没有消息。”",
-        "origin": "second_ai_candidate",
-        "status": "rejected"
-      },
-      {
-        "candidate_id": "rejected_route_b_pre_refinement",
-        "response": "“他不回来，我还治什么。”父亲把杯子放下，“我去北门等着，总能等到回来的人。”",
-        "origin": "second_ai_candidate_component_selected_then_refined",
-        "status": "rejected"
-      },
-      {
-        "candidate_id": "rejected_mother_soft_b",
-        "response": "母亲看了一眼他的腿：“你先走到门口再说吧。”",
-        "origin": "ai_candidate",
-        "status": "rejected"
-      },
-      {
-        "candidate_id": "rejected_treatment_a_verbose",
-        "response": "母亲看着他：“你七点去北门，最后一轮治疗不就赶不上了？”",
-        "origin": "ai_candidate_component_selected_then_refined",
-        "status": "rejected"
-      },
-      {
-        "candidate_id": "rejected_treatment_b_too_confrontational",
-        "response": "母亲看了他一眼：“你还七点去？最后一轮治疗怎么办？”",
-        "origin": "ai_candidate",
-        "status": "rejected"
-      },
-      {
-        "candidate_id": "rejected_father_a_argumentative",
-        "response": "“他不回来，我还治什么。”父亲把杯子放下，“我去北门等着，不等到他我就不回来。”",
-        "origin": "ai_candidate",
-        "status": "rejected"
-      },
-      {
-        "candidate_id": "chosen_father_b_component",
-        "response": "“他不回来，我还治什么。”父亲把杯子放下，“我就在北门等。他什么时候回来，我什么时候回来。”",
-        "origin": "ai_candidate_component_selected_into_final",
-        "status": "chosen_component"
+      "metadata": {
+        "schema_version": "2.0",
+        "review": {
+          "provenance": "ai_discovered_then_author_refined",
+          "issue": "原段多句对白过于压缩、说明性强；迭代候选还暴露出重复放杯子的动作连续性错误，以及把父亲写成与妻子拌嘴、理性分析信息渠道的问题。",
+          "edit_instruction": "把母亲的治疗提醒和走到门口改成自然夫妻口语；父亲的回应应回到对儿子的执拗担心，不要把情绪中心写成夫妻争执或理性分析；保持杯子动作连续。",
+          "reason": "这一场的张力来自父母共同担心儿子、但应对方式不同。口语应省掉双方本来就知道的日程定义，让人物通过习惯性的说法、停顿和身体行动表达关系与焦虑。"
+        },
+        "source": {
+          "repository": "ganlingwen/novels",
+          "file": "generated/chapter2.md",
+          "pr": 22,
+          "merge_commit": "c20b24b2da4f2eca2c36cd1e2b63d04f10b763fe",
+          "accepted_head_commit": "c56ec6215388f7f939fdec60e866c6944bc5563b"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "contains_author_reverse": true
+        },
+        "tags": {
+          "primary": "pov",
+          "secondary": [
+            "limited_pov"
+          ]
+        }
       }
-    ],
-    "chosen_candidate_id": "chosen",
-    "preference_reason": "作者先认为站起动作 B 的安静方向优于 A，A 像为了拌嘴而拌嘴；同时指出 B 重复放杯子。随后选择“你先走到门口再说”而拒绝“再说吧”，因为后者过软。治疗提醒中要求删去“最后一轮”等说明性定义。最后选择“我就在北门等。他什么时候回来，我什么时候回来”，因为另一版像在跟妻子吵架，而最终版把重点放回儿子。",
-    "selection_source": "explicit_author_multiround_choice"
-  },
-  "source": {
-    "repository": "ganlingwen/novels",
-    "file": "generated/chapter2.md",
-    "pr": 22,
-    "merge_commit": "c20b24b2da4f2eca2c36cd1e2b63d04f10b763fe",
-    "accepted_head_commit": "c56ec6215388f7f939fdec60e866c6944bc5563b"
-  },
-  "quality": {
-    "human_accepted": true,
-    "merged": true,
-    "contains_author_reverse": true
-  },
-  "tags": {
-    "primary": "pov",
-    "secondary": [
-      "limited_pov"
-    ]
-  }
+    }
+  ]
 }

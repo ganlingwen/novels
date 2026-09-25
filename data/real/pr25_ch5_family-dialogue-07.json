@@ -1,59 +1,78 @@
 {
-  "schema_version": "2.0",
-  "id": "pr25_ch5_family-dialogue-07",
-  "prompt": {
-    "user_request": "按作者逐轮反馈修改第五章家庭谈话中的一个局部问题；提供两个候选供选择。",
-    "context": "第五章家庭谈话：小文已见白川被收回药柜钥匙与自主施术权，自己的手出现麻木、耳鸣、僵直；尚未经历老杜抗生素申请被拒与第六章救治。父母讨论是否登记特殊异能，小文尚未决定长期瞒报。 当前局部任务：父亲叮嘱身体异常",
-    "original_text": "那这三天先不提登记了。你手上再有什么不对劲，别自己忍着，跟我们说一声。"
-  },
-  "review": {
-    "provenance": "author_guided_iterative_edit",
-    "issue": "父亲叮嘱身体异常",
-    "edit_instruction": "根据作者反馈修改此处，不提前决定长期瞒报；保持人物口语和场景动作连续。",
-    "reason": "用户明确删除多余的「再」「自己」，将「跟我们说一声」改为「一定要跟我们说」。"
-  },
-  "sft": {
-    "eligible": true,
-    "response": "那这三天先不提登记了。你手上有什么不对劲，别忍着，一定要跟我们说。",
-    "target_type": "accepted_local_revision"
-  },
-  "preference": {
-    "eligible": true,
-    "prompt_source": "iterative_edit_history",
-    "candidates": [
-      {
-        "candidate_id": "ch5-family-dpo-07_chosen",
-        "response": "那这三天先不提登记了。你手上有什么不对劲，别忍着，一定要跟我们说。",
-        "origin": "final_author_selected_or_refined",
-        "status": "chosen"
+  "schema_version": "3.0",
+  "metadata": {},
+  "records": [
+    {
+      "id": "pr25_ch5_family-dialogue-07",
+      "prompt": {
+        "user_request": "按作者逐轮反馈修改第五章家庭谈话中的一个局部问题；提供两个候选供选择。",
+        "context": "第五章家庭谈话：小文已见白川被收回药柜钥匙与自主施术权，自己的手出现麻木、耳鸣、僵直；尚未经历老杜抗生素申请被拒与第六章救治。父母讨论是否登记特殊异能，小文尚未决定长期瞒报。 当前局部任务：父亲叮嘱身体异常",
+        "original_text": "那这三天先不提登记了。你手上再有什么不对劲，别自己忍着，跟我们说一声。",
+        "metadata": {}
       },
-      {
-        "candidate_id": "ch5-family-dpo-07_rejected",
-        "response": "那这三天先不提登记了。你手上再有什么不对劲，别自己忍着，跟我们说一声。",
-        "origin": "earlier_ai_candidate_or_pre_refinement",
-        "status": "rejected"
+      "sft": {
+        "eligible": true,
+        "response": "那这三天先不提登记了。你手上有什么不对劲，别忍着，一定要跟我们说。",
+        "metadata": {
+          "target_type": "accepted_local_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "ch5-family-dpo-07_chosen",
+        "candidates": [
+          {
+            "candidate_id": "ch5-family-dpo-07_chosen",
+            "response": "那这三天先不提登记了。你手上有什么不对劲，别忍着，一定要跟我们说。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "final_author_selected_or_refined"
+            }
+          },
+          {
+            "candidate_id": "ch5-family-dpo-07_rejected",
+            "response": "那这三天先不提登记了。你手上再有什么不对劲，别自己忍着，跟我们说一声。",
+            "status": "rejected",
+            "pair_id": "pr25_ch5_family-dialogue-07:rejected:0",
+            "metadata": {
+              "origin": "earlier_ai_candidate_or_pre_refinement"
+            }
+          }
+        ],
+        "metadata": {
+          "prompt_source": "iterative_edit_history",
+          "preference_reason": "用户明确删除多余的「再」「自己」，将「跟我们说一声」改为「一定要跟我们说」。",
+          "selection_source": "explicit_author_multiround_choice_and_refinement"
+        }
+      },
+      "metadata": {
+        "schema_version": "2.0",
+        "review": {
+          "provenance": "author_guided_iterative_edit",
+          "issue": "父亲叮嘱身体异常",
+          "edit_instruction": "根据作者反馈修改此处，不提前决定长期瞒报；保持人物口语和场景动作连续。",
+          "reason": "用户明确删除多余的「再」「自己」，将「跟我们说一声」改为「一定要跟我们说」。"
+        },
+        "source": {
+          "repository": "ganlingwen/novels",
+          "file": "generated/chapter5.md",
+          "pr": 25,
+          "merge_commit": "b247ee39c9b9ead8daa86231b0ac022d08b87aa2",
+          "accepted_head_commit": "661203a9acef5b9e58218ff91b9572c96b09683b"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "contains_author_reverse": true
+        },
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
-    ],
-    "chosen_candidate_id": "ch5-family-dpo-07_chosen",
-    "preference_reason": "用户明确删除多余的「再」「自己」，将「跟我们说一声」改为「一定要跟我们说」。",
-    "selection_source": "explicit_author_multiround_choice_and_refinement"
-  },
-  "source": {
-    "repository": "ganlingwen/novels",
-    "file": "generated/chapter5.md",
-    "pr": 25,
-    "merge_commit": "b247ee39c9b9ead8daa86231b0ac022d08b87aa2",
-    "accepted_head_commit": "661203a9acef5b9e58218ff91b9572c96b09683b"
-  },
-  "quality": {
-    "human_accepted": true,
-    "merged": true,
-    "contains_author_reverse": true
-  },
-  "tags": {
-    "primary": "dialogue",
-    "secondary": [
-      "natural_dialogue"
-    ]
-  }
+    }
+  ]
 }

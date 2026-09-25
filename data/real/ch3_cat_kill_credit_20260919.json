@@ -1,212 +1,301 @@
 {
-  "schema_version": "2.0",
-  "scene_id": "ch3_cat_kill_credit_20260919",
-  "description": "小文与白川讨论凶猫尸体、晶核和后勤归属的真实多轮作者偏好。",
+  "schema_version": "3.0",
+  "metadata": {
+    "schema_version": "2.0",
+    "scene_id": "ch3_cat_kill_credit_20260919",
+    "description": "小文与白川讨论凶猫尸体、晶核和后勤归属的真实多轮作者偏好。",
+    "counts": {
+      "sft_samples": 6,
+      "dpo_pairs": 5
+    }
+  },
   "records": [
     {
       "id": "first_pass_improves_bureaucratic_explanation",
       "prompt": {
-        "user_request": "把‘共同缴获、没人看见最后一击、普通人不能单杀’这段任务说明腔改成自然对白。"
+        "user_request": "把‘共同缴获、没人看见最后一击、普通人不能单杀’这段任务说明腔改成自然对白。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
       },
       "sft": {
         "eligible": true,
         "response": "小文仍抓着床沿：“凶猫是我杀的。尸体还在，晶核也在。不是去求他们再给，我有东西交。”\\n\\n白川拆开重新渗血的绷带：“东西已经入库了，现在算在救援队头上。没人亲眼看见是你杀的，后勤不肯认。”",
-        "target_type": "chosen_then_refined"
+        "metadata": {
+          "target_type": "chosen_then_refined"
+        }
       },
-      "preference": {
+      "dpo": {
         "eligible": true,
+        "chosen_candidate_id": "revision",
         "candidates": [
           {
             "candidate_id": "original",
             "response": "白川把重新渗血的绷带拆开：“已经入库了。后勤按救援队共同缴获登记，没人看见最后一击，他们也不信普通人能单杀一级凶兽。”",
             "status": "rejected",
-            "origin": "source_original"
+            "pair_id": "first_pass_improves_bureaucratic_explanation:rejected:0",
+            "metadata": {
+              "origin": "source_original"
+            }
           },
           {
             "candidate_id": "revision",
             "response": "白川拆开重新渗血的绷带：“东西已经入库了，现在算在救援队头上。没人亲眼看见是你杀的，后勤不肯认。”",
             "status": "chosen_then_refined",
-            "origin": "ai_revision"
+            "pair_id": null,
+            "metadata": {
+              "origin": "ai_revision"
+            }
           }
         ],
-        "chosen_candidate_id": "revision",
-        "selection_source": "explicit_author_feedback",
-        "preference_reason": "作者认为改版比初版好很多，但指出‘东西’指代不清，小文原台词仍有说明腔和过多短句。"
+        "metadata": {
+          "selection_source": "explicit_author_feedback",
+          "preference_reason": "作者认为改版比初版好很多，但指出‘东西’指代不清，小文原台词仍有说明腔和过多短句。"
+        }
       },
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     },
     {
       "id": "knowledge_boundary_correction",
       "prompt": {
-        "user_request": "小文刚醒，不可能知道尸体和晶核都在后勤；对白必须限制在人物实际知道的信息。"
+        "user_request": "小文刚醒，不可能知道尸体和晶核都在后勤；对白必须限制在人物实际知道的信息。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
       },
       "sft": {
         "eligible": true,
         "response": "那只凶猫是我杀的，尸体总还在吧？晶核也该有。我去后勤，就是想把这件事说清楚。",
-        "target_type": "corrected_intermediate"
+        "metadata": {
+          "target_type": "corrected_intermediate"
+        }
       },
-      "preference": {
+      "dpo": {
         "eligible": true,
+        "chosen_candidate_id": "chosen",
         "candidates": [
           {
             "candidate_id": "rejected",
             "response": "那只凶猫是我杀的，尸体和晶核都在后勤。我不是去找他们要东西，那本来就该算我的。",
             "status": "rejected",
-            "origin": "ai_revision"
+            "pair_id": "knowledge_boundary_correction:rejected:0",
+            "metadata": {
+              "origin": "ai_revision"
+            }
           },
           {
             "candidate_id": "chosen",
             "response": "那只凶猫是我杀的，尸体总还在吧？晶核也该有。我去后勤，就是想把这件事说清楚。",
             "status": "chosen_then_refined",
-            "origin": "ai_revision"
+            "pair_id": null,
+            "metadata": {
+              "origin": "ai_revision"
+            }
           }
         ],
-        "chosen_candidate_id": "chosen",
-        "selection_source": "explicit_author_logic_correction",
-        "preference_reason": "作者指出小文不知道战后物资去向；‘入库’和登记结果只能由白川告知。"
+        "metadata": {
+          "selection_source": "explicit_author_logic_correction",
+          "preference_reason": "作者指出小文不知道战后物资去向；‘入库’和登记结果只能由白川告知。"
+        }
       },
-      "tags": {
-        "primary": "dialogue",
-        "secondary": [
-          "natural_dialogue"
-        ]
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
     },
     {
       "id": "author_simplifies_xiaowen_intent",
       "prompt": {
-        "user_request": "小文只需要自然表达凶猫及其尸体、晶核应有价值，不要解释‘白拿/交东西/去后勤说清楚’。"
+        "user_request": "小文只需要自然表达凶猫及其尸体、晶核应有价值，不要解释‘白拿/交东西/去后勤说清楚’。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
       },
       "sft": {
         "eligible": true,
         "response": "小文仍抓着床沿：“那只凶猫是我杀的，尸体和晶核应该能换些分数吧。”",
-        "target_type": "author_directed_revision"
+        "metadata": {
+          "target_type": "author_directed_revision"
+        }
       },
-      "preference": {
+      "dpo": {
         "eligible": true,
+        "chosen_candidate_id": "chosen",
         "candidates": [
           {
             "candidate_id": "rejected",
             "response": "那只凶猫是我杀的。尸体总还在吧？晶核也该有。我去后勤，就是想把这件事说清楚。",
             "status": "rejected",
-            "origin": "ai_revision"
+            "pair_id": "author_simplifies_xiaowen_intent:rejected:0",
+            "metadata": {
+              "origin": "ai_revision"
+            }
           },
           {
             "candidate_id": "chosen",
             "response": "那只凶猫是我杀的，尸体和晶核应该能换些分数吧。",
             "status": "chosen",
-            "origin": "author_revision"
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_revision"
+            }
           }
         ],
-        "chosen_candidate_id": "chosen",
-        "selection_source": "explicit_author_revision",
-        "preference_reason": "一句话同时交代归属主张和现实诉求，避免四五字短句和解释性尾巴。"
+        "metadata": {
+          "selection_source": "explicit_author_revision",
+          "preference_reason": "一句话同时交代归属主张和现实诉求，避免四五字短句和解释性尾巴。"
+        }
       },
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "metadata": {
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
       "id": "simplify_baichuan_reasoning",
       "prompt": {
-        "user_request": "白川不要把‘没人亲眼看见’等证据链讲全，只告诉小文后勤的结论。"
+        "user_request": "白川不要把‘没人亲眼看见’等证据链讲全，只告诉小文后勤的结论。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
       },
       "sft": {
         "eligible": true,
         "response": "白川拆开重新渗血的绷带：“已经入库了，但是算在救援队头上。后勤不相信是你杀的。”",
-        "target_type": "author_accepted_revision"
+        "metadata": {
+          "target_type": "author_accepted_revision"
+        }
       },
-      "preference": {
+      "dpo": {
         "eligible": true,
+        "chosen_candidate_id": "chosen",
         "candidates": [
           {
             "candidate_id": "rejected",
             "response": "白川拆开重新渗血的绷带：“已经入库了，但是算在救援队头上。没人亲眼看见是你杀的，后勤不肯认。”",
             "status": "rejected",
-            "origin": "ai_revision"
+            "pair_id": "simplify_baichuan_reasoning:rejected:0",
+            "metadata": {
+              "origin": "ai_revision"
+            }
           },
           {
             "candidate_id": "chosen",
             "response": "白川拆开重新渗血的绷带：“已经入库了，但是算在救援队头上。后勤不相信是你杀的。”",
             "status": "chosen",
-            "origin": "author_directed_revision"
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_directed_revision"
+            }
           }
         ],
-        "chosen_candidate_id": "chosen",
-        "selection_source": "explicit_author_feedback",
-        "preference_reason": "无需由白川提前解释人证和证据链；小文下一句会自然拿钢钎作为反驳。"
+        "metadata": {
+          "selection_source": "explicit_author_feedback",
+          "preference_reason": "无需由白川提前解释人证和证据链；小文下一句会自然拿钢钎作为反驳。"
+        }
       },
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "metadata": {
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
       "id": "steel_bar_demonstrative",
       "prompt": {
-        "user_request": "小文提钢钎时增加明确指代和强调，不要孤零零说‘我压进去的’。"
+        "user_request": "小文提钢钎时增加明确指代和强调，不要孤零零说‘我压进去的’。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
       },
       "sft": {
         "eligible": true,
         "response": "“钢钎还插在它眼睛里。”小文摊开手，掌心那道磨烂的血口正对着白川，“那是我压进去的。”",
-        "target_type": "author_accepted_revision"
+        "metadata": {
+          "target_type": "author_accepted_revision"
+        }
       },
-      "preference": {
+      "dpo": {
         "eligible": true,
+        "chosen_candidate_id": "chosen",
         "candidates": [
           {
             "candidate_id": "rejected",
             "response": "“钢钎还插在它眼睛里。”小文摊开手，掌心那道磨烂的血口正对着白川，“我压进去的。”",
             "status": "rejected",
-            "origin": "source_original"
+            "pair_id": "steel_bar_demonstrative:rejected:0",
+            "metadata": {
+              "origin": "source_original"
+            }
           },
           {
             "candidate_id": "chosen",
             "response": "“钢钎还插在它眼睛里。”小文摊开手，掌心那道磨烂的血口正对着白川，“那是我压进去的。”",
             "status": "chosen",
-            "origin": "author_directed_revision"
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_directed_revision"
+            }
           }
         ],
-        "chosen_candidate_id": "chosen",
-        "selection_source": "explicit_author_feedback",
-        "preference_reason": "‘那是’明确回指钢钎，并强化小文用现场痕迹反驳后勤结论的语气。"
+        "metadata": {
+          "selection_source": "explicit_author_feedback",
+          "preference_reason": "‘那是’明确回指钢钎，并强化小文用现场痕迹反驳后勤结论的语气。"
+        }
       },
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "metadata": {
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        }
       }
     },
     {
-      "id": "final_context_confirmation",
+      "id": "ch3_cat_kill_credit_20260919:final_context_confirmation",
       "prompt": {
-        "user_request": "将整段放回小文试图下床去后勤的上下文确认。"
+        "user_request": "将整段放回小文试图下床去后勤的上下文确认。",
+        "context": null,
+        "original_text": null,
+        "metadata": {}
       },
       "sft": {
         "eligible": true,
         "response": "小文仍抓着床沿：“那只凶猫是我杀的，尸体和晶核应该能换些分数吧。”\n\n白川拆开重新渗血的绷带：“已经入库了，但是算在救援队头上。后勤不相信是你杀的。”\n\n“钢钎还插在它眼睛里。”小文摊开手，掌心那道磨烂的血口正对着白川，“那是我压进去的。”",
-        "target_type": "accepted_final_revision"
+        "metadata": {
+          "target_type": "accepted_final_revision"
+        }
       },
-      "preference": {
-        "eligible": false
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {}
       },
-      "quality": {
-        "human_accepted": true,
-        "context_checked": true
-      },
-      "tags": {
-        "primary": "plot",
-        "secondary": []
+      "metadata": {
+        "quality": {
+          "human_accepted": true,
+          "context_checked": true
+        },
+        "tags": {
+          "primary": "plot",
+          "secondary": []
+        },
+        "original_id": "final_context_confirmation"
       }
     }
-  ],
-  "counts": {
-    "sft_samples": 6,
-    "dpo_pairs": 5
-  }
+  ]
 }

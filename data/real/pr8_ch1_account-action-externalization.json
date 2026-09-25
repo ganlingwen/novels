@@ -1,63 +1,79 @@
 {
-  "schema_version": "2.0",
-  "language": "zh-CN",
-  "id": "novels_pr8_ch1_002",
-  "source": {
-    "repository": "ganlingwen/novels",
-    "file": "generated/chapter1.md",
-    "origin_pr": 7,
-    "accepted_pr": 8,
-    "merge_commit": "c7840a04ffba8af431da099db084a2c7b964c1d9"
-  },
-  "prompt": {
-    "user_request": "复审前五章，按既定设定和评分标准做必要的局部修改。",
-    "context": {
-      "facts": [
-        "AGENTS.md",
-        "skills/write.md",
-        "skills/score.md",
-        "相关 chapter scene / 人物与势力事实源"
-      ]
-    },
-    "original_text": "这个数字撞了一下小文胸口。五十五点的家庭账户，八十点的二级治疗。父亲手背上反复穿刺留下的硬结、母亲把最后半片药压在杯底的动作，只闪了两帧，便被老秦拉动弩机的轻响截断。"
-  },
-  "review": {
-    "provenance": "ai_discovered_during_review",
-    "discovered_issue": {
-      "summary": "“数字撞胸口”偏内心总结。"
-    },
-    "edit_instruction": "把算账压力外化为小动作，同时保留父母治疗闪帧。",
-    "reason": "减少抽象心理总结。"
-  },
-  "sft": {
-    "eligible": true,
-    "response": "小文的拇指在裤缝上掐了一下。五十五点的家庭账户，八十点的二级治疗——父亲手背上反复穿刺留下的硬结、母亲把最后半片药压在杯底的动作，只闪了两帧，便被老秦拉动弩机的轻响截断。",
-    "target_type": "accepted_revision"
-  },
-  "preference": {
-    "eligible": false,
-    "prompt_source": "same_as_prompt",
-    "candidates": [],
-    "chosen_candidate_id": null,
-    "preference_reason": null,
-    "selection_source": null,
-    "note": "没有真实同 prompt 候选比较，不事后编造 rejected candidate。"
-  },
-  "labels": {},
-  "quality": {
-    "human_accepted": true,
-    "human_rejected": false,
-    "merged": true,
-    "accepted_pr": 8
-  },
-  "training_views": {
-    "executor_sft": true,
-    "autonomous_editor_sft": true,
-    "reviewer_sft": true,
-    "preference_dpo": false
-  },
-  "tags": {
-    "primary": "scene",
-    "secondary": []
-  }
+  "schema_version": "3.0",
+  "metadata": {},
+  "records": [
+    {
+      "id": "novels_pr8_ch1_002",
+      "prompt": {
+        "user_request": "复审前五章，按既定设定和评分标准做必要的局部修改。",
+        "context": "{'facts': ['AGENTS.md', 'skills/write.md', 'skills/score.md', '相关 chapter scene / 人物与势力事实源']}",
+        "original_text": "这个数字撞了一下小文胸口。五十五点的家庭账户，八十点的二级治疗。父亲手背上反复穿刺留下的硬结、母亲把最后半片药压在杯底的动作，只闪了两帧，便被老秦拉动弩机的轻响截断。",
+        "metadata": {
+          "original_context": {
+            "facts": [
+              "AGENTS.md",
+              "skills/write.md",
+              "skills/score.md",
+              "相关 chapter scene / 人物与势力事实源"
+            ]
+          },
+          "context_rendering": "python_str_preserved_from_previous_loader"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "小文的拇指在裤缝上掐了一下。五十五点的家庭账户，八十点的二级治疗——父亲手背上反复穿刺留下的硬结、母亲把最后半片药压在杯底的动作，只闪了两帧，便被老秦拉动弩机的轻响截断。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {
+          "prompt_source": "same_as_prompt",
+          "preference_reason": null,
+          "selection_source": null,
+          "note": "没有真实同 prompt 候选比较，不事后编造 rejected candidate。"
+        }
+      },
+      "metadata": {
+        "schema_version": "2.0",
+        "language": "zh-CN",
+        "source": {
+          "repository": "ganlingwen/novels",
+          "file": "generated/chapter1.md",
+          "origin_pr": 7,
+          "accepted_pr": 8,
+          "merge_commit": "c7840a04ffba8af431da099db084a2c7b964c1d9"
+        },
+        "review": {
+          "provenance": "ai_discovered_during_review",
+          "discovered_issue": {
+            "summary": "“数字撞胸口”偏内心总结。"
+          },
+          "edit_instruction": "把算账压力外化为小动作，同时保留父母治疗闪帧。",
+          "reason": "减少抽象心理总结。"
+        },
+        "labels": {},
+        "quality": {
+          "human_accepted": true,
+          "human_rejected": false,
+          "merged": true,
+          "accepted_pr": 8
+        },
+        "training_views": {
+          "executor_sft": true,
+          "autonomous_editor_sft": true,
+          "reviewer_sft": true,
+          "preference_dpo": false
+        },
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
+      }
+    }
+  ]
 }

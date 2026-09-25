@@ -1,59 +1,78 @@
 {
-  "schema_version": "2.0",
-  "id": "pr25_ch5_family-dialogue-01",
-  "prompt": {
-    "user_request": "按作者逐轮反馈修改第五章家庭谈话中的一个局部问题；提供两个候选供选择。",
-    "context": "第五章家庭谈话：小文已见白川被收回药柜钥匙与自主施术权，自己的手出现麻木、耳鸣、僵直；尚未经历老杜抗生素申请被拒与第六章救治。父母讨论是否登记特殊异能，小文尚未决定长期瞒报。 当前局部任务：母亲对特殊异能的担忧",
-    "original_text": "白川今天救谁都要先拿签字。小文登记以后，谁能治、治几次、什么时候停，也会变成别人手里的表。"
-  },
-  "review": {
-    "provenance": "author_guided_iterative_edit",
-    "issue": "母亲对特殊异能的担忧",
-    "edit_instruction": "根据作者反馈修改此处，不提前决定长期瞒报；保持人物口语和场景动作连续。",
-    "reason": "用户希望风险落在儿子自身的自由与安全；传闻应保留不确定性，母亲应劝告成年儿子而非替他决定。"
-  },
-  "sft": {
-    "eligible": true,
-    "response": "我听人说，这种特殊的异能一旦让上面盯上，嘴上说是保护，住哪儿、去哪儿、什么时候能出去，都未必还能自己做主。是真是假我不知道。可要是真的，等你发现不对劲的时候，恐怕就没那么容易回头了。",
-    "target_type": "accepted_local_revision"
-  },
-  "preference": {
-    "eligible": true,
-    "prompt_source": "iterative_edit_history",
-    "candidates": [
-      {
-        "candidate_id": "ch5-family-dpo-01_chosen",
-        "response": "我听人说，这种特殊的异能一旦让上面盯上，嘴上说是保护，住哪儿、去哪儿、什么时候能出去，都未必还能自己做主。是真是假我不知道。可要是真的，等你发现不对劲的时候，恐怕就没那么容易回头了。",
-        "origin": "final_author_selected_or_refined",
-        "status": "chosen"
+  "schema_version": "3.0",
+  "metadata": {},
+  "records": [
+    {
+      "id": "pr25_ch5_family-dialogue-01",
+      "prompt": {
+        "user_request": "按作者逐轮反馈修改第五章家庭谈话中的一个局部问题；提供两个候选供选择。",
+        "context": "第五章家庭谈话：小文已见白川被收回药柜钥匙与自主施术权，自己的手出现麻木、耳鸣、僵直；尚未经历老杜抗生素申请被拒与第六章救治。父母讨论是否登记特殊异能，小文尚未决定长期瞒报。 当前局部任务：母亲对特殊异能的担忧",
+        "original_text": "白川今天救谁都要先拿签字。小文登记以后，谁能治、治几次、什么时候停，也会变成别人手里的表。",
+        "metadata": {}
       },
-      {
-        "candidate_id": "ch5-family-dpo-01_rejected",
-        "response": "白川今天救谁都要先拿签字。小文登记以后，谁能治、治几次、什么时候停，也会变成别人手里的表。",
-        "origin": "earlier_ai_candidate_or_pre_refinement",
-        "status": "rejected"
+      "sft": {
+        "eligible": true,
+        "response": "我听人说，这种特殊的异能一旦让上面盯上，嘴上说是保护，住哪儿、去哪儿、什么时候能出去，都未必还能自己做主。是真是假我不知道。可要是真的，等你发现不对劲的时候，恐怕就没那么容易回头了。",
+        "metadata": {
+          "target_type": "accepted_local_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "ch5-family-dpo-01_chosen",
+        "candidates": [
+          {
+            "candidate_id": "ch5-family-dpo-01_chosen",
+            "response": "我听人说，这种特殊的异能一旦让上面盯上，嘴上说是保护，住哪儿、去哪儿、什么时候能出去，都未必还能自己做主。是真是假我不知道。可要是真的，等你发现不对劲的时候，恐怕就没那么容易回头了。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "final_author_selected_or_refined"
+            }
+          },
+          {
+            "candidate_id": "ch5-family-dpo-01_rejected",
+            "response": "白川今天救谁都要先拿签字。小文登记以后，谁能治、治几次、什么时候停，也会变成别人手里的表。",
+            "status": "rejected",
+            "pair_id": "pr25_ch5_family-dialogue-01:rejected:0",
+            "metadata": {
+              "origin": "earlier_ai_candidate_or_pre_refinement"
+            }
+          }
+        ],
+        "metadata": {
+          "prompt_source": "iterative_edit_history",
+          "preference_reason": "用户希望风险落在儿子自身的自由与安全；传闻应保留不确定性，母亲应劝告成年儿子而非替他决定。",
+          "selection_source": "explicit_author_multiround_choice_and_refinement"
+        }
+      },
+      "metadata": {
+        "schema_version": "2.0",
+        "review": {
+          "provenance": "author_guided_iterative_edit",
+          "issue": "母亲对特殊异能的担忧",
+          "edit_instruction": "根据作者反馈修改此处，不提前决定长期瞒报；保持人物口语和场景动作连续。",
+          "reason": "用户希望风险落在儿子自身的自由与安全；传闻应保留不确定性，母亲应劝告成年儿子而非替他决定。"
+        },
+        "source": {
+          "repository": "ganlingwen/novels",
+          "file": "generated/chapter5.md",
+          "pr": 25,
+          "merge_commit": "b247ee39c9b9ead8daa86231b0ac022d08b87aa2",
+          "accepted_head_commit": "661203a9acef5b9e58218ff91b9572c96b09683b"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "contains_author_reverse": true
+        },
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
-    ],
-    "chosen_candidate_id": "ch5-family-dpo-01_chosen",
-    "preference_reason": "用户希望风险落在儿子自身的自由与安全；传闻应保留不确定性，母亲应劝告成年儿子而非替他决定。",
-    "selection_source": "explicit_author_multiround_choice_and_refinement"
-  },
-  "source": {
-    "repository": "ganlingwen/novels",
-    "file": "generated/chapter5.md",
-    "pr": 25,
-    "merge_commit": "b247ee39c9b9ead8daa86231b0ac022d08b87aa2",
-    "accepted_head_commit": "661203a9acef5b9e58218ff91b9572c96b09683b"
-  },
-  "quality": {
-    "human_accepted": true,
-    "merged": true,
-    "contains_author_reverse": true
-  },
-  "tags": {
-    "primary": "dialogue",
-    "secondary": [
-      "natural_dialogue"
-    ]
-  }
+    }
+  ]
 }

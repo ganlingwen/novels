@@ -1,65 +1,78 @@
 {
-  "schema_version": "2.0",
-  "id": "novels_pr1_ch1_001",
-  "language": "zh-CN",
-  "source": {
-    "repository": "ganlingwen/novels",
-    "file": "generated/chapter1.md",
-    "pr": 1,
-    "base_commit": "a4e3ee4d89e0ef9302a727fe8838d06bddef82f2",
-    "edit_commit": "291546da669a6bdcb62f1710bcda1e054f171314",
-    "merge_commit": "8d1bbfc67fb7b5b462d7debd4acacf9fa903dc76",
-    "accepted": true
-  },
-  "prompt": {
-    "user_request": "复审当前章节。结合 AGENTS.md、人物卡、势力卡、力量体系、大纲和前文，找出真正需要修改的问题；每次只做必要的小修改，不改变既定剧情和设定。",
-    "context": null,
-    "original_text": "板车向西滑去。轮胎先碾碎那截黑木，随后骤然加速，后轴拖着鱼线钻入墙孔。"
-  },
-  "review": {
-    "provenance": "ai_discovered_during_review",
-    "discovered_issue": {
-      "problem": "原句的鱼线运动方向与既定场景机制冲突，会让读者难以建立稳定的空间和受力关系。",
-      "evidence": [
-        "由相关场景文件、前后文与仓库设定核对确认；详见该 PR 的 review 说明。"
-      ]
-    },
-    "edit_instruction": "修正板车启动时鱼线的受力方向。场景既定机制是板车向西滑动后扯紧鱼线并完成抽销，因此鱼线应被后轴拉紧并从墙孔向外运动，而不是被描述成“钻入墙孔”。只修正局部空间与受力关系，保留陷阱机制、触发过程和结果。",
-    "reason": "原句的鱼线运动方向与既定场景机制冲突，会让读者难以建立稳定的空间和受力关系。"
-  },
-  "sft": {
-    "eligible": true,
-    "response": "板车向西滑去。轮胎先碾碎那截黑木，随后骤然加速，后轴扯紧鱼线，将线从墙孔里向外拉。",
-    "target_type": "accepted_revision"
-  },
-  "preference": {
-    "eligible": false,
-    "prompt_source": "same_as_prompt",
-    "candidates": [],
-    "chosen_candidate_id": null,
-    "preference_reason": null,
-    "selection_source": null,
-    "note": "No same-prompt alternative was presented to the author for this historical edit; do not synthesize a rejected candidate merely to create DPO data."
-  },
-  "labels": {
-    "primary": "spatial_continuity",
-    "secondary": [
-      "mechanical_consistency",
-      "minimal_edit",
-      "preserve_plot"
-    ]
-  },
-  "quality": {
-    "human_accepted": true,
-    "merged": true
-  },
-  "training_views": {
-    "executor_sft": "prompt.context + prompt.original_text + review.edit_instruction -> sft.response",
-    "autonomous_editor_sft": "repository_context + prompt.user_request + chapter -> accepted corrected chapter",
-    "reviewer_sft": "repository_context + prompt.user_request + chapter -> review.discovered_issue"
-  },
-  "tags": {
-    "primary": "scene",
-    "secondary": []
-  }
+  "schema_version": "3.0",
+  "metadata": {},
+  "records": [
+    {
+      "id": "novels_pr1_ch1_001",
+      "prompt": {
+        "user_request": "复审当前章节。结合 AGENTS.md、人物卡、势力卡、力量体系、大纲和前文，找出真正需要修改的问题；每次只做必要的小修改，不改变既定剧情和设定。",
+        "context": null,
+        "original_text": "板车向西滑去。轮胎先碾碎那截黑木，随后骤然加速，后轴拖着鱼线钻入墙孔。",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "板车向西滑去。轮胎先碾碎那截黑木，随后骤然加速，后轴扯紧鱼线，将线从墙孔里向外拉。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {
+          "prompt_source": "same_as_prompt",
+          "preference_reason": null,
+          "selection_source": null,
+          "note": "No same-prompt alternative was presented to the author for this historical edit; do not synthesize a rejected candidate merely to create DPO data."
+        }
+      },
+      "metadata": {
+        "schema_version": "2.0",
+        "language": "zh-CN",
+        "source": {
+          "repository": "ganlingwen/novels",
+          "file": "generated/chapter1.md",
+          "pr": 1,
+          "base_commit": "a4e3ee4d89e0ef9302a727fe8838d06bddef82f2",
+          "edit_commit": "291546da669a6bdcb62f1710bcda1e054f171314",
+          "merge_commit": "8d1bbfc67fb7b5b462d7debd4acacf9fa903dc76",
+          "accepted": true
+        },
+        "review": {
+          "provenance": "ai_discovered_during_review",
+          "discovered_issue": {
+            "problem": "原句的鱼线运动方向与既定场景机制冲突，会让读者难以建立稳定的空间和受力关系。",
+            "evidence": [
+              "由相关场景文件、前后文与仓库设定核对确认；详见该 PR 的 review 说明。"
+            ]
+          },
+          "edit_instruction": "修正板车启动时鱼线的受力方向。场景既定机制是板车向西滑动后扯紧鱼线并完成抽销，因此鱼线应被后轴拉紧并从墙孔向外运动，而不是被描述成“钻入墙孔”。只修正局部空间与受力关系，保留陷阱机制、触发过程和结果。",
+          "reason": "原句的鱼线运动方向与既定场景机制冲突，会让读者难以建立稳定的空间和受力关系。"
+        },
+        "labels": {
+          "primary": "spatial_continuity",
+          "secondary": [
+            "mechanical_consistency",
+            "minimal_edit",
+            "preserve_plot"
+          ]
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true
+        },
+        "training_views": {
+          "executor_sft": "prompt.context + prompt.original_text + review.edit_instruction -> sft.response",
+          "autonomous_editor_sft": "repository_context + prompt.user_request + chapter -> accepted corrected chapter",
+          "reviewer_sft": "repository_context + prompt.user_request + chapter -> review.discovered_issue"
+        },
+        "tags": {
+          "primary": "scene",
+          "secondary": []
+        }
+      }
+    }
+  ]
 }

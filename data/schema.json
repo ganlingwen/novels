@@ -1,46 +1,116 @@
 {
-  "schema_version": "2.0",
-  "purpose": "Canonical per-edit training record supporting SFT and high-quality same-prompt preference/DPO data.",
-  "rules": [
-    "One independent editorial decision per file.",
-    "Never invent a rejected candidate for historical accepted edits.",
-    "For future preference data, save every candidate verbatim before author selection.",
-    "Preference candidates must answer the same prompt with the same repository context.",
-    "Record the author's actual selection source.",
-    "An accepted revision may be SFT-eligible and, when a real alternative exists, preference-eligible too.",
-    "Keep no-change as a valid candidate to teach editorial restraint."
-  ],
-  "future_ab_example": {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Novel editorial training bundle",
+  "description": "One format for every data/real/*.json file. Text and author decisions are archival facts: never synthesize rejected alternatives. Metadata is preserved but never used as an implicit training prompt.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "metadata", "records"],
+  "properties": {
+    "schema_version": {"const": "3.0"},
+    "metadata": {"$ref": "#/$defs/metadata"},
+    "records": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/record"}
+    }
+  },
+  "$defs": {
+    "text": {"type": "string", "pattern": "\\S"},
+    "nullableText": {"type": ["string", "null"]},
+    "metadata": {
+      "type": "object",
+      "description": "Source, review, quality, tags, history, selection reasons and other annotations. Historical schema versions/counts here are provenance, not the current training contract."
+    },
     "prompt": {
-      "user_request": "复审并做必要的小修改",
-      "context": "same context for A/B",
-      "original_text": "原文"
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["user_request", "context", "original_text", "metadata"],
+      "properties": {
+        "user_request": {"$ref": "#/$defs/text"},
+        "context": {"$ref": "#/$defs/nullableText"},
+        "original_text": {"$ref": "#/$defs/nullableText"},
+        "metadata": {"$ref": "#/$defs/metadata"}
+      }
     },
     "sft": {
-      "eligible": true,
-      "response": "候选A（作者选择）",
-      "target_type": "accepted_revision"
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["eligible", "response", "metadata"],
+      "properties": {
+        "eligible": {"type": "boolean"},
+        "response": {"$ref": "#/$defs/nullableText"},
+        "metadata": {"$ref": "#/$defs/metadata"}
+      },
+      "if": {"properties": {"eligible": {"const": true}}},
+      "then": {"properties": {"response": {"$ref": "#/$defs/text"}}}
     },
-    "preference": {
-      "eligible": true,
-      "prompt_source": "same_as_prompt",
-      "candidates": [
-        {
-          "candidate_id": "A",
-          "response": "完整候选A",
-          "origin": "ai_candidate",
-          "status": "chosen"
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["candidate_id", "response", "status", "pair_id", "metadata"],
+      "properties": {
+        "candidate_id": {"$ref": "#/$defs/text"},
+        "response": {"$ref": "#/$defs/text"},
+        "status": {
+          "enum": [
+            "chosen", "rejected", "chosen_then_refined", "chosen_direction",
+            "partially_chosen", "rejected_as_full_candidate", "chosen_component", "pending"
+          ],
+          "description": "Historical author decision. Only exact rejected status exports a DPO pair; the chosen candidate is identified explicitly."
         },
-        {
-          "candidate_id": "B",
-          "response": "完整候选B",
-          "origin": "ai_candidate",
-          "status": "rejected"
+        "pair_id": {
+          "anyOf": [{"$ref": "#/$defs/text"}, {"type": "null"}],
+          "description": "Stable, corpus-unique training ID for a rejected alternative in an eligible DPO record. Null for all other candidates."
+        },
+        "metadata": {"$ref": "#/$defs/metadata"}
+      }
+    },
+    "dpo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["eligible", "chosen_candidate_id", "candidates", "metadata"],
+      "properties": {
+        "eligible": {"type": "boolean"},
+        "chosen_candidate_id": {
+          "anyOf": [{"$ref": "#/$defs/text"}, {"type": "null"}]
+        },
+        "candidates": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/candidate"}
+        },
+        "metadata": {"$ref": "#/$defs/metadata"}
+      },
+      "if": {"properties": {"eligible": {"const": true}}},
+      "then": {
+        "properties": {
+          "chosen_candidate_id": {"$ref": "#/$defs/text"},
+          "candidates": {
+            "minItems": 2,
+            "contains": {
+              "properties": {
+                "status": {"const": "rejected"},
+                "pair_id": {"$ref": "#/$defs/text"}
+              }
+            }
+          }
         }
-      ],
-      "chosen_candidate_id": "A",
-      "preference_reason": null,
-      "selection_source": "explicit_author_choice"
+      }
+    },
+    "record": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "prompt", "sft", "dpo", "metadata"],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/text",
+          "description": "Corpus-unique editorial record ID; also the SFT training ID when eligible."
+        },
+        "prompt": {"$ref": "#/$defs/prompt"},
+        "sft": {"$ref": "#/$defs/sft"},
+        "dpo": {"$ref": "#/$defs/dpo"},
+        "metadata": {"$ref": "#/$defs/metadata"}
+      },
+      "$comment": "LocalNovelDataset additionally validates unique record/candidate/pair IDs, chosen-ID references, pair-ID eligibility, and distinct chosen/rejected text."
     }
   }
 }

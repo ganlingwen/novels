@@ -1,79 +1,98 @@
 {
-  "schema_version": "2.0",
-  "language": "zh-CN",
-  "id": "novels_pr100_ch3_001",
-  "source": {
-    "repository": "ganlingwen/novels",
-    "file": "generated/chapter3.md",
-    "origin_pr": 99,
-    "accepted_pr": 100,
-    "merge_commit": "30340cdfc606d2b3cef3392298e5efa9d29fd411",
-    "accepted_head_commit": "79193f29b33ba7fd9cde6954ab81cef792a8a4eb"
-  },
-  "prompt": {
-    "user_request": "继续精修第三章抢救段；把同说话人的碎句合并为带动作的整句，保留小文半声“爸”到白川“听见了”的一问一答承接，避免白川未卜先知。",
-    "context": "第三章抢救段。小文被钢钎钉住的凶猫压在检修口下，白川剪开衣物止血并施光系治疗；小文醒来时视线模糊，只看见光里那截洗得发灰的袖口。要求：对白要带人物性格和当下处境，不要几个字几个字蹦的推进式台词；旁白腔要少，靠动作承接推动故事。AGENTS.md、skills/write.md、skills/score.md、chapter3_scene.md、characters.md 中白川和小文的卡片为事实源。",
-    "original_text": "“几点？”\n\n“先别说话。”\n\n小文抓住那截袖口：“七点……我爸治疗。”\n\n白川低头看他，把那只抓着袖口的手拢进保温毯。\n\n“七点过了。先看着我，别抬头。”"
-  },
-  "review": {
-    "provenance": "ai_discovered_then_author_refined",
-    "issue": "原稿把同一抢救段拆成五个独立短行，小文“几点？”和白川“先别说话。”各自单独成段，无动作承接，像靠碎句蹦字推进剧情；同时“先别说话”出现在小文说出“七点”之前，使白川“七点过了”像是未卜先知地抢答小文还未出口的内容。",
-    "edit_instruction": "把同一说话人的碎句合并为一句带动作的对白：小文一句“几点了？我爸……七点要治疗。”带“喉咙发紧”的状态；白川“先别说话。七点过了。先看着我，别抬头。”合并到同一句，带“低头看他、把那只抓着袖口的手拢进保温毯”的动作。小文挤出半声“爸”到白川“听见了”的承接保留不变。",
-    "reason": "抢救段对白应是带着伤势和处境的活人感台词，而不是几个字几个字蹦的推进式碎句；动作承接（喉咙发紧、低头拢袖口）代替旁白推动，让白川“七点过了”成为对小文“七点要治疗”的回应，而非未卜先知。"
-  },
-  "sft": {
-    "eligible": true,
-    "response": "“几点了？”他喉咙发紧，“我爸……七点要治疗。”\n\n“先别说话。”白川低头看他，把那只抓着袖口的手拢进保温毯，“七点过了。先看着我，别抬头。”",
-    "target_type": "accepted_revision"
-  },
-  "preference": {
-    "eligible": true,
-    "prompt_source": "same_as_prompt",
-    "candidates": [
-      {
-        "candidate_id": "chosen",
-        "response": "“几点了？”他喉咙发紧，“我爸……七点要治疗。”\n\n“先别说话。”白川低头看他，把那只抓着袖口的手拢进保温毯，“七点过了。先看着我，别抬头。”",
-        "origin": "final_author_selected_revision",
-        "status": "chosen"
+  "schema_version": "3.0",
+  "metadata": {},
+  "records": [
+    {
+      "id": "novels_pr100_ch3_001",
+      "prompt": {
+        "user_request": "继续精修第三章抢救段；把同说话人的碎句合并为带动作的整句，保留小文半声“爸”到白川“听见了”的一问一答承接，避免白川未卜先知。",
+        "context": "第三章抢救段。小文被钢钎钉住的凶猫压在检修口下，白川剪开衣物止血并施光系治疗；小文醒来时视线模糊，只看见光里那截洗得发灰的袖口。要求：对白要带人物性格和当下处境，不要几个字几个字蹦的推进式台词；旁白腔要少，靠动作承接推动故事。AGENTS.md、skills/write.md、skills/score.md、chapter3_scene.md、characters.md 中白川和小文的卡片为事实源。",
+        "original_text": "“几点？”\n\n“先别说话。”\n\n小文抓住那截袖口：“七点……我爸治疗。”\n\n白川低头看他，把那只抓着袖口的手拢进保温毯。\n\n“七点过了。先看着我，别抬头。”",
+        "metadata": {}
       },
-      {
-        "candidate_id": "rejected_split_lines_preknowledge",
-        "response": "“几点？”\n\n“先别说话。”\n\n小文抓住那截袖口：“七点……我爸治疗。”\n\n白川低头看他，把那只抓着袖口的手拢进保温毯。\n\n“七点过了。先看着我，别抬头。”",
-        "origin": "pre_edit_manuscript_at_pr_99_head",
-        "status": "rejected"
+      "sft": {
+        "eligible": true,
+        "response": "“几点了？”他喉咙发紧，“我爸……七点要治疗。”\n\n“先别说话。”白川低头看他，把那只抓着袖口的手拢进保温毯，“七点过了。先看着我，别抬头。”",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "chosen",
+        "candidates": [
+          {
+            "candidate_id": "chosen",
+            "response": "“几点了？”他喉咙发紧，“我爸……七点要治疗。”\n\n“先别说话。”白川低头看他，把那只抓着袖口的手拢进保温毯，“七点过了。先看着我，别抬头。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "final_author_selected_revision"
+            }
+          },
+          {
+            "candidate_id": "rejected_split_lines_preknowledge",
+            "response": "“几点？”\n\n“先别说话。”\n\n小文抓住那截袖口：“七点……我爸治疗。”\n\n白川低头看他，把那只抓着袖口的手拢进保温毯。\n\n“七点过了。先看着我，别抬头。”",
+            "status": "rejected",
+            "pair_id": "novels_pr100_ch3_001:rejected:0",
+            "metadata": {
+              "origin": "pre_edit_manuscript_at_pr_99_head"
+            }
+          }
+        ],
+        "metadata": {
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "作者反馈：原稿把抢救段拆成五个独立短行，对白像几个字几个字蹦，没有活人感；同时白川“先别说话”出现在小文说出“七点”之前，“七点过了”像未卜先知地抢答小文未出口的内容。最终选择把同说话人碎句合并为带动作承接的整句：小文“几点了？我爸……七点要治疗。”带“喉咙发紧”状态；白川“先别说话。七点过了。先看着我，别抬头。”合并到同一句，带“低头看他、拢袖口”的动作，使“七点过了”成为对小文“七点要治疗”的回应。原稿（被拒绝）来自 PR #99 头部 79193f2~1 的真实历史版本，不是事后编造的 rejected candidate。",
+          "selection_source": "explicit_author_choice"
+        }
+      },
+      "metadata": {
+        "schema_version": "2.0",
+        "language": "zh-CN",
+        "source": {
+          "repository": "ganlingwen/novels",
+          "file": "generated/chapter3.md",
+          "origin_pr": 99,
+          "accepted_pr": 100,
+          "merge_commit": "30340cdfc606d2b3cef3392298e5efa9d29fd411",
+          "accepted_head_commit": "79193f29b33ba7fd9cde6954ab81cef792a8a4eb"
+        },
+        "review": {
+          "provenance": "ai_discovered_then_author_refined",
+          "issue": "原稿把同一抢救段拆成五个独立短行，小文“几点？”和白川“先别说话。”各自单独成段，无动作承接，像靠碎句蹦字推进剧情；同时“先别说话”出现在小文说出“七点”之前，使白川“七点过了”像是未卜先知地抢答小文还未出口的内容。",
+          "edit_instruction": "把同一说话人的碎句合并为一句带动作的对白：小文一句“几点了？我爸……七点要治疗。”带“喉咙发紧”的状态；白川“先别说话。七点过了。先看着我，别抬头。”合并到同一句，带“低头看他、把那只抓着袖口的手拢进保温毯”的动作。小文挤出半声“爸”到白川“听见了”的承接保留不变。",
+          "reason": "抢救段对白应是带着伤势和处境的活人感台词，而不是几个字几个字蹦的推进式碎句；动作承接（喉咙发紧、低头拢袖口）代替旁白推动，让白川“七点过了”成为对小文“七点要治疗”的回应，而非未卜先知。"
+        },
+        "labels": {
+          "chapter": 3,
+          "scene": "rescue",
+          "edit_type": "dialogue_merge_with_action",
+          "anti_pattern": [
+            "split_short_lines",
+            "preknowledge_answer",
+            "no_action_beat"
+          ]
+        },
+        "quality": {
+          "human_accepted": true,
+          "human_rejected": false,
+          "merged": true,
+          "accepted_pr": 100,
+          "contains_author_reverse": true
+        },
+        "training_views": {
+          "executor_sft": true,
+          "autonomous_editor_sft": true,
+          "reviewer_sft": true,
+          "preference_dpo": true
+        },
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "natural_dialogue"
+          ]
+        }
       }
-    ],
-    "chosen_candidate_id": "chosen",
-    "preference_reason": "作者反馈：原稿把抢救段拆成五个独立短行，对白像几个字几个字蹦，没有活人感；同时白川“先别说话”出现在小文说出“七点”之前，“七点过了”像未卜先知地抢答小文未出口的内容。最终选择把同说话人碎句合并为带动作承接的整句：小文“几点了？我爸……七点要治疗。”带“喉咙发紧”状态；白川“先别说话。七点过了。先看着我，别抬头。”合并到同一句，带“低头看他、拢袖口”的动作，使“七点过了”成为对小文“七点要治疗”的回应。原稿（被拒绝）来自 PR #99 头部 79193f2~1 的真实历史版本，不是事后编造的 rejected candidate。",
-    "selection_source": "explicit_author_choice"
-  },
-  "labels": {
-    "chapter": 3,
-    "scene": "rescue",
-    "edit_type": "dialogue_merge_with_action",
-    "anti_pattern": [
-      "split_short_lines",
-      "preknowledge_answer",
-      "no_action_beat"
-    ]
-  },
-  "quality": {
-    "human_accepted": true,
-    "human_rejected": false,
-    "merged": true,
-    "accepted_pr": 100,
-    "contains_author_reverse": true
-  },
-  "training_views": {
-    "executor_sft": true,
-    "autonomous_editor_sft": true,
-    "reviewer_sft": true,
-    "preference_dpo": true
-  },
-  "tags": {
-    "primary": "dialogue",
-    "secondary": [
-      "natural_dialogue"
-    ]
-  }
+    }
+  ]
 }
