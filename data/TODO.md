@@ -3,7 +3,7 @@
 - [x] 1. ~~Loader 支持显式选择 `real`、`synthesized` 或两者，并支持数据源采样权重。~~ 已修复直接子目录多来源被忽略的问题；训练 CLI 接入另行处理。
 - [ ] 2. 增加 `source_group_id`，按场景/来源分组切分，避免同源数据跨训练集与验证集。
 - [x] 3. ~~扩展 schema，强制 synthetic provenance：父记录、事实源、生成模型、模板版本、采样参数、评审信息和审核状态。~~ 可训练 synthetic 记录必须评审 accepted；rejected/tie 仅可作不可训练档案保留。
-- [x] 4. ~~建立编辑偏好分类表：对白、场景、POV、人物、剧情、连续性、no-change。~~ 见 [editorial_preferences.md](editorial_preferences.md)。
+- [x] 4. ~~建立编辑偏好分类表。~~ 见 [editorial_preferences.md](editorial_preferences.md)；其中电影级视听画面 `cinematic` 与空间动作硬逻辑 `spatial_logic` 分开标注。
 - [ ] 5. 实现生成流水线：组装事实源、生成三候选、双评审换序、去重、schema 校验。
 - [ ] 6. 生成并人工全审 100 个 pilot 任务。先采用前五章真实正文编辑互动：首批 [3 处候选](review/ch1_5_batch001.json) 已保存，人工审核 0/3；未写入训练数据，未覆盖正文。
 - [ ] 7. 验证 pilot 门槛：DPO 人工一致率至少 90%，无严重设定错误，近重复率可控。
