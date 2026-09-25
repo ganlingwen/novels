@@ -47,7 +47,13 @@ def test_real_directory_is_discovered_from_parent_and_direct_path(tmp_path):
                             "chosen_candidate_id": "A",
                             "metadata": {},
                         },
-                        "metadata": {},
+                        "metadata": {
+                            "tags": {
+                                "primary": "dialogue",
+                                "secondary": [],
+                                "rationale": "测试目录发现。",
+                            }
+                        },
                     }
                 ],
             },

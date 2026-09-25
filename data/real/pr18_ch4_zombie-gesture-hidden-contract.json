@@ -139,8 +139,12 @@
           "contains_author_reverse": true
         },
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "foreshadowing",
+          "secondary": [
+            "continuity",
+            "tension"
+          ],
+          "rationale": "以公开可成立的武力施压推动尸王撤退，同时只留五指动作承载隐性契约。"
         }
       }
     }

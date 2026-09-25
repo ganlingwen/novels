@@ -73,7 +73,8 @@
             "summary": "AI 为延续病房环境音，额外加入“隔帘后又咳起来，咳声压不下去”。"
           },
           "edit_instruction": "不要为补环境音强插来源不明的咳嗽；若无法明确是谁、为何此刻出现，应保留原文。",
-          "reason": "作者明确指出咳嗽主体不清：既可能误读成小文，也可能是父亲，插入位置突兀；该改动被 reverse，最终 PR #8 不含咳嗽。"
+          "reason": "作者明确指出咳嗽主体不清：既可能误读成小文，也可能是父亲，插入位置突兀；该改动被 reverse，最终 PR #8 不含咳嗽。",
+          "outcome": "no_change"
         },
         "labels": {
           "contains_author_reverse": true,
@@ -92,8 +93,11 @@
           "preference_dpo": true
         },
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "continuity",
+          "secondary": [
+            "cinematic"
+          ],
+          "rationale": "拒绝补入来源不明的咳嗽，避免制造人物指代与场景事实歧义。"
         }
       }
     }

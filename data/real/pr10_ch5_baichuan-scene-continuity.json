@@ -77,8 +77,9 @@
         "tags": {
           "primary": "pov",
           "secondary": [
-            "limited_pov"
-          ]
+            "plot"
+          ],
+          "rationale": "按小文移动顺序先结束地支事件，再由声音自然进入完整药房场景。"
         }
       }
     }

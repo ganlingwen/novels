@@ -68,9 +68,8 @@
         },
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "父亲温和陈述晶核、药和治疗困难，避免连续反问造成质问。"
         }
       }
     }

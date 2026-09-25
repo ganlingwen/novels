@@ -66,10 +66,11 @@
           "contains_author_reverse": true
         },
         "tags": {
-          "primary": "pov",
+          "primary": "spatial_logic",
           "secondary": [
-            "limited_pov"
-          ]
+            "pov"
+          ],
+          "rationale": "先补全外墙、涵管、正门、内墙门和体育馆路线，再据视角选择正文信息。"
         }
       }
     }

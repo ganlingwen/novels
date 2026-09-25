@@ -83,10 +83,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "dialogue",
+          "primary": "plot",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "spatial_logic"
+          ],
+          "rationale": "合并重复撤离并删除无依据的分兵传令，使西墙到内墙的行动线直接衔接广播。"
         }
       }
     }

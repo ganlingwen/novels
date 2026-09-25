@@ -66,8 +66,9 @@
           "contains_author_reverse": true
         },
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "spatial_logic",
+          "secondary": [],
+          "rationale": "把难以描述且与地图不符的内墙转角统一为有通行功能的内墙门。"
         }
       }
     }

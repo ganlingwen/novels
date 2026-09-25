@@ -45,8 +45,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "守卫用自然口语一次报清尸群方向和数量。"
         }
       }
     },
@@ -71,8 +72,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "pov",
+          "secondary": [
+            "continuity"
+          ],
+          "rationale": "删去远距离闻味与无证据因果判断，只保留小文能直接看见的火场画面。"
         }
       }
     },
@@ -99,8 +103,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "plot"
+          ],
+          "rationale": "天干只下可执行守备命令，不重复守卫已报告的信息。"
         }
       }
     },
@@ -141,8 +146,9 @@
       "metadata": {
         "reason": "原句的“偏移尸群”“不是主群”生硬且不便现场听懂；新句用“分出来一股”“两百上下”直接报告敌情。",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "候选比较围绕守卫报敌情的自然口语。"
         }
       }
     },
@@ -183,8 +189,11 @@
       "metadata": {
         "reason": "中间版本虽明确了小文被呛，仍将远处背包滴油与近处嗅觉混淆，重复报告尸群移动，并引入与火场位置不符的吸引方向因果；最终只写可见的人影与滴液。",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "pov",
+          "secondary": [
+            "continuity"
+          ],
+          "rationale": "候选比较围绕远距离感知边界与火场因果判断。"
         }
       }
     },
@@ -227,8 +236,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "plot"
+          ],
+          "rationale": "候选比较围绕命令职责、信息去重和行动收束。"
         }
       }
     }

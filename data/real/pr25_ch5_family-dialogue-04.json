@@ -69,8 +69,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "continuity"
+          ],
+          "rationale": "父亲等待的是副作用变化而非已知药量，并把登记决定交回小文。"
         }
       }
     }

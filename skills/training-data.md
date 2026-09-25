@@ -43,7 +43,11 @@
 - `prompt`：`user_request`、`context`、`original_text`、`metadata`；context 和原文只能为字符串或 null，不再写对象。任务必须显式提供，loader 不从场景或 review 推测。
 - `sft`：`eligible`、`response`、`metadata`；可训练时 response 必须为非空字符串。不用于 SFT 时显式设 false，无目标文本时 response 为 null。target_type 放在其 metadata。
 - `dpo`：`eligible`、`chosen_candidate_id`、`candidates`、`metadata`。候选必须包含 `candidate_id`、完整 `response`、`status`、`pair_id`、`metadata`；origin 放在候选 metadata。选择来源、理由及 prompt_source 放在 dpo.metadata。
-- `metadata`：保留 `review`、`source`、`quality`、tags、历史版本等事实，不参与 loader 的 prompt 拼接。
+- `metadata`：保留 `review`、`source`、`quality`、历史版本等事实，不参与 loader 的 prompt 拼接。
+  `tags` 必须包含 `primary`、`secondary` 和 `rationale`；主次标签都只能使用
+  `continuity`、`plot`、`spatial_logic`、`dialogue`、`cinematic`、`tension`、
+  `presentation`、`pov`、`foreshadowing`、`everyday_life`。`no_change` 只写入
+  `metadata.review.outcome`，不能作为标签。
 
 无偏好对时仍保留 dpo 结构，eligible=false、chosen_candidate_id=null、candidates=[]。
 有偏好对时 chosen_candidate_id 必须明确引用真实候选，每个 status=rejected 的候选必须有全数据集唯一且稳定的 pair_id；其他候选的 pair_id 为 null。

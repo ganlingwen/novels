@@ -35,10 +35,12 @@
       },
       "metadata": {
         "tags": {
-          "primary": "pov",
+          "primary": "continuity",
           "secondary": [
-            "limited_pov"
-          ]
+            "spatial_logic",
+            "tension"
+          ],
+          "rationale": "统一木门、横木、根网与老杜受伤链条，完成失守高潮并保留后续救治因果。"
         }
       }
     },
@@ -82,10 +84,12 @@
           "本次偏好只针对场景衔接和情节因果，不表示新稿文笔优秀或最终定稿。"
         ],
         "tags": {
-          "primary": "pov",
+          "primary": "continuity",
           "secondary": [
-            "limited_pov"
-          ]
+            "spatial_logic",
+            "tension"
+          ],
+          "rationale": "候选比较围绕木门场景连续、动作受力和高潮推进。"
         }
       }
     }

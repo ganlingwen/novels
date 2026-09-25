@@ -28,8 +28,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "everyday_life"
+          ],
+          "rationale": "整段家庭让款与抢凭证体现家人关心，避免机械算账推进。"
         }
       }
     },
@@ -54,10 +55,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "dialogue",
+          "primary": "continuity",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "presentation"
+          ],
+          "rationale": "争抢凭证与伤腿自然促成双手接触，建立首次能力触发因果。"
         }
       }
     },
@@ -97,8 +99,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [
+            "everyday_life"
+          ],
+          "rationale": "父亲优先妻儿的完整家庭口吻取代扣除点数报账。"
         }
       }
     },
@@ -138,8 +143,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "暂缓自己治疗不等于彻底放弃，修正态度措辞。"
         }
       }
     },
@@ -179,8 +185,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "家里这些点数你们先用更符合父亲的自然说法。"
         }
       }
     },
@@ -220,8 +227,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "删除你的含混指代，母亲直接说丈夫已耽误治疗。"
         }
       }
     },
@@ -261,8 +269,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "用一口气说完的昨夜病情反驳淡化，避免碎句分割。"
         }
       }
     },
@@ -302,10 +311,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "dialogue",
+          "primary": "everyday_life",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "dialogue"
+          ],
+          "rationale": "拒绝与病情争执无关的穿衣领口琐事，生活细节要服务当场。"
         }
       }
     },
@@ -346,9 +356,8 @@
       "metadata": {
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "选择我晚几天没事的家庭口吻。"
         }
       }
     },
@@ -388,8 +397,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "character",
-          "secondary": []
+          "primary": "everyday_life",
+          "secondary": [
+            "dialogue"
+          ],
+          "rationale": "晚间取粮安排顾及儿子伤腿，措辞体现照顾而非嫌弃。"
         }
       }
     },
@@ -429,8 +441,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "continuity",
+          "secondary": [
+            "dialogue"
+          ],
+          "rationale": "修正保留点数又谁都不停的矛盾，明确尚未到取舍时刻。"
         }
       }
     },
@@ -470,8 +485,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "保留父亲了解儿子会带伤挣钱的完整表达，拒绝短促轮答。"
         }
       }
     },
@@ -513,8 +529,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "everyday_life"
+          ],
+          "rationale": "母亲用没吃饭和两张凭证都留下收束争执，替代工具性口令。"
         }
       }
     }

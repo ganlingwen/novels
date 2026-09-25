@@ -79,8 +79,9 @@
           "reviewer_sft": "repository_context + prompt.user_request + chapter -> review.discovered_issue"
         },
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "continuity",
+          "secondary": [],
+          "rationale": "把四息改为受累计负荷影响的风险梯度，避免制造固定安全阈值。"
         }
       }
     }

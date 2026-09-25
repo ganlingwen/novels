@@ -55,8 +55,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "continuity"
+          ],
+          "rationale": "主要选择照顾伤员的现场口吻，同时纠正未经确认的止血预设。"
         }
       }
     },
@@ -106,9 +107,8 @@
       "metadata": {
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "向队长陈述需求，避免提醒上级别堵路的负面命令口气。"
         }
       }
     },
@@ -157,8 +157,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "删除显然的先看伤势说明，保留医疗空间和担架要求。"
         }
       }
     },
@@ -208,9 +209,8 @@
       "metadata": {
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "陈述需要的位置条件，避免命令或绕弯索要资源。"
         }
       }
     },
@@ -259,8 +259,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "有个地方让我照顾伤员比位置名词堆叠更像现场口语。"
         }
       }
     },
@@ -291,8 +292,9 @@
           "contains_multi_round_author_feedback": true
         },
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "将已选医疗空间措辞放回白川对队长的完整交代。"
         }
       }
     }

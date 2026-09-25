@@ -76,8 +76,11 @@
           "contains_author_reverse": true
         },
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "presentation",
+          "secondary": [
+            "continuity"
+          ],
+          "rationale": "不由旁白预告高热，直接以现场身体状态呈现，并保持真实转场顺序。"
         }
       }
     }

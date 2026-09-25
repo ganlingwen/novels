@@ -75,8 +75,12 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "plot",
+          "secondary": [
+            "tension",
+            "continuity"
+          ],
+          "rationale": "用父母来不及撤离的私人目标驱动折返，删除打断尸潮压力的无功能回忆。"
         }
       }
     },
@@ -122,8 +126,12 @@
           "把旧事件写成成功疏散，偏离真正需要的当前动机"
         ],
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "plot",
+          "secondary": [
+            "tension",
+            "continuity"
+          ],
+          "rationale": "候选比较围绕折返动机、紧迫感和信息来源。"
         }
       }
     },
@@ -168,8 +176,12 @@
           "参数化解释削弱紧迫感"
         ],
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "plot",
+          "secondary": [
+            "tension",
+            "continuity"
+          ],
+          "rationale": "候选比较围绕折返动机、紧迫感和信息来源。"
         }
       }
     },
@@ -213,8 +225,12 @@
           "关键情报应通过场景里可信且明确的信息渠道进入"
         ],
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "plot",
+          "secondary": [
+            "tension",
+            "continuity"
+          ],
+          "rationale": "候选比较围绕折返动机、紧迫感和信息来源。"
         }
       }
     },
@@ -259,8 +275,12 @@
           "动作应明确表现他逆撤退人流走向涵管"
         ],
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "plot",
+          "secondary": [
+            "tension",
+            "continuity"
+          ],
+          "rationale": "候选比较围绕折返动机、紧迫感和信息来源。"
         }
       }
     }

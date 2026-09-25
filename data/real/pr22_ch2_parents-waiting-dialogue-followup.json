@@ -139,10 +139,9 @@
           "contains_author_reverse": true
         },
         "tags": {
-          "primary": "pov",
-          "secondary": [
-            "limited_pov"
-          ]
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "夫妻对白围绕共同担心儿子展开，去掉说明式日程和刻意拌嘴。"
         }
       }
     }

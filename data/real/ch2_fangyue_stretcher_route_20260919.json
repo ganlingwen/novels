@@ -65,8 +65,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "选择完整自然的担架路线交代，记录仍属后续会细修的中间稿。"
         }
       }
     },
@@ -115,8 +116,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "presentation",
+          "secondary": [
+            "dialogue"
+          ],
+          "rationale": "删掉听完的说明尾巴、无功能担架动作及双方已知的你腿快。"
         }
       }
     },
@@ -174,8 +178,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "presentation",
+          "secondary": [
+            "continuity"
+          ],
+          "rationale": "以看向替代机械转向，叫住会虚构陈锋已离开的状态。"
         }
       }
     },
@@ -206,8 +213,11 @@
           "context_checked": true
         },
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [
+            "presentation"
+          ],
+          "rationale": "最终台词自然交代探路任务，动作仅用于明确受话对象。"
         }
       }
     }

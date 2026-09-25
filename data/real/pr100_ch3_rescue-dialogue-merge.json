@@ -89,8 +89,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "presentation"
+          ],
+          "rationale": "合并抢救段碎句并补动作承接，使白川回答小文真正说出口的问题。"
         }
       }
     }

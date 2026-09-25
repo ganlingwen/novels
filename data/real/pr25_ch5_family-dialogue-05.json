@@ -69,8 +69,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "plot"
+          ],
+          "rationale": "小文只表达登记路线的动摇，不提前决定长期隐瞒。"
         }
       }
     }

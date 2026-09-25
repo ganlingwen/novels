@@ -69,10 +69,9 @@
           "reviewer_sft": "repository_context + prompt.user_request + chapter -> review.discovered_issue"
         },
         "tags": {
-          "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "primary": "continuity",
+          "secondary": [],
+          "rationale": "按次日裁决的实际时点逐句修正昨晚、当晚和昨天。"
         }
       }
     }

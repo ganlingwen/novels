@@ -68,8 +68,9 @@
         "tags": {
           "primary": "pov",
           "secondary": [
-            "limited_pov"
-          ]
+            "spatial_logic"
+          ],
+          "rationale": "只交代小文当下可见的房间位置，不提前展示药房内部。"
         }
       }
     }

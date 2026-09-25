@@ -70,8 +70,11 @@
           "preference_dpo": false
         },
         "tags": {
-          "primary": "character",
-          "secondary": []
+          "primary": "everyday_life",
+          "secondary": [
+            "tension"
+          ],
+          "rationale": "让苹果、逾期凭证和家庭治疗压力进入同一生活动作。"
         }
       }
     }

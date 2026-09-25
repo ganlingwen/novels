@@ -71,9 +71,8 @@
         },
         "tags": {
           "primary": "pov",
-          "secondary": [
-            "limited_pov"
-          ]
+          "secondary": [],
+          "rationale": "遮挡后只用小文能听见和感到的声音、撞击与震动呈现犬猪交战。"
         }
       }
     }

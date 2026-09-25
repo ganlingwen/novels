@@ -17,6 +17,69 @@
   "$defs": {
     "text": {"type": "string", "pattern": "\\S"},
     "nullableText": {"type": ["string", "null"]},
+    "editorialTag": {
+      "enum": [
+        "continuity", "plot", "spatial_logic", "dialogue", "cinematic",
+        "tension", "presentation", "pov", "foreshadowing", "everyday_life"
+      ]
+    },
+    "editorialTags": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["primary", "secondary", "rationale"],
+      "properties": {
+        "primary": {"$ref": "#/$defs/editorialTag"},
+        "secondary": {
+          "type": "array",
+          "maxItems": 9,
+          "items": {"$ref": "#/$defs/editorialTag"},
+          "uniqueItems": true
+        },
+        "rationale": {"$ref": "#/$defs/text"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"primary": {"const": "continuity"}}},
+          "then": {"properties": {"secondary": {"not": {"contains": {"const": "continuity"}}}}}
+        },
+        {
+          "if": {"properties": {"primary": {"const": "plot"}}},
+          "then": {"properties": {"secondary": {"not": {"contains": {"const": "plot"}}}}}
+        },
+        {
+          "if": {"properties": {"primary": {"const": "spatial_logic"}}},
+          "then": {"properties": {"secondary": {"not": {"contains": {"const": "spatial_logic"}}}}}
+        },
+        {
+          "if": {"properties": {"primary": {"const": "dialogue"}}},
+          "then": {"properties": {"secondary": {"not": {"contains": {"const": "dialogue"}}}}}
+        },
+        {
+          "if": {"properties": {"primary": {"const": "cinematic"}}},
+          "then": {"properties": {"secondary": {"not": {"contains": {"const": "cinematic"}}}}}
+        },
+        {
+          "if": {"properties": {"primary": {"const": "tension"}}},
+          "then": {"properties": {"secondary": {"not": {"contains": {"const": "tension"}}}}}
+        },
+        {
+          "if": {"properties": {"primary": {"const": "presentation"}}},
+          "then": {"properties": {"secondary": {"not": {"contains": {"const": "presentation"}}}}}
+        },
+        {
+          "if": {"properties": {"primary": {"const": "pov"}}},
+          "then": {"properties": {"secondary": {"not": {"contains": {"const": "pov"}}}}}
+        },
+        {
+          "if": {"properties": {"primary": {"const": "foreshadowing"}}},
+          "then": {"properties": {"secondary": {"not": {"contains": {"const": "foreshadowing"}}}}}
+        },
+        {
+          "if": {"properties": {"primary": {"const": "everyday_life"}}},
+          "then": {"properties": {"secondary": {"not": {"contains": {"const": "everyday_life"}}}}}
+        }
+      ]
+    },
     "metadata": {
       "type": "object",
       "description": "Source, review, quality, tags, history, selection reasons and other annotations. Historical schema versions/counts here are provenance, not the current training contract."
@@ -69,9 +132,11 @@
     },
     "recordMetadata": {
       "type": "object",
+      "required": ["tags"],
       "properties": {
         "data_origin": {"enum": ["real", "synthetic"]},
-        "synthetic_provenance": {"$ref": "#/$defs/syntheticProvenance"}
+        "synthetic_provenance": {"$ref": "#/$defs/syntheticProvenance"},
+        "tags": {"$ref": "#/$defs/editorialTags"}
       },
       "if": {
         "required": ["data_origin"],

@@ -68,9 +68,8 @@
         },
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "母亲接住犹豫，明确三天是观察期而非登记截止日。"
         }
       }
     }

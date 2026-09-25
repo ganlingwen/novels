@@ -53,8 +53,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "character",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [
+            "everyday_life"
+          ],
+          "rationale": "选择嘴快遮焦虑与队长压住冒进的关系方向，短句仍待修。"
         }
       }
     },
@@ -101,8 +104,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [
+            "everyday_life"
+          ],
+          "rationale": "拒绝机器式三四字和腿长自己有想法的刻意笑话。"
         }
       }
     },
@@ -152,9 +158,8 @@
       "metadata": {
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "纠正长官称呼、同义废话与整齐书面口吻。"
         }
       }
     },
@@ -203,8 +208,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "character",
-          "secondary": []
+          "primary": "everyday_life",
+          "secondary": [
+            "dialogue"
+          ],
+          "rationale": "保留盾的门板关系梗，使玩笑参与先行探路交流。"
         }
       }
     },
@@ -253,8 +261,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "character",
-          "secondary": []
+          "primary": "presentation",
+          "secondary": [],
+          "rationale": "删除没有请示或确认动机的看天干动作。"
         }
       }
     },
@@ -303,8 +312,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "continuity",
+          "secondary": [
+            "everyday_life"
+          ],
+          "rationale": "搜索方向尚未知不能提前出门，同时保留方岳的关系性回应。"
         }
       }
     },
@@ -353,8 +365,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "presentation",
+          "secondary": [
+            "dialogue"
+          ],
+          "rationale": "以陈锋话未听完便行动表现急性子，删除旁白解释动作意义。"
         }
       }
     },
@@ -389,8 +404,12 @@
           "contains_multi_round_author_feedback": true
         },
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [
+            "everyday_life",
+            "presentation"
+          ],
+          "rationale": "整段校准两人的口语和关系，保留门板梗及有动机的行动。"
         }
       }
     }

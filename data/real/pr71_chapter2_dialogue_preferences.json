@@ -27,8 +27,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [
+            "plot"
+          ],
+          "rationale": "天干集中汇报已知信息，马克据此作一次完整救援决策。"
         }
       }
     },
@@ -54,9 +57,8 @@
       "metadata": {
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "白川按重伤准备并自然交代现场处置，避免逐项问答。"
         }
       }
     },
@@ -83,8 +85,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "spatial_logic"
+          ],
+          "rationale": "一句说明侦察员可过的缝不等于担架可过，不展开设计说明。"
         }
       }
     },
@@ -109,8 +112,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [
+            "presentation"
+          ],
+          "rationale": "队长只收束必须执行的事项，删除重复解释和多余代词。"
         }
       }
     },
@@ -152,9 +158,8 @@
         "reason": "把位置、强度、威胁数量等已知与未知信息集中在一次汇报里，只保留真正体现人物判断差异的问题，减少参数式一问一答。",
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "候选比较围绕任务汇报不写成参数轮询。"
         }
       }
     },
@@ -196,9 +201,8 @@
         "reason": "删除“是否授权—授权”的任务 UI 式短问短答，把权限和救人优先级放进同一次决策。",
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "候选比较围绕储备药授权并入完整命令。"
         }
       }
     },
@@ -239,8 +243,9 @@
       "metadata": {
         "reason": "让白川直接根据已有信息做专业判断并交代动作，减少“伤情？—未知—明白”的功能性问答。",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "候选比较围绕医疗角色自然交代伤员处理方式。"
         }
       }
     },
@@ -281,8 +286,11 @@
       "metadata": {
         "reason": "“四个人抬担架”既不准确也没有必要；真正需要表达的只有陈锋能过不代表担架能过。",
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [
+            "spatial_logic"
+          ],
+          "rationale": "候选比较围绕担架通行提醒的口语与空间条件。"
         }
       }
     },
@@ -323,8 +331,9 @@
       "metadata": {
         "reason": "删掉“替我们”等无效关系说明；“找到人”和“见到人”指向同一节点，改成“到时候”避免重复和绕口。",
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "候选比较围绕返程路线命令的去重和自然表达。"
         }
       }
     },
@@ -366,9 +375,8 @@
         "reason": "“先找到人”中的“先”没有必要；“看见倒在地上”也是多余前提，直接说“别直接往肩上扛”更自然。",
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "候选比较围绕发现伤员后的直接自然口语。"
         }
       }
     }

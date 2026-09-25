@@ -29,8 +29,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "everyday_life"
+          ],
+          "rationale": "夫妻担忧通过扶持、逞强和实际照顾表达，不用刻薄机锋。"
         }
       }
     },
@@ -55,8 +56,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "spatial_logic",
+          "secondary": [
+            "pov"
+          ],
+          "rationale": "用亲历窄缝作体型尺度，避免角色凭空知道尺寸。"
         }
       }
     },
@@ -83,8 +87,9 @@
         "tags": {
           "primary": "pov",
           "secondary": [
-            "limited_pov"
-          ]
+            "spatial_logic"
+          ],
+          "rationale": "让小文通过走路、摸柱和试洞逐步建立伏击空间。"
         }
       }
     },
@@ -109,10 +114,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "pov",
+          "primary": "foreshadowing",
           "secondary": [
-            "limited_pov"
-          ]
+            "continuity"
+          ],
+          "rationale": "首次能力只作轻微含混前兆，不提前确认机制或治好伤势。"
         }
       }
     },
@@ -137,8 +143,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "character",
-          "secondary": []
+          "primary": "spatial_logic",
+          "secondary": [],
+          "rationale": "用远离洞口表达移动目标，避免深处造成错误方向想象。"
         }
       }
     },
@@ -164,9 +171,8 @@
       "metadata": {
         "tags": {
           "primary": "pov",
-          "secondary": [
-            "limited_pov"
-          ]
+          "secondary": [],
+          "rationale": "遮挡后只用锈渣、声音、光线和水流呈现坍塌。"
         }
       }
     },
@@ -191,10 +197,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "pov",
+          "primary": "continuity",
           "secondary": [
-            "limited_pov"
-          ]
+            "pov"
+          ],
+          "rationale": "明确钢钎先前位置后再回收，守住道具和可见范围。"
         }
       }
     },
@@ -219,8 +226,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "pov",
+          "secondary": [
+            "continuity"
+          ],
+          "rationale": "家人异地状态只能写小文的推算与出门前记忆。"
         }
       }
     },
@@ -260,8 +270,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [
+            "everyday_life"
+          ],
+          "rationale": "候选比较围绕符合身体状态的照顾动作与家庭关系。"
         }
       }
     },
@@ -301,8 +314,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "character",
-          "secondary": []
+          "primary": "spatial_logic",
+          "secondary": [
+            "pov"
+          ],
+          "rationale": "候选比较围绕怪物体型证据和角色知识边界。"
         }
       }
     },
@@ -342,10 +358,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "pov",
+          "primary": "spatial_logic",
           "secondary": [
-            "limited_pov"
-          ]
+            "pov"
+          ],
+          "rationale": "轮胎只形成遮挡，不能写成怪物钻入不符合体型的空间。"
         }
       }
     },
@@ -385,8 +402,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "foreshadowing",
+          "secondary": [
+            "continuity"
+          ],
+          "rationale": "候选比较围绕首次能力前兆的含混程度与机制边界。"
         }
       }
     },
@@ -426,8 +446,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "spatial_logic",
+          "secondary": [],
+          "rationale": "候选比较围绕夹道移动方向的可理解性。"
         }
       }
     },
@@ -468,9 +489,8 @@
       "metadata": {
         "tags": {
           "primary": "pov",
-          "secondary": [
-            "limited_pov"
-          ]
+          "secondary": [],
+          "rationale": "候选比较围绕洞沿遮挡后的受限感知。"
         }
       }
     },
@@ -512,8 +532,9 @@
         "tags": {
           "primary": "pov",
           "secondary": [
-            "limited_pov"
-          ]
+            "spatial_logic"
+          ],
+          "rationale": "坍塌高潮不能切到全知视角解释完整机械过程。"
         }
       }
     },
@@ -555,8 +576,9 @@
         "tags": {
           "primary": "pov",
           "secondary": [
-            "limited_pov"
-          ]
+            "continuity"
+          ],
+          "rationale": "治疗时点只能作为小文推算，不能越权宣布家里已发生的结果。"
         }
       }
     },
@@ -596,8 +618,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "continuity",
+          "secondary": [],
+          "rationale": "候选比较围绕预放钢钎的位置连续性。"
         }
       }
     },
@@ -637,10 +660,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "pov",
+          "primary": "presentation",
           "secondary": [
-            "limited_pov"
-          ]
+            "pov"
+          ],
+          "rationale": "以可见步态和伤爪表现猫的谨慎，不替动物解释战术意图。"
         }
       }
     }

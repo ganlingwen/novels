@@ -50,8 +50,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "plot"
+          ],
+          "rationale": "整段家庭谈话围绕资源、自主权和暂缓登记展开，保持决定时点与对话自然。"
         }
       }
     }

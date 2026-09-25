@@ -65,8 +65,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [
+            "continuity"
+          ],
+          "rationale": "病情汇报自然承接治疗与现状，去掉机器式询问和错误重新处理。"
         }
       }
     },
@@ -118,8 +121,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [
+            "continuity"
+          ],
+          "rationale": "先回应伤员再询问事故，删预告问话说明并纠正老秦姓名。"
         }
       }
     },
@@ -171,8 +177,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "continuity",
+          "secondary": [
+            "dialogue"
+          ],
+          "rationale": "证词必须与老秦断后牺牲一致，不能混成老杜或暂时先走。"
         }
       }
     },
@@ -231,8 +240,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "continuity",
+          "secondary": [
+            "dialogue"
+          ],
+          "rationale": "阿慧救人经历不能凭空改写，同时首次提野猪须清楚。"
         }
       }
     },
@@ -291,8 +303,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "presentation",
+          "secondary": [
+            "dialogue"
+          ],
+          "rationale": "删文员停笔和没有催等无功能反应，直接安排向家属说明。"
         }
       }
     },
@@ -344,8 +359,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [
+            "continuity"
+          ],
+          "rationale": "抚恤欠账用完整口语表达，去掉虚构名单与已追债的暗示。"
         }
       }
     },
@@ -397,8 +415,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "presentation",
+          "secondary": [
+            "dialogue"
+          ],
+          "rationale": "转身面向病房承载公开表态，去掉让大家听见的解释。"
         }
       }
     },
@@ -457,8 +478,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "presentation",
+          "secondary": [
+            "pov"
+          ],
+          "rationale": "手松与嘴角笑意呈现减压，不凭看不见的红印或称谓感谢代替反应。"
         }
       }
     }

@@ -75,10 +75,11 @@
           "contains_author_reverse": true
         },
         "tags": {
-          "primary": "pov",
+          "primary": "foreshadowing",
           "secondary": [
-            "limited_pov"
-          ]
+            "presentation"
+          ],
+          "rationale": "让灯光、断影和停步自行构成伏笔，删除小文记住了的意义标注。"
         }
       }
     }

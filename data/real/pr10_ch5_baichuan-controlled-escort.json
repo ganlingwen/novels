@@ -66,8 +66,11 @@
           "contains_author_reverse": true
         },
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [
+            "continuity"
+          ],
+          "rationale": "守卫一前一后控制白川，避免动作措辞反转人物权力关系。"
         }
       }
     }

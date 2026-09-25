@@ -46,9 +46,8 @@
       "metadata": {
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "把父子分苹果的同一意图合成一句自然对白。"
         }
       }
     },
@@ -77,10 +76,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "dialogue",
+          "primary": "cinematic",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "pov"
+          ],
+          "rationale": "先让小文听见床板和拍背声，再由声音引入母亲低语与夜间照顾。"
         }
       }
     }

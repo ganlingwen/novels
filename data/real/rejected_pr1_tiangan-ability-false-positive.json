@@ -77,8 +77,12 @@
         },
         "conversion_note": "Reviewer preference only; do not treat chosen/rejected as novel prose or create SFT from this negative review.",
         "tags": {
-          "primary": "character",
-          "secondary": []
+          "primary": "continuity",
+          "secondary": [],
+          "rationale": "天干报数是已确立的魂灯能力，不应改写成普通侦察来源。"
+        },
+        "review": {
+          "outcome": "no_change"
         }
       }
     }

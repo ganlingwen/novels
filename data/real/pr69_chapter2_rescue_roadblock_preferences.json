@@ -27,10 +27,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "pov",
+          "primary": "spatial_logic",
           "secondary": [
-            "limited_pov"
-          ]
+            "cinematic"
+          ],
+          "rationale": "以断墙、楼板、砖堆和手电光建立上方阻断、下方可通的主画面。"
         }
       }
     },
@@ -55,10 +56,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "pov",
+          "primary": "presentation",
           "secondary": [
-            "limited_pov"
-          ]
+            "spatial_logic"
+          ],
+          "rationale": "让陈锋通过照明和拨砖确认通道，不由旁白提前宣布调查结论。"
         }
       }
     },
@@ -83,8 +85,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "plot",
+          "secondary": [
+            "spatial_logic"
+          ],
+          "rationale": "清障动作只顺手照顾担架返程，不让准备工作压过救人主线。"
         }
       }
     },
@@ -109,8 +114,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "plot",
+          "secondary": [],
+          "rationale": "删除低收益小障碍，让塌楼独立承担延迟功能。"
         }
       }
     },
@@ -135,8 +141,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "continuity",
+          "secondary": [
+            "pov"
+          ],
+          "rationale": "林夏只报告可听见的异常节奏，不越过能力和知识边界判断物种伤情。"
         }
       }
     },
@@ -161,8 +170,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "plot",
+          "secondary": [
+            "tension"
+          ],
+          "rationale": "清障后立即恢复监听与搜索，让救援线继续向目标推进。"
         }
       }
     },
@@ -203,8 +215,9 @@
       "metadata": {
         "reason": "用可见参照物建立断墙、楼板、洞口关系；避免让砖同时像障碍又像承重物。",
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "spatial_logic",
+          "secondary": [],
+          "rationale": "候选比较围绕塌楼阻路与楼板下通道的空间成图。"
         }
       }
     },
@@ -245,8 +258,11 @@
       "metadata": {
         "reason": "只依据眼前可确认的信息行动；不凭空加入精确四百米地图信息和不必要的时间算术。",
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "plot",
+          "secondary": [
+            "spatial_logic"
+          ],
+          "rationale": "候选比较围绕清障而非绕行的行动选择和路线条件。"
         }
       }
     },
@@ -287,8 +303,9 @@
       "metadata": {
         "reason": "让砖只有堵路一个功能；删除承重砖、盾牌、路沿、垫砖等过度机制。",
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "spatial_logic",
+          "secondary": [],
+          "rationale": "候选比较围绕清理入口动作，避免无必要的结构力学谜题。"
         }
       }
     },
@@ -329,8 +346,11 @@
       "metadata": {
         "reason": "用顺手多清两块砖兜住返程空间，几乎不耽误救援，不让担架准备抢走当前救人的优先级。",
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "plot",
+          "secondary": [
+            "spatial_logic"
+          ],
+          "rationale": "候选比较围绕救人优先与担架返程通行。"
         }
       }
     },
@@ -371,8 +391,9 @@
       "metadata": {
         "reason": "水下铁丝占用篇幅却没有足够人物刻画或关键因果，并与塌楼重复承担拖延功能。",
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "plot",
+          "secondary": [],
+          "rationale": "候选比较围绕压缩无意义障碍、突出关键塌方。"
         }
       }
     },
@@ -413,8 +434,11 @@
       "metadata": {
         "reason": "把受伤保留为疑问并由林夏纠正，避免把异常节奏直接等同于受伤。",
         "tags": {
-          "primary": "character",
-          "secondary": []
+          "primary": "pov",
+          "secondary": [
+            "continuity"
+          ],
+          "rationale": "候选比较围绕监听者的感知证据和知识边界。"
         }
       }
     },
@@ -455,8 +479,11 @@
       "metadata": {
         "reason": "与简化后的清障时间线一致，删除垫楼板、白川正在通过等旧机制残留。",
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "continuity",
+          "secondary": [
+            "plot"
+          ],
+          "rationale": "章末救援队状态必须与已经改写的清障机制一致。"
         }
       }
     }

@@ -68,8 +68,9 @@
         "tags": {
           "primary": "pov",
           "secondary": [
-            "limited_pov"
-          ]
+            "spatial_logic"
+          ],
+          "rationale": "让拓扑随小文起身、转头和撤退人流逐步进入视野。"
         }
       }
     }

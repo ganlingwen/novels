@@ -69,8 +69,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "everyday_life"
+          ],
+          "rationale": "小文用符合年龄和家庭关系的轻松话缓和手部异常。"
         }
       }
     }

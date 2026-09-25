@@ -15,6 +15,22 @@ RECOVERED_IDS = {
     "ch3_baichuan_medical_bill_20260919:final_context_confirmation",
     "ch3_cat_kill_credit_20260919:final_context_confirmation",
 }
+EDITORIAL_TAGS = {
+    "continuity",
+    "plot",
+    "spatial_logic",
+    "dialogue",
+    "cinematic",
+    "tension",
+    "presentation",
+    "pov",
+    "foreshadowing",
+    "everyday_life",
+}
+NO_CHANGE_IDS = {
+    "novels_pr8_ch3_002",
+    "novels_pr1_rejected_tiangan_001",
+}
 
 
 def _candidate(cid, response, status, pair_id=None):
@@ -50,7 +66,14 @@ def record():
             ],
             "metadata": {"selection_source": "explicit_author_choice"},
         },
-        "metadata": {"review": {"edit_instruction": "不应被隐式加入 prompt"}},
+        "metadata": {
+            "review": {"edit_instruction": "不应被隐式加入 prompt"},
+            "tags": {
+                "primary": "dialogue",
+                "secondary": [],
+                "rationale": "测试对白编辑记录。",
+            },
+        },
     }
 
 
@@ -166,8 +189,27 @@ def test_entire_real_corpus_matches_schema_and_preserves_migration_baseline():
     validator = Draft202012Validator(schema)
     paths = sorted((DATA_DIR / "real").glob("*.json"))
     assert len(paths) == 76
-    for path in paths:
-        validator.validate(json.loads(path.read_text(encoding="utf-8")))
+    review_paths = sorted((DATA_DIR / "review").glob("*.json"))
+    records = []
+    for path in paths + review_paths:
+        bundle = json.loads(path.read_text(encoding="utf-8"))
+        validator.validate(bundle)
+        records.extend(bundle["records"])
+
+    assert len(records) == 304
+    assert {record["metadata"]["tags"]["primary"] for record in records} == EDITORIAL_TAGS
+    for record in records:
+        tags = record["metadata"]["tags"]
+        assert set(tags["secondary"]) <= EDITORIAL_TAGS
+        assert tags["primary"] not in tags["secondary"]
+        review = record["metadata"].get("review", {})
+        assert "category" not in review
+        assert "secondary_categories" not in review
+    assert {
+        record["id"]
+        for record in records
+        if record["metadata"].get("review", {}).get("outcome") == "no_change"
+    } == NO_CHANGE_IDS
 
     sft = load_local_sft_records(DATA_DIR)
     dpo = load_local_dpo_records(DATA_DIR)
@@ -180,6 +222,21 @@ def test_entire_real_corpus_matches_schema_and_preserves_migration_baseline():
         "49dcb05972816fd968f994d606c78f7da38c7006ec860d903d67ed353d315426"
     )
     assert _digest(_without_origin(dpo)) == "1fe954d442f5bf5387c8f305cf2634c5318f479937cbf7251948a8b867fa2c29"
+
+
+@pytest.mark.parametrize(
+    "tags",
+    [
+        {"primary": "scene", "secondary": [], "rationale": "旧标签"},
+        {"primary": "dialogue", "secondary": ["dialogue"], "rationale": "主次重复"},
+        {"primary": "dialogue", "secondary": ["pov", "pov"], "rationale": "次标签重复"},
+    ],
+)
+def test_schema_rejects_noncanonical_or_duplicate_editorial_tags(record, tags):
+    record["metadata"]["tags"] = tags
+    bundle = {"schema_version": "3.0", "metadata": {}, "records": [record]}
+    schema = json.loads((DATA_DIR / "schema.json").read_text(encoding="utf-8"))
+    assert not Draft202012Validator(schema).is_valid(bundle)
 
 
 def test_reviewer_only_record_does_not_become_novel_prose_sft():
@@ -213,6 +270,11 @@ def test_synthesized_record_requires_full_provenance_and_explicit_source(tmp_pat
     record["dpo"]["candidates"][3]["pair_id"] = "synthetic-pair-2"
     record["metadata"] = {
         "data_origin": "synthetic",
+        "tags": {
+            "primary": "dialogue",
+            "secondary": [],
+            "rationale": "测试合成记录。",
+        },
         "synthetic_provenance": {
             "parent_record_ids": ["real-parent-1"],
             "source_group_id": "chapter3-ward",
@@ -271,6 +333,11 @@ def test_direct_directory_cannot_silently_drop_selected_source(tmp_path, source,
 def test_synthetic_judgment_controls_training_eligibility(tmp_path, record, decision, sft_eligible, dpo_eligible):
     record["metadata"] = {
         "data_origin": "synthetic",
+        "tags": {
+            "primary": "dialogue",
+            "secondary": [],
+            "rationale": "测试合成记录。",
+        },
         "synthetic_provenance": {
             "parent_record_ids": ["parent"],
             "source_group_id": "group",

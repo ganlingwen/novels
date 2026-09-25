@@ -34,8 +34,12 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "spatial_logic",
+          "secondary": [
+            "tension",
+            "continuity"
+          ],
+          "rationale": "按横木两端、墙槽、门板和双手占用重建受力过程，并让门栓失效形成压力。"
         }
       }
     },
@@ -78,8 +82,12 @@
           "先催快再阻止抬木，指令与动作矛盾；木匠应直接安排左右两端的工作。"
         ],
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "spatial_logic",
+          "secondary": [
+            "tension",
+            "continuity"
+          ],
+          "rationale": "候选比较围绕同一横木受力、站位和门板变形问题。"
         }
       }
     },
@@ -122,8 +130,12 @@
           "左端已入槽，无须继续扶左边；老杜应趁右端落地直接凿，削完后两人共同抬右端。"
         ],
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "spatial_logic",
+          "secondary": [
+            "tension",
+            "continuity"
+          ],
+          "rationale": "候选比较围绕同一横木受力、站位和门板变形问题。"
         }
       }
     },
@@ -166,8 +178,12 @@
           "小文腿伤未愈，不能无依据地写奔跑；不以额外肢体描写代替场景紧迫感。"
         ],
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "spatial_logic",
+          "secondary": [
+            "tension",
+            "continuity"
+          ],
+          "rationale": "候选比较围绕同一横木受力、站位和门板变形问题。"
         }
       }
     },
@@ -210,8 +226,12 @@
           "小文双手抬横木时不可能仍保持手掌按地；施术后根网应自行维持。"
         ],
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "spatial_logic",
+          "secondary": [
+            "tension",
+            "continuity"
+          ],
+          "rationale": "候选比较围绕同一横木受力、站位和门板变形问题。"
         }
       }
     }

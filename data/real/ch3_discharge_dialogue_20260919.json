@@ -28,8 +28,11 @@
         "id": "sft01",
         "focus": "出院医嘱与换药信息链",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "continuity",
+          "secondary": [
+            "dialogue"
+          ],
+          "rationale": "先建立次日换药安排，再让小文提出省费请求。"
         }
       }
     },
@@ -56,8 +59,9 @@
         "id": "sft02",
         "focus": "省点数请求",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "小文基于已知安排自然请求少换一次药。"
         }
       }
     },
@@ -84,8 +88,9 @@
         "id": "sft03",
         "focus": "白川回应",
         "tags": {
-          "primary": "character",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "白川回应省点数动机并坚持查伤，属于该轮对白定稿。"
         }
       }
     },
@@ -112,8 +117,9 @@
         "id": "sft04",
         "focus": "动作替代旁白式沉默",
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "presentation",
+          "secondary": [],
+          "rationale": "用低头表现被点破的反应，替代泛化的没说话。"
         }
       }
     },
@@ -140,8 +146,11 @@
         "id": "sft05",
         "focus": "规则与人物塑造",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "continuity",
+          "secondary": [
+            "dialogue"
+          ],
+          "rationale": "个人垫付取代基地普遍赊欠，恢复经济规则与白川帮助方式。"
         }
       }
     },
@@ -168,8 +177,9 @@
         "id": "sft06",
         "focus": "后文连续性",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "continuity",
+          "secondary": [],
+          "rationale": "后文同步白川个人垫付，消除继续说先欠的规则矛盾。"
         }
       }
     },
@@ -213,8 +223,9 @@
         "id": "dpo01",
         "focus": "信息前置",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "continuity",
+          "secondary": [],
+          "rationale": "请求换药前先有医嘱来源，避免人物凭空知道安排。"
         }
       }
     },
@@ -258,8 +269,9 @@
         "id": "dpo02",
         "focus": "去除多余指代",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "去掉明天这次的冗余指代，让请求顺口。"
         }
       }
     },
@@ -303,8 +315,9 @@
         "id": "dpo03",
         "focus": "换药对白自然化",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "换药对话由碎句报账改为自然请求与回应。"
         }
       }
     },
@@ -348,8 +361,9 @@
         "id": "dpo04",
         "focus": "动作表现",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "presentation",
+          "secondary": [],
+          "rationale": "选低头而非笼统沉默作为人物当下反应。"
         }
       }
     },
@@ -393,8 +407,9 @@
         "id": "dpo05",
         "focus": "规则一致性",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "continuity",
+          "secondary": [],
+          "rationale": "区分个人垫付和制度允许欠费。"
         }
       }
     },
@@ -438,8 +453,9 @@
         "id": "dpo06",
         "focus": "避免重复解释",
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "删除对白已能推知的省钱解释，保留复查与走路要求。"
         }
       }
     },
@@ -483,8 +499,9 @@
         "id": "dpo07",
         "focus": "后文连续性",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "continuity",
+          "secondary": [],
+          "rationale": "父亲问费用时，小文回答与个人垫付事实一致。"
         }
       }
     }

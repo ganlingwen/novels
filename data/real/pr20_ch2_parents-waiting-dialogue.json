@@ -85,10 +85,11 @@
           "contains_author_reverse": true
         },
         "tags": {
-          "primary": "pov",
+          "primary": "dialogue",
           "secondary": [
-            "limited_pov"
-          ]
+            "presentation"
+          ],
+          "rationale": "母亲以熟人挤兑点破强装镇定，父亲先失措再借任务信息回避。"
         }
       }
     }
