@@ -1,0 +1,220 @@
+{
+  "schema_version": "3.0",
+  "metadata": {
+    "source": "merged_pr_with_author_iterative_corrections",
+    "repository": "ganlingwen/novels",
+    "pr": 143,
+    "url": "https://github.com/ganlingwen/novels/pull/143",
+    "base_commit": "01f279d",
+    "initial_edit_commit": "cc8957046678fb96822832e9252b57da56e6f1d5",
+    "accepted_commit": "7d0be91349ed5396d6fab601afedcabeec8caaf8",
+    "source_group_id": "chapter4-breakfast-departure",
+    "scope": "早餐至出门的五项局部编辑决定。病情、治疗进度与母亲行走能力的调整被作者暂缓，不作为接受或拒绝的训练样本；已有 PR #142 记录不重复采集。",
+    "annotation_policy": "文本逐字取自 Git 中真实版本；前三类宽泛编辑要求由 PR 范围归纳并明确标注，非作者原话。只有有明确局部纠正依据的两条启用 DPO，其余仅保存已合入的 SFT。",
+    "acceptance_evidence": [
+      "好的，把当前的修改放到 143 号 PR 里面，再提交一下。",
+      "现在合入这个 PR。"
+    ]
+  },
+  "records": [
+    {
+      "id": "pr143-ch4-breakfast-record-question",
+      "prompt": {
+        "user_request": "精修第四章早餐时一家人查看反噬记录的片段。",
+        "context": "母亲昨夜守在小文身边，知道他曾长时间松不开握钟的手。小文却只在共同记录中留下“轻微头痛，休息后缓解”。本题修改这段交流，不重新设计一家人的病情或治疗进度。",
+        "original_text": "母亲从帘后出来，拿起共同记录从头翻到尾。\n\n“你自己写的呢？”\n\n“都记在这上面。”\n\n母亲抬起他的右手。掌心的紫痕已经淡下去，最深处还留着半圈机械钟外壳的锯齿印。\n\n“窗板也长牙？”\n\n小文把手抽回来：“昨晚抓钟的时候硌的。”\n\n母亲又把他的手拉回来：“张开。”\n\n小文摊开五指。无名指慢了半拍，最后还是伸直了。母亲用拇指按过那圈锯齿印，没有再问窗板。",
+        "metadata": {
+          "provenance": "normalized_from_pr_scope_not_verbatim_author_prompt"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "早饭摆上桌时，小文把共同记录递给了母亲。\n\n母亲念到“轻微”，没有往下念。\n\n“昨晚那样也叫轻微？”\n\n小文用右手端起碗。掌心的压痕碰到碗底，隐隐发疼，碗却没有歪。\n\n“后来就能动了。”\n\n“我就在你旁边坐了一夜。”母亲把纸放下，“什么时候能动的，我不知道？”\n\n他低头喝粥。父亲从帘内伸来手，母亲把记录递过去。父亲翻过一面，又翻回来。\n\n“昨晚手松不开的事，怎么没写？”",
+        "metadata": {"target_type": "accepted_revision"}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {"reason": "有最终合入证据，但不将原文自动推断为同题被拒候选。"}
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-breakfast-departure",
+        "source": {"file": "generated/chapter4.md", "pr": 143, "original_commit": "01f279d", "accepted_commit": "7d0be91"},
+        "review": {
+          "provenance": "retrospective_annotation_of_merged_diff",
+          "outcome": "accepted",
+          "edit_instruction": "让母亲依据守夜所见追问记录，让父亲参与核对。",
+          "reason": "标注者归纳：围绕隐瞒反噬的当下分歧组织交流，端碗与递记录承接说话。"
+        },
+        "quality": {"human_accepted": true, "merged": true},
+        "tags": {"primary": "dialogue", "secondary": ["presentation"], "rationale": "父母关注遗漏的症状，小文试图用当前恢复情况回避，形成具体的家庭交流。"}
+      }
+    },
+    {
+      "id": "pr143-ch4-work-cost-dialogue",
+      "prompt": {
+        "user_request": "精修第四章早餐时小文提出带伤出工的片段。",
+        "context": "父亲刚问小文为什么没记下昨晚手松不开的事。小文的伤腿尚未恢复，今天还要找白川复查；家庭现有十五点，母亲一次治疗需二十点，西墙清理活一天三点。只改这一场出工争执，不调整经济或疾病设定。",
+        "original_text": "小文拿起门边的任务牌：“今天在西墙里面清枝，不用出城。”\n\n母亲盯着他没有动筷子的早饭。小文没再解释，把任务牌翻到写着“三点”的一面，夹进十五点医疗单里。",
+        "metadata": {"provenance": "normalized_from_pr_scope_not_verbatim_author_prompt"}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "小文把空碗放到桌上，朝门口偏了偏头：“你听，走廊里是不是又在喊人？刚才说西墙清理组今天缺人，我去看看哈。”\n\n母亲伸手按住他撑向桌沿的左手。\n\n“你今天还去干活？不是还得去医院复查吗？”\n\n“我记着呢，干完就去找白医生。今天就是清一清菜地里的枯秧，我坐着也能做，不用搬东西。”\n\n“上回去搬粮，回来就伤成这样。你这腿还没养好呢。”\n\n“妈，我去做一天还能挣三点，总比在家待着强。”\n\n父亲说：“这三点就算加上，也不够给你妈治病。”\n\n“那也得把今天的口粮带回来呀。一点都不挣，咱们不就坐吃山空了嘛。”",
+        "metadata": {"target_type": "accepted_revision"}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {"reason": "保存最终接受的出工交流；未补造作者逐个否决历史措辞的证据。"}
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-breakfast-departure",
+        "source": {"file": "generated/chapter4.md", "pr": 143, "original_commit": "01f279d", "accepted_commit": "7d0be91"},
+        "review": {
+          "provenance": "retrospective_annotation_of_merged_diff",
+          "outcome": "accepted",
+          "edit_instruction": "通过母亲担心伤势、父亲指出治疗缺口、小文坚持挣口粮，呈现带伤出工的选择。",
+          "reason": "标注者归纳：对白同时承载回避追问、照顾和生计分歧，不单靠任务牌数字说明动机。"
+        },
+        "quality": {"human_accepted": true, "merged": true},
+        "tags": {"primary": "dialogue", "secondary": ["everyday_life", "plot"], "rationale": "用一家人各自关心的具体事情推动出工决定，保留家庭生活中的争执和回避。"}
+      }
+    },
+    {
+      "id": "pr143-ch4-rise-before-hand-check",
+      "prompt": {
+        "user_request": "我是说改成小文起身走向门口会更紧凑一点。",
+        "context": "小文与父母的出工争执结束，清理组还在招人。接下来母亲要叫住他检查右手，检查后他继续走到门边拿短拐。修改招工声至握手检查这一小段，保持动作衔接。",
+        "original_text": "屋外有人敲着门框催清理组集合。小文望向门口，母亲却先叫他把右手伸出来。她摸过那圈压痕，让他握了握自己的手指。\n\n这次握住了，也松得开。",
+        "metadata": {"provenance": "verbatim_author_correction"}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "走廊里又有人喊：“西墙清理组还缺人，愿意干的到楼下报名！”\n\n小文起身走向门口，母亲叫住小文：“先把右手伸过来，让妈看看。”\n\n小文转身伸出右手。母亲摸过掌心那圈压痕：“握一下妈的手，试试还麻不麻。”\n\n小文握住母亲的手指，又慢慢松开。",
+        "metadata": {"target_type": "accepted_revision"}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "rise_then_called_back",
+        "candidates": [
+          {
+            "candidate_id": "rise_then_called_back",
+            "response": "走廊里又有人喊：“西墙清理组还缺人，愿意干的到楼下报名！”\n\n小文起身走向门口，母亲叫住小文：“先把右手伸过来，让妈看看。”\n\n小文转身伸出右手。母亲摸过掌心那圈压痕：“握一下妈的手，试试还麻不麻。”\n\n小文握住母亲的手指，又慢慢松开。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {"origin": "accepted_commit", "commit": "7d0be91"}
+          },
+          {
+            "candidate_id": "look_toward_door",
+            "response": "屋外有人敲着门框催清理组集合。小文望向门口，母亲却先叫他把右手伸出来。她摸过那圈压痕，让他握了握自己的手指。\n\n这次握住了，也松得开。",
+            "status": "rejected",
+            "pair_id": "pr143-ch4-rise-before-hand-check:rejected:look-toward-door",
+            "metadata": {"origin": "reviewed_initial_pr_version", "commit": "cc89570"}
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "作者明确要求小文起身走向门口，认为这样更紧凑；最终版本随后获准提交并合入。比较范围是这段真实修订，不虚构其他中间候选。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-breakfast-departure",
+        "source": {"file": "generated/chapter4.md", "pr": 143, "original_commit": "cc89570", "accepted_commit": "7d0be91"},
+        "review": {"provenance": "explicit_author_correction", "outcome": "accepted", "reason": "我是说改成小文起身走向门口会更紧凑一点。"},
+        "quality": {"human_accepted": true, "merged": true, "human_preference": true},
+        "tags": {"primary": "plot", "secondary": ["spatial_logic"], "rationale": "把离开的动作提前，母亲当场叫住、检查，随后继续出门，减少原地等待。"}
+      }
+    },
+    {
+      "id": "pr143-ch4-stop-work-instruction",
+      "prompt": {
+        "user_request": "精修第四章母亲叮嘱小文出工、随后小文离开的片段。",
+        "context": "母亲刚叫住已经起身往门口走的小文，检查了他的右手。小文握住母亲的手指后已经松开。这里衔接叮嘱与继续出门；小文右腿仍有伤，短拐放在门边。",
+        "original_text": "“带镰刀，别把手伸进土里。”母亲把共同记录压在任务牌上，“收工去找白川。她问你的手，你别拿腿答。”\n\n她停了一下，又把共同记录推回小文面前：“晚上回来，你自己写过的记录一张不少地拿给我。”",
+        "metadata": {"provenance": "normalized_from_pr_scope_not_verbatim_author_prompt"}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“要是手又麻了，就赶紧把活放下去找白医生，别非得等到收工。”母亲松开小文的手，“晚上回来把这张记录补全了，别让我问一句，你才往上添一句。”\n\n小文应了，继续往门口走。经过木凳时，右脚没抬够，鞋尖碰了一下凳腿。他停下来，等那阵疼过去，才拿起门边的短拐。",
+        "metadata": {"target_type": "accepted_revision"}
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {"reason": "采用合入版本作为 SFT；不把缺少明确比较依据的原文标成 DPO 负例。"}
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-breakfast-departure",
+        "source": {"file": "generated/chapter4.md", "pr": 143, "original_commit": "01f279d", "accepted_commit": "7d0be91"},
+        "review": {
+          "provenance": "retrospective_annotation_of_merged_diff",
+          "outcome": "accepted",
+          "edit_instruction": "母亲要求再麻就停工就医，并要求补全记录；小文接续先前移动，拿到门边短拐。",
+          "reason": "标注者归纳：照顾落实为具体叮嘱，出门仍受伤腿影响。仅标注当前片段，不表示疾病和后续逃亡设计已经验收。"
+        },
+        "quality": {"human_accepted": true, "merged": true},
+        "tags": {"primary": "dialogue", "secondary": ["continuity", "everyday_life"], "rationale": "母亲的关切落在停工、复查和补记症状，接续已起身的动作。"}
+      }
+    },
+    {
+      "id": "pr143-ch4-doorway-pronoun-clarity",
+      "prompt": {
+        "user_request": "只改这句的指代问题，写清楚是谁走出几步、谁还站在那里。",
+        "context": "母亲送小文到门口。小文走出后回头看母亲。作者要求本次只改指代，病情、治疗进度和母亲是否需要扶墙都暂缓处理。",
+        "original_text": "他走出几步，回头看，她还站在那里。",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_correction",
+          "author_feedback": "就只改这句的问题：他走出几步，回头看，他还站在那里。这又是两个他，不知道哪个是他。你就改这一个，我们这个 PR 就到这里。",
+          "text_fidelity_note": "作者口述用了两个“他”，Git 现稿实际为“他……她”；候选保留 Git 原字，不据口述制造错误版本。"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "小文走出几步，回头看见母亲还站在那里。",
+        "metadata": {"target_type": "accepted_revision"}
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "explicit_people",
+        "candidates": [
+          {
+            "candidate_id": "explicit_people",
+            "response": "小文走出几步，回头看见母亲还站在那里。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {"origin": "accepted_commit", "commit": "7d0be91"}
+          },
+          {
+            "candidate_id": "pronouns",
+            "response": "他走出几步，回头看，她还站在那里。",
+            "status": "rejected",
+            "pair_id": "pr143-ch4-doorway-pronoun-clarity:rejected:pronouns",
+            "metadata": {"origin": "reviewed_initial_pr_version", "commit": "cc89570"}
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "作者明确指出连续代词使人物不清，要求仅修这一句；接受以小文和母亲明确动作归属。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-breakfast-departure",
+        "source": {"file": "generated/chapter4.md", "pr": 143, "original_commit": "cc89570", "accepted_commit": "7d0be91"},
+        "review": {"provenance": "explicit_author_correction", "outcome": "accepted", "reason": "作者要求明确走出、回头和站在门口分别对应的人物。"},
+        "quality": {"human_accepted": true, "merged": true, "human_preference": true},
+        "tags": {"primary": "presentation", "secondary": [], "rationale": "在主体转换处明确姓名与称谓，避免读者靠代词反推人物。"}
+      }
+    }
+  ]
+}
