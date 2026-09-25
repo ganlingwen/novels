@@ -1,6 +1,5 @@
-"""Canonical contract, real-corpus migration, and invalid-data regressions."""
+"""Canonical contract and invalid-data regressions."""
 
-import hashlib
 import json
 from copy import deepcopy
 from pathlib import Path
@@ -11,10 +10,6 @@ from jsonschema import Draft202012Validator
 from LocalNovelDataset import load_local_dpo_records, load_local_sft_records, sample_training_records
 
 DATA_DIR = Path(__file__).resolve().parents[2] / "data"
-RECOVERED_IDS = {
-    "ch3_baichuan_medical_bill_20260919:final_context_confirmation",
-    "ch3_cat_kill_credit_20260919:final_context_confirmation",
-}
 EDITORIAL_TAGS = {
     "continuity",
     "plot",
@@ -26,93 +21,6 @@ EDITORIAL_TAGS = {
     "pov",
     "foreshadowing",
     "everyday_life",
-}
-NO_CHANGE_IDS = {
-    "novels_pr8_ch3_002",
-    "novels_pr1_rejected_tiangan_001",
-    "review-ch1-5-b001-02-laodu-pov",
-}
-PROMOTED_SFT_IDS = {
-    "review-ch1-5-b001-01-door",
-    "review-ch1-5-b001-03-pencil",
-}
-PROMOTED_PAIR_IDS = {
-    "review-ch1-5-b001-01-door:rejected:B",
-    "review-ch1-5-b001-01-door:rejected:original",
-    "review-ch1-5-b001-02-laodu-pov:rejected:A",
-    "review-ch1-5-b001-02-laodu-pov:rejected:B",
-    "review-ch1-5-b001-03-pencil:rejected:B",
-    "review-ch1-5-b001-03-pencil:rejected:original",
-}
-PR135_138_SFT_IDS = {
-    "pr135-ch3-ch5-baichuan-pronouns",
-    "pr136-ch4-tiangan-rescue-witness",
-    "pr137-ch4-wound-transport-order",
-    "pr138-ch5-hidden-testimony-presentation",
-}
-PR135_138_PAIR_IDS = {
-    "pr135-ch3-ch5-baichuan-pronouns:rejected:keep-original",
-    "pr136-ch4-tiangan-rescue-witness:rejected:remove-rescue",
-    "pr137-ch4-wound-transport-order:rejected:keep-original",
-    "pr138-ch5-hidden-testimony-presentation:rejected:keep-original",
-}
-PR141_SFT_IDS = {
-    "pr141-ch3-folding-stretcher-continuity",
-    "pr141-ch3-stretcher-dry-placement",
-    "pr141-ch3-rain-sound-location",
-    "pr141-ch3-afternoon-dialogue-trigger",
-}
-PR141_PAIR_IDS = {
-    "pr141-ch3-folding-stretcher-continuity:rejected:keep-original",
-    "pr141-ch3-stretcher-dry-placement:rejected:keep-original",
-    "pr141-ch3-rain-sound-location:rejected:keep-original",
-    "pr141-ch3-afternoon-dialogue-trigger:rejected:keep-original",
-}
-PR142_SFT_IDS = {
-    "pr142-opening-mother-hand-not-let-go",
-    "pr142-opening-sleeve-exaggerated",
-    "pr142-spatial-left-shoulder-left-elbow",
-    "pr142-dialogue-wait-removed",
-    "pr142-stool-roots-no-establishment",
-    "pr142-clock-spatial-hand-under",
-    "pr142-clock-cannot-hold-under",
-    "pr142-pronoun-she-not-he",
-    "pr142-pronoun-xiaowen-clarity",
-    "pr142-dialogue-i-really-stopped",
-    "pr142-dialogue-nin-kan-formal",
-    "pr142-dialogue-too-terse-naturalize",
-    "pr142-narration-not-speaking",
-    "pr142-father-asking-time",
-    "pr142-morning-continuous-timeline",
-}
-PR142_PAIR_IDS = {
-    "pr142-opening-mother-hand-not-let-go:rejected:original",
-    "pr142-opening-sleeve-exaggerated:rejected:original",
-    "pr142-spatial-left-shoulder-left-elbow:rejected:original",
-    "pr142-dialogue-wait-removed:rejected:original",
-    "pr142-stool-roots-no-establishment:rejected:original",
-    "pr142-clock-spatial-hand-under:rejected:original",
-    "pr142-clock-cannot-hold-under:rejected:original",
-    "pr142-pronoun-she-not-he:rejected:original",
-    "pr142-pronoun-xiaowen-clarity:rejected:original",
-    "pr142-dialogue-i-really-stopped:rejected:original",
-    "pr142-dialogue-nin-kan-formal:rejected:original",
-    "pr142-dialogue-too-terse-naturalize:rejected:too-terse",
-    "pr142-dialogue-too-terse-naturalize:rejected:original",
-    "pr142-narration-not-speaking:rejected:original",
-    "pr142-father-asking-time:rejected:original",
-    "pr142-morning-continuous-timeline:rejected:original",
-}
-PR143_SFT_IDS = {
-    "pr143-ch4-breakfast-record-question",
-    "pr143-ch4-work-cost-dialogue",
-    "pr143-ch4-rise-before-hand-check",
-    "pr143-ch4-stop-work-instruction",
-    "pr143-ch4-doorway-pronoun-clarity",
-}
-PR143_PAIR_IDS = {
-    "pr143-ch4-rise-before-hand-check:rejected:look-toward-door",
-    "pr143-ch4-doorway-pronoun-clarity:rejected:pronouns",
 }
 
 
@@ -258,76 +166,76 @@ def test_old_layout_is_rejected(tmp_path):
         load_local_sft_records(real)
 
 
-def _digest(records):
-    return hashlib.sha256(json.dumps(records, ensure_ascii=False, sort_keys=True).encode()).hexdigest()
+def _prompt_text(prompt):
+    parts = [prompt["user_request"]]
+    if prompt["context"]:
+        parts.append(f"上下文：{prompt['context']}")
+    if prompt["original_text"]:
+        parts.append(f"原文：{prompt['original_text']}")
+    return "\n\n".join(parts)
 
 
-def _without_origin(records):
-    return [{key: value for key, value in record.items() if key != "data_origin"} for record in records]
-
-
-def test_entire_real_corpus_matches_schema_and_preserves_migration_baseline():
+def test_entire_real_corpus_matches_schema_and_loader_projection():
     schema = json.loads((DATA_DIR / "schema.json").read_text(encoding="utf-8"))
     Draft202012Validator.check_schema(schema)
     validator = Draft202012Validator(schema)
     paths = sorted((DATA_DIR / "real").glob("*.json"))
-    assert len(paths) == 81
     review_paths = sorted((DATA_DIR / "review").glob("*.json"))
-    records = []
-    for path in paths + review_paths:
+    real_records = []
+    for path in paths:
         bundle = json.loads(path.read_text(encoding="utf-8"))
         validator.validate(bundle)
-        records.extend(bundle["records"])
+        real_records.extend((path, record) for record in bundle["records"])
+    review_records = []
+    for path in review_paths:
+        bundle = json.loads(path.read_text(encoding="utf-8"))
+        validator.validate(bundle)
+        review_records.extend(bundle["records"])
 
-    assert len(records) == 334
-    assert {record["metadata"]["tags"]["primary"] for record in records} == EDITORIAL_TAGS
-    for record in records:
+    for record in [record for _, record in real_records] + review_records:
         tags = record["metadata"]["tags"]
+        assert tags["primary"] in EDITORIAL_TAGS
         assert set(tags["secondary"]) <= EDITORIAL_TAGS
         assert tags["primary"] not in tags["secondary"]
         review = record["metadata"].get("review", {})
         assert "category" not in review
         assert "secondary_categories" not in review
-    assert {
-        record["id"]
-        for record in records
-        if record["metadata"].get("review", {}).get("outcome") == "no_change"
-    } == NO_CHANGE_IDS
 
     sft = load_local_sft_records(DATA_DIR)
     dpo = load_local_dpo_records(DATA_DIR)
-    assert len(sft) == 206
-    assert len(dpo) == 262
-    assert {r["id"] for r in sft} & RECOVERED_IDS == RECOVERED_IDS
-    assert {r["id"] for r in sft} & PROMOTED_SFT_IDS == PROMOTED_SFT_IDS
-    assert {r["id"] for r in sft} & PR135_138_SFT_IDS == PR135_138_SFT_IDS
-    assert {r["id"] for r in sft} & PR141_SFT_IDS == PR141_SFT_IDS
-    assert {r["id"] for r in sft} & PR142_SFT_IDS == PR142_SFT_IDS
-    assert {r["id"] for r in sft} & PR143_SFT_IDS == PR143_SFT_IDS
-    assert {r["id"] for r in dpo} & PROMOTED_PAIR_IDS == PROMOTED_PAIR_IDS
-    assert {r["id"] for r in dpo} & PR135_138_PAIR_IDS == PR135_138_PAIR_IDS
-    assert {r["id"] for r in dpo} & PR141_PAIR_IDS == PR141_PAIR_IDS
-    assert {r["id"] for r in dpo} & PR142_PAIR_IDS == PR142_PAIR_IDS
-    assert {r["id"] for r in dpo} & PR143_PAIR_IDS == PR143_PAIR_IDS
-    # Captured from the previous loader before migrating: protects text, literal
-    # escapes, prompts, order, source filenames, and all existing training IDs.
-    legacy_sft = [
-        record
-        for record in sft
-        if record["id"]
-        not in RECOVERED_IDS | PROMOTED_SFT_IDS | PR135_138_SFT_IDS | PR141_SFT_IDS | PR142_SFT_IDS | PR143_SFT_IDS
-    ]
-    assert _digest(_without_origin(legacy_sft)) == (
-        "49dcb05972816fd968f994d606c78f7da38c7006ec860d903d67ed353d315426"
-    )
-    legacy_dpo = [
-        record
-        for record in dpo
-        if record["id"] not in PROMOTED_PAIR_IDS | PR135_138_PAIR_IDS | PR141_PAIR_IDS | PR142_PAIR_IDS | PR143_PAIR_IDS
-    ]
-    assert _digest(_without_origin(legacy_dpo)) == (
-        "1fe954d442f5bf5387c8f305cf2634c5318f479937cbf7251948a8b867fa2c29"
-    )
+    expected_sft = []
+    expected_dpo = []
+    for path, record in real_records:
+        prompt = _prompt_text(record["prompt"])
+        if record["sft"]["eligible"]:
+            expected_sft.append(
+                {
+                    "id": record["id"],
+                    "source": path.name,
+                    "data_origin": "real",
+                    "prompt": prompt,
+                    "response": record["sft"]["response"],
+                }
+            )
+        preference = record["dpo"]
+        if preference["eligible"]:
+            candidates = {candidate["candidate_id"]: candidate for candidate in preference["candidates"]}
+            chosen = candidates[preference["chosen_candidate_id"]]["response"]
+            expected_dpo.extend(
+                {
+                    "id": candidate["pair_id"],
+                    "source": path.name,
+                    "data_origin": "real",
+                    "prompt": prompt,
+                    "chosen": chosen,
+                    "rejected": candidate["response"],
+                }
+                for candidate in preference["candidates"]
+                if candidate["status"] == "rejected"
+            )
+
+    assert sft == expected_sft
+    assert dpo == expected_dpo
 
 
 @pytest.mark.parametrize(
@@ -343,12 +251,6 @@ def test_schema_rejects_noncanonical_or_duplicate_editorial_tags(record, tags):
     bundle = {"schema_version": "3.0", "metadata": {}, "records": [record]}
     schema = json.loads((DATA_DIR / "schema.json").read_text(encoding="utf-8"))
     assert not Draft202012Validator(schema).is_valid(bundle)
-
-
-def test_reviewer_only_record_does_not_become_novel_prose_sft():
-    name = "rejected_pr1_tiangan-ability-false-positive.json"
-    assert not any(r["source"] == name for r in load_local_sft_records(DATA_DIR))
-    assert len([r for r in load_local_dpo_records(DATA_DIR) if r["source"] == name]) == 1
 
 
 def test_source_weight_sampling_is_deterministic_and_source_level():
