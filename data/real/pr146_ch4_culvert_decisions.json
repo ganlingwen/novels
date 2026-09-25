@@ -1,0 +1,252 @@
+{
+  "schema_version": "3.0",
+  "metadata": {
+    "source": "merged_pr_with_author_review",
+    "repository": "ganlingwen/novels",
+    "pr": 146,
+    "url": "https://github.com/ganlingwen/novels/pull/146",
+    "base_commit": "6e03aab3a8db656b22f776a1d486ab61a990a11b",
+    "accepted_commit": "3fa0d48a2c92ef20919ddf1d61dea69349c8c5e5",
+    "merge_commit": "8e571eec3dfbf9c71f971c148080c91d45db47aa",
+    "source_group_id": "chapter4-culvert-defense",
+    "scope": "老杜受伤的观察入口、相对位置与保护性对白。",
+    "annotation_policy": "正文候选逐字摘自 Git，保存字符区间。任务为按评审范围归纳的请求，非作者原话；作者原话单列于 review。仅有合入证据的编辑只启用 SFT，不自动把旧稿当作 rejected。跨段摘录按数组顺序以两个换行连接，中间未摘录的正文不表示删除。",
+    "acceptance_evidence": [
+      "合入 #146 号 PR",
+      "146 号我已经合入了。"
+    ],
+    "exclusions": "不采集尚未合入的 PR #147；不把局部采纳视为全章或医疗设定验收；不重复收集 PR #144 的菜地片段。"
+  },
+  "records": [
+    {
+      "id": "pr146-ch4-perceive-wood-injury",
+      "prompt": {
+        "user_request": "精修第四章老杜受伤的片段。",
+        "context": "老杜从小文身后揪住衣领，借身体重量向后倒，把小文拖离门前。断木擦过小文胸口落下，一声闷响后老杜身体僵住。本题校订接下来发现伤口的那一句。",
+        "original_text": "那片尖锐的断木扎进了他的断腿残端。",
+        "metadata": {
+          "provenance": "normalized_from_pr_scope_not_verbatim_author_prompt"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "小文低头，看见那片尖锐的断木扎在老杜的断腿残端。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {
+          "selection_source": "merge_only",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": null,
+          "eligibility_reason": "合入确认修订获接受；没有独立同题优劣比较，不启用 DPO。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-culvert-defense",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 146,
+          "original": {
+            "commit": "6e03aab3a8db656b22f776a1d486ab61a990a11b",
+            "segments": [
+              {
+                "start_char": 4307,
+                "end_char": 4324,
+                "start_line": 257,
+                "end_line": 257
+              }
+            ]
+          },
+          "accepted": {
+            "commit": "3fa0d48a2c92ef20919ddf1d61dea69349c8c5e5",
+            "segments": [
+              {
+                "start_char": 4307,
+                "end_char": 4331,
+                "start_line": 257,
+                "end_line": 257
+              }
+            ]
+          }
+        },
+        "review": {
+          "provenance": "retrospective_annotation_of_merged_diff",
+          "outcome": "accepted",
+          "author_feedback": null,
+          "reason": "合入稿由小文低头看见断木扎在残端，引出受伤结果；未取得作者单独比较这一句的记录，仅保存 SFT。",
+          "reason_provenance": "annotator_summary_not_verbatim_author_feedback"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": false
+        },
+        "tags": {
+          "primary": "pov",
+          "secondary": [],
+          "rationale": "合入稿由小文低头看见断木扎在残端，引出受伤结果；未取得作者单独比较这一句的记录，仅保存 SFT。"
+        }
+      }
+    },
+    {
+      "id": "pr146-ch4-injured-du-position",
+      "prompt": {
+        "user_request": "校订第四章老杜受伤后的位置描写。",
+        "context": "老杜从身后拖开小文后倒地受伤。小文翻身想过去，门外撞击和根须断裂使他只爬了半步便停住。",
+        "original_text": "老杜就在几步外，手压着残端，指缝里全是血。",
+        "metadata": {
+          "provenance": "normalized_from_pr_scope_not_verbatim_author_prompt"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "老杜倒在他身后，手压着残端，指缝里全是血。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {
+          "selection_source": "merge_only",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": null,
+          "eligibility_reason": "合入确认修订获接受；没有独立同题优劣比较，不启用 DPO。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-culvert-defense",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 146,
+          "original": {
+            "commit": "6e03aab3a8db656b22f776a1d486ab61a990a11b",
+            "segments": [
+              {
+                "start_char": 4454,
+                "end_char": 4475,
+                "start_line": 281,
+                "end_line": 281
+              }
+            ]
+          },
+          "accepted": {
+            "commit": "3fa0d48a2c92ef20919ddf1d61dea69349c8c5e5",
+            "segments": [
+              {
+                "start_char": 4461,
+                "end_char": 4482,
+                "start_line": 281,
+                "end_line": 281
+              }
+            ]
+          }
+        },
+        "review": {
+          "provenance": "retrospective_annotation_of_merged_diff",
+          "outcome": "accepted",
+          "author_feedback": null,
+          "reason": "合入稿明确老杜倒在小文身后，承接先前从身后拖人的动作；记录实际采纳的方位修订，不自动构造 DPO。",
+          "reason_provenance": "annotator_summary_not_verbatim_author_feedback"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": false
+        },
+        "tags": {
+          "primary": "spatial_logic",
+          "secondary": [],
+          "rationale": "合入稿明确老杜倒在小文身后，承接先前从身后拖人的动作；记录实际采纳的方位修订，不自动构造 DPO。"
+        }
+      }
+    },
+    {
+      "id": "pr146-ch4-protective-injury-dialogue",
+      "prompt": {
+        "user_request": "精修第四章老杜重伤后催小文撑门的对白。",
+        "context": "断木扎入老杜残端，手上全是血。门缝中已有丧尸手臂伸入，小文看向老杜，想回去救他；老杜急着让小文继续撑门。",
+        "original_text": "老杜脸已经白了，额头全是冷汗，却冲他骂：“看我干什么？我这条腿还能再少一截，你爹就你一个！”",
+        "metadata": {
+          "provenance": "normalized_from_pr_scope_not_verbatim_author_prompt"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "老杜脸已经白了，额头全是冷汗，见他要往回爬，急得抬起满是血的手：“先撑门！小文，别回头，我还醒着！”",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {
+          "selection_source": "merge_only",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": null,
+          "eligibility_reason": "合入确认修订获接受；没有独立同题优劣比较，不启用 DPO。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-culvert-defense",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 146,
+          "original": {
+            "commit": "6e03aab3a8db656b22f776a1d486ab61a990a11b",
+            "segments": [
+              {
+                "start_char": 4566,
+                "end_char": 4612,
+                "start_line": 291,
+                "end_line": 291
+              }
+            ]
+          },
+          "accepted": {
+            "commit": "3fa0d48a2c92ef20919ddf1d61dea69349c8c5e5",
+            "segments": [
+              {
+                "start_char": 4573,
+                "end_char": 4623,
+                "start_line": 291,
+                "end_line": 291
+              }
+            ]
+          }
+        },
+        "review": {
+          "provenance": "retrospective_annotation_of_merged_diff",
+          "outcome": "accepted",
+          "author_feedback": null,
+          "reason": "合入稿用抬起血手与“我还醒着”回应小文的救人冲动，保存老杜仍在保护小文的表达；没有独立的作者否决依据，故仅 SFT。",
+          "reason_provenance": "annotator_summary_not_verbatim_author_feedback"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": false
+        },
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "presentation"
+          ],
+          "rationale": "合入稿用抬起血手与“我还醒着”回应小文的救人冲动，保存老杜仍在保护小文的表达；没有独立的作者否决依据，故仅 SFT。"
+        }
+      }
+    }
+  ]
+}

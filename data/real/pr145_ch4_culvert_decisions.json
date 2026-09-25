@@ -1,0 +1,601 @@
+{
+  "schema_version": "3.0",
+  "metadata": {
+    "source": "merged_pr_with_author_review",
+    "repository": "ganlingwen/novels",
+    "pr": 145,
+    "url": "https://github.com/ganlingwen/novels/pull/145",
+    "base_commit": "78c921e7a566483089c49512c879b5e20d24a6b7",
+    "accepted_commit": "cdf4b23aa6bcfb687e9d779803da6f0b6a3008ea",
+    "merge_commit": "6e03aab3a8db656b22f776a1d486ab61a990a11b",
+    "source_group_id": "chapter4-culvert-defense",
+    "scope": "涵管同行、横木加固及作者三项纠正；包括保留原文决定。",
+    "annotation_policy": "正文候选逐字摘自 Git，保存字符区间。任务为按评审范围归纳的请求，非作者原话；作者原话单列于 review。仅有合入证据的编辑只启用 SFT，不自动把旧稿当作 rejected。跨段摘录按数组顺序以两个换行连接，中间未摘录的正文不表示删除。",
+    "acceptance_evidence": [
+      "挺好的，按照现在的更新这个 PR 吧。",
+      "已经合入了"
+    ],
+    "exclusions": "不采集尚未合入的 PR #147；不把局部采纳视为全章或医疗设定验收；不重复收集 PR #144 的菜地片段。"
+  },
+  "records": [
+    {
+      "id": "pr145-ch4-retain-daughter-memory",
+      "prompt": {
+        "user_request": "审查老杜想起女儿的这句话，判断是否需要改写；只返回保留或修订后的正文。",
+        "context": "小文折返涵管，告诉老杜自己想替父母争取撤离时间。老杜一个月前经历过女儿断后救他。本题以改写前的原句为输入；作者审阅改写后，要求只恢复这一句。",
+        "original_text": "老杜望着他，一个月前女儿挡在他身后，催他快走的画面爬上了记忆。",
+        "metadata": {
+          "provenance": "normalized_review_task_for_author_no_change_decision"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "老杜望着他，一个月前女儿挡在他身后，催他快走的画面爬上了记忆。",
+        "metadata": {
+          "target_type": "accepted_no_change"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "老杜望着他，一个月前女儿挡在他身后，催他快走的画面爬上了记忆。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_restored_original",
+              "commit": "cdf4b23aa6bcfb687e9d779803da6f0b6a3008ea"
+            }
+          },
+          {
+            "candidate_id": "reviewed_revision",
+            "response": "老杜望着他，想起一个月前，女儿也是这样把他往身后推，催他快走。",
+            "status": "rejected",
+            "pair_id": "pr145-ch4-retain-daughter-memory:rejected:reviewed-revision",
+            "metadata": {
+              "origin": "author_reviewed_git_version",
+              "commit": "2e5794634c9d73f2f64bc4f70c0551ffa8f28068"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "作者认为原句更有文学性且没有问题，明确拒绝这一次改写并恢复原文；只记录局部保留决定，不推广为允许任意视角切换。",
+          "eligibility_reason": "作者明确要求恢复或修正该版本，随后接受并合入。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-culvert-defense",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 145,
+          "original": {
+            "commit": "78c921e7a566483089c49512c879b5e20d24a6b7",
+            "segments": [
+              {
+                "start_char": 2991,
+                "end_char": 3022,
+                "start_line": 177,
+                "end_line": 177
+              }
+            ]
+          },
+          "accepted": {
+            "commit": "cdf4b23aa6bcfb687e9d779803da6f0b6a3008ea",
+            "segments": [
+              {
+                "start_char": 2991,
+                "end_char": 3022,
+                "start_line": 177,
+                "end_line": 177
+              }
+            ]
+          },
+          "rejected": {
+            "commit": "2e5794634c9d73f2f64bc4f70c0551ffa8f28068",
+            "segments": [
+              {
+                "start_char": 2991,
+                "end_char": 3022,
+                "start_line": 177,
+                "end_line": 177
+              }
+            ]
+          }
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "no_change",
+          "author_feedback": [
+            "177行，我觉得之前的写法更有文学性，而且没有什么问题。你这个改动，我希望能够 reverse，但是仅限于这一行哈。"
+          ],
+          "reason": "作者认为原句更有文学性且没有问题，明确拒绝这一次改写并恢复原文；只记录局部保留决定，不推广为允许任意视角切换。",
+          "reason_provenance": "annotator_summary_not_verbatim_author_feedback"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "presentation",
+          "secondary": [],
+          "rationale": "作者认为原句更有文学性且没有问题，明确拒绝这一次改写并恢复原文；只记录局部保留决定，不推广为允许任意视角切换。"
+        }
+      }
+    },
+    {
+      "id": "pr145-ch4-crossbar-without-spare-label",
+      "prompt": {
+        "user_request": "删掉横木前的“备用”，它就是门旁本来的横木；其余文字保持不变。",
+        "context": "小文和老杜来到涵管口，打算加一道横木抵门。门旁有一根横木，正文没有另一根已在使用的横木。",
+        "original_text": "墙内的涵管口就在前面，一根备用横木搁在门旁。门外猛地一撞，两扇木门向里鼓起，门后的门闩被顶得一弯，槽口崩下几片木屑。",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_correction"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "墙内的涵管口就在前面，一根横木搁在门旁。门外猛地一撞，两扇木门向里鼓起，门后的门闩被顶得一弯，槽口崩下几片木屑。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "墙内的涵管口就在前面，一根横木搁在门旁。门外猛地一撞，两扇木门向里鼓起，门后的门闩被顶得一弯，槽口崩下几片木屑。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "accepted_revision",
+              "commit": "cdf4b23aa6bcfb687e9d779803da6f0b6a3008ea"
+            }
+          },
+          {
+            "candidate_id": "reviewed_revision",
+            "response": "墙内的涵管口就在前面，一根备用横木搁在门旁。门外猛地一撞，两扇木门向里鼓起，门后的门闩被顶得一弯，槽口崩下几片木屑。",
+            "status": "rejected",
+            "pair_id": "pr145-ch4-crossbar-without-spare-label:rejected:reviewed-revision",
+            "metadata": {
+              "origin": "author_reviewed_git_version",
+              "commit": "2e5794634c9d73f2f64bc4f70c0551ffa8f28068"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "作者明确否定“备用”这一额外物件属性，保留横木的位置及门体受撞画面。",
+          "eligibility_reason": "作者明确要求恢复或修正该版本，随后接受并合入。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-culvert-defense",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 145,
+          "original": {
+            "commit": "2e5794634c9d73f2f64bc4f70c0551ffa8f28068",
+            "segments": [
+              {
+                "start_char": 3242,
+                "end_char": 3300,
+                "start_line": 189,
+                "end_line": 189
+              }
+            ]
+          },
+          "accepted": {
+            "commit": "cdf4b23aa6bcfb687e9d779803da6f0b6a3008ea",
+            "segments": [
+              {
+                "start_char": 3242,
+                "end_char": 3298,
+                "start_line": 189,
+                "end_line": 189
+              }
+            ]
+          },
+          "rejected": {
+            "commit": "2e5794634c9d73f2f64bc4f70c0551ffa8f28068",
+            "segments": [
+              {
+                "start_char": 3242,
+                "end_char": 3300,
+                "start_line": 189,
+                "end_line": 189
+              }
+            ]
+          }
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted",
+          "author_feedback": [
+            "横木就横木，为什么要加个备用？它就是个横木，就是本来的横木，没有备用。"
+          ],
+          "reason": "作者明确否定“备用”这一额外物件属性，保留横木的位置及门体受撞画面。",
+          "reason_provenance": "annotator_summary_not_verbatim_author_feedback"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "continuity",
+          "secondary": [
+            "presentation"
+          ],
+          "rationale": "作者明确否定“备用”这一额外物件属性，保留横木的位置及门体受撞画面。"
+        }
+      }
+    },
+    {
+      "id": "pr145-ch4-gaze-after-lifting-crossbar",
+      "prompt": {
+        "user_request": "修正老杜观察细根和小文的视线描写，接上小文已经离开泥土、正在抬横木的动作状态。",
+        "context": "小文先按住泥土催动根网，随后离开泥土，与老杜抬起横木右端并送入墙槽。此时老杜松手握拐，小文尚未松开横木，门背细根没有连到小文手上。",
+        "original_text": "门外又是一撞。横木在两侧墙槽里狠狠一震，根网也跟着绷紧。老杜的目光沿细根落到小文按过泥土的手上，嘴唇动了一下，转身从工具袋里取出木楔，塞紧横木两端的空隙。",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_correction"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "门外又是一撞。横木在两侧墙槽里狠狠一震，根网也跟着绷紧。老杜看着门背上的细根，转头看向小文，嘴唇动了一下，转身从工具袋里取出木楔，塞紧横木两端的空隙。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "门外又是一撞。横木在两侧墙槽里狠狠一震，根网也跟着绷紧。老杜看着门背上的细根，转头看向小文，嘴唇动了一下，转身从工具袋里取出木楔，塞紧横木两端的空隙。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "accepted_revision",
+              "commit": "cdf4b23aa6bcfb687e9d779803da6f0b6a3008ea"
+            }
+          },
+          {
+            "candidate_id": "reviewed_revision",
+            "response": "门外又是一撞。横木在两侧墙槽里狠狠一震，根网也跟着绷紧。老杜的目光沿细根落到小文按过泥土的手上，嘴唇动了一下，转身从工具袋里取出木楔，塞紧横木两端的空隙。",
+            "status": "rejected",
+            "pair_id": "pr145-ch4-gaze-after-lifting-crossbar:rejected:reviewed-revision",
+            "metadata": {
+              "origin": "author_reviewed_git_version",
+              "commit": "2e5794634c9d73f2f64bc4f70c0551ffa8f28068"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "老杜先看门背细根，再转头看小文，避免用“沿细根落到手上”造成根须与当前手部位置相连的错误画面。",
+          "eligibility_reason": "作者明确要求恢复或修正该版本，随后接受并合入。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-culvert-defense",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 145,
+          "original": {
+            "commit": "2e5794634c9d73f2f64bc4f70c0551ffa8f28068",
+            "segments": [
+              {
+                "start_char": 3698,
+                "end_char": 3775,
+                "start_line": 211,
+                "end_line": 211
+              }
+            ]
+          },
+          "accepted": {
+            "commit": "cdf4b23aa6bcfb687e9d779803da6f0b6a3008ea",
+            "segments": [
+              {
+                "start_char": 3696,
+                "end_char": 3771,
+                "start_line": 211,
+                "end_line": 211
+              }
+            ]
+          },
+          "rejected": {
+            "commit": "2e5794634c9d73f2f64bc4f70c0551ffa8f28068",
+            "segments": [
+              {
+                "start_char": 3698,
+                "end_char": 3775,
+                "start_line": 211,
+                "end_line": 211
+              }
+            ]
+          }
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted",
+          "author_feedback": [
+            "现在他的手已经脱离了泥巴，在跟老杜抬横木呢。",
+            "我感觉现在他的手根本就不在泥土上呀。"
+          ],
+          "reason": "老杜先看门背细根，再转头看小文，避免用“沿细根落到手上”造成根须与当前手部位置相连的错误画面。",
+          "reason_provenance": "annotator_summary_not_verbatim_author_feedback"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "spatial_logic",
+          "secondary": [
+            "pov"
+          ],
+          "rationale": "老杜先看门背细根，再转头看小文，避免用“沿细根落到手上”造成根须与当前手部位置相连的错误画面。"
+        }
+      }
+    },
+    {
+      "id": "pr145-ch4-offer-culvert-reinforcement",
+      "prompt": {
+        "user_request": "精修第四章折返涵管时的对白。",
+        "context": "小文担心父母赶不到体育馆，决定折返拖延。老杜修过涵管木门，腿脚不便；此处是他提出同行的那一句。",
+        "original_text": "“关键时候我这个老头子还有点用。”他把木拐一转，“那道木闸后面留了个加固的横木槽，我有办法让它多撑几分钟。”",
+        "metadata": {
+          "provenance": "normalized_from_pr_scope_not_verbatim_author_prompt"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“那两扇门是我修的，还能再加一道横木。”老杜把木拐转了过来，“你扶我过去，兴许能多撑几分钟。”",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {
+          "selection_source": "merge_only",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": null,
+          "eligibility_reason": "合入确认修订获接受；没有独立同题优劣比较，不启用 DPO。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-culvert-defense",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 145,
+          "original": {
+            "commit": "78c921e7a566483089c49512c879b5e20d24a6b7",
+            "segments": [
+              {
+                "start_char": 3024,
+                "end_char": 3078,
+                "start_line": 179,
+                "end_line": 179
+              }
+            ]
+          },
+          "accepted": {
+            "commit": "cdf4b23aa6bcfb687e9d779803da6f0b6a3008ea",
+            "segments": [
+              {
+                "start_char": 3024,
+                "end_char": 3071,
+                "start_line": 179,
+                "end_line": 179
+              }
+            ]
+          }
+        },
+        "review": {
+          "provenance": "retrospective_annotation_of_merged_diff",
+          "outcome": "accepted",
+          "author_feedback": null,
+          "reason": "合入版本让老杜以修门经验提出加固办法，并请求小文搀扶；记录被接受的具体对白，不推断作者单独否决了旧句。",
+          "reason_provenance": "annotator_summary_not_verbatim_author_feedback"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": false
+        },
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "continuity"
+          ],
+          "rationale": "合入版本让老杜以修门经验提出加固办法，并请求小文搀扶；记录被接受的具体对白，不推断作者单独否决了旧句。"
+        }
+      }
+    },
+    {
+      "id": "pr145-ch4-latch-slot-location",
+      "prompt": {
+        "user_request": "校订第四章涵管加固段的动作与物件描写。",
+        "context": "横木右端受门板挤压，未能入槽。两人暂时放下横木，门外撞击仍在继续，小文接下来按住墙脚泥土。",
+        "original_text": "两人把右端放回地上。可门外的撞击没有停，门板也没能退回原位。小文看了一眼门栓上越裂越大的槽口，伸手按住墙脚的泥土。",
+        "metadata": {
+          "provenance": "normalized_from_pr_scope_not_verbatim_author_prompt"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "两人把右端放回地上。可门外的撞击没有停，门板也没能退回原位。小文看了一眼门闩旁越裂越大的槽口，伸手按住墙脚的泥土。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {
+          "selection_source": "merge_only",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": null,
+          "eligibility_reason": "合入确认修订获接受；没有独立同题优劣比较，不启用 DPO。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-culvert-defense",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 145,
+          "original": {
+            "commit": "78c921e7a566483089c49512c879b5e20d24a6b7",
+            "segments": [
+              {
+                "start_char": 3518,
+                "end_char": 3575,
+                "start_line": 203,
+                "end_line": 203
+              }
+            ]
+          },
+          "accepted": {
+            "commit": "cdf4b23aa6bcfb687e9d779803da6f0b6a3008ea",
+            "segments": [
+              {
+                "start_char": 3520,
+                "end_char": 3577,
+                "start_line": 203,
+                "end_line": 203
+              }
+            ]
+          }
+        },
+        "review": {
+          "provenance": "retrospective_annotation_of_merged_diff",
+          "outcome": "accepted",
+          "author_feedback": null,
+          "reason": "合入稿写清开裂槽口位于门闩旁边，保存物件位置的局部校订；没有明确偏好对，故仅 SFT。",
+          "reason_provenance": "annotator_summary_not_verbatim_author_feedback"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": false
+        },
+        "tags": {
+          "primary": "spatial_logic",
+          "secondary": [],
+          "rationale": "合入稿写清开裂槽口位于门闩旁边，保存物件位置的局部校订；没有明确偏好对，故仅 SFT。"
+        }
+      }
+    },
+    {
+      "id": "pr145-ch4-interrupted-reach-for-crutch",
+      "prompt": {
+        "user_request": "理顺第四章涵管加固后小文的站位和动作衔接。按先后顺序返回两处修改，中间其他正文保留。",
+        "context": "横木和根网暂时抵住木门，小文松手后准备拿拐。墙头随即报告硬肩尸到来，连续撞击使横木开裂，小文再次按住泥土催动根网。",
+        "original_text": "小文松开横木，老杜也退开半步。两人还没来得及说话，墙头传来一声急喊：\n\n小文蹲到墙脚，重新将手掌按进泥土。门背上的细根一齐收紧，更多根须沿着墙脚扎进土里，硬生生兜住了向内鼓起的门板。",
+        "metadata": {
+          "provenance": "normalized_from_pr_scope_not_verbatim_author_prompt"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "小文松开横木，退到老杜身前，准备去拿靠在墙边的短拐。两人还没来得及说话，墙头传来一声急喊：\n\n小文顾不上去拿拐，蹲到墙脚，重新将手掌按进泥土。门背上的细根一齐收紧，更多根须沿着墙脚扎进土里，硬生生兜住了向内鼓起的门板。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [],
+        "metadata": {
+          "selection_source": "merge_only",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": null,
+          "eligibility_reason": "合入确认修订获接受；没有独立同题优劣比较，不启用 DPO。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-culvert-defense",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 145,
+          "original": {
+            "commit": "78c921e7a566483089c49512c879b5e20d24a6b7",
+            "segments": [
+              {
+                "start_char": 3776,
+                "end_char": 3810,
+                "start_line": 215,
+                "end_line": 215
+              },
+              {
+                "start_char": 3949,
+                "end_char": 4004,
+                "start_line": 227,
+                "end_line": 227
+              }
+            ]
+          },
+          "accepted": {
+            "commit": "cdf4b23aa6bcfb687e9d779803da6f0b6a3008ea",
+            "segments": [
+              {
+                "start_char": 3801,
+                "end_char": 3846,
+                "start_line": 215,
+                "end_line": 215
+              },
+              {
+                "start_char": 3985,
+                "end_char": 4047,
+                "start_line": 227,
+                "end_line": 227
+              }
+            ]
+          }
+        },
+        "review": {
+          "provenance": "retrospective_annotation_of_merged_diff",
+          "outcome": "accepted",
+          "author_feedback": null,
+          "reason": "记录合入的连续动作：退到老杜身前准备拿拐，受到新一轮撞击打断，顾不上拿拐便蹲下。两处属于同一次动作衔接，不拆成重复样本。",
+          "reason_provenance": "annotator_summary_not_verbatim_author_feedback"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": false
+        },
+        "tags": {
+          "primary": "spatial_logic",
+          "secondary": [
+            "tension"
+          ],
+          "rationale": "记录合入的连续动作：退到老杜身前准备拿拐，受到新一轮撞击打断，顾不上拿拐便蹲下。两处属于同一次动作衔接，不拆成重复样本。"
+        }
+      }
+    }
+  ]
+}
