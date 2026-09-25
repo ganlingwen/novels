@@ -50,8 +50,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "plot"
+          ],
+          "rationale": "重排账单与解释顺序并合并白川台词，使信息自然承接而不重复报账。"
         }
       }
     },
@@ -83,8 +84,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "presentation"
+          ],
+          "rationale": "合并小文连续诉求，让伤势动作承载争取尸体归属的语气。"
         }
       }
     },
@@ -115,9 +117,8 @@
         "source_hunk": 3,
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "合并同一人物连续说明，保留事故、抚恤和奖励之间的清楚承接。"
         }
       }
     },
@@ -148,9 +149,8 @@
         "source_hunk": 4,
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "合并白川连续医嘱，减少无必要的独立短行。"
         }
       }
     },
@@ -182,8 +182,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "presentation"
+          ],
+          "rationale": "删去直白点破省钱动机的问句，以低头和垫付动作完成交流。"
         }
       }
     },
@@ -213,10 +214,11 @@
       "metadata": {
         "source_hunk": 6,
         "tags": {
-          "primary": "pov",
+          "primary": "dialogue",
           "secondary": [
-            "limited_pov"
-          ]
+            "pov"
+          ],
+          "rationale": "母亲的检查与询问沿视线落到具体伤处，口吻和观察对象更明确。"
         }
       }
     },
@@ -248,8 +250,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "presentation"
+          ],
+          "rationale": "父亲的记录动作进入问答，删去重复转述已写下的反应。"
         }
       }
     },
@@ -313,7 +316,10 @@
         ],
         "tags": {
           "primary": "plot",
-          "secondary": []
+          "secondary": [
+            "tension"
+          ],
+          "rationale": "恢复小文再次争取和马克拒绝的过程，让选择受阻并把绝境压力落地。"
         }
       }
     },
@@ -376,10 +382,11 @@
           }
         ],
         "tags": {
-          "primary": "dialogue",
+          "primary": "presentation",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "dialogue"
+          ],
+          "rationale": "删去对白已经能推知的省钱解释，直接以垫付行为回应小文。"
         }
       }
     }

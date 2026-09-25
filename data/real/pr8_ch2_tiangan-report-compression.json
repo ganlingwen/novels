@@ -70,8 +70,11 @@
           "preference_dpo": false
         },
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [
+            "plot"
+          ],
+          "rationale": "压缩已经给出的魂火数据，保留天干正式口吻与关键确认。"
         }
       }
     }

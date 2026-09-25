@@ -26,8 +26,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "presentation",
+          "secondary": [
+            "plot"
+          ],
+          "rationale": "小文说不出口促使母亲停止追问，同时不重讲事故。"
         }
       }
     },
@@ -67,8 +70,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "cinematic",
+          "secondary": [
+            "foreshadowing"
+          ],
+          "rationale": "机械钟声音承载停顿与时间感，保留有作用的物件。"
         }
       }
     },
@@ -108,10 +114,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "dialogue",
+          "primary": "presentation",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "cinematic"
+          ],
+          "rationale": "钟声已构成停顿，删除母亲没有马上说话的重复解释。"
         }
       }
     },
@@ -151,10 +158,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "primary": "presentation",
+          "secondary": [],
+          "rationale": "拒绝为打断对白而添加扶墙假动作。"
         }
       }
     },
@@ -194,8 +200,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "presentation",
+          "secondary": [
+            "cinematic"
+          ],
+          "rationale": "钟声直接承接问话，不用过后才解释顺序。"
         }
       }
     },
@@ -236,7 +245,10 @@
       "metadata": {
         "tags": {
           "primary": "plot",
-          "secondary": []
+          "secondary": [
+            "presentation"
+          ],
+          "rationale": "已讲过的遇袭不再复述，以说不出口推进创伤反应。"
         }
       }
     },
@@ -276,8 +288,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "presentation",
+          "secondary": [],
+          "rationale": "嘴唇几度张合体现多次失败的表达尝试。"
         }
       }
     },
@@ -317,8 +330,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [
+            "presentation"
+          ],
+          "rationale": "母亲主动急切打断而非冷静等看，关切改变对话。"
         }
       }
     },
@@ -358,8 +374,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "别再回忆了准确制止创伤追问，不笼统说先别想。"
         }
       }
     }

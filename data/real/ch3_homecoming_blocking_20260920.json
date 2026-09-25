@@ -26,10 +26,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "dialogue",
+          "primary": "spatial_logic",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "dialogue"
+          ],
+          "rationale": "整段理顺移凳、落座和父亲接入，再保留自然的家庭扣费对白。"
         }
       }
     },
@@ -54,8 +55,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "spatial_logic",
+          "secondary": [],
+          "rationale": "木凳与布帘、门和矮桌的初始位置必须支持后续移动。"
         }
       }
     },
@@ -95,8 +97,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "spatial_logic",
+          "secondary": [
+            "dialogue"
+          ],
+          "rationale": "母亲移自己坐过的凳子，小文扶桌慢坐，避免父亲突然代为调度。"
         }
       }
     },
@@ -136,8 +141,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "continuity",
+          "secondary": [
+            "pov"
+          ],
+          "rationale": "父亲早已听见母子谈话，不能才听见响动；以坐起腾桌自然接入。"
         }
       }
     },
@@ -177,8 +185,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "父亲关心伤腿和休养，不用泛化的家里有我们替代具体关切。"
         }
       }
     },
@@ -218,8 +227,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "删除凭空回答小文未说出担忧的句子。"
         }
       }
     },
@@ -259,8 +269,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "spatial_logic",
+          "secondary": [
+            "presentation"
+          ],
+          "rationale": "利用床沿紧邻矮桌摆放文件，取消无必要递接动作。"
         }
       }
     },
@@ -300,8 +313,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "从看见家庭凭证引出费用问题，避免像查账的突兀问答。"
         }
       }
     },
@@ -342,9 +356,8 @@
       "metadata": {
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "完整讲述抢救减免与奖励，避免逐项念数字。"
         }
       }
     },
@@ -386,8 +399,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "continuity"
+          ],
+          "rationale": "一半措辞自然，同时明确十点奖励的实际给予者。"
         }
       }
     },
@@ -427,8 +441,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "spatial_logic",
+          "secondary": [],
+          "rationale": "调整凳子初始位以支持开门可见母亲及后续移凳。"
         }
       }
     }

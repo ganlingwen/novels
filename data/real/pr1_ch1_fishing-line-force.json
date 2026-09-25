@@ -69,8 +69,9 @@
           "reviewer_sft": "repository_context + prompt.user_request + chapter -> review.discovered_issue"
         },
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "spatial_logic",
+          "secondary": [],
+          "rationale": "修正板车、后轴、鱼线与墙孔之间的受力方向。"
         }
       }
     }

@@ -99,8 +99,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "presentation"
+          ],
+          "rationale": "保留问答追问链，只给裸碎句补有功能的身体动作。"
         }
       }
     }

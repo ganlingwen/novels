@@ -97,8 +97,11 @@
           "preference_training": "same prompt/context -> B > A"
         },
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "continuity",
+          "secondary": [
+            "spatial_logic"
+          ],
+          "rationale": "补足钢筋沿原方向退出和再次出血的动作桥，避免与后段转运重复。"
         }
       }
     }

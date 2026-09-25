@@ -67,10 +67,11 @@
           "contains_author_reverse": true
         },
         "tags": {
-          "primary": "dialogue",
+          "primary": "presentation",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "dialogue"
+          ],
+          "rationale": "把收记录动作穿入对白，避免重复主语和旁白说明腔。"
         }
       }
     }

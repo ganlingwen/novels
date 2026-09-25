@@ -91,8 +91,11 @@
           "preference_dpo": true
         },
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "tension",
+          "secondary": [
+            "cinematic"
+          ],
+          "rationale": "收紧猫的试探并叠加寒冷、失血和视觉不稳，让僵持压力持续上升。"
         }
       }
     }

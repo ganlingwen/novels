@@ -70,8 +70,11 @@
           "preference_dpo": false
         },
         "tags": {
-          "primary": "character",
-          "secondary": []
+          "primary": "pov",
+          "secondary": [
+            "presentation"
+          ],
+          "rationale": "以贴身折柄小刀触发外卖和升学背景，压缩脱离现场的旁白。"
         }
       }
     }

@@ -72,9 +72,8 @@
         "notes": "正文 PR #33 在作者确认前已合并；作者随后明确选择已合并的 A。此数据 PR 只补真实选择，不修改正文。",
         "tags": {
           "primary": "pov",
-          "secondary": [
-            "limited_pov"
-          ]
+          "secondary": [],
+          "rationale": "真实选择围绕远距离火场信息能否由小文感知的视角边界。"
         }
       }
     }

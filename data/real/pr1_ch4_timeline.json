@@ -69,8 +69,9 @@
           "reviewer_sft": "repository_context + prompt.user_request + chapter -> review.discovered_issue"
         },
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "continuity",
+          "secondary": [],
+          "rationale": "以既有尸潮事件锚点替代冲突的三个月前，修复时间线。"
         }
       }
     }

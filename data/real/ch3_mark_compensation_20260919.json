@@ -62,9 +62,8 @@
         },
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "抚恤对白去掉制度格言对仗和核销公文用词。"
         }
       }
     }

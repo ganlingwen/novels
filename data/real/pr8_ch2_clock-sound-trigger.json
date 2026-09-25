@@ -72,8 +72,9 @@
         "tags": {
           "primary": "pov",
           "secondary": [
-            "limited_pov"
-          ]
+            "cinematic"
+          ],
+          "rationale": "用夹道水声触发机械钟联想，使回忆来自当下感官。"
         }
       }
     }

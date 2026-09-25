@@ -30,8 +30,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "presentation"
+          ],
+          "rationale": "母亲以完整关切问话和渐变反应表达后怕，替代审问短答。"
         }
       }
     },
@@ -58,8 +59,9 @@
         "id": "sft02",
         "focus": "小文叙述事故",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "小文完整开讲事故，首次提犬群不假定母亲已知。"
         }
       }
     },
@@ -103,8 +105,9 @@
         "id": "dpo01",
         "focus": "情绪动作",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "presentation",
+          "secondary": [],
+          "rationale": "眼眶逐渐泛红符合情绪发展，避免突然跳变。"
         }
       }
     },
@@ -148,8 +151,9 @@
         "id": "dpo02",
         "focus": "母亲语气",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "用心疼后怕的母亲口吻追问，不像核对口供。"
         }
       }
     },
@@ -193,8 +197,9 @@
         "id": "dpo03",
         "focus": "避免机械短答",
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "具体叙述事故替代一开始是的机械短答。"
         }
       }
     },
@@ -238,8 +243,9 @@
         "id": "dpo04",
         "focus": "首次提及实体",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "首次提异化犬不使用双方已知式的那些。"
         }
       }
     }

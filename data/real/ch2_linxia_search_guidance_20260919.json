@@ -56,9 +56,8 @@
       "metadata": {
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "林夏提供概率判断而非下搜索命令，去掉步行上限报告腔。"
         }
       }
     },
@@ -107,8 +106,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "将含混的接得住改为能否听见脚步，直接表达感知限制。"
         }
       }
     },
@@ -157,8 +157,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "感知提醒按距离与进楼自然递进，不重复两层近义说明。"
         }
       }
     },
@@ -189,8 +190,9 @@
           "contains_multi_round_author_feedback": true
         },
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "整段确认搜索判断与感知提醒的口语和陈锋回应承接。"
         }
       }
     }

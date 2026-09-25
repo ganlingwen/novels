@@ -39,8 +39,10 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "continuity",
+            "spatial_logic"
+          ],
+          "rationale": "紧急对白改为完整活人交流，同时守住撤离方向、人物位置与木匠同行动机。"
         }
       }
     },
@@ -85,8 +87,10 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "continuity",
+            "spatial_logic"
+          ],
+          "rationale": "候选比较围绕自然紧急对白、同行因果和相遇位置。"
         }
       }
     },
@@ -131,8 +135,10 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "continuity",
+            "spatial_logic"
+          ],
+          "rationale": "候选比较围绕自然紧急对白、同行因果和相遇位置。"
         }
       }
     },
@@ -178,8 +184,10 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "continuity",
+            "spatial_logic"
+          ],
+          "rationale": "候选比较围绕自然紧急对白、同行因果和相遇位置。"
         }
       }
     },
@@ -224,8 +232,10 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "continuity",
+            "spatial_logic"
+          ],
+          "rationale": "候选比较围绕自然紧急对白、同行因果和相遇位置。"
         }
       }
     }

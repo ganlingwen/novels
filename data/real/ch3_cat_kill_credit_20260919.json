@@ -56,9 +56,8 @@
       "metadata": {
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "将后勤登记制度说明改为白川向伤员自然交代结论。"
         }
       }
     },
@@ -107,10 +106,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "dialogue",
+          "primary": "continuity",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "dialogue"
+          ],
+          "rationale": "小文刚醒不知尸体入库去向，改为带不确定性的询问。"
         }
       }
     },
@@ -159,8 +159,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "一句话表达凶猫价值诉求，去掉碎句与说清楚的解释尾巴。"
         }
       }
     },
@@ -209,8 +210,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "白川说后勤结论，保留让小文下一句用钢钎反驳的空间。"
         }
       }
     },
@@ -259,8 +261,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "用那是回指钢钎，加强小文反驳时的指代与语气。"
         }
       }
     },
@@ -291,8 +294,11 @@
           "context_checked": true
         },
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [
+            "continuity"
+          ],
+          "rationale": "整段对白保留归属诉求和钢钎反驳，并限制刚醒者的知识。"
         },
         "original_id": "final_context_confirmation"
       }

@@ -53,10 +53,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "dialogue",
+          "primary": "continuity",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "dialogue"
+          ],
+          "rationale": "魂火衰弱不足以推出失血，按重伤准备保留诊断边界。"
         }
       }
     },
@@ -105,8 +106,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "去掉贬义的乱搬，等我过去符合同行队员的交代口吻。"
         }
       }
     },
@@ -154,9 +156,8 @@
       "metadata": {
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "明确指令对陈锋说，避免下位者对白被读成向天干下令。"
         }
       }
     },
@@ -205,8 +206,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "character",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "明白、我按重伤准备是向上级报告，不替上级拍板。"
         }
       }
     },
@@ -255,8 +257,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "对上级询问伤情使用自然完整问句，避免单词式索取汇报。"
         }
       }
     },
@@ -294,8 +297,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "continuity"
+          ],
+          "rationale": "整段恢复上下级及受话关系，伤情未知时保留条件性处置。"
         }
       }
     }

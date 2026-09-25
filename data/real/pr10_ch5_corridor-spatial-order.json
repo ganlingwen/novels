@@ -75,10 +75,11 @@
           "contains_author_reverse": true
         },
         "tags": {
-          "primary": "pov",
+          "primary": "spatial_logic",
           "secondary": [
-            "limited_pov"
-          ]
+            "pov"
+          ],
+          "rationale": "先建立走廊、药房和手术间拓扑，再保持刚走两步遇见地支的顺序。"
         }
       }
     }

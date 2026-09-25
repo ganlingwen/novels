@@ -29,9 +29,8 @@
         "focus": "医疗请求自然化",
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "完整提出母亲三天后治疗及差五点的诉求，避免碎句。"
         }
       }
     },
@@ -59,9 +58,8 @@
         "focus": "规则拒绝",
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "制度拒绝仍像人与人交流，不变成流程宣告。"
         }
       }
     },
@@ -88,8 +86,11 @@
         "id": "sft03",
         "focus": "伤势作为恳求",
         "tags": {
-          "primary": "character",
-          "secondary": []
+          "primary": "presentation",
+          "secondary": [
+            "dialogue"
+          ],
+          "rationale": "伤腿疼痛和坐直动作承载焦急请求，不下情绪标签。"
         }
       }
     },
@@ -116,8 +117,9 @@
         "id": "sft04",
         "focus": "第二次拒绝",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "马克理解处境但不通融，删除制度套话与同义重复。"
         }
       }
     },
@@ -144,8 +146,9 @@
         "id": "sft05",
         "focus": "礼貌结束话题",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "自然把话题交给天干，不机械切换议程。"
         }
       }
     },
@@ -172,10 +175,11 @@
         "id": "sft06",
         "focus": "埋伏线索压缩",
         "tags": {
-          "primary": "dialogue",
+          "primary": "foreshadowing",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "dialogue"
+          ],
+          "rationale": "将标记、粮袋与机关线索形成可供高层追查的证词。"
         }
       }
     },
@@ -202,8 +206,9 @@
         "id": "sft07",
         "focus": "调查速记",
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "plot",
+          "secondary": [],
+          "rationale": "用简短速记替代无推进的完整调查总结。"
         }
       }
     },
@@ -230,8 +235,11 @@
         "id": "sft08",
         "focus": "枯藤知识边界",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "pov",
+          "secondary": [
+            "foreshadowing"
+          ],
+          "rationale": "断藤证词限定于小文所历所见，保留觉醒未知性。"
         }
       }
     },
@@ -258,8 +266,11 @@
         "id": "sft09",
         "focus": "觉醒伏笔与医嘱",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "foreshadowing",
+          "secondary": [
+            "plot"
+          ],
+          "rationale": "须知作为后续观察入口，不提前展开整套能力说明。"
         }
       }
     },
@@ -303,8 +314,9 @@
         "id": "dpo01",
         "focus": "请求措辞",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "明确母亲治疗的请求对象和差额，替代首领还差五点的省略。"
         }
       }
     },
@@ -348,8 +360,9 @@
         "id": "dpo02",
         "focus": "拒绝制度腔",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "拒绝通融用具体立场回应，不朗读制度条目。"
         }
       }
     },
@@ -393,8 +406,9 @@
         "id": "dpo03",
         "focus": "调查开场机器感",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "从事故追问引入调查，拒绝三个问题式机器开场。"
         }
       }
     },
@@ -438,8 +452,11 @@
         "id": "dpo04",
         "focus": "避免复述机关结构",
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "foreshadowing",
+          "secondary": [
+            "dialogue"
+          ],
+          "rationale": "证词串联埋伏与嫁祸线索，避免单纯列举机关结构。"
         }
       }
     },
@@ -483,8 +500,11 @@
         "id": "dpo05",
         "focus": "巨熊标记语义精度",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "continuity",
+          "secondary": [
+            "dialogue"
+          ],
+          "rationale": "只能确认巨熊标记新近出现，不能断定由巨熊基地留下。"
         }
       }
     },
@@ -528,8 +548,11 @@
         "id": "dpo06",
         "focus": "枯藤回答顺序",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [
+            "pov"
+          ],
+          "rationale": "先说接触断藤的记忆再说未知部分，改善证词承接且守住知识范围。"
         }
       }
     },
@@ -574,7 +597,10 @@
         "focus": "删除无推进调查总结",
         "tags": {
           "primary": "plot",
-          "secondary": []
+          "secondary": [
+            "dialogue"
+          ],
+          "rationale": "速记替代重复询问与批准，把篇幅留给有新信息的场次。"
         }
       }
     },
@@ -618,8 +644,9 @@
         "id": "dpo08",
         "focus": "医嘱自然化",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "医嘱用自然照顾口吻，避免没依据地警告别瞒着。"
         }
       }
     }

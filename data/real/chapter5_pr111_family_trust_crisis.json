@@ -51,7 +51,15 @@
           "reason": "单候选直接接受，未在同 prompt 下提供真实 A/B 候选；不为历史接受编辑编造 rejected。"
         }
       },
-      "metadata": {}
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "presentation"
+          ],
+          "rationale": "母亲先针对划掉停止发火，再进入登记讨论，让不信任由具体动作触发。"
+        }
+      }
     },
     {
       "id": "pr111-ch5-ending-broken-trust",
@@ -76,7 +84,15 @@
           "reason": "单候选直接接受，未在同 prompt 下提供真实 A/B 候选；不为历史接受编辑编造 rejected。"
         }
       },
-      "metadata": {}
+      "metadata": {
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "tension"
+          ],
+          "rationale": "以父母追问和立规矩收束隐瞒，删除轻松笑谈造成的泄压。"
+        }
+      }
     },
     {
       "id": "pr111-ch4-returning-home-transition",
@@ -122,7 +138,15 @@
           "selection_source": "explicit_author_choice"
         }
       },
-      "metadata": {}
+      "metadata": {
+        "tags": {
+          "primary": "continuity",
+          "secondary": [
+            "plot"
+          ],
+          "rationale": "补足当晚回家与次日裁决之间的过渡，解释记录为何延后。"
+        }
+      }
     },
     {
       "id": "pr111-ch3-term-zhi-ren",
@@ -147,7 +171,15 @@
           "reason": "术语统一为机械一致性修正，未提供 A/B 候选；同一决策在第五章 L85、L91 的实例已被上述家庭决定段改写记录的最终文本吸收。"
         }
       },
-      "metadata": {}
+      "metadata": {
+        "tags": {
+          "primary": "continuity",
+          "secondary": [
+            "dialogue"
+          ],
+          "rationale": "统一对人施术为治人，保持能力规则与人物用语一致。"
+        }
+      }
     }
   ]
 }

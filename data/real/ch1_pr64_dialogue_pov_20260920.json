@@ -28,9 +28,8 @@
       "metadata": {
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "观察、顾虑和换路请求合成自然口语，修复短问短答。"
         }
       }
     },
@@ -57,8 +56,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "everyday_life"
+          ],
+          "rationale": "阿慧的搬粮对白加入对大刘腰伤的具体关心，替代机锋。"
         }
       }
     },
@@ -83,10 +83,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "dialogue",
+          "primary": "everyday_life",
           "secondary": [
-            "character"
-          ]
+            "dialogue"
+          ],
+          "rationale": "留糖用于哄生病孩子吃药，让生活需要影响食物分配。"
         }
       }
     },
@@ -111,8 +112,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "tension",
+          "secondary": [
+            "plot"
+          ],
+          "rationale": "删去清障中的反复争执，让外部威胁和动作维持逃生压力。"
         }
       }
     },
@@ -138,9 +142,8 @@
       "metadata": {
         "tags": {
           "primary": "pov",
-          "secondary": [
-            "limited_pov"
-          ]
+          "secondary": [],
+          "rationale": "周勇跌出门外后只用可见局部和踏步声音承接受击。"
         }
       }
     },
@@ -167,8 +170,9 @@
         "tags": {
           "primary": "pov",
           "secondary": [
-            "limited_pov"
-          ]
+            "cinematic"
+          ],
+          "rationale": "遮挡后的阿慧以滑脱的手、闷响和溅水呈现，不越墙看全景。"
         }
       }
     },
@@ -209,9 +213,8 @@
       "metadata": {
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "将孤立观察扩为人物当场有顾虑、有请求的完整交流。"
         }
       }
     },
@@ -252,9 +255,8 @@
       "metadata": {
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "周勇用自身经历解释装粮诉求，保留个人判断而非机械报信息。"
         }
       }
     },
@@ -296,8 +298,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "everyday_life"
+          ],
+          "rationale": "用腰伤和分担粮袋体现关系，替代纯俏皮对仗。"
         }
       }
     },
@@ -339,8 +342,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "character"
-          ]
+            "everyday_life"
+          ],
+          "rationale": "拒绝三四字轮答，让留糖照顾孩子的动机进入口语。"
         }
       }
     },
@@ -380,8 +384,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "tension",
+          "secondary": [
+            "plot"
+          ],
+          "rationale": "删除高压清障中重复抬杠，避免切碎逃生节奏。"
         }
       }
     },
@@ -422,9 +429,8 @@
       "metadata": {
         "tags": {
           "primary": "pov",
-          "secondary": [
-            "limited_pov"
-          ]
+          "secondary": [],
+          "rationale": "遮挡后不展示獠牙穿胸和完整坠落，改由踏步声承接。"
         }
       }
     },
@@ -466,8 +472,9 @@
         "tags": {
           "primary": "pov",
           "secondary": [
-            "limited_pov"
-          ]
+            "cinematic"
+          ],
+          "rationale": "用墙沿遮挡、门框闷响和触到的水保持受限感官。"
         }
       }
     },
@@ -508,9 +515,8 @@
       "metadata": {
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "命令保留方向、对象与行动，用完整口语代替报告式口令。"
         }
       }
     }

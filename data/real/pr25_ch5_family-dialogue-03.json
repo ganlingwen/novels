@@ -68,9 +68,8 @@
         },
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "母亲把重心转向儿子自身风险，并用称呼明确受话对象。"
         }
       }
     }

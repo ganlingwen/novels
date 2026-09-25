@@ -28,8 +28,9 @@
         "id": "sft01",
         "focus": "道具连续性",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "continuity",
+          "secondary": [],
+          "rationale": "明确治疗凭证、医疗单、须知和半只苹果，保持物件可追踪。"
         }
       }
     },
@@ -56,8 +57,9 @@
         "id": "sft02",
         "focus": "场景转场",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "pov",
+          "secondary": [],
+          "rationale": "用回到住处和门虚掩的落点衔接转场。"
         }
       }
     },
@@ -84,8 +86,9 @@
         "id": "sft03",
         "focus": "空间锚点",
         "tags": {
-          "primary": "character",
-          "secondary": []
+          "primary": "spatial_logic",
+          "secondary": [],
+          "rationale": "用前后关系建立室内布局，避免同时堆砌方位。"
         }
       }
     },
@@ -112,8 +115,11 @@
         "id": "sft04",
         "focus": "段落功能与母亲动作",
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "pov",
+          "secondary": [
+            "presentation"
+          ],
+          "rationale": "合并母亲位置与起身动作，让空间介绍和现场反应衔接。"
         }
       }
     },
@@ -140,10 +146,11 @@
         "id": "sft05",
         "focus": "POV与即时反应",
         "tags": {
-          "primary": "dialogue",
+          "primary": "pov",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "dialogue"
+          ],
+          "rationale": "小文只回应可见失衡，不把猜测母亲意图写成事实。"
         }
       }
     },
@@ -170,8 +177,11 @@
         "id": "sft06",
         "focus": "动作节奏与对白",
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [
+            "continuity"
+          ],
+          "rationale": "母亲安抚口吻自然，并沿腿脚不便的身体状态移动。"
         }
       }
     },
@@ -199,9 +209,8 @@
         "focus": "伤势可见性与视觉路径",
         "tags": {
           "primary": "pov",
-          "secondary": [
-            "limited_pov"
-          ]
+          "secondary": [],
+          "rationale": "目光由衣服破口沿血迹落到绷带，形成连贯观察路径。"
         }
       }
     },
@@ -228,8 +237,11 @@
         "id": "sft08",
         "focus": "母子对白",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "presentation",
+          "secondary": [
+            "dialogue"
+          ],
+          "rationale": "删掉已完成观察后的旁白停顿，母亲直接询问腿伤。"
         }
       }
     },
@@ -256,8 +268,9 @@
         "id": "sft09",
         "focus": "安慰语气与信息控制",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "小文主动淡化伤势安慰母亲，不用没断式过短回答。"
         }
       }
     },
@@ -301,8 +314,9 @@
         "id": "dpo01",
         "focus": "道具命名",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "continuity",
+          "secondary": [],
+          "rationale": "用具体文件名称替换三张纸和折页，保留物件身份。"
         }
       }
     },
@@ -346,8 +360,9 @@
         "id": "dpo02",
         "focus": "空间信息",
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "spatial_logic",
+          "secondary": [],
+          "rationale": "简明前后布局替代多个方位词，建立可复原的房间。"
         }
       }
     },
@@ -391,8 +406,9 @@
         "id": "dpo03",
         "focus": "POV",
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "pov",
+          "secondary": [],
+          "rationale": "从小文入门看到母亲起身写，不跳到母亲看见小文的视角。"
         }
       }
     },
@@ -436,8 +452,11 @@
         "id": "dpo04",
         "focus": "即时对白",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [
+            "pov"
+          ],
+          "rationale": "慢点回应实际失衡，避免回答母亲尚未表现的搀扶意图。"
         }
       }
     },
@@ -481,8 +500,9 @@
         "id": "dpo05",
         "focus": "母亲口吻",
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "我没事符合母亲安抚儿子的口吻，删掉生硬反指。"
         }
       }
     },
@@ -526,8 +546,9 @@
         "id": "dpo06",
         "focus": "动作节奏",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "continuity",
+          "secondary": [],
+          "rationale": "拖伤腿慢走而非突然一把抓住，符合人物行动能力。"
         }
       }
     },
@@ -572,9 +593,8 @@
         "focus": "检查动作",
         "tags": {
           "primary": "pov",
-          "secondary": [
-            "limited_pov"
-          ]
+          "secondary": [],
+          "rationale": "以视线沿血迹检查绷带替代无必要的逐处触摸。"
         }
       }
     },
@@ -618,8 +638,9 @@
         "id": "dpo08",
         "focus": "旁白压缩",
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "presentation",
+          "secondary": [],
+          "rationale": "看腿之后直接问伤势，删除旁白式重复观察。"
         }
       }
     },
@@ -663,8 +684,9 @@
         "id": "dpo09",
         "focus": "安慰语气",
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "自然淡化伤势、说明医嘱，比没断的碎句更像安慰。"
         }
       }
     }

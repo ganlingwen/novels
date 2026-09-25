@@ -34,10 +34,12 @@
       },
       "metadata": {
         "tags": {
-          "primary": "dialogue",
+          "primary": "continuity",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "pov",
+            "tension"
+          ],
+          "rationale": "承接横木与根网既有状态，只让涵管内的小文通过示警和撞击感知攻势，并落实反噬。"
         }
       }
     },
@@ -81,10 +83,12 @@
           "没有交代小文重新按地、加大异能输出的动作，副作用缺乏触发点。"
         ],
         "tags": {
-          "primary": "dialogue",
+          "primary": "continuity",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "pov",
+            "tension"
+          ],
+          "rationale": "候选比较围绕物件连续、受限感知和新一轮攻势。"
         }
       }
     },
@@ -128,10 +132,12 @@
           "这一阶段应由尸王一方加压，以撞城和硬肩尸的攻坚造成横木开裂。"
         ],
         "tags": {
-          "primary": "dialogue",
+          "primary": "continuity",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "pov",
+            "tension"
+          ],
+          "rationale": "候选比较围绕物件连续、受限感知和新一轮攻势。"
         }
       }
     },
@@ -175,10 +181,12 @@
           "人物只能通过守卫示警及门板受力变化获知攻势升级；马克尚未登场。"
         ],
         "tags": {
-          "primary": "dialogue",
+          "primary": "continuity",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "pov",
+            "tension"
+          ],
+          "rationale": "候选比较围绕物件连续、受限感知和新一轮攻势。"
         }
       }
     }

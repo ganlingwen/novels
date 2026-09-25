@@ -61,10 +61,12 @@
         },
         "notes": "一个场景一个 JSON；SFT 为最终确认的整段局部定稿，preference 仅收录真实同轮 A/B；其余逐轮纠正保存在 review，不重复拆分样本。",
         "tags": {
-          "primary": "dialogue",
+          "primary": "continuity",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "dialogue",
+            "pov"
+          ],
+          "rationale": "整段纠正治伤先后、药柜权限和时限，并理顺同场自然问答。"
         }
       }
     },
@@ -112,8 +114,11 @@
           "contains_author_reverse": true
         },
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "pov",
+          "secondary": [
+            "continuity"
+          ],
+          "rationale": "清理包扎的中间过程必须落地，再到门边谈药。"
         }
       }
     },
@@ -161,8 +166,9 @@
           "contains_author_reverse": true
         },
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "continuity",
+          "secondary": [],
+          "rationale": "申请单已交小文，白川不能又折起放旁边。"
         }
       }
     },
@@ -211,9 +217,8 @@
         },
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "已说明拒批与钥匙收走，不再用对白重复无法取药。"
         }
       }
     },
@@ -261,10 +266,11 @@
           "contains_author_reverse": true
         },
         "tags": {
-          "primary": "dialogue",
+          "primary": "continuity",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "dialogue"
+          ],
+          "rationale": "库存不足是拒批说法，实际有药却失去权限，必须区分。"
         }
       }
     },
@@ -312,10 +318,11 @@
           "contains_author_reverse": true
         },
         "tags": {
-          "primary": "dialogue",
+          "primary": "continuity",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "dialogue"
+          ],
+          "rationale": "治伤已完成不能再次宣布要清理，接着讨论现有药不足。"
         }
       }
     },
@@ -363,10 +370,11 @@
           "contains_author_reverse": true
         },
         "tags": {
-          "primary": "dialogue",
+          "primary": "continuity",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "foreshadowing"
+          ],
+          "rationale": "区分九小时医疗窗口与汽笛收市时间，准确引出寻药期限。"
         }
       }
     },
@@ -433,9 +441,8 @@
         },
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "拒绝先说自己找再问去哪找的重复，保留基地有药的追问。"
         }
       }
     }

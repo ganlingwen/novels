@@ -69,8 +69,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "presentation"
+          ],
+          "rationale": "精简叮嘱并加强一定要说的关切，不用多余代词。"
         }
       }
     }

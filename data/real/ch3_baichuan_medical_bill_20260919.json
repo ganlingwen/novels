@@ -56,9 +56,8 @@
       "metadata": {
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "账单解释关联昨夜抢救处境，避免逐项对账。"
         }
       }
     },
@@ -107,8 +106,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "先说关键光系治疗再补材料，改善台词信息组织。"
         }
       }
     },
@@ -176,8 +176,11 @@
       },
       "metadata": {
         "tags": {
-          "primary": "scene",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [
+            "presentation"
+          ],
+          "rationale": "删近义抢救说明及推单子假动作，组合作者选中的口语措辞。"
         }
       }
     },
@@ -226,8 +229,9 @@
       },
       "metadata": {
         "tags": {
-          "primary": "plot",
-          "secondary": []
+          "primary": "dialogue",
+          "secondary": [],
+          "rationale": "这一百点没多算回扣小文惊讶，避免说价格便宜。"
         }
       }
     },
@@ -259,9 +263,8 @@
         },
         "tags": {
           "primary": "dialogue",
-          "secondary": [
-            "natural_dialogue"
-          ]
+          "secondary": [],
+          "rationale": "确认账单对话最终句式，保留治疗、材料与质疑的承接。"
         },
         "original_id": "final_context_confirmation"
       }

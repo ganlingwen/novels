@@ -2,14 +2,15 @@
 
 用于 TODO 第 4 项。评分维度、锚点和总分算法以 [skills/score.md](../skills/score.md) 为唯一规范；
 本文件将十项评分一一映射到编辑标签，并用真实记录校准作者偏好，不另建评分体系。
-每条编辑在 `metadata.review.category` 中选一个主要类别，其他涉及的类别可记入
-`metadata.review.secondary_categories`。下表权重仅供核对，不是合成配额或采样权重。
+每条记录在 `metadata.tags.primary` 中选一个主要标签，其他实际涉及的评分项写入
+`metadata.tags.secondary`；两者都只能使用下表十项。`metadata.tags.rationale` 记录本次
+重判依据，不得伪装成历史作者反馈。下表权重仅供核对，不是合成配额或采样权重。
 `dialogue`、`presentation`、`cinematic` 是当前重点校准的表达质量，但不能据此漏查其他七项，
 也不能改变总分权重。因果与空间硬伤仍须独立检查。
 
 ## 十项对应表
 
-| score.md 项目 | 权重 | category | 必须覆盖的检查范围 |
+| score.md 项目 | 权重 | tag | 必须覆盖的检查范围 |
 | --- | --- | --- | --- |
 | 1. 因果、行动成立与硬连续性 | 15% | continuity | 信息来源、关键资源的前置建立、能力与伤势限制、对手目标与判断、失败代价，以及时间、人数、账目、物件状态的一致性 |
 | 2. 结构紧凑与主线突出 | 14% | plot | 当前目标与阻力是否清楚，选择是否改变局面，场次是否因果相连，支线与过渡是否真正影响主线，是否重复信息和阻碍 |
@@ -28,11 +29,11 @@
 - `plot` 专指第 2 项结构，不再笼统兼管高潮和钩子；分别交给 `tension`、`foreshadowing`。
 - `character` 不单列评分项，人物辨识问题归第 4 项 `dialogue`，可保留 character 次要标签。
 - `no_change` 是“保留原文”的审核结论，不是第十一项评分。新审核在
-  `metadata.review.outcome` 记录 `no_change`，category 仍指向被检查的具体维度。
+  `metadata.review.outcome` 记录 `no_change`，`metadata.tags.primary` 仍指向被检查的具体维度。
   例如天干以异能报数成立、无需补普通侦察来源，应记为 continuity + no_change。
   这与 `synthetic_provenance.synthesis_method=no_change` 的合成方法字段用途不同。
-- 历史 `metadata.tags`、候选文本和人工选择保留原样；不得批量将旧 `scene` 等同于某个新标签，
-  应根据该条反馈分别识别视听、空间或其他问题。此处字段是标注约定，尚非 schema 枚举约束。
+- 历史候选文本、人工选择和训练 ID 保留原样；旧标签必须根据该条实际编辑问题重新判断，
+  不得批量将旧 `scene` 等同于某个新标签。schema 强制 primary/secondary 使用十项正式标签。
 - 同一缺陷只选主要归属：资源凭空救场、账目及道具归属冲突归第 1 项；
   路线、受力和站位冲突归第 3 项；叙述观察入口与动作过程漏拍归第 8 项；
   铺垫、回收、跨章承接归第 9 项。次要标签不代表重复扣分或复制训练样本。

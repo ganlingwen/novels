@@ -67,10 +67,11 @@
           "contains_author_reverse": true
         },
         "tags": {
-          "primary": "dialogue",
+          "primary": "presentation",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "dialogue"
+          ],
+          "rationale": "删除说完才和然后等顺序解释，让收纸板动作直接发生。"
         }
       }
     }

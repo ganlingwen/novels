@@ -100,8 +100,9 @@
         "tags": {
           "primary": "dialogue",
           "secondary": [
-            "natural_dialogue"
-          ]
+            "presentation"
+          ],
+          "rationale": "恢复完整提问与动作承接，删除未卜先知式回答和重复警句。"
         }
       }
     }
