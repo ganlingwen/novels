@@ -59,9 +59,13 @@ counts 也作为历史注释保留，不能当成当前版本或当前统计。
 - `ch3_baichuan_medical_bill_20260919:final_context_confirmation`
 - `ch3_cat_kill_credit_20260919:final_context_confirmation`
 
-当前为 **176 SFT / 230 DPO**。此前全部 174 SFT 和 230 DPO 的
+迁移完成时为 **176 SFT / 230 DPO**。此前全部 174 SFT 和 230 DPO 的
 ID、来源、prompt、response/chosen/rejected 及相对顺序都逐项一致；
 回归测试保存了迁移前输出的 SHA-256 摘要。恢复的两条样本可能改变 SFT 训练/验证切分。
+
+后续将三条人工复审记录晋升为真实数据，新增 2 SFT / 6 DPO；PR #135～#138
+的四项合并决策又新增 4 SFT / 4 DPO。当前 loader 输出为
+**182 SFT / 240 DPO**。
 
 ## 使用与验证
 

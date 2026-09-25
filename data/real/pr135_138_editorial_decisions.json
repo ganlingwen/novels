@@ -1,0 +1,309 @@
+{
+  "schema_version": "3.0",
+  "metadata": {
+    "source": "merged_prs_with_explicit_merge_vs_close_review_contract",
+    "repository": "ganlingwen/novels",
+    "pr_range": [135, 136, 137, 138]
+  },
+  "records": [
+    {
+      "id": "pr135-ch3-ch5-baichuan-pronouns",
+      "prompt": {
+        "user_request": "复审前五章，找出高置信且互不依赖的问题；每个问题建立独立 PR，只作必要修改。Merge 代表接受修改，Close 代表保留原文。",
+        "context": "第三章病房段和第五章药房段。characters.md 明确白川为女性；五处动作承接中的代词均指向白川。",
+        "original_text": "白川坐在床边削苹果。那只苹果皱得厉害，一侧已经发黑，他用小刀把坏掉的部分一点点旋下来，只留下薄薄一圈果肉。\n\n他把削净的半只苹果放到床头，又从病历夹里抽出一张纸，压在苹果下面。\n\n“现在挂的是这一个账户。”他等小文看完，才把底单夹回去，“拆开记，我这里办不了。你刚才说的，我可以写进申请。”\n\n“方岳写进复核单了，还没回。你自己做了什么，等能坐稳了再补一份。”他把新绷带压住，“先别够衣服。刚才一落地，这里就重新出血了。”\n\n“药量请逐项点清，这几个人今天还等着换药。”他把名单也推过去，“急救申请什么时候递的，什么时候批准，谁接的，都得记。出了延误，要查得出人在哪一步等着。”",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "白川坐在床边削苹果。那只苹果皱得厉害，一侧已经发黑，她用小刀把坏掉的部分一点点旋下来，只留下薄薄一圈果肉。\n\n她把削净的半只苹果放到床头，又从病历夹里抽出一张纸，压在苹果下面。\n\n“现在挂的是这一个账户。”她等小文看完，才把底单夹回去，“拆开记，我这里办不了。你刚才说的，我可以写进申请。”\n\n“方岳写进复核单了，还没回。你自己做了什么，等能坐稳了再补一份。”她把新绷带压住，“先别够衣服。刚才一落地，这里就重新出血了。”\n\n“药量请逐项点清，这几个人今天还等着换药。”她把名单也推过去，“急救申请什么时候递的，什么时候批准，谁接的，都得记。出了延误，要查得出人在哪一步等着。”",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "correct_feminine_pronouns",
+        "candidates": [
+          {
+            "candidate_id": "correct_feminine_pronouns",
+            "response": "白川坐在床边削苹果。那只苹果皱得厉害，一侧已经发黑，她用小刀把坏掉的部分一点点旋下来，只留下薄薄一圈果肉。\n\n她把削净的半只苹果放到床头，又从病历夹里抽出一张纸，压在苹果下面。\n\n“现在挂的是这一个账户。”她等小文看完，才把底单夹回去，“拆开记，我这里办不了。你刚才说的，我可以写进申请。”\n\n“方岳写进复核单了，还没回。你自己做了什么，等能坐稳了再补一份。”她把新绷带压住，“先别够衣服。刚才一落地，这里就重新出血了。”\n\n“药量请逐项点清，这几个人今天还等着换药。”她把名单也推过去，“急救申请什么时候递的，什么时候批准，谁接的，都得记。出了延误，要查得出人在哪一步等着。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_pr_revision"
+            }
+          },
+          {
+            "candidate_id": "keep_original",
+            "response": "白川坐在床边削苹果。那只苹果皱得厉害，一侧已经发黑，他用小刀把坏掉的部分一点点旋下来，只留下薄薄一圈果肉。\n\n他把削净的半只苹果放到床头，又从病历夹里抽出一张纸，压在苹果下面。\n\n“现在挂的是这一个账户。”他等小文看完，才把底单夹回去，“拆开记，我这里办不了。你刚才说的，我可以写进申请。”\n\n“方岳写进复核单了，还没回。你自己做了什么，等能坐稳了再补一份。”他把新绷带压住，“先别够衣服。刚才一落地，这里就重新出血了。”\n\n“药量请逐项点清，这几个人今天还等着换药。”他把名单也推过去，“急救申请什么时候递的，什么时候批准，谁接的，都得记。出了延误，要查得出人在哪一步等着。”",
+            "status": "rejected",
+            "pair_id": "pr135-ch3-ch5-baichuan-pronouns:rejected:keep-original",
+            "metadata": {
+              "origin": "pre_edit_main"
+            }
+          }
+        ],
+        "metadata": {
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "作者在明确的 Merge=接受、Close=保留原文审核约定下合并 PR #135。",
+          "selection_source": "merged_under_explicit_review_contract"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "language": "zh-CN",
+        "source": {
+          "repository": "ganlingwen/novels",
+          "files": ["generated/chapter3.md", "generated/chapter5.md"],
+          "pr": 135,
+          "base_commit": "30d74e09b30a7f77bc368629f4abe7a07ceb280f",
+          "edit_commit": "dc27009cf93559d3113b1f3f8d0ebf060c727db9",
+          "merge_commit": "f260bdf9cc2e19b29ca21b8d708cca1c85d9894d",
+          "accepted": true
+        },
+        "review": {
+          "provenance": "ai_discovered_during_review",
+          "outcome": "accepted",
+          "edit_instruction": "将五处明确指向白川的男性代词改为女性代词，其余文字和情节不变。",
+          "reason": "人物卡明确白川为女性，原文代词造成角色信息连续性错误。"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "continuity",
+          "secondary": [],
+          "rationale": "修正白川性别代词与人物事实源不一致的问题。"
+        }
+      }
+    },
+    {
+      "id": "pr136-ch4-tiangan-rescue-witness",
+      "prompt": {
+        "user_request": "136不行 这里是交待重要情节的 如果有矛盾 改设定characters.md和outline.md，但是马克救天干的关键剧情不能改。其余3个已合入",
+        "context": "第四章以小文回忆呈现马克背天干穿出火线。旧 characters.md 称当时没有居民围观，旧 outline.md 又称小文只记得差点没把水送回医院，因而与正文的目击来源冲突。",
+        "original_text": "正文：燃油味把两帧旧影叠回来：暗金火墙吞过物流园，马克背着天干穿出火线；高架阴影里，一只行动异样的丧尸中箭倒下，附近尸群先乱，三路队伍又在片刻后同时改道。\n\ncharacters.md：马克在火线合拢前返回将天干背出；当时没有居民围观，这不是经营声望。\n\noutline.md：小文只记得那一夜自己差一点来不及把水送回医院。",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "characters.md：马克在火线合拢前返回将天干背出。小文当时正沿东侧通道往医院送水，远远看见了这次救援；现场没有围观人群，这不是经营声望。\n\noutline.md：马克在火线合拢前返回将天干背出。小文正沿东侧通道往医院送水，远远看见马克背着天干穿出火线；天干的忠诚由此建立。\n\noutline.md：小文记得那一夜自己差一点来不及把水送回医院，也记得马克背着天干穿出火线；直到第八章亲眼看见朝贡，他才理解尸王退兵和马克声望背后的交换。\n\n正文保持原样：燃油味把两帧旧影叠回来：暗金火墙吞过物流园，马克背着天干穿出火线；高架阴影里，一只行动异样的丧尸中箭倒下，附近尸群先乱，三路队伍又在片刻后同时改道。",
+        "metadata": {
+          "target_type": "accepted_fact_source_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "preserve_plot_update_facts",
+        "candidates": [
+          {
+            "candidate_id": "preserve_plot_update_facts",
+            "response": "characters.md：马克在火线合拢前返回将天干背出。小文当时正沿东侧通道往医院送水，远远看见了这次救援；现场没有围观人群，这不是经营声望。\n\noutline.md：马克在火线合拢前返回将天干背出。小文正沿东侧通道往医院送水，远远看见马克背着天干穿出火线；天干的忠诚由此建立。\n\noutline.md：小文记得那一夜自己差一点来不及把水送回医院，也记得马克背着天干穿出火线；直到第八章亲眼看见朝贡，他才理解尸王退兵和马克声望背后的交换。\n\n正文保持原样：燃油味把两帧旧影叠回来：暗金火墙吞过物流园，马克背着天干穿出火线；高架阴影里，一只行动异样的丧尸中箭倒下，附近尸群先乱，三路队伍又在片刻后同时改道。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "author_directed_revision_merged"
+            }
+          },
+          {
+            "candidate_id": "remove_rescue_from_flashback",
+            "response": "燃油味把两帧旧影叠回来：暗金火墙吞过物流园，他背着水桶往医院跑，热浪从身后一路追来；高架阴影里，一只行动异样的丧尸中箭倒下，附近尸群先乱，三路队伍又在片刻后同时改道。",
+            "status": "rejected",
+            "pair_id": "pr136-ch4-tiangan-rescue-witness:rejected:remove-rescue",
+            "metadata": {
+              "origin": "initial_pr_revision_verbatim",
+              "commit": "0478bbdf52ced13d7af165ee6c680593ea0a9349"
+            }
+          }
+        ],
+        "metadata": {
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "作者明确否决删除马克救天干画面的方案，要求保留关键剧情并改 characters.md 与 outline.md 消除矛盾。",
+          "selection_source": "explicit_author_correction_then_merge"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "language": "zh-CN",
+        "source": {
+          "repository": "ganlingwen/novels",
+          "files": ["characters.md", "outline.md", "generated/chapter4.md"],
+          "pr": 136,
+          "base_commit": "2b9feb00a4c202d565c341440e4c18f964293e03",
+          "rejected_candidate_commit": "0478bbdf52ced13d7af165ee6c680593ea0a9349",
+          "edit_commit": "81fc43b986a31affdbff987dc4a3f9e53880b515",
+          "merge_commit": "dec239881fcfd8baf89f74373251ed09dfe0f80d",
+          "accepted": true
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted_after_revision",
+          "edit_instruction": "保留马克救天干的正文关键画面；将小文远距离目击该救援写入 characters.md 和 outline.md，并保留现场没有围观人群、救援并非作秀的含义。",
+          "reason": "关键剧情的优先级高于原有目击者设定；发生冲突时应修正事实源，不能删除关键情节。"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true,
+          "contains_author_reverse": true
+        },
+        "tags": {
+          "primary": "plot",
+          "secondary": ["continuity", "pov"],
+          "rationale": "作者要求保留马克救天干的关键剧情，并通过事实源修订建立小文的合法目击来源。"
+        }
+      }
+    },
+    {
+      "id": "pr137-ch4-wound-transport-order",
+      "prompt": {
+        "user_request": "复审前五章，找出高置信且互不依赖的问题；每个问题建立独立 PR，只作必要修改。Merge 代表接受修改，Close 代表保留原文。",
+        "context": "第四章西墙退兵后，老杜残端仍插着断木，需要从涵管附近转运到内墙门后的救治线。generated/chapter4_scene.md 规定先压迫止血并转运，再由白川完成救治。",
+        "original_text": "断木还扎在老杜的残端。白川赶到后让小文压紧伤口周围的布，守卫扶稳老杜，白川小心取出木茬，血立刻又从布下涌了出来。\n\n尸群退出西墙后，守卫和年轻工人抬起老杜，沿墙内通道送过内墙门。小文一路跟在担架旁，双手没有离开压住残端的衣摆和木楔。\n\n救治线就设在门后。白川剪开老杜裤管，一团血立刻洇透垫布。她按住出血处：“动脉伤了，不能再拖三分钟。小文，帮我托稳这条腿，别晃，先止血。”",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "断木还扎在老杜的残端。白川赶到后让小文继续压紧伤口周围的布，自己托住外露的木茬：“先别拔，送进救治线再处理。”\n\n尸群退出西墙后，守卫和年轻工人抬起老杜，沿墙内通道送过内墙门。小文一路跟在担架旁，双手没有离开压住残端的衣摆和木楔。\n\n救治线就设在门后。白川剪开老杜裤管，先用垫布压住伤口周围，才小心取出木茬。血立刻洇透垫布，她随即加重手下压力：“动脉伤了，不能再拖三分钟。小文，帮我托稳这条腿，别晃，先止血。”",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "stabilize_then_remove",
+        "candidates": [
+          {
+            "candidate_id": "stabilize_then_remove",
+            "response": "断木还扎在老杜的残端。白川赶到后让小文继续压紧伤口周围的布，自己托住外露的木茬：“先别拔，送进救治线再处理。”\n\n尸群退出西墙后，守卫和年轻工人抬起老杜，沿墙内通道送过内墙门。小文一路跟在担架旁，双手没有离开压住残端的衣摆和木楔。\n\n救治线就设在门后。白川剪开老杜裤管，先用垫布压住伤口周围，才小心取出木茬。血立刻洇透垫布，她随即加重手下压力：“动脉伤了，不能再拖三分钟。小文，帮我托稳这条腿，别晃，先止血。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_pr_revision"
+            }
+          },
+          {
+            "candidate_id": "keep_original",
+            "response": "断木还扎在老杜的残端。白川赶到后让小文压紧伤口周围的布，守卫扶稳老杜，白川小心取出木茬，血立刻又从布下涌了出来。\n\n尸群退出西墙后，守卫和年轻工人抬起老杜，沿墙内通道送过内墙门。小文一路跟在担架旁，双手没有离开压住残端的衣摆和木楔。\n\n救治线就设在门后。白川剪开老杜裤管，一团血立刻洇透垫布。她按住出血处：“动脉伤了，不能再拖三分钟。小文，帮我托稳这条腿，别晃，先止血。”",
+            "status": "rejected",
+            "pair_id": "pr137-ch4-wound-transport-order:rejected:keep-original",
+            "metadata": {
+              "origin": "pre_edit_main"
+            }
+          }
+        ],
+        "metadata": {
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "作者在明确的 Merge=接受、Close=保留原文审核约定下合并 PR #137。",
+          "selection_source": "merged_under_explicit_review_contract"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "language": "zh-CN",
+        "source": {
+          "repository": "ganlingwen/novels",
+          "file": "generated/chapter4.md",
+          "pr": 137,
+          "base_commit": "30d74e09b30a7f77bc368629f4abe7a07ceb280f",
+          "edit_commit": "78e69c550b222e3400faab03c7c5364286f661e0",
+          "merge_commit": "d0b086afa3a6c8bc59662c57df563d1652c727e0",
+          "accepted": true
+        },
+        "review": {
+          "provenance": "ai_discovered_during_review",
+          "outcome": "accepted",
+          "edit_instruction": "不要在涵管旁拔出断木；先稳定异物并转运到救治线，再完成取出和压迫止血。",
+          "reason": "原文先拔异物再转运，却又写小文一路持续压住残端，处置顺序与场景事实表断裂。"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "continuity",
+          "secondary": ["spatial_logic"],
+          "rationale": "让异物稳定、转运和救治的动作顺序与场景事实表一致。"
+        }
+      }
+    },
+    {
+      "id": "pr138-ch5-hidden-testimony-presentation",
+      "prompt": {
+        "user_request": "复审前五章，找出高置信且互不依赖的问题；每个问题建立独立 PR，只作必要修改。Merge 代表接受修改，Close 代表保留原文。",
+        "context": "第五章开场直接承接马克追问老杜为何能撑到救治线。小文只报告衣摆和木楔，隐去根须与生命力。",
+        "original_text": "“断木拔出后，我用衣摆扎住残端，又拿木楔压住出血点。”小文回答。\n\n这两件事都是真的。\n\n根须怎样沿着血管收紧，生命力怎样从菜地下的老根流进老杜身体，他一个字也没说。",
+        "metadata": {}
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“断木拔出后，我用衣摆扎住残端，又拿木楔压住出血点。”小文回答。\n\n小文的右手贴在木杖上。菜地下的老根曾在这只手里一根根绷断；他把指腹压进木纹，没有再往下说。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "show_withholding",
+        "candidates": [
+          {
+            "candidate_id": "show_withholding",
+            "response": "“断木拔出后，我用衣摆扎住残端，又拿木楔压住出血点。”小文回答。\n\n小文的右手贴在木杖上。菜地下的老根曾在这只手里一根根绷断；他把指腹压进木纹，没有再往下说。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_pr_revision"
+            }
+          },
+          {
+            "candidate_id": "keep_original",
+            "response": "“断木拔出后，我用衣摆扎住残端，又拿木楔压住出血点。”小文回答。\n\n这两件事都是真的。\n\n根须怎样沿着血管收紧，生命力怎样从菜地下的老根流进老杜身体，他一个字也没说。",
+            "status": "rejected",
+            "pair_id": "pr138-ch5-hidden-testimony-presentation:rejected:keep-original",
+            "metadata": {
+              "origin": "pre_edit_main"
+            }
+          }
+        ],
+        "metadata": {
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "作者在明确的 Merge=接受、Close=保留原文审核约定下合并 PR #138。",
+          "selection_source": "merged_under_explicit_review_contract"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "language": "zh-CN",
+        "source": {
+          "repository": "ganlingwen/novels",
+          "file": "generated/chapter5.md",
+          "pr": 138,
+          "base_commit": "30d74e09b30a7f77bc368629f4abe7a07ceb280f",
+          "edit_commit": "dbd2e4b55ed8f2023c16fe0746990aaae60bfc90",
+          "merge_commit": "2b9feb00a4c202d565c341440e4c18f964293e03",
+          "accepted": true
+        },
+        "review": {
+          "provenance": "ai_discovered_during_review",
+          "outcome": "accepted",
+          "edit_instruction": "删去对白后重复说明所言为真、未说什么的解释性旁白，改用小文握住木杖时的触感呈现其隐瞒。",
+          "reason": "对白已完成隐瞒，原文随后连续解释同一结论；改稿让动作和物件承担心理信息。"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "presentation",
+          "secondary": [],
+          "rationale": "用动作与触感呈现有意隐瞒，删除旁白对已完成行为的重复解释。"
+        }
+      }
+    }
+  ]
+}
