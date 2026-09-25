@@ -1,0 +1,170 @@
+{
+  "schema_version": "3.0",
+  "metadata": {
+    "workflow": "live_manuscript_editorial_review",
+    "author_review_status": "pending",
+    "note": "真实正文编辑提案，非已接受训练数据；本目录不参与 loader。A/B 已在作者选择前保存。模型预选仅为生成者自评，不是独立双评审。",
+    "source_commit": "6bca1836bf656f92520a6d1c85951b3fca291246"
+  },
+  "records": [
+    {
+      "id": "review-ch1-5-b001-01-door",
+      "prompt": {
+        "user_request": "复审前五章正文，只作必要的局部修改，保留剧情、人物边界与前后连续性。提供两种可供作者选择的写法。",
+        "context": "第二章救援队出发前，白川交代陈锋发现伤员后先报告、必要时压迫止血，并提醒查看担架能通过的路线。方岳补充命令后，正文写“陈锋先推开铁门，等白川跨过门槛，才朝雨里俯下身。”本处与后面的出门动作之间没有关门动作。陈锋是22岁的速度强化者；白川是一级光系治疗者；方岳为队长。",
+        "original_text": "陈锋拉开铁门：“知道。找人、报位置、等你过去。”",
+        "metadata": {"source": "current_author_request", "projection": "local_revision"}
+      },
+      "sft": {"eligible": false, "response": null, "metadata": {}},
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "response": "陈锋握住门把：“知道。找人、报位置、等你过去。”",
+            "status": "pending",
+            "pair_id": null,
+            "metadata": {"origin": "ai_candidate"}
+          },
+          {
+            "candidate_id": "B",
+            "response": "陈锋站到门边：“知道。找人、报位置、等你过去。”",
+            "status": "pending",
+            "pair_id": null,
+            "metadata": {"origin": "ai_candidate"}
+          },
+          {
+            "candidate_id": "original",
+            "response": "陈锋拉开铁门：“知道。找人、报位置、等你过去。”",
+            "status": "pending",
+            "pair_id": null,
+            "metadata": {"origin": "current_manuscript", "purpose": "no_change_option"}
+          }
+        ],
+        "metadata": {"selection_source": null}
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source": {"file": "generated/chapter2.md", "line_start": 253, "line_end": 253},
+        "author_review_status": "pending",
+        "review": {
+          "provenance": "ai_discovered_during_review",
+          "category": "continuity",
+          "issue": "同一段里陈锋先拉开、后推开同一扇铁门，中间没有关门。将前一处改成准备出门，让后面统一完成开门与让白川先过。",
+          "facts": ["generated/chapter2.md:245-261", "generated/chapter2_scene.md", "characters.md:陈锋、白川、方岳"],
+          "model_preference_before_author": "A",
+          "model_preference_reason": "握门把保留陈锋准备立即出发的急切，同时后续可以继续听白川补充担架路线。",
+          "judgment_source": "generator_self_review_not_independent",
+          "training_note": "两种写法都修复重复动作。作者若只认可修复而未表达明确偏好，只收 SFT。"
+        }
+      }
+    },
+    {
+      "id": "review-ch1-5-b001-02-laodu-pov",
+      "prompt": {
+        "user_request": "复审前五章正文，只作必要的局部修改，保留剧情、人物边界与前后连续性。提供两种可供作者选择的写法。",
+        "context": "第四章涵管只能再撑五分钟，小文折返，告诉老杜父母赶不到体育馆，想多拖一会儿。此处全段为小文现场视角。老杜61岁、独腿木匠，女儿在外地失联，人物卡没有一个月前女儿现场替他挡险的经历。下一段保留：“关键时候我这个老头子还有点用。”他把木拐一转，“那道木闸后面留了个加固的横木槽，我有办法让它多撑几分钟。”随后老杜以自己修过门、熟悉槽位说服小文让他同行。",
+        "original_text": "老杜望着他，一个月前女儿挡在他身后，催他快走的画面爬上了记忆。",
+        "metadata": {"source": "current_author_request", "projection": "local_revision"}
+      },
+      "sft": {"eligible": false, "response": null, "metadata": {}},
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "response": "老杜看了看他撑在木杖上的手，又回头望向涵管。",
+            "status": "pending",
+            "pair_id": null,
+            "metadata": {"origin": "ai_candidate"}
+          },
+          {
+            "candidate_id": "B",
+            "response": "老杜没再催他撤，伸手扶住了他的胳膊。",
+            "status": "pending",
+            "pair_id": null,
+            "metadata": {"origin": "ai_candidate"}
+          },
+          {
+            "candidate_id": "original",
+            "response": "老杜望着他，一个月前女儿挡在他身后，催他快走的画面爬上了记忆。",
+            "status": "pending",
+            "pair_id": null,
+            "metadata": {"origin": "current_manuscript", "purpose": "no_change_option"}
+          }
+        ],
+        "metadata": {"selection_source": null}
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source": {"file": "generated/chapter4.md", "line_start": 105, "line_end": 105},
+        "author_review_status": "pending",
+        "review": {
+          "provenance": "ai_discovered_during_review",
+          "category": "pov",
+          "secondary_categories": ["character"],
+          "issue": "无视角分隔就进入老杜私密记忆，同时补入人物卡没有的女儿经历。用小文可见的动作承接老杜决定同行。",
+          "facts": ["characters.md:老杜", "generated/chapter4_scene.md:五分钟广播", "generated/chapter4.md:95-115"],
+          "model_preference_before_author": "B",
+          "model_preference_reason": "扶住胳膊把对小文的担忧落实为当场帮助，后面再由小文搀扶老杜同行，关系更具体。",
+          "judgment_source": "generator_self_review_not_independent"
+        }
+      }
+    },
+    {
+      "id": "review-ch1-5-b001-03-pencil",
+      "prompt": {
+        "user_request": "复审前五章正文，只作必要的局部修改，保留剧情、人物边界与前后连续性。提供两种可供作者选择的写法。",
+        "context": "第五章家人核对小文私密记录。母亲已“把铅笔从他手里抽走，搁在两份记录中间”，指着被涂黑两遍的“停止”质问小文。父亲在旁。下一段母亲接回登记讨论，指出只报植物会隐瞒治人能力。保留母亲愤怒、父亲被打断的反应和登记讨论顺序，不新增或移动第二支笔。",
+        "original_text": "父亲的铅笔停在半空。",
+        "metadata": {"source": "current_author_request", "projection": "local_revision"}
+      },
+      "sft": {"eligible": false, "response": null, "metadata": {}},
+      "dpo": {
+        "eligible": false,
+        "chosen_candidate_id": null,
+        "candidates": [
+          {
+            "candidate_id": "A",
+            "response": "父亲的手停在半空。",
+            "status": "pending",
+            "pair_id": null,
+            "metadata": {"origin": "ai_candidate"}
+          },
+          {
+            "candidate_id": "B",
+            "response": "父亲把空着的手收了回去。",
+            "status": "pending",
+            "pair_id": null,
+            "metadata": {"origin": "ai_candidate"}
+          },
+          {
+            "candidate_id": "original",
+            "response": "父亲的铅笔停在半空。",
+            "status": "pending",
+            "pair_id": null,
+            "metadata": {"origin": "current_manuscript", "purpose": "no_change_option"}
+          }
+        ],
+        "metadata": {"selection_source": null}
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source": {"file": "generated/chapter5.md", "line_start": 89, "line_end": 89},
+        "author_review_status": "pending",
+        "review": {
+          "provenance": "ai_discovered_during_review",
+          "category": "continuity",
+          "issue": "铅笔上一段已被母亲抽走放到桌上，此处却又悬在父亲手里。修正物件归属，保留打断后的反应。",
+          "facts": ["generated/chapter5.md:83-91", "characters.md:父亲、母亲", "generated/chapter5_scene.md:家庭决定"],
+          "model_preference_before_author": "A",
+          "model_preference_reason": "只替换错误物件，保留父亲被打断时的停顿，不额外改变动作节奏。",
+          "judgment_source": "generator_self_review_not_independent",
+          "training_note": "两种写法都修复道具连续性；无明确风格偏好时仅收 SFT。"
+        }
+      }
+    }
+  ]
+}
