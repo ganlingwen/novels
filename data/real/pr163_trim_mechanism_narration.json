@@ -1,0 +1,72 @@
+{
+  "schema_version": "3.0",
+  "metadata": {
+    "source": "PR #163 merged human editorial decision",
+    "source_pr": 163,
+    "source_commits": {
+      "base": "867e5cd2334905d2b6f3a06d62f75a2d03fc36bf",
+      "head": "72e0c11c564a12d21d2e37168efaeeb760c59bfd",
+      "merge": "98c2ba71f3b3ec764510989f0e13a52c5e18320b"
+    },
+    "human_review": "Merged by user. Pure deletion: remove mechanism narration already inferable from preceding physical actions and scene details."
+  },
+  "records": [
+    {
+      "id": "real-pr163-trim-mechanism-narration-20260926",
+      "prompt": {
+        "user_request": "删去动作和场景已经让读者能够自行推断的机制解说，不要在动作之后再替读者证明设计合理。",
+        "context": "第二章雨棚场景。前文已经写明弯柱锈裂、千斤顶顶住横梁、试拧阀杆后雨棚下沉；随后危险逼近。编辑目标是不改变剧情和空间逻辑，只删除重复解释。",
+        "original_text": "再往下是否顺畅，他没法试。横梁一旦真正卸力，凭他现在的身体不可能再把千斤顶顶回原位。\n\n棚子一边连着维修间，另一边的后角就靠这根弯柱和千斤顶撑着。卸掉千斤顶，后角的重量便会压到锈裂的柱脚上。\n\n他握着阀杆等了一会儿。弯柱仍撑着。\n\n南墙外传来爪尖刮擦水泥的轻响。",
+        "metadata": {
+          "source": "generated/chapter2.md at PR163 base"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "再往下是否顺畅，他没法试。横梁一旦真正卸力，凭他现在的身体不可能再把千斤顶顶回原位。\n\n他握着阀杆等了一会儿。弯柱仍撑着。\n\n南墙外传来爪尖刮擦水泥的轻响。",
+        "metadata": {
+          "decision": "human merged",
+          "edit_type": "deletion_only"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "pr163_trimmed",
+        "candidates": [
+          {
+            "candidate_id": "pr163_trimmed",
+            "response": "再往下是否顺畅，他没法试。横梁一旦真正卸力，凭他现在的身体不可能再把千斤顶顶回原位。\n\n他握着阀杆等了一会儿。弯柱仍撑着。\n\n南墙外传来爪尖刮擦水泥的轻响。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "reason": "Keeps the physical evidence and immediate tension; trusts the reader to infer the load transfer."
+            }
+          },
+          {
+            "candidate_id": "pr163_explanatory",
+            "response": "再往下是否顺畅，他没法试。横梁一旦真正卸力，凭他现在的身体不可能再把千斤顶顶回原位。\n\n棚子一边连着维修间，另一边的后角就靠这根弯柱和千斤顶撑着。卸掉千斤顶，后角的重量便会压到锈裂的柱脚上。\n\n他握着阀杆等了一会儿。弯柱仍撑着。\n\n南墙外传来爪尖刮擦水泥的轻响。",
+            "status": "rejected",
+            "pair_id": "dpo-pr163-explanatory-vs-trimmed",
+            "metadata": {
+              "reason": "The removed two sentences restate a mechanical consequence already established by the bent column, jack, cracked base and observed roof movement, interrupting the live scene to explain it."
+            }
+          }
+        ],
+        "metadata": {
+          "preference_scope": "real merged deletion from PR163"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "tags": {
+          "primary": "presentation",
+          "secondary": [
+            "cinematic",
+            "tension"
+          ],
+          "rationale": "The edit removes after-the-fact explanatory narration once physical actions have made the mechanism legible, preserving scene momentum and reader inference."
+        }
+      }
+    }
+  ]
+}
