@@ -1,0 +1,514 @@
+{
+  "schema_version": "3.0",
+  "metadata": {
+    "source": "merged_pr_with_author_iterative_corrections",
+    "repository": "ganlingwen/novels",
+    "pr": 148,
+    "url": "https://github.com/ganlingwen/novels/pull/148",
+    "initial_edit_commit": "4560f6055b3ef62dfe22e895698dba3c8c069ca6",
+    "accepted_commit": "9b4e29ba2fe82a12ed932db5da4bff3316492cac",
+    "merge_commit": "3ca8fbdc9249084796a947dfa607161c86152512",
+    "source_group_id": "chapter4-bedside-treatment-hearing",
+    "scope": "PR #148 中经作者明确纠正并最终合入的六项床边治疗与裁决连续性决定。",
+    "annotation_policy": "候选逐字摘自真实 Git 版本；任务文字为作者反馈的忠实归纳；不把未被作者比较的一般合入差异自动标成偏好。"
+  },
+  "records": [
+    {
+      "id": "pr148-ch4-remove-undefined-basement-and-pronouns",
+      "prompt": {
+        "user_request": "删掉没有建立过的“地下层”和无必要的邻居转述，并明确这一段中小文、母亲和老杜各自的动作主体。",
+        "context": "尸潮后，小文在医务区见到父母，再进入老杜所在的房间。",
+        "original_text": "当晚，小文在医务区找到父母。父亲坐在走廊的长凳上，母亲守着老杜那间屋的门，告诉他是邻居将两人扶进了地下层。他刚走近，她便握住他的右手，翻过来，又翻过去，指腹停在掌心新蹭破的地方。\n\n“怎么又破了……回去再说。”她松开手，让他进去。\n\n老杜躺着，伤腿垫在折起的毯子上，窗板就在床头。他指了指窗缝，小文过去关紧，再回来把凳子拉到床边。",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_corrections"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "当晚，小文在医务区见到父母。父亲坐在走廊的长凳上，母亲守着老杜那间屋的门。小文刚走近，母亲便握住小文的右手，翻过来，又翻过去，指腹停在掌心新蹭破的地方。\n\n“怎么又破了……回去再说。”母亲松开手，让小文进去。\n\n老杜躺着，伤腿垫在折起的毯子上，窗板就在床头。老杜指了指窗缝，小文过去关紧，再回来把凳子拉到床边，将短拐靠在凳边。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "当晚，小文在医务区见到父母。父亲坐在走廊的长凳上，母亲守着老杜那间屋的门。小文刚走近，母亲便握住小文的右手，翻过来，又翻过去，指腹停在掌心新蹭破的地方。\n\n“怎么又破了……回去再说。”母亲松开手，让小文进去。\n\n老杜躺着，伤腿垫在折起的毯子上，窗板就在床头。老杜指了指窗缝，小文过去关紧，再回来把凳子拉到床边，将短拐靠在凳边。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision",
+              "commit": "9b4e29ba2fe82a12ed932db5da4bff3316492cac"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "当晚，小文在医务区找到父母。父亲坐在走廊的长凳上，母亲守着老杜那间屋的门，告诉他是邻居将两人扶进了地下层。他刚走近，她便握住他的右手，翻过来，又翻过去，指腹停在掌心新蹭破的地方。\n\n“怎么又破了……回去再说。”她松开手，让他进去。\n\n老杜躺着，伤腿垫在折起的毯子上，窗板就在床头。他指了指窗缝，小文过去关紧，再回来把凳子拉到床边。",
+            "status": "rejected",
+            "pair_id": "pr148-ch4-remove-undefined-basement-and-pronouns:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_git_version",
+              "commit": "4560f6055b3ef62dfe22e895698dba3c8c069ca6"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_corrections_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "不引入未定义地点和无作用的转述；多人连续出现时直接点明动作主体。",
+          "eligibility_reason": "作者明确要求删除“地下层”，随后继续指出连续代词无法辨认人物。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-bedside-treatment-hearing",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 148,
+          "original_commit": "4560f6055b3ef62dfe22e895698dba3c8c069ca6",
+          "accepted_commit": "9b4e29ba2fe82a12ed932db5da4bff3316492cac",
+          "merge_commit": "3ca8fbdc9249084796a947dfa607161c86152512"
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted",
+          "author_feedback": [
+            "标定层是什么？他们不是应该去往体育馆那边走吗？标定层我怎么都都不知道呀。你如果弄不清楚，这句话不说都行，是吧？",
+            "又是老毛病了。你连续多少次他？具体指的是谁？那谁知道你在说啥？"
+          ]
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "continuity",
+          "secondary": [
+            "presentation"
+          ],
+          "rationale": "删除未建立空间，并让多人场景中的动作归属无需反推。"
+        }
+      }
+    },
+    {
+      "id": "pr148-ch4-state-root-secret-explicitly",
+      "prompt": {
+        "user_request": "把老杜看见根须及替小文保密的意思直接说清楚，不用“后来也有”“他们”打哑谜，也不要让小文机械地把手伸向伤腿。",
+        "context": "父母已进入房间；真正没有发现根须的是白川和现场守卫。小文准备再次尝试治疗老杜。",
+        "original_text": "“门后那些根，我看见了。”老杜声音很轻，“后来压着伤口，也有。你别急着说，我没告诉他们。”\n\n小文将手伸向他的伤腿：“我再试试。”",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_correction"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“门后那些根，我看见了。”老杜压低声音，“后来你替我压伤口，我看见旁边的根也缠了上来。白医生和守卫都没注意，我也没提。”\n\n小文在床边坐下，伸手去碰绷带边缘：“我再试试。”",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "“门后那些根，我看见了。”老杜压低声音，“后来你替我压伤口，我看见旁边的根也缠了上来。白医生和守卫都没注意，我也没提。”\n\n小文在床边坐下，伸手去碰绷带边缘：“我再试试。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision",
+              "commit": "9b4e29ba2fe82a12ed932db5da4bff3316492cac"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "“门后那些根，我看见了。”老杜声音很轻，“后来压着伤口，也有。你别急着说，我没告诉他们。”\n\n小文将手伸向他的伤腿：“我再试试。”",
+            "status": "rejected",
+            "pair_id": "pr148-ch4-state-root-secret-explicitly:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_git_version",
+              "commit": "4560f6055b3ef62dfe22e895698dba3c8c069ca6"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "说清根须出现的动作和未发现秘密的具体人物，并把治疗意图落到床边动作。",
+          "eligibility_reason": "作者明确指出原对白不自然、保密对象含混、后续动作机械。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-bedside-treatment-hearing",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 148,
+          "original_commit": "4560f6055b3ef62dfe22e895698dba3c8c069ca6",
+          "accepted_commit": "9b4e29ba2fe82a12ed932db5da4bff3316492cac",
+          "merge_commit": "3ca8fbdc9249084796a947dfa607161c86152512"
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted",
+          "author_feedback": [
+            "这句话非常不自然，你是不是可以这么说？第二句就后来，意思是“他/她”在伤口也有。后面你别急着说，也没告诉他们。你其实想说的意思就是：他/她把手伸向老杜的伤腿，这很怪。最后面那句话也不好，你别急着说，也没告诉他们。你这最后一句话跟打哑谜一样，不行啊。"
+          ]
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "presentation",
+            "continuity"
+          ],
+          "rationale": "对白直接交代所见和保密对象，动作承担明确治疗意图。"
+        }
+      }
+    },
+    {
+      "id": "pr148-ch4-show-backlash-before-outburst",
+      "prompt": {
+        "user_request": "不要让“别碰”看起来只是小文发脾气，要在台词前呈现耳鸣、重影和手臂抽动，让读者看出是能力副作用造成的失控。",
+        "context": "小文连续治疗后已出现右手强直；母亲按约定在第四息强行叫停。",
+        "original_text": "门旁父亲数到了第四息：“停吧，小文。”\n\n“还差一点。”\n\n母亲握住他的手腕。小文猛地转头：“别碰！”\n\n她的手停了一瞬，随即将他的手从伤口旁抬开。左掌的草叶失去那股牵力，软软地伏回墙脚。",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_correction"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "门旁父亲数到了第四息：“停吧，小文。”\n\n“还差一点。”\n\n小文右耳忽然响起一阵尖鸣。母亲搭在他肩上的手刚移下来，便在眼前晃成两道。手指扣住手腕时，右臂猛地一抽。\n\n“别碰！”\n\n声音冲出口，小文自己先僵住了。\n\n母亲的手停了一瞬，随即扣紧小文的手腕，将他的右手从伤口旁抬开。左掌的草叶失去那股牵力，软软地伏回墙脚。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "门旁父亲数到了第四息：“停吧，小文。”\n\n“还差一点。”\n\n小文右耳忽然响起一阵尖鸣。母亲搭在他肩上的手刚移下来，便在眼前晃成两道。手指扣住手腕时，右臂猛地一抽。\n\n“别碰！”\n\n声音冲出口，小文自己先僵住了。\n\n母亲的手停了一瞬，随即扣紧小文的手腕，将他的右手从伤口旁抬开。左掌的草叶失去那股牵力，软软地伏回墙脚。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision",
+              "commit": "9b4e29ba2fe82a12ed932db5da4bff3316492cac"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "门旁父亲数到了第四息：“停吧，小文。”\n\n“还差一点。”\n\n母亲握住他的手腕。小文猛地转头：“别碰！”\n\n她的手停了一瞬，随即将他的手从伤口旁抬开。左掌的草叶失去那股牵力，软软地伏回墙脚。",
+            "status": "rejected",
+            "pair_id": "pr148-ch4-show-backlash-before-outburst:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_git_version",
+              "commit": "4560f6055b3ef62dfe22e895698dba3c8c069ca6"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "用已建立的生理反噬先于台词发生，区分失控反应与主动发怒。",
+          "eligibility_reason": "作者明确指出原写法只呈现烦躁，无法体现副作用。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-bedside-treatment-hearing",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 148,
+          "original_commit": "4560f6055b3ef62e895698dba3c8c069ca6",
+          "accepted_commit": "9b4e29ba2fe82a12ed932db5da4bff3316492cac",
+          "merge_commit": "3ca8fbdc9249084796a947dfa607161c86152512"
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted",
+          "author_feedback": [
+            "烦躁让人以为他就是发脾气了，你没有体现出他是副作用。你这个写法得注意。"
+          ]
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "presentation",
+          "secondary": [
+            "continuity",
+            "dialogue"
+          ],
+          "rationale": "耳鸣、重影与抽动让失控台词具有可见的生理原因。"
+        }
+      }
+    },
+    {
+      "id": "pr148-ch4-connect-wound-drug-and-tool-dialogue",
+      "prompt": {
+        "user_request": "说清“里面”指伤口深处，交代老杜从哪里知道要等抗生素，并把“袋子给我”等碎句改成有前因后果的活人对白。",
+        "context": "白川白天已说明深层污染需要足量抗生素；小文刚尝试用能力治疗，仍无法压住感染。",
+        "original_text": "老杜松开咬着的嘴唇：“已经轻一点了。你歇歇，让我也歇歇。”\n\n小文坐了好一会儿，才抹去额上的汗：“里面还是不行。只能拖慢，治不好。”\n\n“那就先等药。”老杜伸手够床头的工具袋，“袋子给我。”",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_correction"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "老杜松开咬着的嘴唇：“已经轻一点了。你先歇歇，也让我喘口气。”\n\n小文坐了好一会儿，才抹去额上的汗：“伤口外面消下去一点，深处还是没有变化。我只能拖慢感染，治不好。”\n\n“压不住就别再硬撑。白医生白天说过，还得用抗生素。”老杜朝床头的工具袋抬了抬手，“把我的工具袋递过来，我教你在拐里留个藏东西的地方。”",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "老杜松开咬着的嘴唇：“已经轻一点了。你先歇歇，也让我喘口气。”\n\n小文坐了好一会儿，才抹去额上的汗：“伤口外面消下去一点，深处还是没有变化。我只能拖慢感染，治不好。”\n\n“压不住就别再硬撑。白医生白天说过，还得用抗生素。”老杜朝床头的工具袋抬了抬手，“把我的工具袋递过来，我教你在拐里留个藏东西的地方。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision",
+              "commit": "9b4e29ba2fe82a12ed932db5da4bff3316492cac"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "老杜松开咬着的嘴唇：“已经轻一点了。你歇歇，让我也歇歇。”\n\n小文坐了好一会儿，才抹去额上的汗：“里面还是不行。只能拖慢，治不好。”\n\n“那就先等药。”老杜伸手够床头的工具袋，“袋子给我。”",
+            "status": "rejected",
+            "pair_id": "pr148-ch4-connect-wound-drug-and-tool-dialogue:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_git_version",
+              "commit": "4560f6055b3ef62dfe22e895698dba3c8c069ca6"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "把治疗结果说到具体伤口层次，补出抗生素信息来源和索要工具袋的目的。",
+          "eligibility_reason": "作者逐项指出“里面”、等药和工具袋均缺少明确所指及因果。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-bedside-treatment-hearing",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 148,
+          "original_commit": "4560f6055b3ef62dfe22e895698dba3c8c069ca6",
+          "accepted_commit": "9b4e29ba2fe82a12ed932db5da4bff3316492cac",
+          "merge_commit": "3ca8fbdc9249084796a947dfa607161c86152512"
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted",
+          "author_feedback": [
+            "什么叫做里面还是不行？这个里面是什么东西？然后后面又是几个字蹦，拿稳、刃口朝外，你全是这种句子。",
+            "老杜还知道药，还知道等药，前面有交代有药的问题吗？然后后面袋子给我，什么袋子？你就直接说，把我的工具袋给我。我有些东西给你之类的，你别最后的这些句子都非常的奇怪，没有前因没有后果。"
+          ]
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "continuity",
+            "presentation"
+          ],
+          "rationale": "对白明确对象、信息来源和下一动作目的，不依赖碎句推动。"
+        }
+      }
+    },
+    {
+      "id": "pr148-ch4-crutch-teaching-spatial-continuity",
+      "prompt": {
+        "user_request": "老杜躺在病床上，不能替小文移动木拐；交代短拐何时放到床边，并明确老杜只口头指点、不现场凿木。",
+        "context": "小文右手仍在强直，老杜刚结束治疗并需要休息；木工凿将交给小文以后使用。",
+        "original_text": "他从袋里摸出木工凿，放到小文膝上，又让他拿过靠墙的木拐。小文摸着凿柄上磨亮的地方，没有抬手。\n\n“拿稳，刃口朝外。”老杜指着拐身的一道旧缝，“想留个藏东西的地方，顺着这条纹开，合上才不显眼。别横着挖，拐还得承你的分量。”\n\n小文握住凿柄。老杜又看了一眼他的手，把木拐收回自己身边。\n\n“今天先看，等手好了再动。凿子放你那儿，用完记得给我磨。”",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_corrections"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "小文把工具袋递过去。老杜从里面摸出木工凿，放到小文膝上，又让小文把凳边的短拐横在膝前。\n\n“凿子要这么拿，刃口朝外，别碰着手。”老杜指着拐身的一道旧缝，“以后想在拐里留个藏东西的地方，就顺着这条纹开，合上才不显眼。不能横着挖，拐还得承你的分量。”\n\n小文用左手握住凿柄，照老杜说的把刃口转向外侧。老杜看了一眼小文仍蜷着的右手。\n\n“从哪儿下凿、顺着哪条纹走，我都指给你了。你今天手不稳，别动凿子，等手好了再照着试。凿子放在你那儿，用完记得给我磨一磨。”\n\n小文把短拐重新靠回凳边，木工凿仍握在左手里。",
+        "metadata": {
+          "target_type": "accepted_revision",
+          "continuity_note": "短拐已在进入房间时靠在凳边。"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "小文把工具袋递过去。老杜从里面摸出木工凿，放到小文膝上，又让小文把凳边的短拐横在膝前。\n\n“凿子要这么拿，刃口朝外，别碰着手。”老杜指着拐身的一道旧缝，“以后想在拐里留个藏东西的地方，就顺着这条纹开，合上才不显眼。不能横着挖，拐还得承你的分量。”\n\n小文用左手握住凿柄，照老杜说的把刃口转向外侧。老杜看了一眼小文仍蜷着的右手。\n\n“从哪儿下凿、顺着哪条纹走，我都指给你了。你今天手不稳，别动凿子，等手好了再照着试。凿子放在你那儿，用完记得给我磨一磨。”\n\n小文把短拐重新靠回凳边，木工凿仍握在左手里。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision",
+              "commit": "9b4e29ba2fe82a12ed932db5da4bff3316492cac"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "他从袋里摸出木工凿，放到小文膝上，又让他拿过靠墙的木拐。小文摸着凿柄上磨亮的地方，没有抬手。\n\n“拿稳，刃口朝外。”老杜指着拐身的一道旧缝，“想留个藏东西的地方，顺着这条纹开，合上才不显眼。别横着挖，拐还得承你的分量。”\n\n小文握住凿柄。老杜又看了一眼他的手，把木拐收回自己身边。\n\n“今天先看，等手好了再动。凿子放你那儿，用完记得给我磨。”",
+            "status": "rejected",
+            "pair_id": "pr148-ch4-crutch-teaching-spatial-continuity:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_git_version",
+              "commit": "4560f6055b3ef62dfe22e895698dba3c8c069ca6"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_corrections_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "小文负责拿取和放回自己的短拐，老杜卧床只指出木纹；明确今天不实际凿木。",
+          "eligibility_reason": "作者连续质疑“没有抬手”“先看着”的含义，以及卧床老杜移动木拐的物理不可能。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-bedside-treatment-hearing",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 148,
+          "original_commit": "4560f6055b3ef62dfe22e895698dba3c8c069ca6",
+          "accepted_commit": "9b4e29ba2fe82a12ed932db5da4bff3316492cac",
+          "merge_commit": "3ca8fbdc9249084796a947dfa607161c86152512"
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted",
+          "author_feedback": [
+            "小文拿木拐的时候，你写着小文没有抬手，没有抬手的意思是啥？是你没去拿吗？",
+            "看着是什么意思？是老杜要表演怎么样？凿了吗？他这刚说要歇歇，怎么又凿起来了呢？你这个自己捋捋。",
+            "老杜躺在病床上。他怎么把木拐重新靠回墙边？这个不靠谱啊，而且木拐什么时候来的，我也没有看明白。"
+          ]
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "spatial_logic",
+          "secondary": [
+            "continuity",
+            "dialogue"
+          ],
+          "rationale": "道具来源、拿取者和人物身体限制全部落到可执行动作。"
+        }
+      }
+    },
+    {
+      "id": "pr148-ch4-keep-laodu-in-infirmary",
+      "prompt": {
+        "user_request": "老杜感染重伤，不应被从医务区连担架抬到裁决厅；让他留在医务区，并替换依赖他在场的动作和第五章承接。",
+        "context": "裁决需要白川、天干、罗炽和小文说明救治经过，老杜本人无需出席。小文仍需回忆未写入记录的根须止血。",
+        "original_text": "小文走进挤满旁听者的大厅。左侧坐着白川和天干，右侧是手臂缠满药布的火系异能者罗炽。老杜躺在后方担架上，断腿残端已经不再喷血，绷带下却透出一层暗黄脓液。\n\n大厅上方那台旧风扇每转一圈，轴心便发出一声干涩的吱呀。旁听席有人低声咳嗽，有人挪动长凳。老杜的输液瓶挂在担架旁的支架上，瓶下那截透明滴管里，药液许久才落下一滴。\n\n老杜在担架上动了一下。绷带边缘渗出的脓血沿着纱线下坠，在白布上洇开一枚硬币大小的暗斑。\n\n小文盯着那枚暗斑。\n\n那几根发黑的细根仿佛仍缠在指间。他从门边勾来一根，再勾一根，布下涌出的血才慢下来。\n\n“老杜。他在菜地修育苗架，木楔是用来垫架脚的。”小文看向后方担架，“也是他让我垫着布压的。我用的是他袋里剩下的那一块。”\n\n马克甚至能说出老杜替西墙工人补过六张床、给地下层做过两副腿架。老杜自己听着，脸上没有感动，只有木匠检查接缝时那种缓慢而警惕的神情。",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_corrections",
+          "segment_contract": "按文件与正文顺序摘录相关段落，以两个换行连接；未收录的中间正文不表示删除。"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "小文走进挤满旁听者的大厅。左侧坐着白川和天干，右侧是手臂缠满药布的火系异能者罗炽。\n\n大厅上方那台旧风扇每转一圈，轴心便发出一声干涩的吱呀。旁听席有人低声咳嗽，有人挪动长凳。\n\n右手无名指在杖后蜷了一下。涵管门后那几根发黑的细根仿佛仍缠在指间：一根从门边勾过来，又一根，老杜伤口里的血才不再从衣摆下往外涌。\n\n“老杜。他在菜地修育苗架，木楔是用来垫架脚的。也是他让我垫着布压的，我用的是他袋里剩下的那一块。”\n\n马克甚至当庭念出老杜替西墙工人补过六张床、给伤员做过两副腿架。记录员把这些逐项写进裁决结果，旁听席里有人跟着点头。",
+        "metadata": {
+          "target_type": "accepted_cross_chapter_revision",
+          "segment_contract": "按 generated/chapter4.md、generated/chapter5.md 的正文顺序摘录相关段落。"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "小文走进挤满旁听者的大厅。左侧坐着白川和天干，右侧是手臂缠满药布的火系异能者罗炽。\n\n大厅上方那台旧风扇每转一圈，轴心便发出一声干涩的吱呀。旁听席有人低声咳嗽，有人挪动长凳。\n\n右手无名指在杖后蜷了一下。涵管门后那几根发黑的细根仿佛仍缠在指间：一根从门边勾过来，又一根，老杜伤口里的血才不再从衣摆下往外涌。\n\n“老杜。他在菜地修育苗架，木楔是用来垫架脚的。也是他让我垫着布压的，我用的是他袋里剩下的那一块。”\n\n马克甚至当庭念出老杜替西墙工人补过六张床、给伤员做过两副腿架。记录员把这些逐项写进裁决结果，旁听席里有人跟着点头。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision_noncontiguous_cross_file_excerpt",
+              "commit": "9b4e29ba2fe82a12ed932db5da4bff3316492cac"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "小文走进挤满旁听者的大厅。左侧坐着白川和天干，右侧是手臂缠满药布的火系异能者罗炽。老杜躺在后方担架上，断腿残端已经不再喷血，绷带下却透出一层暗黄脓液。\n\n大厅上方那台旧风扇每转一圈，轴心便发出一声干涩的吱呀。旁听席有人低声咳嗽，有人挪动长凳。老杜的输液瓶挂在担架旁的支架上，瓶下那截透明滴管里，药液许久才落下一滴。\n\n老杜在担架上动了一下。绷带边缘渗出的脓血沿着纱线下坠，在白布上洇开一枚硬币大小的暗斑。\n\n小文盯着那枚暗斑。\n\n那几根发黑的细根仿佛仍缠在指间。他从门边勾来一根，再勾一根，布下涌出的血才慢下来。\n\n“老杜。他在菜地修育苗架，木楔是用来垫架脚的。”小文看向后方担架，“也是他让我垫着布压的。我用的是他袋里剩下的那一块。”\n\n马克甚至能说出老杜替西墙工人补过六张床、给地下层做过两副腿架。老杜自己听着，脸上没有感动，只有木匠检查接缝时那种缓慢而警惕的神情。",
+            "status": "rejected",
+            "pair_id": "pr148-ch4-keep-laodu-in-infirmary:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_git_version_noncontiguous_cross_file_excerpt",
+              "commit": "880eda8dbc363d55d248619ca2f430e81938912b"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_corrections_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "重伤感染者留在医务区；裁决依靠当事人口述和记录，小文的身体反应触发回忆，并明确回忆中流血的是老杜伤口。",
+          "eligibility_reason": "作者明确指出把老杜从医院抬到裁决厅不合理，并继续指出替代回忆中的出血主体含混。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-bedside-treatment-hearing",
+        "source": {
+          "files": [
+            "generated/chapter4.md",
+            "generated/chapter5.md"
+          ],
+          "pr": 148,
+          "original_commit": "880eda8dbc363d55d248619ca2f430e81938912b",
+          "accepted_commit": "9b4e29ba2fe82a12ed932db5da4bff3316492cac",
+          "merge_commit": "3ca8fbdc9249084796a947dfa607161c86152512",
+          "segment_contract": "按文件与正文顺序摘录相关段落，以两个换行连接；未收录的中间正文不表示删除。"
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted",
+          "author_feedback": [
+            "这里把人把人从医院拿过来，在这裁决，你这里是不是有点搞笑？这个能安排着老杜没有在庭上吗？因为老杜我觉得它在裁决庭本身就很不合理，你后面这个动作也感觉很不合理。",
+            "老杜涌出的血怎么回事？他小文流血了还是怎么回事？"
+          ]
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "continuity",
+          "secondary": [
+            "spatial_logic",
+            "presentation"
+          ],
+          "rationale": "移除不合理的重伤员转运，并让替代回忆的动作主体和出血来源清楚。"
+        }
+      }
+    }
+  ]
+}
