@@ -1,0 +1,511 @@
+{
+  "schema_version": "3.0",
+  "metadata": {
+    "source": "merged_pr_with_author_iterative_corrections",
+    "repository": "ganlingwen/novels",
+    "pr": 157,
+    "url": "https://github.com/ganlingwen/novels/pull/157",
+    "initial_edit_commit": "430e917500cde86ce57039d27cc6a198c382a026",
+    "accepted_commit": "186cf8784dbebb5548330ce39546b7412d85c955",
+    "merge_commit": "eea1c06ef7a062ddd04cc2ebcda6c2375de0c5ee",
+    "source_group_id": "chapter5-medical-handover",
+    "scope": "PR #157 中经作者逐项纠正并最终合入的药房移交、对白与走廊听声调度决定。",
+    "annotation_policy": "候选逐字摘自真实 Git 版本或本次作者 review 中明确否决的对话候选；user_request 忠实归纳作者反馈，不把未比较的普通合入差异自动标成偏好。"
+  },
+  "records": [
+    {
+      "id": "pr157-ch5-expand-procedure-dialogue",
+      "prompt": {
+        "user_request": "不要把流程对白写成“先填单、我签字、守卫陪同”这种几个字一顿的任务指令，要让人物用完整、连贯的句子说明申请、签字和陪同关系。",
+        "context": "医疗主管在药房宣布收回白川的独立取药与施术权。",
+        "original_text": "“从今天起，药柜由我统一开。”医疗主管说，“你要用药或者施术，先填单，我签字，守卫陪同。”",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_correction"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“从今天起，药柜由我统一开。”医疗主管说，“以后无论取药还是施术，都先把申请交给我，等我签过字，再由守卫陪你进去。”",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "“从今天起，药柜由我统一开。”医疗主管说，“以后无论取药还是施术，都先把申请交给我，等我签过字，再由守卫陪你进去。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision",
+              "commit": "186cf8784dbebb5548330ce39546b7412d85c955"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "“从今天起，药柜由我统一开。”医疗主管说，“你要用药或者施术，先填单，我签字，守卫陪同。”",
+            "status": "rejected",
+            "pair_id": "pr157-ch5-expand-procedure-dialogue:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_git_version",
+              "commit": "430e917500cde86ce57039d27cc6a198c382a026"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "完整句子说明动作之间的先后和责任关系，避免任务界面式碎句。",
+          "eligibility_reason": "作者明确指出对白“几个字的蹦出来”，修订后合入。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter5-medical-handover",
+        "source": {
+          "file": "generated/chapter5.md",
+          "pr": 157,
+          "original_commit": "430e917500cde86ce57039d27cc6a198c382a026",
+          "accepted_commit": "186cf8784dbebb5548330ce39546b7412d85c955",
+          "merge_commit": "eea1c06ef7a062ddd04cc2ebcda6c2375de0c5ee"
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted",
+          "author_feedback": [
+            "几个字的蹦出来了啊。"
+          ]
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "presentation"
+          ],
+          "rationale": "把机械的流程短句改为有先后关系的自然口语。"
+        }
+      }
+    },
+    {
+      "id": "pr157-ch5-state-protective-rationale-clearly",
+      "prompt": {
+        "user_request": "“罗炽伸手就能碰到你”没有说清危险，应明确医疗主管是在担心白川受伤，并把保护理由和收回药权的安排完整说出来，不要再用几个短词概括。",
+        "context": "医疗主管以保护治疗者为理由，要求白川只负责救人，把药物分配和现场秩序交给基地。",
+        "original_text": "“昨天你一个人挡在药箱前面，罗炽伸手就能碰到你。”马克语气温和，“再来一次，未必还有天干及时赶到。你负责看伤、救人，药和现场秩序交给基地。”",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_corrections"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“昨天你一个人挡在药箱前面，罗炽差点就伤了你。”医疗主管说，“下一次可不见得还有这么好的运气。要是天干没能及时赶到，你受伤了怎么办？你还是只负责看伤、看病救人，至于怎么分配药、怎么维护现场秩序，就交给基地安排吧。”",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "“昨天你一个人挡在药箱前面，罗炽差点就伤了你。”医疗主管说，“下一次可不见得还有这么好的运气。要是天干没能及时赶到，你受伤了怎么办？你还是只负责看伤、看病救人，至于怎么分配药、怎么维护现场秩序，就交给基地安排吧。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision",
+              "commit": "186cf8784dbebb5548330ce39546b7412d85c955"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "“昨天你一个人挡在药箱前面，罗炽伸手就能碰到你。”马克语气温和，“再来一次，未必还有天干及时赶到。你负责看伤、救人，药和现场秩序交给基地。”",
+            "status": "rejected",
+            "pair_id": "pr157-ch5-state-protective-rationale-clearly:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_git_version",
+              "commit": "430e917500cde86ce57039d27cc6a198c382a026"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_corrections_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "把含混的身体接触改为明确受伤风险，并用完整口语把表面保护与实际收权连起来。",
+          "eligibility_reason": "作者先指出“碰到你”不等于担心受伤，随后提供完整的保护性说辞并要求避免短句。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter5-medical-handover",
+        "source": {
+          "file": "generated/chapter5.md",
+          "pr": 157,
+          "original_commit": "430e917500cde86ce57039d27cc6a198c382a026",
+          "accepted_commit": "186cf8784dbebb5548330ce39546b7412d85c955",
+          "merge_commit": "eea1c06ef7a062ddd04cc2ebcda6c2375de0c5ee"
+        },
+        "review": {
+          "provenance": "explicit_author_corrections",
+          "outcome": "accepted",
+          "author_feedback": [
+            "这里很奇怪，什么叫做罗炽伸手就能碰到你？应该是担心她受伤吧，至少是假装这样的。",
+            "下一次可不见得有这么好的运气。如果天干没有及时赶到，你受伤了怎么办？你还是只负责看伤、看病救人。怎么样分配药和维护现场秩序，就交给基地安排吧。"
+          ]
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "plot",
+            "presentation"
+          ],
+          "rationale": "保护理由明确指向受伤风险，并自然落到基地收回资源调度权。"
+        }
+      }
+    },
+    {
+      "id": "pr157-ch5-delegate-medical-control",
+      "prompt": {
+        "user_request": "马克不应亲自在药房收钥匙、做收权的脏活；让医疗主管独立执行命令，马克留在裁决厅与天干谈话。",
+        "context": "裁决刚结束。药房移交与大厅内的天干留谈几乎同时发生，马克无法无交代地在两处出现。",
+        "original_text": "白川还捏着钥匙，齿痕压进指腹。她没有看主管，只看向站在药柜另一侧的马克：“首领，昨天那种出血，等表填完就来不及了。”\n\n“昨天你一个人挡在药箱前面，罗炽伸手就能碰到你。”马克语气温和，“再来一次，未必还有天干及时赶到。你负责看伤、救人，药和现场秩序交给基地。”\n\n主管的手仍压在表角。马克拿起钥匙，放到他面前：“按白医生说的点。急救权限今天补进流程。”",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_correction",
+          "segment_contract": "按正文顺序摘录药房内涉及马克的段落；未收录的中间对白不表示删除。"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "钥匙的齿痕已经压进白川的指腹。她盯着医疗主管：“昨天那种出血，等表填完就来不及了。”\n\n“昨天你一个人挡在药箱前面，罗炽差点就伤了你。”医疗主管说，“下一次可不见得还有这么好的运气。要是天干没能及时赶到，你受伤了怎么办？你还是只负责看伤、看病救人，至于怎么分配药、怎么维护现场秩序，就交给基地安排吧。”\n\n医疗主管盯着她看了一会儿，终于把钥匙收到自己面前：“药就照你说的清点。至于急救权限，我今天会报给首领，请他尽快定下来。”",
+        "metadata": {
+          "target_type": "accepted_noncontiguous_revision",
+          "segment_contract": "按正文顺序摘录药房内收权执行者相关段落。"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "钥匙的齿痕已经压进白川的指腹。她盯着医疗主管：“昨天那种出血，等表填完就来不及了。”\n\n“昨天你一个人挡在药箱前面，罗炽差点就伤了你。”医疗主管说，“下一次可不见得还有这么好的运气。要是天干没能及时赶到，你受伤了怎么办？你还是只负责看伤、看病救人，至于怎么分配药、怎么维护现场秩序，就交给基地安排吧。”\n\n医疗主管盯着她看了一会儿，终于把钥匙收到自己面前：“药就照你说的清点。至于急救权限，我今天会报给首领，请他尽快定下来。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision_noncontiguous_excerpt",
+              "commit": "186cf8784dbebb5548330ce39546b7412d85c955"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "白川还捏着钥匙，齿痕压进指腹。她没有看主管，只看向站在药柜另一侧的马克：“首领，昨天那种出血，等表填完就来不及了。”\n\n“昨天你一个人挡在药箱前面，罗炽伸手就能碰到你。”马克语气温和，“再来一次，未必还有天干及时赶到。你负责看伤、救人，药和现场秩序交给基地。”\n\n主管的手仍压在表角。马克拿起钥匙，放到他面前：“按白医生说的点。急救权限今天补进流程。”",
+            "status": "rejected",
+            "pair_id": "pr157-ch5-delegate-medical-control:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_git_version_noncontiguous_excerpt",
+              "commit": "430e917500cde86ce57039d27cc6a198c382a026"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "由医疗主管执行收权，使马克保持距离并消除他从药房无交代返回大厅的调度矛盾。",
+          "eligibility_reason": "作者明确要求马克不要亲自做收权的脏活，最终版本删除其药房在场。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter5-medical-handover",
+        "source": {
+          "file": "generated/chapter5.md",
+          "pr": 157,
+          "original_commit": "430e917500cde86ce57039d27cc6a198c382a026",
+          "accepted_commit": "186cf8784dbebb5548330ce39546b7412d85c955",
+          "merge_commit": "eea1c06ef7a062ddd04cc2ebcda6c2375de0c5ee",
+          "segment_contract": "按正文顺序摘录药房内涉及马克的段落。"
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted",
+          "author_feedback": [
+            "医疗主管这里是不是就够了？不需要马克在这里。这种脏活如果我是马克，肯定不会自己做，交给医疗主管做就够了。"
+          ]
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "plot",
+          "secondary": [
+            "continuity",
+            "spatial_logic",
+            "dialogue"
+          ],
+          "rationale": "执行层人物承担收权，首领不必跨场景往返，也符合其维持公开形象的行为方式。"
+        }
+      }
+    },
+    {
+      "id": "pr157-ch5-track-form-position",
+      "prompt": {
+        "user_request": "理顺新表在白川和医疗主管之间的位置：不能让主管无缘无故把仍在白川手里的表推回去，也不能随后又写白川没有接本来就在她手里的表。",
+        "context": "白川拿起新表检查急救规则，医疗主管随后接过流程说明。",
+        "original_text": "“那至少要把急救的时候怎么办写清楚。”白川拿起新表，从头翻到尾，“要是主管不在，夜里又突然送来一个大出血的伤员，守卫能不能先把药柜打开？这个字该由谁来签，总不能让伤员躺在那里等。”\n\n医疗主管把表推回她面前：“先照新流程把申请报上来。真遇到特殊情况，再另外请示。”\n\n白川没有接那张表：“请示谁？等你们一层层问完，人还能等得到吗？”",
+        "metadata": {
+          "provenance": "verbatim_author_reviewed_conversation_candidate"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“那至少要把急救的时候怎么办写清楚。”白川拿起新表，从头翻到尾，又把它摊回桌上，“要是你不在，夜里又突然送来一个大出血的伤员，守卫能不能先把药柜打开？这个字该由谁来签，总不能让伤员躺在那里等。”\n\n医疗主管把表拉到自己面前：“先照新流程把申请报上来。真遇到特殊情况，再另外请示。”\n\n“请示谁？等你们一层层问完，人还能等得到吗？”",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "“那至少要把急救的时候怎么办写清楚。”白川拿起新表，从头翻到尾，又把它摊回桌上，“要是你不在，夜里又突然送来一个大出血的伤员，守卫能不能先把药柜打开？这个字该由谁来签，总不能让伤员躺在那里等。”\n\n医疗主管把表拉到自己面前：“先照新流程把申请报上来。真遇到特殊情况，再另外请示。”\n\n“请示谁？等你们一层层问完，人还能等得到吗？”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision",
+              "commit": "186cf8784dbebb5548330ce39546b7412d85c955"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "“那至少要把急救的时候怎么办写清楚。”白川拿起新表，从头翻到尾，“要是主管不在，夜里又突然送来一个大出血的伤员，守卫能不能先把药柜打开？这个字该由谁来签，总不能让伤员躺在那里等。”\n\n医疗主管把表推回她面前：“先照新流程把申请报上来。真遇到特殊情况，再另外请示。”\n\n白川没有接那张表：“请示谁？等你们一层层问完，人还能等得到吗？”",
+            "status": "rejected",
+            "pair_id": "pr157-ch5-track-form-position:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_conversation_candidate",
+              "review_session": "pr157-post-rebase-review"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "白川先把表摊回桌上，主管才能将它拉到自己面前；后续对白不再假定白川需要接表。",
+          "eligibility_reason": "作者逐项追问表在谁手里以及推、接动作的矛盾，修订后合入。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter5-medical-handover",
+        "source": {
+          "file": "generated/chapter5.md",
+          "pr": 157,
+          "original_source": "author_reviewed_conversation_candidate",
+          "accepted_commit": "186cf8784dbebb5548330ce39546b7412d85c955",
+          "merge_commit": "eea1c06ef7a062ddd04cc2ebcda6c2375de0c5ee"
+        },
+        "review": {
+          "provenance": "explicit_author_corrections",
+          "outcome": "accepted",
+          "author_feedback": [
+            "白川手上，然后怎么本来就在白川手上？医疗主管又把表推回她面前，是白川给医疗主管看，还是怎么回事？",
+            "关键后面怎么又来了？白川没有接那张表，她不本来就在她手里吗？"
+          ]
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "spatial_logic",
+          "secondary": [
+            "continuity",
+            "dialogue"
+          ],
+          "rationale": "表单每次移动都有明确持有者、起点和终点。"
+        }
+      }
+    },
+    {
+      "id": "pr157-ch5-use-direct-address-without-redundant-attribution",
+      "prompt": {
+        "user_request": "白川正面对医疗主管说话时应直接说“要是你不在”，不要把对方称作第三人；连续问句已经表明她在追问，不要再加“转向他”或“白川追问”解释一次。",
+        "context": "白川正在向医疗主管追问夜间急救时谁能开柜、谁能签字。",
+        "original_text": "“那至少要把急救的时候怎么办写清楚。”白川拿起新表，从头翻到尾，又把它摊回桌上，“要是主管不在，夜里又突然送来一个大出血的伤员，守卫能不能先把药柜打开？这个字该由谁来签，总不能让伤员躺在那里等。”\n\n医疗主管把表拉到自己面前：“先照新流程把申请报上来。真遇到特殊情况，再另外请示。”\n\n白川转向他：“请示谁？等你们一层层问完，人还能等得到吗？”",
+        "metadata": {
+          "provenance": "verbatim_author_reviewed_conversation_candidate"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“那至少要把急救的时候怎么办写清楚。”白川拿起新表，从头翻到尾，又把它摊回桌上，“要是你不在，夜里又突然送来一个大出血的伤员，守卫能不能先把药柜打开？这个字该由谁来签，总不能让伤员躺在那里等。”\n\n医疗主管把表拉到自己面前：“先照新流程把申请报上来。真遇到特殊情况，再另外请示。”\n\n“请示谁？等你们一层层问完，人还能等得到吗？”",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "“那至少要把急救的时候怎么办写清楚。”白川拿起新表，从头翻到尾，又把它摊回桌上，“要是你不在，夜里又突然送来一个大出血的伤员，守卫能不能先把药柜打开？这个字该由谁来签，总不能让伤员躺在那里等。”\n\n医疗主管把表拉到自己面前：“先照新流程把申请报上来。真遇到特殊情况，再另外请示。”\n\n“请示谁？等你们一层层问完，人还能等得到吗？”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision",
+              "commit": "186cf8784dbebb5548330ce39546b7412d85c955"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "“那至少要把急救的时候怎么办写清楚。”白川拿起新表，从头翻到尾，又把它摊回桌上，“要是主管不在，夜里又突然送来一个大出血的伤员，守卫能不能先把药柜打开？这个字该由谁来签，总不能让伤员躺在那里等。”\n\n医疗主管把表拉到自己面前：“先照新流程把申请报上来。真遇到特殊情况，再另外请示。”\n\n白川转向他：“请示谁？等你们一层层问完，人还能等得到吗？”",
+            "status": "rejected",
+            "pair_id": "pr157-ch5-use-direct-address-without-redundant-attribution:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_conversation_candidate",
+              "review_session": "pr157-post-rebase-review"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_corrections_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "面对面说话使用第二人称，问句本身承担追问功能，不再由旁白复述。",
+          "eligibility_reason": "作者明确纠正第三人称称呼、错误转向动作及重复的“追问”旁白。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter5-medical-handover",
+        "source": {
+          "file": "generated/chapter5.md",
+          "pr": 157,
+          "original_source": "author_reviewed_conversation_candidate",
+          "accepted_commit": "186cf8784dbebb5548330ce39546b7412d85c955",
+          "merge_commit": "eea1c06ef7a062ddd04cc2ebcda6c2375de0c5ee"
+        },
+        "review": {
+          "provenance": "explicit_author_corrections",
+          "outcome": "accepted",
+          "author_feedback": [
+            "是你不在，不要“要是主管不在”。你就对主管说，要是主管不在干什么？你就说“要是你不在”。",
+            "不能转向他，白川不是一直对着医疗主管吗？",
+            "这里本来就是追问，你没必要加旁白。"
+          ]
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "presentation",
+            "spatial_logic"
+          ],
+          "rationale": "称呼符合面对面关系，删去对白已经表达清楚的动作与语气说明。"
+        }
+      }
+    },
+    {
+      "id": "pr157-ch5-fix-corridor-audio-direction",
+      "prompt": {
+        "user_request": "小文正在沿远离大厅的方向走，不能又像经过大厅侧门一样听到一头一尾的碎片；让声音从身后传来，并把天干和马克的争论写成有逻辑的连续回应。",
+        "context": "小文站在药房门外，准备继续向医务区深处走；大厅位于他身后，天干仍留在里面与马克谈话。",
+        "original_text": "小文离开药房门口时，大厅侧门正合到只剩一条缝，天干被单独留在里面。\n\n小文拄杖经过时，门内传出纸页推过桌面的窸窣声。\n\n“伤情变了，原名单就该变。”这是天干的声音。\n\n前面的话被厚门挡住。马克的回答只从门缝里漏出最后一句：\n\n“可你的职责，不能只看见眼前这一个人。”\n\n他的杖尖已经抬起，又在门外停了一息，才重新落下。",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_correction"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "小文正要继续往医务区深处走，身后的大厅侧门里传出天干的声音。\n\n“伤情变了，原来的名单就得跟着改。昨晚我要还照着那张名单来，老杜根本撑不过去。”\n\n马克的声音紧跟着传出来：“我没有说你救错了。可你改了一个人的顺序，后面所有人的药和治疗都得重新安排。你的职责不能只看见眼前这一个人。”\n\n大厅侧门在这时合拢，剩下的话被挡在门后。小文的杖尖已经抬起，又在原地停了一息，才重新落下。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "小文正要继续往医务区深处走，身后的大厅侧门里传出天干的声音。\n\n“伤情变了，原来的名单就得跟着改。昨晚我要还照着那张名单来，老杜根本撑不过去。”\n\n马克的声音紧跟着传出来：“我没有说你救错了。可你改了一个人的顺序，后面所有人的药和治疗都得重新安排。你的职责不能只看见眼前这一个人。”\n\n大厅侧门在这时合拢，剩下的话被挡在门后。小文的杖尖已经抬起，又在原地停了一息，才重新落下。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision",
+              "commit": "186cf8784dbebb5548330ce39546b7412d85c955"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "小文离开药房门口时，大厅侧门正合到只剩一条缝，天干被单独留在里面。\n\n小文拄杖经过时，门内传出纸页推过桌面的窸窣声。\n\n“伤情变了，原名单就该变。”这是天干的声音。\n\n前面的话被厚门挡住。马克的回答只从门缝里漏出最后一句：\n\n“可你的职责，不能只看见眼前这一个人。”\n\n他的杖尖已经抬起，又在门外停了一息，才重新落下。",
+            "status": "rejected",
+            "pair_id": "pr157-ch5-fix-corridor-audio-direction:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_git_version",
+              "commit": "430e917500cde86ce57039d27cc6a198c382a026"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "声音来源符合小文远离大厅的移动方向，两人的台词形成完整因果而非互不相接的首尾碎片。",
+          "eligibility_reason": "作者明确指出移动方向、听声时序与对白承接都不合逻辑，修订后合入。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter5-medical-handover",
+        "source": {
+          "file": "generated/chapter5.md",
+          "pr": 157,
+          "original_commit": "430e917500cde86ce57039d27cc6a198c382a026",
+          "accepted_commit": "186cf8784dbebb5548330ce39546b7412d85c955",
+          "merge_commit": "eea1c06ef7a062ddd04cc2ebcda6c2375de0c5ee"
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted",
+          "author_feedback": [
+            "小文是在沿着远离大厅的方向走的，对吧？所以你怎么听见了前面的话，中间没听到，又听到了后面的话？",
+            "“伤情变了，原名单就该变”和“可你的职责不能只看见眼前这一个人”，你不能这么说话，这个没有逻辑。"
+          ]
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "spatial_logic",
+          "secondary": [
+            "dialogue",
+            "continuity"
+          ],
+          "rationale": "听声方向、门的关闭时机和两句争论的因果关系均可连续理解。"
+        }
+      }
+    }
+  ]
+}
