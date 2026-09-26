@@ -1,0 +1,523 @@
+{
+  "schema_version": "3.0",
+  "metadata": {
+    "source": "merged_pr_with_author_iterative_corrections",
+    "repository": "ganlingwen/novels",
+    "pr": 147,
+    "url": "https://github.com/ganlingwen/novels/pull/147",
+    "initial_edit_commit": "a74869a746cc411055833aa9dd95e2008b60585a",
+    "accepted_commit": "166fe49835b8c5e1367c3fe4d43fa508701df108",
+    "merge_commit": "eea27ebb86eba68d86c5ab002eaf9eeb507e1f0d",
+    "source_group_id": "chapter4-culvert-retreat-first-aid",
+    "scope": "PR #147 中经作者逐项纠正并最终合入的六项编辑决定。",
+    "annotation_policy": "候选逐字摘自真实 Git 版本；user_request 为作者反馈的忠实归纳，author_feedback 保存原话。对峙的空间因果与镜头节奏分为两个独立决定。",
+    "exclusions": [
+      "不重复收集已由 pr135_138_editorial_decisions.json 记录的医疗处置顺序。",
+      "不把未保存的口头方案重建为候选。",
+      "不把普通合入差异自动推断为作者偏好。"
+    ]
+  },
+  "records": [
+    {
+      "id": "pr147-ch4-remove-redundant-laodu-question",
+      "prompt": {
+        "user_request": "删掉老杜多余的追问，把小文右臂抽搐、流鼻血和继续压住伤口合并成自然连续的动作。",
+        "context": "小文借活根替老杜压迫止血，能力反噬已经表现为右臂抽搐和鼻血。",
+        "original_text": "凉意沿着手指往里钻。他试着将那股流动收紧，右臂却先抽了一下。\n\n“压住了？”老杜问。\n\n小文没有答。血从他鼻下落在衣襟上，他把脸偏开，手没有松。",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_correction"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "凉意沿着手指往里钻。小文试着将那股流动收紧，右臂却先抽了一下，鼻血滴在衣襟上。他把脸偏开，手仍压着伤口。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "凉意沿着手指往里钻。小文试着将那股流动收紧，右臂却先抽了一下，鼻血滴在衣襟上。他把脸偏开，手仍压着伤口。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision",
+              "commit": "166fe49835b8c5e1367c3fe4d43fa508701df108"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "凉意沿着手指往里钻。他试着将那股流动收紧，右臂却先抽了一下。\n\n“压住了？”老杜问。\n\n小文没有答。血从他鼻下落在衣襟上，他把脸偏开，手没有松。",
+            "status": "rejected",
+            "pair_id": "pr147-ch4-remove-redundant-laodu-question:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_git_version",
+              "commit": "a74869a746cc411055833aa9dd95e2008b60585a"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "动作已经说明小文仍在压迫止血，老杜的追问重复信息并打断紧迫动作。",
+          "eligibility_reason": "作者明确指出问句多余并要求合并前后动作，修订后合入。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-culvert-retreat-first-aid",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 147,
+          "original_commit": "a74869a746cc411055833aa9dd95e2008b60585a",
+          "accepted_commit": "166fe49835b8c5e1367c3fe4d43fa508701df108",
+          "merge_commit": "eea27ebb86eba68d86c5ab002eaf9eeb507e1f0d"
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted",
+          "author_feedback": [
+            "像老杜问这一句话是不是有点多余？然后你可以把前后两句怎么样好好地合并一下。"
+          ],
+          "reason": "删除重复确认，让反噬和持续止血成为同一组连续动作。",
+          "reason_provenance": "annotator_summary_not_verbatim_author_feedback"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "dialogue",
+          "secondary": [
+            "tension",
+            "presentation"
+          ],
+          "rationale": "去掉重复问答，以连续动作维持救治压力。"
+        }
+      }
+    },
+    {
+      "id": "pr147-ch4-confrontation-space-and-causality",
+      "prompt": {
+        "user_request": "理顺马克登墙的位置和封衢撤兵的因果：马克不能停在涵管上方看漏小文施术，必须先与封衢对峙，尸群随后才撤离。",
+        "context": "涵管位于西墙正门以北。马克应从正门内侧石阶登墙，停在正门上方；小文躲在涵管门后，不能看见墙上手势。",
+        "original_text": "西墙上，马克扶住被烟熏热的墙砖，停在涵管上方。\n\n涵管外，尸群正从挤成一团的同伴身上退下来，沿燃烧的化工仓与高架之间的空隙，撤向无人厂区。高架护栏旁，封衢没有随它们离开。\n\n暗金火焰沿墙头铺开。弩手重新上弦，箭锋齐齐转向高架。\n\n尸王没有退。它先指向黑烟，又指向涵管，最后张开一只手。\n\n五根手指。\n\n马克向前一步，火焰顺着墙砖窜起。\n\n几息后，尸王先收了手。它退进灰雾，桥上的尸群也开始后撤。",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_correction"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "马克沿西墙正门内侧的石阶登上墙头，在正门上方的外侧垛口前站定。北面的涵管口挤满了尸群，后面的还在往前推，门板受撞的闷响接连传来。\n\n高架护栏旁，尸王封衢迎着他抬起头。\n\n暗金火焰从马克指间窜出，沿垛口铺开。弩手重新上弦，箭锋齐齐转向高架。\n\n封衢先指向黑烟，又指向涵管，朝马克张开五指。马克向前一步，火焰顺着墙砖窜起。\n\n小文掌下的根须绷得笔直。门外的嘶吼骤然拔高，他闭紧眼，肩背本能地绷住。\n\n预想中的撞击没有落下来。\n\n那只几乎碰到他脸的手停了一瞬，缩了回去，另一只也消失在门缝后。门板上的压力渐渐松了，密密麻麻的脚步声与嘶吼向远处退去。\n\n高架上，封衢收回了手。一声尖厉的嘶鸣穿过灰雾，它转身退去。",
+        "metadata": {
+          "target_type": "accepted_revision",
+          "segment_contract": "按正文顺序摘录对峙与撤兵的相关段落；未收录的中间涵管动作不表示删除。"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "马克沿西墙正门内侧的石阶登上墙头，在正门上方的外侧垛口前站定。北面的涵管口挤满了尸群，后面的还在往前推，门板受撞的闷响接连传来。\n\n高架护栏旁，尸王封衢迎着他抬起头。\n\n暗金火焰从马克指间窜出，沿垛口铺开。弩手重新上弦，箭锋齐齐转向高架。\n\n封衢先指向黑烟，又指向涵管，朝马克张开五指。马克向前一步，火焰顺着墙砖窜起。\n\n小文掌下的根须绷得笔直。门外的嘶吼骤然拔高，他闭紧眼，肩背本能地绷住。\n\n预想中的撞击没有落下来。\n\n那只几乎碰到他脸的手停了一瞬，缩了回去，另一只也消失在门缝后。门板上的压力渐渐松了，密密麻麻的脚步声与嘶吼向远处退去。\n\n高架上，封衢收回了手。一声尖厉的嘶鸣穿过灰雾，它转身退去。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision_noncontiguous_excerpt",
+              "commit": "166fe49835b8c5e1367c3fe4d43fa508701df108"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "西墙上，马克扶住被烟熏热的墙砖，停在涵管上方。\n\n涵管外，尸群正从挤成一团的同伴身上退下来，沿燃烧的化工仓与高架之间的空隙，撤向无人厂区。高架护栏旁，封衢没有随它们离开。\n\n暗金火焰沿墙头铺开。弩手重新上弦，箭锋齐齐转向高架。\n\n尸王没有退。它先指向黑烟，又指向涵管，最后张开一只手。\n\n五根手指。\n\n马克向前一步，火焰顺着墙砖窜起。\n\n几息后，尸王先收了手。它退进灰雾，桥上的尸群也开始后撤。",
+            "status": "rejected",
+            "pair_id": "pr147-ch4-confrontation-space-and-causality:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_git_version",
+              "commit": "a74869a746cc411055833aa9dd95e2008b60585a"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "明确马克的登墙路线和观察位置，并把撤兵放到对峙之后，避免空间矛盾与因果倒置。",
+          "eligibility_reason": "作者明确质疑马克站位、登墙路径和撤兵时序，最终版本合入。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-culvert-retreat-first-aid",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 147,
+          "original_commit": "a74869a746cc411055833aa9dd95e2008b60585a",
+          "accepted_commit": "166fe49835b8c5e1367c3fe4d43fa508701df108",
+          "merge_commit": "eea27ebb86eba68d86c5ab002eaf9eeb507e1f0d",
+          "segment_contract": "选择稿按正文顺序摘录相关段落，以两个换行连接；未收录的中间正文不表示删除。"
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted",
+          "author_feedback": [
+            "马克不应该正好停在涵管上方，这样小文就在他眼皮子底下干这些事，他还不知道，有点奇怪。而且马克是从哪登上墙的？为什么要跑到这来？",
+            "五根手指如果不是很重要的话，看这个是不是后文真的成了一个很重要的伏笔，进贡的一个数字。"
+          ],
+          "reason": "调整站位与时序，同时保留五指作为后续朝贡数字的伏笔。",
+          "reason_provenance": "annotator_summary_not_verbatim_author_feedback"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "spatial_logic",
+          "secondary": [
+            "continuity",
+            "foreshadowing",
+            "pov"
+          ],
+          "rationale": "明确墙体空间、观察遮挡和撤兵因果，避免马克无视近处施术。"
+        }
+      }
+    },
+    {
+      "id": "pr147-ch4-remove-unintroduced-stretcher-carriers",
+      "prompt": {
+        "user_request": "不要突然引入没有铺垫、后文也无作用的抬担架者，只交代老杜被抬上担架。",
+        "context": "白川赶到涵管门后处理老杜，正文没有提前建立负责搬运的年轻工人。",
+        "original_text": "守卫和年轻工人将老杜抬上担架。小文松开枯根，双手仍压着衣摆和木楔。有人把短拐递来，他腾不出手接，只好靠在担架旁，跟着他们一步步挪过内墙门。",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_correction"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "老杜被抬上担架。小文松开枯根，双手仍压着衣摆和木楔。有人把短拐递来，他腾不出手接，只好靠在担架旁，跟着他们一步步挪过内墙门。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "老杜被抬上担架。小文松开枯根，双手仍压着衣摆和木楔。有人把短拐递来，他腾不出手接，只好靠在担架旁，跟着他们一步步挪过内墙门。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision",
+              "commit": "166fe49835b8c5e1367c3fe4d43fa508701df108"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "守卫和年轻工人将老杜抬上担架。小文松开枯根，双手仍压着衣摆和木楔。有人把短拐递来，他腾不出手接，只好靠在担架旁，跟着他们一步步挪过内墙门。",
+            "status": "rejected",
+            "pair_id": "pr147-ch4-remove-unintroduced-stretcher-carriers:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_git_version",
+              "commit": "a74869a746cc411055833aa9dd95e2008b60585a"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "搬运者身份不影响动作结果，具体点名反而制造无铺垫人物。",
+          "eligibility_reason": "作者明确要求删去突然出现的年轻工人，修订后合入。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-culvert-retreat-first-aid",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 147,
+          "original_commit": "a74869a746cc411055833aa9dd95e2008b60585a",
+          "accepted_commit": "166fe49835b8c5e1367c3fe4d43fa508701df108",
+          "merge_commit": "eea27ebb86eba68d86c5ab002eaf9eeb507e1f0d"
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted",
+          "author_feedback": [
+            "为何年轻的工人怎么突然蹦出来的？如果前面没有交代的话，你这里就简单地说老杜被抬上担架就行了，不要再出现一堆没介绍过的人。"
+          ],
+          "reason": "保留搬运结果，删除没有叙事职责的临时人物身份。",
+          "reason_provenance": "annotator_summary_not_verbatim_author_feedback"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "plot",
+          "secondary": [
+            "continuity",
+            "presentation"
+          ],
+          "rationale": "避免为简单过渡引入无铺垫、无后续作用的人物。"
+        }
+      }
+    },
+    {
+      "id": "pr147-ch4-outline-event-level-summary",
+      "prompt": {
+        "user_request": "把第四章提纲恢复为大体事件，不在概要里展开动作、方位和能力遮掩细节。",
+        "context": "outline.md 只负责章级事件与结果，空间和调度细节由场景事实表承担。",
+        "original_text": "小文暗中催生老根固定铁栅，老杜用木楔掩护能力痕迹，并替小文挡下弹出的断木。封衢在西墙防线暴露后召回尸群，以五根手指向马克示意；小文第一次察觉双方存在默契。",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_correction"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "小文与老杜合力加固涵管，老杜为救小文重伤。马克与封衢对峙，封衢以五指示意后撤兵，小文趁机救治老杜。",
+        "metadata": {
+          "target_type": "accepted_outline_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "小文与老杜合力加固涵管，老杜为救小文重伤。马克与封衢对峙，封衢以五指示意后撤兵，小文趁机救治老杜。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision",
+              "commit": "166fe49835b8c5e1367c3fe4d43fa508701df108"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "小文暗中催生老根固定铁栅，老杜用木楔掩护能力痕迹，并替小文挡下弹出的断木。封衢在西墙防线暴露后召回尸群，以五根手指向马克示意；小文第一次察觉双方存在默契。",
+            "status": "rejected",
+            "pair_id": "pr147-ch4-outline-event-level-summary:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_git_version",
+              "commit": "a74869a746cc411055833aa9dd95e2008b60585a"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "提纲只保留事件、结果和关键钩子，不承载正文动作及章内空间细节。",
+          "eligibility_reason": "作者明确要求概要不要写得复杂，简化版本最终合入。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-culvert-retreat-first-aid",
+        "source": {
+          "file": "outline.md",
+          "pr": 147,
+          "original_commit": "a74869a746cc411055833aa9dd95e2008b60585a",
+          "accepted_commit": "166fe49835b8c5e1367c3fe4d43fa508701df108",
+          "merge_commit": "eea27ebb86eba68d86c5ab002eaf9eeb507e1f0d"
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted",
+          "author_feedback": [
+            "这是概要，你写得这么复杂干什么？就是交代大体的事，你不用把动作方位什么的写得更细。"
+          ],
+          "reason": "将提纲压缩为事件级信息，把动作和空间细节留给场景表与正文。",
+          "reason_provenance": "annotator_summary_not_verbatim_author_feedback"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "plot",
+          "secondary": [
+            "presentation"
+          ],
+          "rationale": "概要聚焦事件与结果，避免越权承担场景调度。"
+        }
+      }
+    },
+    {
+      "id": "pr147-ch5-wedge-origin-continuity",
+      "prompt": {
+        "user_request": "删掉第五章凭空出现的废床腿，让木楔来源与第四章菜地修育苗架的情节一致。",
+        "context": "第四章中老杜在菜地用木楔垫平育苗架脚，警报后把工具和剩余木楔收入袋中，并未劈废床腿。",
+        "original_text": "“老杜。他原本在菜地修育苗架，警报一响就把废床腿劈了。”小文看向后方担架，“也是他让我垫着布压的。我用的是他袋里剩下的那一块。”",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_correction"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "“老杜。他在菜地修育苗架，木楔是用来垫架脚的。”小文看向后方担架，“也是他让我垫着布压的。我用的是他袋里剩下的那一块。”",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "“老杜。他在菜地修育苗架，木楔是用来垫架脚的。”小文看向后方担架，“也是他让我垫着布压的。我用的是他袋里剩下的那一块。”",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision",
+              "commit": "76795c5308162cdb249ce377736fdb33a34236f0"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "“老杜。他原本在菜地修育苗架，警报一响就把废床腿劈了。”小文看向后方担架，“也是他让我垫着布压的。我用的是他袋里剩下的那一块。”",
+            "status": "rejected",
+            "pair_id": "pr147-ch5-wedge-origin-continuity:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_git_version",
+              "commit": "09e3d9175fea18fbc97060fb52c57019776cd731"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "沿用第四章已经建立的木楔用途，不新增废床腿和临场劈木动作。",
+          "eligibility_reason": "作者明确指出没有废床腿，修订后随 PR 合入。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-culvert-retreat-first-aid",
+        "source": {
+          "file": "generated/chapter5.md",
+          "pr": 147,
+          "original_commit": "09e3d9175fea18fbc97060fb52c57019776cd731",
+          "accepted_commit": "76795c5308162cdb249ce377736fdb33a34236f0",
+          "merge_commit": "eea27ebb86eba68d86c5ab002eaf9eeb507e1f0d"
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted",
+          "author_feedback": [
+            "我才发现你还改了第五张。第五张里面你改的地方又说非长腿、非长腿，你给我改掉啊。没有废长腿。"
+          ],
+          "reason": "删除与第四章现稿冲突的废床腿来源，改回育苗架垫脚木楔。",
+          "reason_provenance": "annotator_summary_not_verbatim_author_feedback"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "continuity",
+          "secondary": [
+            "foreshadowing"
+          ],
+          "rationale": "木楔来源与前章已落地动作保持一致。"
+        }
+      }
+    },
+    {
+      "id": "pr147-ch4-intercut-at-false-relief",
+      "prompt": {
+        "user_request": "不要把墙上对峙拆成多轮穿插；在横木刚塞稳、危险第一次缓和时切入马克，再切回硬肩尸撞门，让转机立刻反转为恶化。",
+        "context": "横木与根网刚把木门暂时抵住；随后撞城率领硬肩尸冲击涵管，横木开裂。",
+        "original_text": "门板被横木和根网抵住，外面的撞击一时没能再将它顶开。\n\n小文松开横木，退到老杜身前，准备去拿靠在墙边的短拐。两人还没来得及说话，墙头传来一声急喊：\n\n“撞城过来了！硬肩尸往涵管去了！”\n\n门外杂乱的抓挠声忽然低了下去。紧接着，一记沉重的撞击砸在门板上，横木中央猛地一颤。",
+        "metadata": {
+          "provenance": "normalized_from_explicit_author_correction"
+        }
+      },
+      "sft": {
+        "eligible": true,
+        "response": "门板被横木和根网抵住，外面的撞击一时没能再将它顶开。\n\n***\n\n马克沿西墙正门内侧的石阶登上墙头，在正门上方的外侧垛口前站定。北面的涵管口挤满了尸群，后面的还在往前推，门板受撞的闷响接连传来。\n\n高架护栏旁，尸王封衢迎着他抬起头。\n\n暗金火焰从马克指间窜出，沿垛口铺开。弩手重新上弦，箭锋齐齐转向高架。\n\n封衢先指向黑烟，又指向涵管，朝马克张开五指。马克向前一步，火焰顺着墙砖窜起。\n\n***\n\n小文松开横木，退到老杜身前，准备去拿靠在墙边的短拐。两人还没来得及说话，墙头传来一声急喊：\n\n“撞城过来了！硬肩尸往涵管去了！”\n\n门外杂乱的抓挠声忽然低了下去。紧接着，一记沉重的撞击砸在门板上，横木中央猛地一颤。",
+        "metadata": {
+          "target_type": "accepted_revision"
+        }
+      },
+      "dpo": {
+        "eligible": true,
+        "chosen_candidate_id": "accepted",
+        "candidates": [
+          {
+            "candidate_id": "accepted",
+            "response": "门板被横木和根网抵住，外面的撞击一时没能再将它顶开。\n\n***\n\n马克沿西墙正门内侧的石阶登上墙头，在正门上方的外侧垛口前站定。北面的涵管口挤满了尸群，后面的还在往前推，门板受撞的闷响接连传来。\n\n高架护栏旁，尸王封衢迎着他抬起头。\n\n暗金火焰从马克指间窜出，沿垛口铺开。弩手重新上弦，箭锋齐齐转向高架。\n\n封衢先指向黑烟，又指向涵管，朝马克张开五指。马克向前一步，火焰顺着墙砖窜起。\n\n***\n\n小文松开横木，退到老杜身前，准备去拿靠在墙边的短拐。两人还没来得及说话，墙头传来一声急喊：\n\n“撞城过来了！硬肩尸往涵管去了！”\n\n门外杂乱的抓挠声忽然低了下去。紧接着，一记沉重的撞击砸在门板上，横木中央猛地一颤。",
+            "status": "chosen",
+            "pair_id": null,
+            "metadata": {
+              "origin": "merged_revision",
+              "commit": "166fe49835b8c5e1367c3fe4d43fa508701df108"
+            }
+          },
+          {
+            "candidate_id": "reviewed",
+            "response": "门板被横木和根网抵住，外面的撞击一时没能再将它顶开。\n\n小文松开横木，退到老杜身前，准备去拿靠在墙边的短拐。两人还没来得及说话，墙头传来一声急喊：\n\n“撞城过来了！硬肩尸往涵管去了！”\n\n门外杂乱的抓挠声忽然低了下去。紧接着，一记沉重的撞击砸在门板上，横木中央猛地一颤。",
+            "status": "rejected",
+            "pair_id": "pr147-ch4-intercut-at-false-relief:rejected:reviewed",
+            "metadata": {
+              "origin": "author_reviewed_git_excerpt",
+              "commit": "a6e3d9209fc61ec9a90a52c3f5e74e3d2d826f89",
+              "note": "该版本把完整对峙放在涵管高潮末端；本候选逐字摘录作者指定切点处的局部响应。"
+            }
+          }
+        ],
+        "metadata": {
+          "selection_source": "explicit_author_correction_then_merge",
+          "prompt_source": "same_as_prompt",
+          "preference_reason": "在第一次缓和处引入马克制造希望，再由硬肩尸立即撞碎希望；避免高潮末端才插入短促对峙而泄压。",
+          "eligibility_reason": "作者明确否决多轮拆分并指定横木塞稳后的切点，最终版本合入。"
+        }
+      },
+      "metadata": {
+        "data_origin": "real",
+        "source_group_id": "chapter4-culvert-retreat-first-aid",
+        "source": {
+          "file": "generated/chapter4.md",
+          "pr": 147,
+          "original_commit": "a6e3d9209fc61ec9a90a52c3f5e74e3d2d826f89",
+          "accepted_commit": "166fe49835b8c5e1367c3fe4d43fa508701df108",
+          "merge_commit": "eea27ebb86eba68d86c5ab002eaf9eeb507e1f0d"
+        },
+        "review": {
+          "provenance": "explicit_author_correction",
+          "outcome": "accepted",
+          "author_feedback": [
+            "不，不要拆成这么多。我觉得正好拆在第一个泄气的点：他们把那个横木塞上来的时候比较好。这个时候马克登上场，你就感觉一切都要变好了。突然，这个什么硬件上，老师来了，突然撞门了，就突然恶化，这个转折会比较好。"
+          ],
+          "reason": "把唯一一次升压切换放在短暂安全感出现的位置，使马克登场与硬肩尸撞门形成希望和反转。",
+          "reason_provenance": "annotator_summary_not_verbatim_author_feedback"
+        },
+        "quality": {
+          "human_accepted": true,
+          "merged": true,
+          "human_preference": true
+        },
+        "tags": {
+          "primary": "tension",
+          "secondary": [
+            "cinematic",
+            "plot"
+          ],
+          "rationale": "利用短暂缓和插入另一条线的转机，再以硬肩尸冲击制造更强反转。"
+        }
+      }
+    }
+  ]
+}
