@@ -3,33 +3,29 @@
 
 import argparse
 import os
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 
 os.environ.setdefault("TORCH_DISABLE_NATIVE_JIT", "1")
 
 import torch
 from torch.nn import functional as F
 from torch.utils.data import DataLoader
-from torch.utils.tensorboard import SummaryWriter
-from tqdm.auto import tqdm
 from transformers import AutoModelForCausalLM, AutoTokenizer, set_seed
 
 from Checkpoint import Checkpoint
 from LocalNovelDataset import NovelDPODataset, load_local_dpo_records, split_local_dpo
-from SFTTrainer import DataLoaderConfig, create_run_directory, tensorboard_directory
+from SFTTrainer import create_run_directory
+from TrainerBase import TrainerBase
+from config import DataLoaderConfig, OptimizerConfig, TrainerConfig, build_optimizer, build_scheduler
 
 
 @dataclass(frozen=True)
-class DPOTrainerConfig:
-    output_dir: str
+class DPOTrainerConfig(TrainerConfig):
     max_steps: int = 100
-    learning_rate: float = 5e-7
     beta: float = 0.1
-    gradient_accumulation: int = 16
-    seed: int = 42
+    output_dir: str = "outputs/qwen3-4b-novel-stage2-dpo"
+    optimizer: OptimizerConfig = OptimizerConfig(learning_rate=5e-7)
     data_loader: DataLoaderConfig = DataLoaderConfig(batch_size=1)
-    fused_adamw: bool = False
-    lr_schedule: str = "cosine"
 
 
 def parse_args():
@@ -99,12 +95,13 @@ def evaluate(policy, reference, loader, beta):
     return total_loss / total, total_correct / total, total_margin / total
 
 
-class DPOTrainer:
+class DPOTrainer(TrainerBase):
     def __init__(self, policy, reference, train_dataset, valid_dataset, config: DPOTrainerConfig):
         self.policy = policy
         self.reference = reference.eval()
         self.config = config
         self.device = next(policy.parameters()).device
+        super().__init__(config, output_dir=config.output_dir, device=self.device)
         self.train_loader = DataLoader(
             train_dataset,
             batch_size=config.data_loader.batch_size,
@@ -122,26 +119,17 @@ class DPOTrainer:
             collate_fn=valid_dataset.collate_fn,
             pin_memory=True,
         )
-        optimizer = torch.optim.AdamW(
-            policy.parameters(), lr=config.learning_rate, weight_decay=0.1, fused=config.fused_adamw
-        )
-        if config.lr_schedule == "constant":
-            scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lambda _: 1.0)
-        elif config.lr_schedule == "cosine":
-            scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
-                optimizer, T_max=config.max_steps, eta_min=config.learning_rate * 0.1
-            )
-        else:
-            raise ValueError(f"Unknown learning-rate schedule: {config.lr_schedule}")
+        optimizer = build_optimizer(policy, config)
+        scheduler = build_scheduler(optimizer, config)
         self.checkpoint = Checkpoint(
             model=policy,
             optimizer=optimizer,
             scheduler=scheduler,
             gradient_accumulation=config.gradient_accumulation,
+            metadata={"objective": "dpo", "config": asdict(config)},
         )
         self.checkpoint.train_shuffle_generator_state = self.train_loader.generator.get_state()
         self.train_iter = self.checkpoint.training_batches(self.train_loader)
-        self.writer = SummaryWriter(str(tensorboard_directory(config.output_dir)))
 
     def train_step(self):
         self.policy.train()
@@ -167,26 +155,14 @@ class DPOTrainer:
         self.checkpoint.optimizer.step()
         self.checkpoint.scheduler.step()
         self.checkpoint.global_step += 1
-        return total_loss
+        return {
+            "loss": total_loss,
+            "lr": self.checkpoint.optimizer.param_groups[0]["lr"],
+        }
 
     @torch.no_grad()
     def valid_step(self):
         return evaluate(self.policy, self.reference, self.valid_loader, self.config.beta)
-
-    def train(self):
-        os.makedirs(self.config.output_dir, exist_ok=True)
-        progress = tqdm(total=self.config.max_steps, initial=self.checkpoint.global_step, desc="dpo", unit="step")
-        while self.checkpoint.global_step < self.config.max_steps:
-            loss = self.train_step()
-            step = self.checkpoint.global_step
-            lr = self.checkpoint.optimizer.param_groups[0]["lr"]
-            self.writer.add_scalar("train/loss", loss, step)
-            self.writer.add_scalar("train/lr", lr, step)
-            progress.update(1)
-            progress.set_postfix(loss=f"{loss:.4f}", lr=f"{lr:.2e}")
-        progress.close()
-        self.writer.close()
-
 
 def main():
     args = parse_args()
@@ -224,12 +200,11 @@ def main():
     config = DPOTrainerConfig(
         output_dir=str(run_dir),
         max_steps=args.max_steps,
-        learning_rate=args.learning_rate,
         beta=args.beta,
         gradient_accumulation=args.gradient_accumulation,
         seed=args.seed,
         data_loader=DataLoaderConfig(batch_size=1, num_workers=args.num_workers),
-        fused_adamw=args.fused_adamw,
+        optimizer=OptimizerConfig(learning_rate=args.learning_rate, fused=args.fused_adamw),
         lr_schedule=args.lr_schedule,
     )
     trainer = DPOTrainer(policy, reference, train_dataset, valid_dataset, config)

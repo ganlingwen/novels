@@ -53,6 +53,12 @@ class TrainerBase:
                     valid = self.valid_step()
                     if isinstance(valid, (int, float)):
                         valid = {"loss": valid}
+                    elif isinstance(valid, tuple):
+                        valid = {
+                            "loss": valid[0],
+                            "preference_accuracy": valid[1],
+                            "margin": valid[2],
+                        }
                     self._write_metrics(valid, namespace="valid")
                     if getattr(self.config, "save_best", False):
                         self.checkpoint.save_best_model(self.output_dir, valid["loss"])

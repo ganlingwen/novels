@@ -1,11 +1,12 @@
 import math
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass
 from datetime import datetime
 from pathlib import Path
 
 import torch
 from torch.utils.data import DataLoader
 from Checkpoint import Checkpoint
+from config import DataLoaderConfig, OptimizerConfig, TrainerConfig, build_optimizer, build_scheduler
 from TrainerBase import TrainerBase
 
 
@@ -37,31 +38,10 @@ def tensorboard_directory(output_dir: str) -> Path:
 
 
 @dataclass(frozen=True)
-class DataLoaderConfig:
-    batch_size: int = 1
-    num_workers: int = 4
-
-
-@dataclass(frozen=True)
-class OptimizerConfig:
-    fused: bool = False
-    learning_rate: float = 1e-5
-    weight_decay: float = 0.1
-
-
-@dataclass(frozen=True)
-class SFTTrainerConfig:
+class SFTTrainerConfig(TrainerConfig):
     causal_right_padding: bool = False
     output_dir: str = "outputs/qwen3-4b-novel-sft"
     max_steps: int = 9000
-    gradient_accumulation: int = 16
-    valid_steps: int = 500
-    save_steps: int = 1000
-    save_best: bool = True
-    seed: int = 42
-    data_loader: DataLoaderConfig = field(default_factory=DataLoaderConfig)
-    optimizer: OptimizerConfig = field(default_factory=OptimizerConfig)
-    lr_schedule: str = "cosine"
 
 
 class SFTTrainer(TrainerBase):
@@ -94,25 +74,14 @@ class SFTTrainer(TrainerBase):
             collate_fn=valid_dataset.collate_fn,
             pin_memory=True,
         )
-        optimizer = torch.optim.AdamW(
-            model.parameters(),
-            lr=config.optimizer.learning_rate,
-            weight_decay=config.optimizer.weight_decay,
-            fused=config.optimizer.fused,
-        )
-        if config.lr_schedule == "constant":
-            scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lambda _: 1.0)
-        elif config.lr_schedule == "cosine":
-            scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
-                optimizer, T_max=self.max_steps, eta_min=config.optimizer.learning_rate * 0.1
-            )
-        else:
-            raise ValueError(f"Unknown learning-rate schedule: {config.lr_schedule}")
+        optimizer = build_optimizer(model, config)
+        scheduler = build_scheduler(optimizer, config)
         self.checkpoint = Checkpoint(
             model=model,
             optimizer=optimizer,
             scheduler=scheduler,
             gradient_accumulation=self.gradient_accumulation,
+            metadata={"objective": "sft", "config": asdict(config)},
         )
         self.checkpoint.train_shuffle_generator_state = self.train_shuffle_generator.get_state()
         self.train_iter = self.checkpoint.training_batches(self.train_loader)

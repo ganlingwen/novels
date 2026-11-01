@@ -1,4 +1,5 @@
 import math
+import json
 import os
 import shutil
 import tempfile
@@ -32,6 +33,7 @@ class Checkpoint:
     optimizer: torch.optim.Optimizer
     scheduler: torch.optim.lr_scheduler.LRScheduler
     gradient_accumulation: int
+    metadata: dict | None = None
 
     global_step: int = 0
     micro_step: int = 0
@@ -55,6 +57,7 @@ class Checkpoint:
             self.model.save_pretrained(temporary_path, safe_serialization=True)
             self._capture_random_states()
             torch.save(self._state_dict(), temporary_path / "trainer_state.pt")
+            self._write_metadata(temporary_path)
             os.replace(temporary_path, path)
         except Exception:
             shutil.rmtree(temporary_path, ignore_errors=True)
@@ -62,6 +65,16 @@ class Checkpoint:
         return path
 
     def load(self, path: str | Path) -> None:
+        metadata_path = Path(path) / "training_metadata.json"
+        if metadata_path.exists() and self.metadata:
+            saved_metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+            saved_objective = saved_metadata.get("objective")
+            expected_objective = self.metadata.get("objective")
+            if saved_objective and expected_objective and saved_objective != expected_objective:
+                raise ValueError(
+                    f"Checkpoint objective {saved_objective!r} does not match "
+                    f"trainer objective {expected_objective!r}."
+                )
         state = torch.load(
             Path(path) / "trainer_state.pt",
             map_location="cpu",
@@ -80,6 +93,35 @@ class Checkpoint:
         self.train_shuffle_batch_offset = state.get("train_shuffle_batch_offset", 0)
         self.cpu_random_state = state.get("cpu_random_state")
         self.device_random_state = state.get("cuda_random_state")
+
+    def _write_metadata(self, directory: Path) -> None:
+        payload = {
+            **(self.metadata or {}),
+            "global_step": self.global_step,
+            "micro_step": self.micro_step,
+            "best_valid_loss": self.best_valid_loss,
+            "best_global_step": self.best_global_step,
+        }
+        (directory / "training_metadata.json").write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
+
+    def save_final(self, output_dir: str | Path) -> Path:
+        output_dir = Path(output_dir)
+        output_dir.mkdir(parents=True, exist_ok=True)
+        temporary_path = Path(tempfile.mkdtemp(prefix=".final-", dir=output_dir))
+        try:
+            self.model.save_pretrained(temporary_path, safe_serialization=True)
+            self._capture_random_states()
+            torch.save(self._state_dict(), temporary_path / "trainer_state.pt")
+            self._write_metadata(temporary_path)
+            path = output_dir / "final"
+            _replace_directory(temporary_path, path)
+            return path
+        except Exception:
+            shutil.rmtree(temporary_path, ignore_errors=True)
+            raise
 
     def save_best_model(self, output_dir: str | Path, valid_loss: float) -> Path | None:
         if not math.isfinite(valid_loss):
@@ -104,6 +146,7 @@ class Checkpoint:
                 },
                 temporary_path / "validation_state.pt",
             )
+            self._write_metadata(temporary_path)
             _replace_directory(temporary_path, path)
         except Exception:
             self.best_valid_loss = previous_loss
